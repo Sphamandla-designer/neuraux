@@ -235,53 +235,46 @@
     <p class="hint reveal" data-delay="2">Five stages · roughly four to ten weeks, depending on scope.</p>
   </div>
 
-  <ol class="journey" id="journey">
-    <li class="jstep reveal">
-      <span class="jnum">01</span>
-      <div class="jcard">
+  <div class="jslider" id="jslider">
+    <div class="jtrack" id="jtrack">
+      <article class="jcard" tabindex="0">
+        <span class="jnum">01</span>
         <h3>Discover</h3>
         <p>We start by listening. We talk to your team and look at how customers already interact with your business — calls, WhatsApp messages, enquiries, everything.</p>
         <p class="jgets"><small>You get</small>A clear picture of how customers move through your business</p>
         <div class="tags"><span>Stakeholder interviews</span><span>Channel audit</span><span>Enquiry review</span></div>
-      </div>
-    </li>
-    <li class="jstep reveal">
-      <span class="jnum">02</span>
-      <div class="jcard">
+      </article>
+      <article class="jcard" tabindex="0">
+        <span class="jnum">02</span>
         <h3>Understand</h3>
         <p>We turn what we learn into real customer insights — a clear view of where things break down, and why.</p>
         <p class="jgets"><small>You get</small>A customer journey map, with the break points marked</p>
         <div class="tags"><span>Journey maps</span><span>Personas</span><span>Research findings</span></div>
-      </div>
-    </li>
-    <li class="jstep reveal">
-      <span class="jnum">03</span>
-      <div class="jcard">
+      </article>
+      <article class="jcard" tabindex="0">
+        <span class="jnum">03</span>
         <h3>Design</h3>
         <p>We design a better way for customers to move through your business, and test it with real people before anything gets built.</p>
         <p class="jgets"><small>You get</small>A working prototype you can click through</p>
         <div class="tags"><span>Wireframes</span><span>Conversation design</span><span>User testing</span></div>
-      </div>
-    </li>
-    <li class="jstep reveal">
-      <span class="jnum">04</span>
-      <div class="jcard">
+      </article>
+      <article class="jcard" tabindex="0">
+        <span class="jnum">04</span>
         <h3>Build</h3>
         <p>We build the tools and workflows — including AI, where it makes sense — so the improvements actually happen. A person is always kept in the loop.</p>
         <p class="jgets"><small>You get</small>A live workflow or AI assistant, running in your business</p>
         <div class="tags"><span>AI assistants</span><span>Automation</span><span>Integrations</span></div>
-      </div>
-    </li>
-    <li class="jstep reveal">
-      <span class="jnum jnum-last">05</span>
-      <div class="jcard">
+      </article>
+      <article class="jcard" tabindex="0">
+        <span class="jnum">05</span>
         <h3>Improve</h3>
         <p>We track what's working against your own numbers — set before launch — and keep making it better.</p>
         <p class="jgets"><small>You get</small>A dashboard and an improvement roadmap</p>
         <div class="tags"><span>Dashboards</span><span>Metrics</span><span>Improvement roadmap</span></div>
-      </div>
-    </li>
-  </ol>
+      </article>
+    </div>
+  </div>
+  <p class="jhint">Hover a stage to hold it still.</p>
 
   <p class="section-turn reveal">Three ways to start ↓</p>
 </section>
@@ -405,20 +398,34 @@
 
 <!-- ================================================== 07 ABOUT -->
 <section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-copy glass-panel reveal">
-      <p class="eyebrow">07 · About NeuraUX</p>
-      <div class="founder-path" aria-hidden="true">
-        <span>UX Design</span><i>→</i><span>Enterprise Systems</span><i>→</i><span>AI Experience</span><i>→</i><span class="now">NeuraUX</span>
-      </div>
-      <div class="founder">
-        <span class="avatar big">SP</span>
-        <div><b>Sphamandla</b><small>Founder, NeuraUX</small></div>
-      </div>
+  <div class="section-head narrow">
+    <p class="eyebrow reveal">07 · About NeuraUX</p>
+    <h2 class="reveal" data-delay="1">Built for how South African<br><em>businesses actually work.</em></h2>
+  </div>
+
+  <div class="about-panel reveal" data-delay="1">
+    <aside class="about-id">
+      <span class="avatar big">SP</span>
+      <b>Sphamandla</b>
+      <small>Founder, NeuraUX</small>
+      <ol class="about-path">
+        <li>UX Design</li>
+        <li>Enterprise Systems</li>
+        <li>AI Experience</li>
+        <li class="now">NeuraUX</li>
+      </ol>
+    </aside>
+
+    <div class="about-quote">
       <blockquote>
         <p>I spent years designing digital products, and kept seeing the same thing happen: a business would bring in a chatbot or automation tool, and within weeks their own team had quietly stopped using it. The tool wasn't broken. Nobody had designed how it should actually work for real people.</p>
         <p>That's why NeuraUX exists — we treat AI as a design problem before it's a technology one. South African businesses in particular are underserved here: most AI tools are built for enterprise budgets and Silicon Valley connectivity, not a WhatsApp-first team working around load-shedding and data cost. We'd rather build for that reality than around it.</p>
       </blockquote>
+      <ul class="about-facts">
+        <li><b>10–200</b><span>Team size we build for</span></li>
+        <li><b>Web + WhatsApp</b><span>Where your customers already are</span></li>
+        <li><b>Johannesburg</b><span>Gauteng, South Africa</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -478,8 +485,10 @@
   <div class="footer-inner">
 
     <div class="footer-top">
-      <a class="wordmark footer-mark" href="#top">Neura<span>UX</span></a>
-      <p class="footer-statement">Experience design, conversational AI and workflow automation for growing South African businesses.</p>
+      <div class="footer-brand-block">
+        <a class="wordmark footer-mark" href="#top">Neura<span>UX</span></a>
+        <p class="footer-statement">Experience design, conversational AI and workflow automation for growing South African businesses.</p>
+      </div>
       <div class="footer-ctas">
         <a class="btn btn-small" href="https://wa.me/27614920117?text=Hi%20NeuraUX%20%E2%80%94%20I%27d%20like%20to%20book%20a%20discovery%20call." target="_blank" rel="noopener" data-magnet>Book Discovery Call</a>
         <a class="btn-secondary btn-small" href="mailto:hello@neuraux.co.za">hello@neuraux.co.za</a>
