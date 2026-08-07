@@ -97,6 +97,42 @@
     step.addEventListener('blur', hide);
   });
 
+  /* ---------- process rail: auto-slide, hold on the hovered card ---------- */
+  const jtrack = document.getElementById('jtrack');
+  if (jtrack) {
+    const originals = [...jtrack.children];
+
+    const measure = () => {
+      const gap = parseFloat(getComputedStyle(jtrack).gap) || 0;
+      /* width of one full set + the gap that follows it — the exact
+         distance at which the duplicated set lands where the first began */
+      const setWidth = originals.reduce((sum, el) => sum + el.getBoundingClientRect().width + gap, 0);
+      jtrack.style.setProperty('--jshift', `${setWidth}px`);
+      /* hold a steady speed regardless of how many cards there are */
+      jtrack.style.setProperty('--jdur', `${(setWidth / 42).toFixed(1)}s`);
+    };
+
+    if (!reduced) {
+      /* a second set makes the loop seamless; it is decorative to AT */
+      originals.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.tabIndex = -1;
+        jtrack.appendChild(clone);
+      });
+      measure();
+      addEventListener('resize', measure);
+
+      const hold = on => jtrack.classList.toggle('is-paused', on);
+      [...jtrack.children].forEach(card => {
+        card.addEventListener('mouseenter', () => hold(true));
+        card.addEventListener('mouseleave', () => hold(false));
+        card.addEventListener('focusin', () => hold(true));
+        card.addEventListener('focusout', () => hold(false));
+      });
+    }
+  }
+
   /* ---------- magnetic buttons ---------- */
   if (!reduced && matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('[data-magnet]').forEach(btn => {
