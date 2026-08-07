@@ -1063,6 +1063,9 @@ h3 {
 .cta-card p { font-size: 14px; line-height: 1.35; color: var(--ink-muted); }
 .cta-card .btn, .cta-card .btn-secondary { margin-top: 14px; }
 .cta-card.spotlight .btn-secondary { background: rgba(255, 255, 255, 0.16); }
+.cta-card .hint { margin-top: 12px; }
+.cta-card .hint a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.spotlight .hint { color: rgba(255, 255, 255, 0.82); }
 
 .pricing-line {
   margin-top: clamp(36px, 5vh, 56px);
@@ -1080,18 +1083,36 @@ h3 {
 .footer-inner {
   padding: 64px var(--pad) 40px;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px 64px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 32px 40px;
   align-items: start;
   max-width: 1340px;
   margin: 0 auto;
 }
 .footer-brand p { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--ink-muted); }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links .metrics-label { margin-bottom: 4px; }
 .footer-links a { font-size: 13px; font-weight: 500; color: var(--ink-muted); transition: color 0.25s; }
 .footer-links a:hover { color: var(--ink); }
 .footer-line { grid-column: 1 / -1; font-size: 13px; color: var(--ink-muted); border-top: 1px solid var(--hairline-soft); padding-top: 24px; }
 .footer-copy { grid-column: 1 / -1; font-size: 12px; color: var(--ink-muted); }
+
+/* ============================================================
+   FAQ (closing section)
+   ============================================================ */
+
+.faq { max-width: 800px; margin: clamp(48px, 6vh, 72px) auto 0; text-align: left; }
+.faq-grid { display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: var(--surface-1); border-radius: var(--r-xl); padding: 22px 24px 24px; }
+.faq-item b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.faq-item p { font-size: 14px; line-height: 1.45; color: var(--ink-muted); max-width: 62ch; }
 
 /* ============================================================
    FOCUS / A11Y — blue ring is the signal
@@ -1129,6 +1150,7 @@ h3 {
   .cta-paths { grid-template-columns: 1fr; }
   .metric-grid { grid-template-columns: 1fr; }
   .svc-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 640px) {
