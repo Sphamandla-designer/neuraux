@@ -45,9 +45,14 @@
   --edge-card: inset 0 0.5px 0 rgba(255, 255, 255, 0.10), 0 10px 30px rgba(0, 0, 0, 0.25);
   --ring-focus: 0 0 0 1px rgba(0, 153, 255, 0.6), 0 0 0 4px rgba(0, 153, 255, 0.15);
 
+  /* dark silver — a cool, desaturated band used to separate chapters */
+  --silver: #202329;
+  --silver-2: #292d34;
+  --silver-line: rgba(255, 255, 255, 0.07);
+
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --pad: clamp(24px, 6vw, 96px);
-  --section: clamp(72px, 11vh, 96px);
+  --section: clamp(104px, 15vh, 168px);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,7 +74,7 @@ body {
 ::selection { background: rgba(0, 153, 255, 0.35); color: var(--ink); }
 
 a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
+ul, ol { list-style: none; }
 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 
 /* ---------- type scale ---------- */
@@ -135,8 +140,32 @@ h3 {
   letter-spacing: -0.026em;
   color: var(--ink-muted);
   text-align: center;
-  padding: var(--section) var(--pad) 0;
+  padding: clamp(56px, 8vh, 92px) var(--pad) 0;
 }
+
+/* ------------------------------------------------------------
+   CHAPTER BANDS — alternating canvas and dark silver so the
+   sections read as separate chapters rather than one long scroll.
+   ------------------------------------------------------------ */
+
+.friction,
+.philosophy,
+.services,
+.industries { padding: var(--section) 0; }
+
+.better,
+.process,
+.about {
+  padding: var(--section) 0;
+  background: var(--silver);
+  border-top: 1px solid var(--silver-line);
+  border-bottom: 1px solid var(--silver-line);
+}
+
+/* cards need to lift against the lighter band, not sink into it */
+.better .metric:not(.spotlight),
+.process .jcard { background: var(--silver-2); }
+.better .c-node { background: var(--silver-2); }
 .section-turn em { font-style: normal; color: var(--ink); }
 
 /* ------------------------------------------------------------
@@ -162,17 +191,11 @@ h3 {
 .svc-visual,
 .svc-list,
 .mj-people,
-.mj-map,
-.founder,
-.founder-path { justify-content: center; }
+.mj-map { justify-content: center; }
 
 .ind.wide { justify-content: center; }
 .ind.wide .ind-problem,
 .ind.wide .ind-outcome { text-align: center; }
-
-.about-copy { text-align: center; }
-.about-copy .eyebrow { text-align: center; }
-.about blockquote p { margin-inline: auto; }
 
 .faq { text-align: center; }
 .faq-item p { margin-inline: auto; }
@@ -241,6 +264,8 @@ h3 {
   .reveal { opacity: 1; transform: none; transition: none; }
   [data-speed] { transform: none !important; }
   *, *::before, *::after { animation: none !important; }
+  .jslider { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .jtrack { animation: none; }
   .chain-flow { display: none; }
 }
 
@@ -600,7 +625,7 @@ h3 {
    01 FRICTION
    ============================================================ */
 
-.friction { padding: var(--section) 0 0; overflow: hidden; }
+.friction { overflow: hidden; }
 
 .friction-stage {
   position: relative;
@@ -673,7 +698,7 @@ h3 {
    02 BETTER
    ============================================================ */
 
-.better { padding: var(--section) 0 0; overflow: hidden; }
+.better { overflow: hidden; }
 
 .chain-stage {
   position: relative;
@@ -770,7 +795,7 @@ h3 {
    03 PHILOSOPHY
    ============================================================ */
 
-.philosophy { padding: var(--section) 0 0; }
+
 
 .pipeline {
   display: flex;
@@ -812,50 +837,56 @@ h3 {
    04 PROCESS
    ============================================================ */
 
-.process { padding: var(--section) 0 0; }
 
-/* milestone timeline — a centred spine, every stage visible at once */
-.journey {
+
+/* auto-sliding stage rail — pauses on the card you point at */
+.jslider {
   position: relative;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 var(--pad);
+  overflow: hidden;
+  padding: 8px 0 4px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+.jtrack {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  padding-inline: var(--pad);
+  animation: jscroll var(--jdur, 48s) linear infinite;
+}
+.jtrack.is-paused { animation-play-state: paused; }
+@keyframes jscroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-1 * var(--jshift, 50%)), 0, 0); }
+}
+
+.jcard {
+  flex: 0 0 clamp(252px, 24vw, 316px);
+  background: var(--surface-1);
+  border-radius: var(--r-xl);
+  padding: 26px 26px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 10px;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), background 0.3s;
 }
-.journey::before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  bottom: 18px;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-0.5px);
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    var(--hairline) 8%,
-    var(--hairline) 92%,
-    transparent 100%
-  );
+.jcard:hover,
+.jcard:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: var(--edge-card);
 }
-.jstep {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.jstep + .jstep { margin-top: 14px; }
+.jcard h3 { margin-top: 2px; }
+.jcard > p { font-size: 14px; line-height: 1.45; color: var(--ink-muted); }
 
 .jnum {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   flex: none;
   background: var(--surface-2);
@@ -863,27 +894,10 @@ h3 {
   font-size: 12px;
   font-weight: 500;
   font-feature-settings: "tnum";
-  box-shadow: 0 0 0 6px var(--canvas);
-  transition: background 0.35s var(--ease), color 0.35s, box-shadow 0.35s;
+  transition: background 0.35s var(--ease), color 0.35s;
 }
-.jnum-last { background: var(--inverse-canvas); color: var(--on-primary); }
-
-.jcard {
-  margin-top: 14px;
-  width: 100%;
-  background: var(--surface-1);
-  border-radius: var(--r-xl);
-  padding: 26px 30px 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-  transition: transform 0.45s var(--ease), background 0.35s;
-}
-.jstep:hover .jcard { transform: translateY(-4px); background: var(--surface-2); }
-.jstep:hover .jnum { background: var(--inverse-canvas); color: var(--on-primary); }
-.jcard p { font-size: 14px; line-height: 1.45; color: var(--ink-muted); max-width: 54ch; }
+.jcard:hover .jnum,
+.jcard:focus-visible .jnum { background: var(--inverse-canvas); color: var(--on-primary); }
 
 .jgets {
   margin-top: 4px;
@@ -903,6 +917,14 @@ h3 {
   color: var(--accent-blue);
 }
 
+.jhint {
+  margin-top: 26px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
 .deliverable { margin-top: 12px; color: var(--ink) !important; font-size: 14px !important; font-weight: 500; }
 .deliverable small { font-size: 12px; font-weight: 500; color: var(--ink-muted); margin-right: 8px; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; justify-content: center; }
@@ -919,7 +941,7 @@ h3 {
    05 SERVICES
    ============================================================ */
 
-.services { padding: var(--section) 0 var(--section); }
+
 
 .svc-grid {
   display: grid;
@@ -1024,7 +1046,7 @@ h3 {
    06 INDUSTRIES
    ============================================================ */
 
-.industries { padding: var(--section) 0 0; }
+
 
 .ind-grid {
   display: grid;
@@ -1071,44 +1093,110 @@ h3 {
    07 ABOUT
    ============================================================ */
 
-.about { position: relative; padding: var(--section) 0; }
-.about-inner { padding: 0 var(--pad); max-width: 1000px; margin: 0 auto; }
-.about-copy {
-  background: var(--surface-1);
+.about { position: relative; }
+
+.about-panel {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(22px, 2.4vw, 34px);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(20px, 2.4vw, 34px);
+  align-items: stretch;
   border-radius: var(--r-xxl);
-  box-shadow: var(--edge-card);
-  padding: clamp(28px, 4vw, 52px);
+  /* the mix: dark silver shell wrapping a near-black core */
+  background: linear-gradient(150deg, var(--silver-2) 0%, var(--silver) 58%, #16181c 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.45);
 }
-.founder-path {
+
+/* identity column — the dark core against the silver shell */
+.about-id {
+  background: var(--canvas);
+  border-radius: var(--r-xl);
+  padding: 34px 28px 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+  text-align: center;
+  gap: 4px;
+  box-shadow: inset 0 0 0 1px var(--hairline-soft);
 }
-.founder-path span {
-  font-size: 12px;
+.about-id .avatar.big { margin-bottom: 14px; }
+.about-id b { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
+.about-id small { font-size: 13px; color: var(--ink-muted); }
+
+.about-path {
+  margin-top: 24px;
+  padding-top: 22px;
+  width: 100%;
+  border-top: 1px solid var(--hairline-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.about-path li {
+  position: relative;
+  font-size: 13px;
   font-weight: 500;
   color: var(--ink-muted);
-  background: var(--surface-2);
-  border-radius: var(--r-pill);
-  padding: 6px 13px;
+  background: var(--surface-1);
+  border-radius: var(--r-sm);
+  padding: 9px 12px;
 }
-.founder-path span.now { background: var(--inverse-canvas); color: var(--on-primary); }
-.founder-path i { font-style: normal; color: var(--ink-muted); font-size: 11px; }
+.about-path li + li::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 1px;
+  height: 4px;
+  background: var(--hairline);
+}
+.about-path li.now {
+  background: var(--inverse-canvas);
+  color: var(--on-primary);
+  font-weight: 700;
+}
 
-.founder { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-.founder b { display: block; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
-.founder small { font-size: 13px; color: var(--ink-muted); }
-
-.about blockquote p {
-  font-size: clamp(15px, 1.3vw, 18px);
-  line-height: 1.45;
-  letter-spacing: -0.01em;
+/* quote column — sits directly on the silver */
+.about-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  padding: clamp(16px, 2vw, 30px) clamp(10px, 1.6vw, 26px);
+}
+.about-quote blockquote p {
+  font-size: clamp(15.5px, 1.2vw, 17.5px);
+  line-height: 1.55;
   color: var(--ink-muted);
+  max-width: 62ch;
 }
-.about blockquote p:first-child { color: var(--ink); }
-.about blockquote p + p { margin-top: 18px; }
+.about-quote blockquote p:first-child {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(19px, 1.8vw, 25px);
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.028em;
+}
+.about-quote blockquote p + p { margin-top: 18px; }
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--silver-line);
+}
+.about-facts li { display: flex; flex-direction: column; gap: 5px; }
+.about-facts b {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.5vw, 21px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.about-facts span { font-size: 12.5px; line-height: 1.35; color: var(--ink-muted); }
 
 /* ============================================================
    08 CLOSING
@@ -1130,10 +1218,11 @@ h3 {
   text-align: center;
 }
 .closing .lede { margin-inline: auto; }
+/* matches the global h2 — this carried its own oversized scale */
 .closing h2 {
-  font-size: clamp(40px, 5.8vw, 85px);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  font-size: clamp(27px, 3.0vw, 42px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
 }
 
 .cta-paths {
@@ -1199,18 +1288,18 @@ h3 {
   max-width: 1240px;
   margin: 0 auto;
   padding: clamp(64px, 9vh, 96px) var(--pad) 36px;
-  text-align: center;
 }
 
 /* --- masthead --- */
 .footer-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 24px 48px;
   padding-bottom: clamp(44px, 6vh, 64px);
   border-bottom: 1px solid var(--hairline-soft);
 }
+.footer-brand-block { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .footer-mark { font-size: 30px; letter-spacing: -0.04em; }
 .footer-statement {
   max-width: 46ch;
@@ -1221,7 +1310,7 @@ h3 {
   letter-spacing: -0.03em;
   color: var(--ink);
 }
-.footer-ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 6px; }
+.footer-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* --- link columns --- */
 .footer-cols {
@@ -1231,7 +1320,7 @@ h3 {
   padding: clamp(40px, 6vh, 60px) 0;
   border-bottom: 1px solid var(--hairline-soft);
 }
-.footer-col { display: flex; flex-direction: column; align-items: center; gap: 11px; }
+.footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
 .footer-h {
   font-size: 12px;
   font-weight: 500;
@@ -1254,7 +1343,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px 24px;
   padding-top: 26px;
 }
@@ -1318,6 +1407,8 @@ h3 {
   .chain-wire { display: none; }
   .chain { justify-content: center; gap: 8px; padding-top: 0; }
   .cta-paths { grid-template-columns: 1fr; }
+  .about-panel { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; align-items: start; }
   .metric-grid { grid-template-columns: 1fr; }
   .svc-grid { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
@@ -1333,4 +1424,6 @@ h3 {
   .pl-step { min-width: 100%; }
   .footer-cols { grid-template-columns: 1fr; gap: 30px; }
   .jcard { padding: 22px 22px 24px; }
+  .about-facts { grid-template-columns: 1fr; gap: 16px; }
+  .footer-bottom { justify-content: flex-start; }
 }
