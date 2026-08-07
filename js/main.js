@@ -97,23 +97,6 @@
     step.addEventListener('blur', hide);
   });
 
-  /* ---------- process accordion ---------- */
-  const stages = [...document.querySelectorAll('.stage')];
-  stages.forEach(stage => {
-    const head = stage.querySelector('.stage-head');
-    head.addEventListener('click', () => {
-      const isOpen = stage.classList.contains('open');
-      stages.forEach(s => {
-        s.classList.remove('open');
-        s.querySelector('.stage-head').setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        stage.classList.add('open');
-        head.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
   /* ---------- magnetic buttons ---------- */
   if (!reduced && matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('[data-magnet]').forEach(btn => {
