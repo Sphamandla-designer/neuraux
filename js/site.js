@@ -66,111 +66,18 @@
   }
 
   /* ---------- In-view reveals (only on components that opt in) ---------- */
-  var revealTargets = doc.querySelectorAll('[data-reveal], [data-scorecard]');
+  var revealTargets = doc.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && !reduced()) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-in');
-        entry.target.dispatchEvent(new CustomEvent('reveal'));
         io.unobserve(entry.target);
       });
     }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
     revealTargets.forEach(function (el) { io.observe(el); });
   } else {
     revealTargets.forEach(function (el) { el.classList.add('is-in'); });
-  }
-
-  /* ---------- Audit stage: pinned scroll story ---------- */
-  var stage = doc.querySelector('[data-stage]');
-  var stageState = null;
-
-  if (stage) {
-    var sticky = stage.querySelector('.stage__sticky');
-    var head = stage.querySelector('.stage__head');
-    var frame = stage.querySelector('[data-stage-frame]');
-    var audit = stage.querySelector('[data-audit]');
-    var caption = stage.querySelector('[data-stage-caption]');
-    var stepBtns = stage.querySelectorAll('[data-goto]');
-    var tabs = audit ? audit.querySelectorAll('.audit__tabs span') : [];
-    var pinMQ = window.matchMedia('(min-width: 1024px) and (min-height: 680px)');
-    var captions = [
-      ['Sample audit interface', 'Illustrative example, not a client result. One AI experience, one channel, reviewed end to end.'],
-      ['The scorecard', 'Six dimensions, each scored 1 to 5. The pattern shows where the experience breaks.'],
-      ['A finding', 'Each finding is ranked by severity and backed by evidence from real, anonymised conversations.'],
-      ['The design response', 'Every finding comes with a fix: what the assistant should do instead.']
-    ];
-    var tabForStep = [0, 1, 2, 3];
-    var stepTargets = [0.04, 0.32, 0.58, 0.88];
-    var currentStep = -1;
-    var fit = 1;
-
-    stageState = { pinned: false };
-
-    var setStep = function (n) {
-      if (n === currentStep) return;
-      currentStep = n;
-      audit.setAttribute('data-step', String(n));
-      caption.innerHTML = '<strong>' + captions[n][0] + '</strong>' + captions[n][1];
-      stepBtns.forEach(function (b, i) {
-        if (i === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
-      });
-      tabs.forEach(function (t, i) { t.classList.toggle('is-active', i === tabForStep[n]); });
-    };
-
-    var measureFit = function () {
-      fit = 1;
-      if (!stageState.pinned) return;
-      var cs = getComputedStyle(sticky);
-      var avail = sticky.clientHeight - head.offsetHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) - 16;
-      var natural = audit.offsetHeight;
-      fit = clamp(avail / natural, 0.72, 1);
-    };
-
-    var updateStage = function () {
-      if (!stageState.pinned) return;
-      var hh = headerH();
-      var rect = stage.getBoundingClientRect();
-      var total = stage.offsetHeight - sticky.offsetHeight;
-      var p = clamp((hh - rect.top) / total, 0, 1);
-      var approach = clamp((rect.top - hh) / (window.innerHeight * 0.7), 0, 1);
-      var s = fit * (1 - 0.04 * approach);
-      frame.style.transform = 'scale(' + s.toFixed(4) + ')';
-      var n = p < 0.2 ? 0 : p < 0.46 ? 1 : p < 0.74 ? 2 : 3;
-      setStep(n);
-    };
-
-    var applyPin = function () {
-      var shouldPin = pinMQ.matches && !reduced();
-      stageState.pinned = shouldPin;
-      stage.classList.toggle('is-pinned', shouldPin);
-      if (!shouldPin) {
-        frame.style.transform = '';
-        currentStep = -1;
-        audit.setAttribute('data-step', '0');
-        caption.innerHTML = '<strong>' + captions[0][0] + '</strong>' + captions[0][1];
-        tabs.forEach(function (t, i) { t.classList.toggle('is-active', i === 0); });
-      } else {
-        measureFit();
-        updateStage();
-      }
-    };
-
-    stepBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var i = Number(btn.getAttribute('data-goto'));
-        var top = stage.getBoundingClientRect().top + window.scrollY - headerH();
-        var total = stage.offsetHeight - sticky.offsetHeight;
-        window.scrollTo({ top: top + stepTargets[i] * total, behavior: reduced() ? 'auto' : 'smooth' });
-      });
-    });
-
-    stageState.apply = applyPin;
-    stageState.update = updateStage;
-    stageState.measure = measureFit;
-    applyPin();
-    pinMQ.addEventListener('change', applyPin);
-    reduceMQ.addEventListener('change', applyPin);
   }
 
   /* ---------- Experience journey: line draws with scroll ---------- */
@@ -193,66 +100,37 @@
     journey.style.setProperty('--jp', '0');
   }
 
-  /* ---------- Scorecard: populate, count, explain ---------- */
-  var scorecard = doc.querySelector('[data-scorecard]');
-  if (scorecard) {
-    var dims = {
-      clarity: ['Clarity', 4, 'Users know what it can and can\'t do.', 'The opening message, how scope is explained, and how ambiguous requests are handled.', 'Can a first-time user tell what this assistant is for?'],
-      trust: ['Trust', 3, 'Users can judge when to rely on an answer.', 'AI disclosure, how confidence is expressed, and whether sources are shown.', 'Would a user know when to double-check an answer?'],
-      recovery: ['Recovery', 2, 'It handles failure without dead ends.', 'Fallback messages, repeated misunderstandings, and whether there is always a route to a person.', 'When the assistant fails, does the user know what to do next?'],
-      efficiency: ['Efficiency', 4, 'Tasks get done in the fewest sensible turns.', 'Up to 15 core tasks, walked through end to end.', 'How many turns does it take to finish a real task?'],
-      tone: ['Tone', 4, 'It sounds like your brand, and suits the moment.', 'Voice consistency, and how tone shifts in sensitive or stressful moments.', 'Does it sound like you, even when the news is bad?'],
-      compliance: ['Compliance safety', 4, 'Advice limits and POPIA consent, by design.', 'Advice boundaries, disclaimers, and how personal information and consent are handled.', 'Could this answer be mistaken for legal or financial advice?']
+  /* ---------- Tabs (WAI-ARIA tabs pattern: arrow keys, Home and End move and select) ---------- */
+  doc.querySelectorAll('[data-tabs]').forEach(function (wrap) {
+    var list = wrap.querySelector('[role="tablist"]');
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (t) { return doc.getElementById(t.getAttribute('aria-controls')); });
+    if (!list || !tabs.length) return;
+    // Without JS every panel shows in sequence with its own heading.
+    list.hidden = false;
+    wrap.classList.add('is-tabbed');
+    var select = function (i, focus) {
+      tabs.forEach(function (t, k) {
+        var on = k === i;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        panels[k].hidden = !on;
+      });
+      if (focus) tabs[i].focus();
     };
-    var detail = scorecard.querySelector('[data-dim-detail]');
-    var buttons = scorecard.querySelectorAll('[data-dim]');
-    var totalEl = scorecard.querySelector('[data-total]');
-    var swapTimer;
-
-    var show = function (key) {
-      var d = dims[key];
-      if (!d) return;
-      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-dim') === key)); });
-      var write = function () {
-        detail.querySelector('[data-dim-score]').textContent = 'Scored ' + d[1] + ' of 5';
-        detail.querySelector('[data-dim-name]').textContent = d[0];
-        detail.querySelector('[data-dim-def]').textContent = d[2];
-        detail.querySelector('[data-dim-look]').textContent = d[3];
-        detail.querySelector('[data-dim-q]').textContent = d[4];
-        detail.classList.remove('is-swap');
-      };
-      if (reduced()) { write(); return; }
-      clearTimeout(swapTimer);
-      detail.classList.add('is-swap');
-      swapTimer = setTimeout(write, 140);
-    };
-
-    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    buttons.forEach(function (b) {
-      b.addEventListener('click', function () { show(b.getAttribute('data-dim')); });
-      b.addEventListener('mouseenter', function () {
-        if (finePointer.matches && b.getAttribute('aria-pressed') !== 'true') show(b.getAttribute('data-dim'));
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(i, false); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % n;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + n) % n;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = n - 1;
+        if (next !== null) { e.preventDefault(); select(next, true); }
       });
     });
-
-    if (!reduced() && 'IntersectionObserver' in window && totalEl) {
-      totalEl.textContent = '0';
-      scorecard.addEventListener('reveal', function () {
-        var start = null;
-        var target = 21;
-        var delay = 350;
-        var dur = 1100;
-        var tick = function (t) {
-          if (start === null) start = t;
-          var k = clamp((t - start - delay) / dur, 0, 1);
-          var eased = 1 - Math.pow(1 - k, 3);
-          totalEl.textContent = String(Math.round(eased * target));
-          if (k < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      });
-    }
-  }
+    select(0, false);
+  });
 
   /* ---------- Scroll + resize loop (one rAF per frame) ---------- */
   var ticking = false;
@@ -262,18 +140,11 @@
     requestAnimationFrame(function () {
       ticking = false;
       onHeaderScroll();
-      if (stageState) stageState.update();
       updateJourney();
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function () {
-    if (stageState && stageState.pinned) stageState.measure();
-    onScroll();
-  });
-  window.addEventListener('load', function () {
-    if (stageState && stageState.pinned) { stageState.measure(); stageState.update(); }
-  });
+  window.addEventListener('resize', onScroll);
   onHeaderScroll();
   updateJourney();
 
