@@ -12,7 +12,7 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 
 - **Founder:** Sphamandla, Product Designer and AI UX Strategist. NeuraUX is currently a founder-led consultancy.
 - **Email:** hello@neuraux.co.za
-- **Domain:** www.neuraux.co.za (hosted on GitHub Pages for now)
+- **Domain:** www.neuraux.co.za is the intended domain. Until a `CNAME` file exists, canonical, Open Graph and sitemap URLs use https://sphamandla-designer.github.io/neuraux/ (switch them back when the domain goes live)
 - **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
 - **Stage:** launching Q4 2026. No paying clients, case studies or testimonials yet.
 
@@ -97,6 +97,14 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
+**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+
+**Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
+
+**Placeholders:** never render placeholder text. Mark missing content with `<!-- TODO: ... -->` and keep the element `hidden` until it is filled.
+
+**Wording:** say "reviewed and signed off by the lead designer", not "senior designer". NeuraUX is founder-led.
+
 ## 6. Brand and visual design rules
 
 **Direction:** monochrome, editorial, restrained. Black, charcoal, grey, silver and white. This **replaces** an earlier dark brand with cyan accents and Syne/DM Sans/Space Mono, which must not be used anywhere.
@@ -143,7 +151,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - South African English spelling (organisation, prioritise) and rand formatting (R18,500).
 - Always say "excluding VAT" near prices.
 
-**Never invent:** client names, logos, testimonials, case studies, statistics, team members, years in business, awards or certifications. If something is missing, leave a visible placeholder in square brackets, e.g. `[Founder photo]`, and list it in section 10.
+**Never invent:** client names, logos, testimonials, case studies, statistics, team members, years in business, awards or certifications. If something is missing, leave an HTML `<!-- TODO: ... -->` comment with the element hidden (no visible placeholder text), and list it in section 10.
 
 **Words to avoid:** revolutionary, cutting-edge, unlock, leverage, seamless, game-changer, supercharge, "harness the power of AI".
 
@@ -179,7 +187,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - **Heading:** Clear scope. Human judgment. Careful with your data.
 - **Process (numbered):** 1. Discovery call (30 minutes, free). 2. Proposal: a written scope, timeline and fixed price, usually within 2 working days. 3. Kickoff: access, data handling, and one point of contact. 4. The work: regular check-ins, plus a midpoint review on Blueprints. 5. Readout and handover, with the recording yours to keep. 6. Support: two weeks of email support after every Blueprint.
 - **Principles:** Design for the moment things go wrong. Be honest about what AI can't do. Treat compliance as a design material. Use evidence over opinion.
-- **How we use AI:** We use AI tools to speed up analysis and drafting, such as sorting transcripts, spotting patterns, and generating first drafts. AI does not make design decisions or sign off on work. Every deliverable is reviewed and approved by a senior designer, and NeuraUX is fully accountable for everything we deliver. If your policies restrict AI use, tell us at kickoff and we'll agree in writing which parts of the work stay AI-free.
+- **How we use AI:** We use AI tools to speed up analysis and drafting, such as sorting transcripts, spotting patterns, and generating first drafts. AI does not make design decisions or sign off on work. Every deliverable is reviewed and signed off by the lead designer, and NeuraUX is fully accountable for everything we deliver. If your policies restrict AI use, tell us at kickoff and we'll agree in writing which parts of the work stay AI-free.
 - **Data protection:** business-tier AI tools only, never used to train models on client data; anonymised transcripts only, with no unredacted personal information; project files deleted 90 days after close; personal information handled in line with POPIA; NDAs signed on request.
 - **About:** `[Founder paragraph and photo, written by Sphamandla]`
 
