@@ -94,6 +94,8 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | How We Work | `how-we-work.html` | Built (founder paragraph and photo are placeholders) |
 | Contact | `contact.html` | Built (form composes an email via `mailto:`) |
 | Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
+| AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
+| Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
@@ -103,7 +105,11 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Placeholders:** never render placeholder text. Mark missing content with `<!-- TODO: ... -->` and keep the element `hidden` until it is filled.
 
-**Wording:** say "reviewed and signed off by the lead designer", not "senior designer". NeuraUX is founder-led.
+**Wording:** say "reviewed and signed off by the lead designer", not "senior designer". NeuraUX is founder-led. On data handling, say "POPIA-aware" or "in line with POPIA", never "POPIA compliant".
+
+**Service detail pages:** both pages are generated once from content files, but the committed HTML is the source now; edit it directly. They share the comparison table and the qualification-form pattern (forms compose an email, nothing is sent silently). Do not promise prototypes or a separate validation service: the Blueprint's real testing step is walkthrough testing with 3 to 5 staff.
+
+**Event hooks:** `data-track`, `data-track-view` and `data-track-open` attributes fire named events (for example `audit_cta_click`, `blueprint_pricing_view`) through `track()` in `js/site.js`. No analytics platform is loaded. Events go to `window.dataLayer` only if an approved tool later creates it, which needs the Privacy Policy to cover it first.
 
 ## 6. Brand and visual design rules
 
