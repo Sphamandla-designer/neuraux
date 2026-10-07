@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conversation Design Blueprint for AI Experiences | NeuraUX</title>
+<meta name="description" content="Design customer-facing AI experiences with conversation architecture, AI behaviour, recovery, uncertainty, edge cases and human handoff. NeuraUX serves South African product and AI teams.">
+<link rel="canonical" href="https://sphamandla-designer.github.io/neuraux/ai-experience-blueprint.html">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NeuraUX">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://sphamandla-designer.github.io/neuraux/ai-experience-blueprint.html">
+<meta property="og:title" content="Conversation Design Blueprint for AI Experiences | NeuraUX">
+<meta property="og:description" content="Design customer-facing AI experiences with conversation architecture, AI behaviour, recovery, uncertainty, edge cases and human handoff. NeuraUX serves South African product and AI teams.">
+<meta property="og:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NeuraUX. AI experiences people actually trust.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conversation Design Blueprint for AI Experiences | NeuraUX">
+<meta name="twitter:description" content="Design customer-facing AI experiences with conversation architecture, AI behaviour, recovery, uncertainty, edge cases and human handoff. NeuraUX serves South African product and AI teams.">
+<meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sphamandla-designer.github.io/neuraux/ai-experience-blueprint.html",
+      "url": "https://sphamandla-designer.github.io/neuraux/ai-experience-blueprint.html",
+      "name": "Conversation Design Blueprint for AI Experiences | NeuraUX",
+      "description": "Design customer-facing AI experiences with conversation architecture, AI behaviour, recovery, uncertainty, edge cases and human handoff. NeuraUX serves South African product and AI teams.",
+      "inLanguage": "en-ZA",
+      "isPartOf": {
+        "@id": "https://sphamandla-designer.github.io/neuraux/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sphamandla-designer.github.io/neuraux/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://sphamandla-designer.github.io/neuraux/services.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Conversation Design Blueprint",
+          "item": "https://sphamandla-designer.github.io/neuraux/ai-experience-blueprint.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Conversation Design Blueprint",
+      "serviceType": "Conversation design",
+      "provider": {
+        "@id": "https://sphamandla-designer.github.io/neuraux/#org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "South Africa"
+      },
+      "description": "A build-ready conversation design for a customer-facing AI assistant: persona and voice, architecture and flows including edge cases, trust patterns, human handoff, sample dialogues and a developer handover pack.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Core",
+          "price": "45000",
+          "priceCurrency": "ZAR",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "45000",
+            "priceCurrency": "ZAR",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Extended",
+          "price": "55000",
+          "priceCurrency": "ZAR",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "55000",
+            "priceCurrency": "ZAR",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Full",
+          "price": "65000",
+          "priceCurrency": "ZAR",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "65000",
+            "priceCurrency": "ZAR",
+            "valueAddedTaxIncluded": false
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a Conversation Design Blueprint?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A build-ready design for a customer-facing AI assistant: persona and voice, conversation architecture and detailed flows including edge cases, trust patterns, human handoff, sample dialogues and a developer handover pack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a Blueprint take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four to six weeks, depending on the tier: Core covers 1 use case in 4 weeks, Extended covers 2 in 5 weeks, and Full covers 3 in 6 weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a Blueprint cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Core is R45,000, Extended is R55,000 and Full is R65,000, all fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you build or integrate the assistant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We design it, and your team or agency builds it. Building or integrating the assistant, model selection and final production prompts are out of scope. We can recommend build partners."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms do you design for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our designs are platform-agnostic and work with any LLM or chatbot platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the design tested?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every Blueprint includes internal walkthrough testing with 3 to 5 of your staff, followed by one revision round."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens at handover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We walk your team through the developer handover pack in a 90-minute handover, and you get 2 weeks of email support afterwards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an Audit fee count toward a Blueprint?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Audit fee is credited in full toward a Blueprint signed within 30 days of the Audit readout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a Blueprint and an AI Experience Audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Blueprint designs how an AI experience should behave. The Audit diagnoses an existing experience and tells you what to fix first. If your assistant is already live, an Audit is often the better starting point."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="has-mcta">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr" data-header>
+  <div class="hdr__in wrap">
+    <a class="brand" href="./">NeuraUX</a>
+    <nav class="hdr__nav" aria-label="Main">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--solid btn--sm hdr__cta" href="contact.html">Book a free call</a>
+    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu</button>
+  </div>
+  <div class="menu" id="menu" hidden data-menu>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--solid btn--lg" href="contact.html">Book a free 30-min call</a>
+      <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za">Email NeuraUX</a>
+      <p class="meta">Johannesburg, Gauteng. Working with clients across South Africa.</p>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="svc-hero wrap" id="top" aria-labelledby="page-title" data-sticky-after>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="services.html">Services</a></li><li aria-current="page">Conversation Design Blueprint</li></ol></nav>
+    <h1 class="svc-hero__h enter" id="page-title">Design the experience around your AI, not just the AI itself.</h1>
+    <div class="svc-hero__grid">
+      <div class="enter" style="--d:140ms">
+        <p class="lead">The Conversation Design Blueprint is a build-ready design for customer-facing AI experiences that need to be clear, trustworthy, recoverable and ready for your developers to implement.</p>
+        <div class="actions actions--stack">
+          <a class="btn btn--solid btn--lg" href="#request" data-track="blueprint_cta_click">Discuss a Blueprint</a>
+          <a class="btn btn--line btn--lg" href="#includes">See what's included</a>
+        </div>
+      </div>
+      <div class="pricetag pricetag--range enter" style="--d:240ms">
+        <span class="price__n">R45,000 to R65,000</span>
+        <p class="pricetag__meta">Fixed price per tier, excluding VAT. 4 to 6 weeks, for 1 to 3 use cases.</p>
+        <p class="pricetag__fit">NeuraUX designs the experience. Your team or agency builds it.</p>
+      </div>
+    </div>
+
+    <h2 class="sr-only">AI experience architecture, conceptual model</h2>
+    <div class="arch" data-reveal>
+      <div class="mk">
+        <div class="mk__bar"><span class="mk__title">AI experience architecture</span><span class="mk__spacer"></span><span class="mk__label">Conceptual model</span></div>
+        <div class="arch__body explore" style="margin-top:0;padding:20px" data-explorer data-track="blueprint_demo_interaction">
+          <ol class="arch__nodes" aria-label="Experience layers, select one to see the design question">
+            <li><button class="anode" type="button" data-pick="user" aria-controls="ar-user" aria-pressed="false">User</button></li>
+            <li><button class="anode" type="button" data-pick="intent" aria-controls="ar-intent" aria-pressed="false">Intent</button></li>
+            <li><button class="anode" type="button" data-pick="conversation" aria-controls="ar-conversation" aria-pressed="false">Conversation</button></li>
+            <li><button class="anode" type="button" data-pick="response" aria-controls="ar-response" aria-pressed="false">AI response</button></li>
+            <li><button class="anode" type="button" data-pick="confidence" aria-controls="ar-confidence" aria-pressed="true">Confidence</button></li>
+            <li><button class="anode" type="button" data-pick="decision" aria-controls="ar-decision" aria-pressed="false">Decision</button></li>
+            <li><button class="anode" type="button" data-pick="recovery" aria-controls="ar-recovery" aria-pressed="false">Recovery</button></li>
+            <li><button class="anode anode--human" type="button" data-pick="handoff" aria-controls="ar-handoff" aria-pressed="false">Human handoff</button></li>
+            <li><button class="anode" type="button" data-pick="outcome" aria-controls="ar-outcome" aria-pressed="false">Outcome</button></li>
+          </ol>
+          <div>
+            <div class="xpanel" id="ar-user"><h3>User</h3><p class="q">Who is asking, and what state are they in?</p><dl><div><dt>Example</dt><dd>A signed-in customer, on mobile, two days before a payment is due.</dd></div><div><dt>Failure state</dt><dd>Every user gets the same script, whatever their situation.</dd></div><div><dt>UX principle</dt><dd><b>Design for context.</b> Use what you already know, and ask for what you don't.</dd></div></dl></div>
+            <div class="xpanel" id="ar-intent"><h3>Intent</h3><p class="q">What is the user actually trying to achieve?</p><dl><div><dt>Example</dt><dd>“Change my payment date” could mean a loan instalment or a debit order.</dd></div><div><dt>Failure state</dt><dd>The assistant picks one meaning and carries on.</dd></div><div><dt>UX principle</dt><dd><b>Clarify before acting</b> when one wrong guess is expensive.</dd></div></dl></div>
+            <div class="xpanel" id="ar-conversation"><h3>Conversation</h3><p class="q">What is the shortest safe path to done?</p><dl><div><dt>Example</dt><dd>Three turns: clarify, confirm, complete.</dd></div><div><dt>Failure state</dt><dd>Long scripts that ask for things the system already knows.</dd></div><div><dt>UX principle</dt><dd><b>Every turn earns its place.</b></dd></div></dl></div>
+            <div class="xpanel" id="ar-response"><h3>AI response</h3><p class="q">What should it say, and what should it never say?</p><dl><div><dt>Example</dt><dd>Plain, specific language in your brand voice, with one action per message.</dd></div><div><dt>Failure state</dt><dd>Long, hedged answers, or a guarantee the business can't keep.</dd></div><div><dt>UX principle</dt><dd><b>Define the voice and the no-go list</b> before writing prompts.</dd></div></dl></div>
+            <div class="xpanel" id="ar-confidence"><h3>Confidence</h3><p class="q">How should the experience communicate uncertainty?</p><dl><div><dt>Example</dt><dd>“Fees depend on your product, so I can't confirm yours here. A consultant can.”</dd></div><div><dt>Failure state</dt><dd>Estimates and facts sound exactly the same.</dd></div><div><dt>UX principle</dt><dd><b>Say what's certain, what isn't, and where to check.</b></dd></div></dl></div>
+            <div class="xpanel" id="ar-decision"><h3>Decision</h3><p class="q">Should the AI answer, ask, explain, or hand over?</p><dl><div><dt>Example</dt><dd>A legal-opinion question routes to an advice boundary, not an answer.</dd></div><div><dt>Failure state</dt><dd>The AI answers everything because it can.</dd></div><div><dt>UX principle</dt><dd><b>AI should know when to answer, when to ask, when to explain, and when to hand over.</b></dd></div></dl></div>
+            <div class="xpanel" id="ar-recovery"><h3>Recovery</h3><p class="q">What happens after a misunderstanding?</p><dl><div><dt>Example</dt><dd>After two misses: offer the likely options, or a person.</dd></div><div><dt>Failure state</dt><dd>“Sorry, I didn't understand,” on repeat.</dd></div><div><dt>UX principle</dt><dd><b>Never leave a dead end.</b></dd></div></dl></div>
+            <div class="xpanel" id="ar-handoff"><h3>Human handoff</h3><p class="q">When should AI stop and a person take over?</p><dl><div><dt>Example</dt><dd>Identity checks, complaints, or anything that reads like advice.</dd></div><div><dt>Failure state</dt><dd>The customer has to repeat everything to the person.</dd></div><div><dt>UX principle</dt><dd><b>Hand over with context</b>, and tell the user what happens next.</dd></div></dl></div>
+            <div class="xpanel" id="ar-outcome"><h3>Outcome</h3><p class="q">Did the user get what they came for, safely?</p><dl><div><dt>Example</dt><dd>The payment date is changed, confirmed, and the customer knows when it applies.</dd></div><div><dt>Failure state</dt><dd>The conversation ends, but the task didn't.</dd></div><div><dt>UX principle</dt><dd><b>Define success per use case</b> before design starts.</dd></div></dl></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section wrap rule-top" id="problem" aria-labelledby="problem-title">
+    <h2 class="sec-h" id="problem-title">Building an AI system is only half the work.</h2>
+    <p class="lead sec-lead">Models determine what an AI can produce. Experience design determines how people understand, trust and interact with what it produces.</p>
+    <div class="versus">
+      <div><h3>The model</h3><ul><li>Capabilities</li></ul></div>
+      <div><h3>The experience</h3><ul><li>Behaviour</li><li>Context</li><li>Boundaries</li><li>Recovery</li><li>Handoff</li><li>Outcomes</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Who needs it -->
+  <section class="section section--raised" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <h2 class="sec-h" id="who-title">A Blueprint is for you if...</h2>
+      <ul class="pgrid">
+        <li><h3>You're preparing to launch a customer-facing AI experience.</h3></li>
+        <li><h3>You have a prototype, but don't know how the conversation should behave.</h3></li>
+        <li><h3>Several teams are designing different parts of the experience.</h3></li>
+        <li><h3>Your developers need clear interaction rules.</h3></li>
+        <li><h3>You need to define edge cases before development.</h3></li>
+        <li><h3>Your AI needs safe escalation and human handoff.</h3></li>
+        <li><h3>Product, design, compliance and engineering need one shared design.</h3></li>
+        <li><h3>You want the experience tested with real staff before it's built.</h3></li>
+        <li><h3>An Audit found structural problems that need designing, not patching.</h3></li>
+      </ul>
+      <p class="meta" style="margin-top:24px">Already live and not sure what's wrong? Start with an <a class="link" href="ai-experience-audit.html">AI Experience Audit</a>.</p>
+    </div>
+  </section>
+
+  <!-- What we design -->
+  <section class="section wrap" id="includes" aria-labelledby="inc-title">
+    <h2 class="sec-h" id="inc-title">What we design.</h2>
+    <p class="lead sec-lead">Each Blueprint covers one to three use cases, designed end to end.</p>
+    <ul class="fit4">
+      <li><h3>Conversation architecture</h3><p>The major journeys and states, mapped.</p></li>
+      <li><h3>Intents and detailed flows</h3><p>What the system needs to understand, and every path through it.</p></li>
+      <li><h3>Persona and voice</h3><p>How the assistant responds in different contexts.</p></li>
+      <li><h3>Uncertainty and sources</h3><p>What happens when the AI isn't confident, and how it shows where answers come from.</p></li>
+      <li><h3>Recovery</h3><p>What happens after a misunderstanding.</p></li>
+      <li><h3>Boundaries</h3><p>Advice boundaries, AI disclosure and POPIA consent: where the AI should stop.</p></li>
+      <li><h3>Human handoff</h3><p>When and how a person enters the experience, and what they receive.</p></li>
+      <li><h3>Edge cases</h3><p>Behaviour for the situations happy-path flows don't cover.</p></li>
+    </ul>
+  </section>
+
+  <!-- Real blueprint -->
+  <section class="section section--raised" id="example" aria-labelledby="ex-title">
+    <div class="wrap">
+      <h2 class="sec-h" id="ex-title">What a Blueprint flow looks like.</h2>
+      <p class="lead sec-lead">One intent, designed end to end. Select a step to see the reasoning behind it.</p>
+      <span class="illus">Conceptual workflow, illustrative.</span>
+      <div class="bflow-wrap explore" data-explorer data-track="blueprint_demo_interaction">
+        <ol class="bflow" aria-label="Flow: change payment date">
+          <li><button class="fnode" type="button" data-pick="intent" aria-controls="fl-intent" aria-pressed="true"><small>User intent</small>“Change payment date”</button></li>
+          <li><button class="fnode fnode--decision" type="button" data-pick="context" aria-controls="fl-context" aria-pressed="false"><small>Check context</small>Is the account type known?</button>
+            <p class="fbranch">Yes: go straight to Validate. No: ask.</p></li>
+          <li><button class="fnode" type="button" data-pick="clarify" aria-controls="fl-clarify" aria-pressed="false"><small>No</small>Ask a clarifying question</button></li>
+          <li><button class="fnode" type="button" data-pick="reply" aria-controls="fl-reply" aria-pressed="false"><small>User response</small>“My loan instalment”</button></li>
+          <li><button class="fnode" type="button" data-pick="validate" aria-controls="fl-validate" aria-pressed="false"><small>Validate</small>Is the new date allowed?</button></li>
+          <li><button class="fnode" type="button" data-pick="action" aria-controls="fl-action" aria-pressed="false"><small>Action</small>Change the date</button></li>
+          <li><button class="fnode" type="button" data-pick="confirm" aria-controls="fl-confirm" aria-pressed="false"><small>Confirm</small>Say what changed and when it applies</button>
+            <p class="fbranch">At any step: if uncertain, hand over.</p></li>
+          <li><button class="fnode fnode--human" type="button" data-pick="handoff" aria-controls="fl-handoff" aria-pressed="false"><small>If uncertain</small>Human handoff</button></li>
+        </ol>
+        <div>
+          <div class="xpanel" id="fl-intent"><h3>User intent</h3><p class="q">Recognise the request, but don't act on it yet.</p><dl><div><dt>Design reasoning</dt><dd>“Payment date” means different things across products. Acting on the wrong one is costly to undo.</dd></div><div><dt>Rule for developers</dt><dd>Classify the intent, then route to the context check. No answer at this step.</dd></div></dl></div>
+          <div class="xpanel" id="fl-context"><h3>Check context</h3><p class="q">Use what the system already knows before asking.</p><dl><div><dt>Design reasoning</dt><dd>Signed-in customers with one product shouldn't be asked a question they've already answered.</dd></div><div><dt>Rule for developers</dt><dd>If the customer has exactly one eligible product, skip to Validate. Otherwise, ask.</dd></div></dl></div>
+          <div class="xpanel" id="fl-clarify"><h3>Ask a clarifying question</h3><p class="q">One question, with the likely answers offered.</p><dl><div><dt>Response</dt><dd><b>“I can help with that. Which payment do you mean: your monthly loan instalment, or another scheduled payment?”</b></dd></div><div><dt>Failure it prevents</dt><dd>A confident answer about the wrong product.</dd></div></dl></div>
+          <div class="xpanel" id="fl-reply"><h3>User response</h3><p class="q">Expect messy answers, and design for them.</p><dl><div><dt>Design reasoning</dt><dd>Users reply with “the car one”, “both” or a new question. Each needs a defined path.</dd></div><div><dt>Edge cases</dt><dd>“Both” loops through each payment. A new question parks this flow and offers to return.</dd></div></dl></div>
+          <div class="xpanel" id="fl-validate"><h3>Validate</h3><p class="q">Check the rules before promising anything.</p><dl><div><dt>Design reasoning</dt><dd>Some dates aren't allowed, or a change may already be pending.</dd></div><div><dt>Response if not allowed</dt><dd>Explain why in one sentence, and offer the nearest allowed dates.</dd></div></dl></div>
+          <div class="xpanel" id="fl-action"><h3>Action</h3><p class="q">Ask once, then act.</p><dl><div><dt>Design reasoning</dt><dd>A single confirmation before a change to money protects the customer without slowing them down.</dd></div><div><dt>Rule for developers</dt><dd>Never change a payment without an explicit yes in the same conversation.</dd></div></dl></div>
+          <div class="xpanel" id="fl-confirm"><h3>Confirm</h3><p class="q">Close the loop clearly.</p><dl><div><dt>Response</dt><dd><b>“Done. Your loan instalment will now go off on the 25th, starting next month.”</b></dd></div><div><dt>Failure it prevents</dt><dd>Customers calling to check whether the change worked.</dd></div></dl></div>
+          <div class="xpanel" id="fl-handoff"><h3>Human handoff</h3><p class="q">When confidence drops, a person takes over, with context.</p><dl><div><dt>Triggers</dt><dd>Two failed clarifications, a disputed payment, or signs of financial hardship.</dd></div><div><dt>Rule for developers</dt><dd>Pass the conversation, intent and product to the agent. The customer never repeats themselves.</dd></div></dl></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Without / with -->
+  <section class="section wrap" id="difference" aria-labelledby="ww-title">
+    <h2 class="sec-h" id="ww-title">What changes with a Blueprint.</h2>
+    <div class="ww">
+      <div><h3>Without a Blueprint</h3><ul><li>Scattered conversations</li><li>Unclear ownership</li><li>Missing edge cases</li><li>Inconsistent AI responses</li><li>Unclear handoff</li></ul></div>
+      <div><h3>With a Blueprint</h3><ul><li>Defined journeys</li><li>Explicit behaviour</li><li>Clear boundaries</li><li>Designed recovery</li><li>Documented handoff</li><li>Build-ready direction for your developers</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Deliverables -->
+  <section class="section section--raised" id="deliverables" aria-labelledby="deliv-title">
+    <div class="wrap">
+      <h2 class="sec-h" id="deliv-title">What you receive.</h2>
+      <span class="illus">Illustrative excerpts.</span>
+      <div class="artefacts">
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Persona and voice</span></div><div class="artefact__body"><h3>How the assistant sounds</h3><div class="spec"><div class="spec__row"><span class="mk__k">Is</span><span class="mk__v">Calm, plain, specific</span></div><div class="spec__row"><span class="mk__k">Never</span><span class="mk__v">Jokes about money, or promises outcomes</span></div></div></div></article>
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Architecture and flows</span></div><div class="artefact__body"><h3>Every path, mapped</h3><p>Journeys, states and detailed flows for each use case, including edge cases.</p></div></article>
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Trust patterns</span></div><div class="artefact__body"><h3>Disclosure, uncertainty, sources</h3><p>Plus advice boundaries and POPIA consent, written as reusable patterns.</p></div></article>
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Human handoff</span></div><div class="artefact__body"><h3>When and how a person takes over</h3><div class="spec"><div class="spec__row"><span class="mk__k">Trigger</span><span class="mk__v">Two failed clarifications</span></div><div class="spec__row"><span class="mk__k">Passes</span><span class="mk__v">Conversation, intent, product</span></div></div></div></article>
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Sample dialogues</span></div><div class="artefact__body"><h3>15 to 25 per use case</h3><div class="tx"><div class="tx__row tx__row--fix"><span class="tx__who">Assistant</span><span class="tx__said">Which payment do you mean?</span></div></div></div></article>
+        <article class="mk artefact"><div class="mk__bar"><span class="mk__title">Developer handover pack</span></div><div class="artefact__body"><h3>Build from it directly</h3><p>Rules, flows and copy your developers or agency can implement, walked through in a 90-minute handover.</p></div></article>
+      </div>
+      <p class="meta" style="margin-top:24px">Out of scope: building or integrating the assistant, model selection, and final production prompts.</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section wrap" id="process" aria-labelledby="process-title">
+    <h2 class="sec-h" id="process-title">How a Blueprint runs.</h2>
+    <ol class="steps" data-reveal>
+      <li class="step"><div><h3>Discover</h3><p>Users, business goals, constraints and what your AI can already do.</p></div></li>
+      <li class="step"><div><h3>Map</h3><p>Journeys, intents and experience states for each use case.</p></div></li>
+      <li class="step"><div><h3>Design</h3><p>Persona, flows, trust patterns, boundaries, recovery and handoff. A midpoint review keeps you involved.</p></div></li>
+      <li class="step"><div><h3>Walkthrough test</h3><p>Internal walkthrough testing with 3 to 5 of your staff, focused on edge cases and failure conditions.</p></div></li>
+      <li class="step"><div><h3>Revise</h3><p>One revision round based on what testing shows.</p></div></li>
+      <li class="step"><div><h3>Hand over</h3><p>The developer handover pack, a 90-minute handover, and 2 weeks of email support.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- Validation bridge -->
+  <section class="strip" aria-labelledby="bridge-title">
+    <div class="wrap section--sm cols">
+      <h2 class="h3" id="bridge-title">Before it goes live, test it.</h2>
+      <div>
+        <p class="body">A Blueprint defines what the experience should do. Testing shows whether people understand it. That's why every Blueprint includes walkthrough testing with your staff and a revision round.</p>
+        <p class="body">Once it's live, an <a class="link" href="ai-experience-audit.html">AI Experience Audit</a> can check how it holds up in real conversations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data -->
+  <section class="section--sm wrap" id="data" aria-labelledby="data-title">
+    <div class="cols">
+      <h2 class="h3" id="data-title">Careful with your data.</h2>
+      <ul class="ticks ticks--compact">
+        <li>POPIA-aware design, including consent in the conversation itself</li>
+        <li>Anonymised transcripts only, where we use them</li>
+        <li>Business-tier AI tools, never used to train models on client data</li>
+        <li>Every deliverable reviewed and signed off by the lead designer</li>
+        <li>Project files deleted 90 days after close, and NDAs on request</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section wrap rule-top" id="pricing" aria-labelledby="price-title" data-track-view="blueprint_pricing_view" data-sticky-hide>
+    <h2 class="sec-h" id="price-title">Three tiers. Fixed prices.</h2>
+    <div class="pricebox">
+      <div>
+        <h3 class="h3">Conversation Design Blueprint</h3>
+        <p class="price" style="margin-top:20px"><span class="price__from">From</span><span class="price__n">R45,000</span><span class="price__vat">Fixed price per tier, excluding VAT. Payment 40 / 30 / 30.</span></p>
+        <div class="actions actions--stack"><a class="btn btn--solid btn--lg" href="#request" data-track="blueprint_cta_click">Discuss a Blueprint</a></div>
+        <p class="meta" style="margin-top:16px">Your tier depends on the number of use cases. Scope and price are agreed in writing before we start.</p>
+      </div>
+      <div>
+        <table class="tiers">
+          <caption class="sr-only">Blueprint tiers, prices excluding VAT</caption>
+          <thead><tr><th scope="col">Tier</th><th scope="col">Use cases</th><th scope="col">Timeline</th><th scope="col">Price</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Core</th><td>1</td><td>4 weeks</td><td class="tiers__p">R45,000</td></tr>
+            <tr><th scope="row">Extended</th><td>2</td><td>5 weeks</td><td class="tiers__p">R55,000</td></tr>
+            <tr><th scope="row">Full</th><td>3</td><td>6 weeks</td><td class="tiers__p">R65,000</td></tr>
+          </tbody>
+        </table>
+        <p class="offer__note" style="margin-top:16px">Every tier includes walkthrough testing with 3 to 5 staff, one revision round, a 90-minute handover and 2 weeks of email support.</p>
+        <p class="offer__note" style="margin-top:8px"><b>Audit credit:</b> the Audit fee is credited in full toward a Blueprint signed within 30 days of the readout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section section--raised" id="compare" aria-labelledby="compare-title">
+    <div class="wrap">
+      <h2 class="sec-h" id="compare-title">Blueprint or Audit?</h2>
+      <div class="compare-wrap">
+        <table class="compare">
+          <caption class="sr-only">AI Experience Audit compared with the Conversation Design Blueprint</caption>
+          <thead><tr><th scope="col">Compare</th><th scope="col"><a class="link" href="ai-experience-audit.html">AI Experience Audit</a></th><th scope="col"><a class="link" href="ai-experience-blueprint.html">Conversation Design Blueprint</a></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Main question</th><td>What's wrong?</td><td class="is-here">What should we design?</td></tr>
+            <tr><th scope="row">Best for</th><td>Existing AI experiences, live or in testing</td><td class="is-here">New or evolving AI experiences</td></tr>
+            <tr><th scope="row">Primary output</th><td>Severity-ranked findings, a scorecard and a fix list</td><td class="is-here">Conversation architecture, flows and a developer handover pack</td></tr>
+            <tr><th scope="row">Conversations</th><td>Analysed: up to 200, anonymised</td><td class="is-here">Designed: 15 to 25 sample dialogues per use case</td></tr>
+            <tr><th scope="row">Failure states</th><td>Identified</td><td class="is-here">Designed</td></tr>
+            <tr><th scope="row">Human handoff</th><td>Evaluated</td><td class="is-here">Defined</td></tr>
+            <tr><th scope="row">Testing</th><td>Up to 15 core tasks walked through</td><td class="is-here">Walkthrough testing with 3 to 5 of your staff</td></tr>
+            <tr><th scope="row">Typical duration</th><td>2 weeks</td><td class="is-here">4 to 6 weeks</td></tr>
+            <tr><th scope="row">Price, excluding VAT</th><td class="num">R18,500</td><td class="num is-here">R45,000 to R65,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="meta" style="margin-top:16px">The Audit fee is credited in full toward a Blueprint signed within 30 days of the readout.</p>
+      <p class="meta" style="margin-top:20px">Not sure which one you need? <a class="link" href="contact.html" data-track="blueprint_comparison_click">Book a free 30-min call</a> or read about the <a class="link" href="ai-experience-audit.html" data-track="blueprint_comparison_click">AI Experience Audit</a>.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section wrap" id="faq" aria-labelledby="faq-title">
+    <div class="cols">
+      <h2 class="sec-h" id="faq-title">Questions about the Blueprint.</h2>
+      <div class="faq">
+        <details data-track-open="blueprint_faq_open"><summary>What is a Conversation Design Blueprint?</summary><p>A build-ready design for a customer-facing AI assistant: persona and voice, conversation architecture and detailed flows including edge cases, trust patterns, human handoff, sample dialogues and a developer handover pack.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>How long does a Blueprint take?</summary><p>Four to six weeks, depending on the tier: Core covers 1 use case in 4 weeks, Extended covers 2 in 5 weeks, and Full covers 3 in 6 weeks.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>How much does a Blueprint cost?</summary><p>Core is R45,000, Extended is R55,000 and Full is R65,000, all fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>Do you build or integrate the assistant?</summary><p>No. We design it, and your team or agency builds it. Building or integrating the assistant, model selection and final production prompts are out of scope. We can recommend build partners.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>Which platforms do you design for?</summary><p>Our designs are platform-agnostic and work with any LLM or chatbot platform.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>How is the design tested?</summary><p>Every Blueprint includes internal walkthrough testing with 3 to 5 of your staff, followed by one revision round.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>What happens at handover?</summary><p>We walk your team through the developer handover pack in a 90-minute handover, and you get 2 weeks of email support afterwards.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>Can an Audit fee count toward a Blueprint?</summary><p>Yes. The Audit fee is credited in full toward a Blueprint signed within 30 days of the Audit readout.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>What is the difference between a Blueprint and an AI Experience Audit?</summary><p>The Blueprint designs how an AI experience should behave. The Audit diagnoses an existing experience and tells you what to fix first. If your assistant is already live, an Audit is often the better starting point.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request -->
+  <section class="section section--raised" id="request" aria-labelledby="req-title" data-sticky-hide>
+    <div class="wrap qform-wrap">
+      <div>
+        <h2 class="sec-h" id="req-title">Know what your AI experience should do before you build it.</h2>
+        <p class="lead sec-lead">Tell us what you're designing and where you are. We'll reply within one working day with the right tier, or tell you if a Blueprint isn't the right fit.</p>
+        <p class="meta" style="margin-top:20px">Prefer to talk first? <a class="link" href="contact.html?enquiry=blueprint">Book a free 30-min call</a>. Or <a class="link" href="#compare" data-track="blueprint_comparison_click">compare the Blueprint and the Audit</a>.</p>
+      </div>
+      <form class="form" data-qualify="blueprint" data-subject="Conversation Design Blueprint request" action="mailto:hello@neuraux.co.za" method="post" enctype="text/plain" novalidate aria-labelledby="req-title">
+        <p class="form__note">This opens your email app with your answers filled in. Nothing is sent until you press send.</p>
+        <div class="cols2">
+          <div class="field" data-q="Name"><label for="b-name">Name</label><input id="b-name" name="name" type="text" autocomplete="name" required data-err="Please add your name." aria-describedby="b-name-err"><span class="err" id="b-name-err" aria-live="polite"></span></div>
+          <div class="field" data-q="Work email"><label for="b-email">Work email</label><input id="b-email" name="email" type="email" autocomplete="email" required data-err="Please add a valid work email." aria-describedby="b-email-err"><span class="err" id="b-email-err" aria-live="polite"></span></div>
+          <div class="field" data-q="Company"><label for="b-company">Company</label><input id="b-company" name="company" type="text" autocomplete="organization" required data-err="Please add your company." aria-describedby="b-company-err"><span class="err" id="b-company-err" aria-live="polite"></span></div>
+          <div class="field" data-q="Role"><label for="b-role">Role <span class="hint">(optional)</span></label><input id="b-role" name="role" type="text" autocomplete="organization-title"></div>
+        </div>
+        <div class="field" data-q="What are you designing"><label for="b-what">What are you designing?</label><input id="b-what" name="designing" type="text" placeholder="For example, a client intake assistant"></div>
+        <fieldset class="field" data-q="Current stage">
+          <legend>Current stage</legend>
+          <div class="choices">
+            <div class="choice"><input type="radio" name="stage" id="b-s1" value="Early concept"><label for="b-s1">Early concept</label></div>
+            <div class="choice"><input type="radio" name="stage" id="b-s2" value="Prototype"><label for="b-s2">Prototype</label></div>
+            <div class="choice"><input type="radio" name="stage" id="b-s3" value="Development"><label for="b-s3">Development</label></div>
+            <div class="choice"><input type="radio" name="stage" id="b-s4" value="Pilot"><label for="b-s4">Pilot</label></div>
+            <div class="choice"><input type="radio" name="stage" id="b-s5" value="Live"><label for="b-s5">Live</label></div>
+          </div>
+        </fieldset>
+        <fieldset class="field" data-q="Help needed with">
+          <legend>What do you need help with? <span class="hint">(choose any)</span></legend>
+          <div class="choices">
+            <div class="choice"><input type="checkbox" id="b-n1" value="Conversation architecture"><label for="b-n1">Conversation architecture</label></div>
+            <div class="choice"><input type="checkbox" id="b-n2" value="AI behaviour"><label for="b-n2">AI behaviour</label></div>
+            <div class="choice"><input type="checkbox" id="b-n3" value="Edge cases"><label for="b-n3">Edge cases</label></div>
+            <div class="choice"><input type="checkbox" id="b-n4" value="Human handoff"><label for="b-n4">Human handoff</label></div>
+            <div class="choice"><input type="checkbox" id="b-n5" value="UX writing"><label for="b-n5">UX writing</label></div>
+            <div class="choice"><input type="checkbox" id="b-n6" value="Full Blueprint"><label for="b-n6">The full Blueprint</label></div>
+          </div>
+        </fieldset>
+        <div class="field" data-q="Timeline">
+          <label for="b-when">Timeline</label>
+          <select id="b-when" name="timeline"><option value="">Choose one</option><option>As soon as possible</option><option>Within a month</option><option>In 1 to 3 months</option><option>Just exploring</option></select>
+        </div>
+        <div class="field" data-q="Message"><label for="b-msg">Anything else we should know? <span class="hint">(optional)</span></label><textarea id="b-msg" name="message" rows="4"></textarea></div>
+        <div class="actions"><button class="btn btn--solid btn--lg" type="submit">Discuss a Blueprint</button></div>
+        <p class="form__status" data-status role="status"></p>
+        <p class="form__note">We use your details only to respond to your enquiry. See our <a class="link" href="privacy.html">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="mcta" data-sticky-cta aria-hidden="true">
+    <a class="btn btn--solid" href="#request" tabindex="-1" data-track="blueprint_cta_click">Discuss a Blueprint</a>
+    <a class="btn btn--line" href="contact.html?enquiry=blueprint" tabindex="-1">Book a free 30-min call</a>
+  </div>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="brand" href="./">NeuraUX</a>
+        <p>AI experiences people actually trust.</p>
+        <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="ai-experience-audit.html">AI Experience Audit</a></li>
+          <li><a href="ai-experience-blueprint.html">Conversation Design Blueprint</a></li>
+          <li><a href="agencies.html">For Agencies</a></li>
+          <li><a href="how-we-work.html">How We Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:hello@neuraux.co.za">hello@neuraux.co.za</a></li>
+          <!-- LinkedIn: add the real URL here once supplied -->
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__legal">
+      <p>NeuraUX uses AI tools to speed up analysis and drafting. Every deliverable is reviewed and signed off by the lead designer, client data is never used to train AI models, and we handle personal information in line with POPIA.</p>
+      <p>&copy; 2026 NeuraUX.<!-- TODO: registered company name and registration number, e.g. " NeuraUX (Pty) Ltd, Reg. No. ..." --></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
