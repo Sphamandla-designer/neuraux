@@ -1,515 +1,702 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-ZA">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeuraUX — Experience Design &amp; Intelligent Automation Studio, Johannesburg</title>
-<meta name="description" content="NeuraUX is an experience design and intelligent automation studio helping growing South African businesses in Johannesburg and Gauteng design better customer experiences, automate everyday workflows, and use conversational AI where it genuinely helps. Projects from R12,500.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NeuraUX | AI UX &amp; Conversation Design in Johannesburg, South Africa</title>
+<meta name="description" content="NeuraUX designs and audits AI assistants for South African law firms, fintechs and regulated businesses, with conversation design, UX and compliance built into the experience.">
+<link rel="canonical" href="https://www.neuraux.co.za/">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NeuraUX">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://www.neuraux.co.za/">
+<meta property="og:title" content="NeuraUX | AI UX &amp; Conversation Design in Johannesburg, South Africa">
+<meta property="og:description" content="AI experience audits and conversation design for South African law firms, fintechs and regulated businesses.">
+<meta property="og:image" content="https://www.neuraux.co.za/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NeuraUX. AI experiences people actually trust.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NeuraUX | AI UX &amp; Conversation Design in Johannesburg, South Africa">
+<meta name="twitter:description" content="AI experience audits and conversation design for South African law firms, fintechs and regulated businesses.">
+<meta name="twitter:image" content="https://www.neuraux.co.za/assets/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.neuraux.co.za/#website",
+      "url": "https://www.neuraux.co.za/",
+      "name": "NeuraUX",
+      "inLanguage": "en-ZA",
+      "publisher": { "@id": "https://www.neuraux.co.za/#org" }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.neuraux.co.za/#org",
+      "name": "NeuraUX",
+      "url": "https://www.neuraux.co.za/",
+      "email": "hello@neuraux.co.za",
+      "slogan": "AI experiences people actually trust.",
+      "description": "AI UX and conversation design consultancy based in Gauteng, South Africa. NeuraUX audits and designs AI assistants for law firms and fintechs so they answer clearly, fail gracefully and stay compliant.",
+      "founder": { "@type": "Person", "name": "Sphamandla", "jobTitle": "Product Designer and AI UX Strategist" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Johannesburg", "addressRegion": "Gauteng", "addressCountry": "ZA" },
+      "areaServed": { "@type": "Country", "name": "South Africa" },
+      "knowsAbout": ["AI UX design", "Conversation design", "AI experience audits", "AI assistant design", "POPIA-aware UX"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "AI Experience Audit",
+          "price": "18500",
+          "priceCurrency": "ZAR",
+          "priceSpecification": { "@type": "PriceSpecification", "price": "18500", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false },
+          "url": "https://www.neuraux.co.za/services.html#audit"
+        },
+        {
+          "@type": "Offer",
+          "name": "Conversation Design Blueprint",
+          "priceSpecification": { "@type": "PriceSpecification", "minPrice": "45000", "maxPrice": "65000", "priceCurrency": "ZAR", "valueAddedTaxIncluded": false },
+          "url": "https://www.neuraux.co.za/services.html#blueprint"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="page-progress" aria-hidden="true"><span id="pageBar"></span></div>
-
-<!-- ================================================== NAV -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="wordmark" href="#top" aria-label="NeuraUX home">Neura<span>UX</span></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#friction">The Problem</a>
-      <a href="#better">The Fix</a>
-      <a href="#process">Process</a>
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#about">About</a>
+<header class="hdr" data-header>
+  <div class="hdr__in wrap">
+    <a class="brand" href="./" aria-current="page">NeuraUX</a>
+    <nav class="hdr__nav" aria-label="Main">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-    <a class="btn btn-small" href="#final-cta" data-magnet>Book Discovery Call</a>
+    <a class="btn btn--solid btn--sm hdr__cta" href="contact.html?enquiry=audit">Book an Audit</a>
+    <button class="hdr__toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu</button>
+  </div>
+  <div class="menu" id="menu" hidden data-menu>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__foot">
+      <a class="btn btn--solid btn--lg" href="contact.html?enquiry=audit">Book an Audit</a>
+      <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za">Email NeuraUX</a>
+      <p class="meta">Johannesburg, Gauteng. Working with clients across South Africa.</p>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
-<!-- ================================================== HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow reveal">Experience Design &amp; Intelligent Automation Studio · South Africa</p>
-      <h1 class="reveal" data-delay="1">Better customer experiences.<br>Smarter workflows.<br><em>AI that actually helps.</em></h1>
-      <p class="lede reveal" data-delay="2">NeuraUX designs better customer experiences — and builds the intelligent systems behind them. We help growing South African businesses, typically 10 to 200 people, make it easier for customers to get answers and easier for teams to keep up.</p>
-      <div class="hero-meta reveal" data-delay="2">
-        <span>Experience Design</span>
-        <span>Conversational AI</span>
-        <span>Intelligent Automation</span>
+  <!-- Hero -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 class="h-hero hero__h1" id="hero-title">
+        <span class="ln enter">AI assistants can work.</span>
+        <span class="ln quiet enter" style="--d:120ms">The experience can still fail.</span>
+      </h1>
+      <p class="lead hero__lead enter" style="--d:260ms">NeuraUX audits and designs AI experiences for South African law firms, fintechs and regulated businesses, so users know what the AI can do, what it can't do, and what happens when it gets it wrong.</p>
+      <div class="actions actions--stack hero__actions enter" style="--d:380ms">
+        <a class="btn btn--solid btn--lg" href="contact.html?enquiry=audit">Book an AI Experience Audit</a>
+        <a class="btn btn--line btn--lg" href="#stage">See how the Audit works</a>
       </div>
-      <div class="hero-ctas reveal" data-delay="3">
-        <a class="btn" href="#final-cta" data-magnet>Book Discovery Call</a>
-        <a class="btn-secondary" href="https://wa.me/27614920117?text=Hi%20NeuraUX%20%E2%80%94%20I%27d%20like%20to%20talk%20about%20our%20customer%20experience%20and%20automation." target="_blank" rel="noopener">Chat on WhatsApp<span class="arrow">→</span></a>
-      </div>
-      <div class="hero-meta reveal" data-delay="3">
-        <span>Built for 10–200 person teams</span>
-        <span>Channels · Web + WhatsApp</span>
-        <span>Projects from R12,500</span>
-      </div>
+      <p class="meta hero__where enter" style="--d:460ms">AI UX and conversation design consultancy based in Johannesburg, Gauteng. Working with clients across South Africa.</p>
     </div>
+  </section>
 
-    <!-- Live product composition -->
-    <div class="hero-stage" id="heroStage" aria-hidden="true">
-
-      <!-- WhatsApp AI conversation -->
-      <div class="glass wa hm-wa" data-speed="0.12">
-        <div class="wa-head">
-          <span class="wa-avatar">N</span>
-          <div><b>AI WhatsApp · Enquiries</b><small><i class="online"></i>Online</small></div>
+  <!-- Audit stage: hero visual and scroll story -->
+  <section class="stage" id="stage" aria-labelledby="stage-title" data-stage>
+    <div class="stage__sticky wrap">
+      <div class="stage__head">
+        <div class="stage__caption" aria-live="polite">
+          <h2 class="sr-only" id="stage-title">How an AI Experience Audit reads</h2>
+          <p data-stage-caption><strong>Sample audit interface</strong>Illustrative example, not a client result. One AI experience, one channel, reviewed end to end.</p>
         </div>
-        <div class="wa-body">
-          <div class="wa-msg in">Hi, is the Bryanston unit still available?<time>21:42</time></div>
-          <div class="wa-msg out">It is — would Saturday work for a viewing?<time>21:42 ✓✓</time></div>
-          <div class="wa-msg in">Saturday morning if possible.<time>21:43</time></div>
-          <div class="wa-event">Booked · Sat 09:30 ✓</div>
-          <div class="wa-msg out">Perfect — directions sent. See you Saturday.<time>21:43 ✓✓</time></div>
-        </div>
+        <ol class="stage__steps" aria-label="Audit story">
+          <li><button type="button" data-goto="0" aria-current="step">Overview</button></li>
+          <li><button type="button" data-goto="1">Scorecard</button></li>
+          <li><button type="button" data-goto="2">Finding</button></li>
+          <li><button type="button" data-goto="3">Design response</button></li>
+        </ol>
       </div>
 
-      <!-- Ops dashboard -->
-      <div class="mock hm-ops" data-speed="0.05">
-        <div class="mock-bar"><i></i><i></i><i></i><span class="mock-url">neuraux.co.za/ops · live view</span></div>
-        <div class="ops">
-          <div class="kpis">
-            <div class="kpi"><small>Enquiries today</small><b>38</b><span class="delta up">▲ all answered</span></div>
-            <div class="kpi"><small>First reply</small><b>42s</b><span class="delta up">was 4 hrs</span></div>
-            <div class="kpi"><small>Bookings</small><b>11</b><span class="delta up">▲ 3 today</span></div>
+      <div class="stage__frame" data-stage-frame>
+        <figure class="mk audit enter-frame" style="--d:520ms" data-step="0" data-audit aria-label="Sample AI Experience Audit interface, illustrative example">
+          <div class="mk__bar">
+            <div class="mk__crumbs">
+              <span class="hide-sm">Audit</span><i class="hide-sm" aria-hidden="true">/</i>
+              <span class="hide-sm">Client AI assistant</span><i class="hide-sm" aria-hidden="true">/</i>
+              <b>Customer onboarding</b>
+            </div>
+            <span class="mk__spacer"></span>
+            <span class="mk__label">Illustrative example</span>
+            <span class="mk__ctrl" aria-hidden="true">Share readout</span>
           </div>
-          <div class="ops-chart">
-            <svg viewBox="0 0 320 78" preserveAspectRatio="none">
-              <path class="area" d="M0,64 C26,60 40,48 64,46 C90,44 102,50 126,42 C150,34 164,38 188,30 C212,23 228,26 252,19 C274,13 296,15 320,8 L320,78 L0,78 Z"/>
-              <path class="line" d="M0,64 C26,60 40,48 64,46 C90,44 102,50 126,42 C150,34 164,38 188,30 C212,23 228,26 252,19 C274,13 296,15 320,8"/>
-            </svg>
-            <div class="chart-meta"><span>Enquiries handled without the inbox</span><span class="tick">Mon → Sun</span></div>
+          <div class="audit__tabs" aria-hidden="true">
+            <span class="is-active">Overview</span><span>Scorecard</span><span>Findings</span><span>Fix list</span><span>Readout</span>
           </div>
-          <div class="ops-rows">
-            <div class="row"><span class="dot ok"></span><em>Enquiry captured · website form</em><span class="tag auto">Auto</span></div>
-            <div class="row"><span class="dot ok"></span><em>Qualified · budget + timing</em><span class="tag auto">Auto</span></div>
-            <div class="row"><span class="dot warn"></span><em>Complex case · escalated</em><span class="tag human">Human</span></div>
+          <div class="audit__body">
+            <div class="audit__side">
+              <dl>
+                <div><dt>Experience</dt><dd>Onboarding assistant</dd></div>
+                <div><dt>Channel</dt><dd>Web chat</dd></div>
+                <div><dt>Transcripts</dt><dd>Up to 200, anonymised</dd></div>
+                <div><dt>Core tasks</dt><dd>Up to 15, end to end</dd></div>
+              </dl>
+              <h3>Review areas</h3>
+              <ul>
+                <li class="is-on">Trust and transparency</li>
+                <li class="is-on">Failures and recovery</li>
+                <li>Tone and brand voice</li>
+                <li>Compliance-sensitive moments</li>
+              </ul>
+            </div>
+
+            <div class="audit__score">
+              <div class="audit__total">
+                <div>
+                  <div class="mk__k">Overall experience</div>
+                  <div class="audit__total-n tnum" aria-label="21 out of 30">21<small>/30</small></div>
+                </div>
+                <span class="mk__k">Six dimensions, 1 to 5 each</span>
+              </div>
+              <ul class="audit__rows">
+                <li class="audit__row"><b>Clarity</b><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">4/5</span></li>
+                <li class="audit__row"><b>Trust</b><div class="seg" data-score="3" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">3/5</span></li>
+                <li class="audit__row is-key"><b>Recovery</b><div class="seg" data-score="2" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">2/5</span></li>
+                <li class="audit__row"><b>Efficiency</b><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">4/5</span></li>
+                <li class="audit__row"><b>Tone</b><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">4/5</span></li>
+                <li class="audit__row"><b>Compliance safety</b><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="n">4/5</span></li>
+              </ul>
+            </div>
+
+            <div class="audit__finding">
+              <div class="audit__fhead">
+                <span class="audit__fid">Finding R-03</span>
+                <span class="mk__label">Recovery</span>
+                <span class="sev sev--high">High severity</span>
+              </div>
+              <p class="audit__ftitle">The assistant cannot answer this request, but does not explain why or provide a clear human route.</p>
+              <div class="audit__block audit__block--evidence">
+                <span class="mk__k">Evidence, anonymised transcript</span>
+                <div class="tx">
+                  <div class="tx__row"><span class="tx__who">User</span><span class="tx__said">I want to add my partner as a joint account holder.</span></div>
+                  <div class="tx__row tx__row--ai"><span class="tx__who">Assistant</span><span class="tx__said">Sorry, I can't help with that. Is there anything else I can help you with?</span></div>
+                </div>
+              </div>
+              <div class="audit__rec">
+                <span class="mk__k">Recommended response</span>
+                <ul class="chk">
+                  <li>Explain the limitation</li>
+                  <li>Offer a safe alternative</li>
+                  <li>Provide a human handoff</li>
+                </ul>
+                <div class="audit__redraft">
+                  <span class="mk__k">Redesigned response, draft</span>
+                  <p>I can't add a joint account holder in chat, because it needs identity checks for both of you. I can send the list of documents you'll need, or connect you with a consultant now. Which would you prefer?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section wrap" id="problem" aria-labelledby="problem-title">
+    <h2 class="h2 problem__head" id="problem-title">Trust is won or lost when AI goes wrong.</h2>
+    <p class="lead" style="margin-top:24px">Most AI assistants are built to function, not to be understood. In legal and financial services, a confident wrong answer is more than frustrating. It's a risk.</p>
+
+    <ol class="moments" aria-label="Three moments that decide trust">
+      <li class="moment" data-reveal>
+        <div>
+          <p class="h-display moment__say">It doesn't understand.</p>
+          <p class="moment__note">The request is ambiguous. A designed assistant asks the right clarifying question instead of guessing.</p>
+        </div>
+        <div class="mk spec" role="group" aria-label="Pattern: clarification. Illustrative example.">
+          <div class="mk__bar"><span class="mk__title">Ambiguous request</span><span class="mk__spacer"></span><span class="mk__label">Fintech onboarding</span></div>
+          <div class="spec__row"><span class="mk__k">User says</span><span class="mk__v">I need to change my details.</span></div>
+          <div class="spec__row spec__row--bad"><span class="mk__k">Without design</span><span class="mk__v">Your details have been updated.</span></div>
+          <div class="spec__row spec__row--good"><span class="mk__k">Designed response</span><span class="mk__v">Which details would you like to change: your contact details, your banking details, or your ID document?</span></div>
+          <div class="spec__row"><span class="mk__k">Pattern</span><span class="mk__v">Clarify before acting</span></div>
+        </div>
+      </li>
+      <li class="moment" data-reveal>
+        <div>
+          <p class="h-display moment__say">It doesn't know.</p>
+          <p class="moment__note">The answer isn't certain. A designed assistant says so, shows where its information comes from, and offers a way to confirm.</p>
+        </div>
+        <div class="mk spec" role="group" aria-label="Pattern: uncertainty and sources. Illustrative example.">
+          <div class="mk__bar"><span class="mk__title">Uncertain answer</span><span class="mk__spacer"></span><span class="mk__label">Account query</span></div>
+          <div class="spec__row"><span class="mk__k">User says</span><span class="mk__v">What's the fee if I withdraw early?</span></div>
+          <div class="spec__row spec__row--bad"><span class="mk__k">Without design</span><span class="mk__v">The early withdrawal fee is 2%.</span></div>
+          <div class="spec__row spec__row--good"><span class="mk__k">Designed response</span><span class="mk__v">Fees depend on your product, so I can't confirm yours here. The standard fees are in the published fee schedule. A consultant can confirm the exact amount for your account.</span></div>
+          <div class="spec__row"><span class="mk__k">Pattern</span><span class="mk__v">State confidence, cite the source, offer a check</span></div>
+        </div>
+      </li>
+      <li class="moment" data-reveal>
+        <div>
+          <p class="h-display moment__say">It shouldn't answer.</p>
+          <p class="moment__note">The question crosses an advice boundary. A designed assistant holds the line, stays helpful, and hands over to a person.</p>
+        </div>
+        <div class="mk spec" role="group" aria-label="Pattern: advice boundary and human handoff. Illustrative example.">
+          <div class="mk__bar"><span class="mk__title">Sensitive request</span><span class="mk__spacer"></span><span class="mk__label">Law firm intake</span></div>
+          <div class="spec__row"><span class="mk__k">User says</span><span class="mk__v">Should I sign the settlement agreement?</span></div>
+          <div class="spec__row spec__row--bad"><span class="mk__k">Without design</span><span class="mk__v">Yes, that sounds like a fair offer.</span></div>
+          <div class="spec__row spec__row--good"><span class="mk__k">Designed response</span><span class="mk__v">I can't advise you on whether to sign. I can explain what a settlement agreement usually covers, or arrange a call with your attorney.</span></div>
+          <div class="spec__row"><span class="mk__k">Pattern</span><span class="mk__v">Safe boundary, then human handoff</span></div>
+        </div>
+      </li>
+    </ol>
+    <div class="moments__more">
+      <p>The same applies when a user needs a person, or shares something sensitive. NeuraUX designs for those moments.</p>
+      <a class="btn btn--line" href="#scorecard">See how we diagnose it</a>
+    </div>
+  </section>
+
+  <!-- What we design -->
+  <section class="section section--raised" id="design" aria-labelledby="design-title">
+    <div class="wrap">
+      <h2 class="h2" id="design-title">We design what happens between the question and the answer.</h2>
+      <p class="lead" style="margin-top:24px">NeuraUX doesn't build AI. We design how it behaves, and work alongside your developers or build agency to get it right.</p>
+
+      <div class="journey" data-journey>
+        <span class="journey__track" aria-hidden="true"></span>
+        <span class="journey__fill" aria-hidden="true"></span>
+        <ol class="journey__list" aria-label="The experience layer, from question to outcome">
+          <li class="journey__node is-on"><span class="journey__name">User</span><p class="journey__q">Who is asking, and what state are they in?</p><span class="journey__out">Designed in: user context</span></li>
+          <li class="journey__node is-on"><span class="journey__name">Intent</span><p class="journey__q">What is the user actually trying to achieve?</p><span class="journey__out">Designed in: intent map</span></li>
+          <li class="journey__node is-on"><span class="journey__name">AI response</span><p class="journey__q">What should it say, and what should it never say?</p><span class="journey__out">Designed in: response guidelines</span></li>
+          <li class="journey__node is-on"><span class="journey__name">Confidence</span><p class="journey__q">How certain should the system be before responding?</p><span class="journey__out">Designed in: uncertainty patterns</span></li>
+          <li class="journey__node is-on"><span class="journey__name">Recovery</span><p class="journey__q">What happens when the AI cannot safely continue?</p><span class="journey__out">Designed in: recovery flows</span></li>
+          <li class="journey__node journey__node--human is-on"><span class="journey__name">Human handoff</span><p class="journey__q">When should a person take over, and what do they receive?</p><span class="journey__out">Designed in: handoff rules</span></li>
+          <li class="journey__node is-on"><span class="journey__name">Outcome</span><p class="journey__q">Did the user get what they came for, safely?</p><span class="journey__out">Designed in: success criteria</span></li>
+        </ol>
+      </div>
+
+      <div class="practice">
+        <div>
+          <h3 class="h3">The method</h3>
+          <p class="body" style="margin-top:12px">Five areas of practice, applied to every assistant we audit or design.</p>
+        </div>
+        <ul class="practice__list">
+          <li><h3>Audit methodology</h3><p>A six-dimension scorecard, evidence from real conversations, and findings ranked by severity.</p></li>
+          <li><h3>Conversation design</h3><p>Persona, voice, conversation architecture and detailed flows, including edge cases.</p></li>
+          <li><h3>Failure-state design</h3><p>What the assistant does when it doesn't understand, doesn't know, or shouldn't answer.</p></li>
+          <li><h3>Human handoff</h3><p>When a person takes over, how the user is told, and what context travels with them.</p></li>
+          <li><h3>Compliance-sensitive UX</h3><p>Advice boundaries, AI disclosure, disclaimers and POPIA consent, designed in from the first flow.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scorecard -->
+  <section class="section wrap" id="scorecard" aria-labelledby="score-title">
+    <div class="score-sec__head">
+      <h2 class="h2" id="score-title">Six dimensions. <span class="quiet">One clear picture of the experience.</span></h2>
+      <p class="lead">Every Audit scores your AI assistant on each dimension from 1 to 5, for a total out of 30, with evidence from real conversations behind every score.</p>
+    </div>
+
+    <div class="mk scorecard" data-scorecard>
+      <div class="scorecard__main">
+        <div class="scorecard__top">
+          <div>
+            <span class="mk__label">Illustrative Audit</span>
+            <p class="mk__k" style="margin-top:12px">Overall experience</p>
+          </div>
+          <p class="scorecard__total"><span class="sr-only">Total 21 out of 30</span><span aria-hidden="true"><span data-total>21</span><small>/30</small></span></p>
+        </div>
+        <p class="sr-only">Select a dimension to read what it measures.</p>
+        <ul class="scorecard__dims">
+          <li><button class="dim" type="button" aria-pressed="false" data-dim="clarity"><span><span class="dim__name">Clarity</span><span class="dim__sev sev sev--low">Low priority</span></span><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">4<small>/5</small></span></button></li>
+          <li><button class="dim" type="button" aria-pressed="false" data-dim="trust"><span><span class="dim__name">Trust</span><span class="dim__sev sev sev--med">Medium priority</span></span><div class="seg" data-score="3" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">3<small>/5</small></span></button></li>
+          <li><button class="dim" type="button" aria-pressed="true" data-dim="recovery"><span><span class="dim__name">Recovery</span><span class="dim__sev sev sev--high">High priority</span></span><div class="seg" data-score="2" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">2<small>/5</small></span></button></li>
+          <li><button class="dim" type="button" aria-pressed="false" data-dim="efficiency"><span><span class="dim__name">Efficiency</span><span class="dim__sev sev sev--low">Low priority</span></span><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">4<small>/5</small></span></button></li>
+          <li><button class="dim" type="button" aria-pressed="false" data-dim="tone"><span><span class="dim__name">Tone</span><span class="dim__sev sev sev--low">Low priority</span></span><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">4<small>/5</small></span></button></li>
+          <li><button class="dim" type="button" aria-pressed="false" data-dim="compliance"><span><span class="dim__name">Compliance safety</span><span class="dim__sev sev sev--low">Low priority</span></span><div class="seg" data-score="4" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><span class="dim__n">4<small>/5</small></span></button></li>
+        </ul>
+      </div>
+      <div class="scorecard__aside" aria-live="polite">
+        <div class="scorecard__detail" data-dim-detail>
+          <span class="mk__k" data-dim-score>Scored 2 of 5</span>
+          <h3 style="margin-top:8px" data-dim-name>Recovery</h3>
+          <p class="def" style="margin-top:12px" data-dim-def>It handles failure without dead ends.</p>
+          <dl style="margin-top:24px">
+            <div><dt>What we look at</dt><dd data-dim-look>Fallback messages, repeated misunderstandings, and whether there is always a route to a person.</dd></div>
+            <div><dt>Typical question</dt><dd data-dim-q>When the assistant fails, does the user know what to do next?</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="scorecard__foot">
+      <p class="meta">Illustrative scores. Not a client result.</p>
+      <a class="btn btn--line" href="#sample-audit">See the Audit</a>
+    </div>
+  </section>
+
+  <!-- Sample audit -->
+  <section class="section section--raised" id="sample-audit" aria-labelledby="sample-title">
+    <div class="wrap">
+      <h2 class="h2" id="sample-title">Here is what a finding looks like.</h2>
+      <p class="lead" style="margin-top:24px">Every finding in an Audit report has the same shape: the problem, the evidence, why it matters, and what to do instead.</p>
+
+      <article class="mk sheet sample" aria-labelledby="sample-finding">
+        <div class="mk__bar">
+          <span class="mk__title">Sample audit</span>
+          <span class="mk__spacer"></span>
+          <span class="mk__label">Illustrative example, not a client result</span>
+        </div>
+        <div class="sheet__grid">
+          <aside class="sheet__meta" aria-label="Finding details">
+            <dl>
+              <div><dt class="mk__k">Finding</dt><dd>C-02</dd></div>
+              <div><dt class="mk__k">Dimension</dt><dd>Compliance safety</dd></div>
+              <div><dt class="mk__k">Severity</dt><dd><span class="sev sev--high">High</span></dd></div>
+              <div><dt class="mk__k">Fix type</dt><dd>Structural change</dd></div>
+              <div><dt class="mk__k">Context</dt><dd>Fintech, product questions</dd></div>
+            </dl>
+          </aside>
+          <div class="sheet__main">
+            <div class="sheet__sec">
+              <h3 id="sample-finding">Problem</h3>
+              <p class="sheet__problem">The assistant gives a vague answer when the user asks a sensitive question.</p>
+            </div>
+            <div class="sheet__sec">
+              <h3>Evidence</h3>
+              <div class="tx">
+                <div class="tx__row"><span class="tx__who">User</span><span class="tx__said">Is this savings product a good place for my retirement money?</span></div>
+                <div class="tx__row tx__row--ai"><span class="tx__who">Assistant</span><span class="tx__said">It's a popular choice with competitive returns. Many customers use it for long-term goals.</span></div>
+              </div>
+            </div>
+            <div class="sheet__two">
+              <div class="sheet__sec">
+                <h3>Why it matters</h3>
+                <p class="sheet__text">The user cannot tell whether the answer is safe to rely on. It reads like a recommendation, without the boundary, context or disclosure a financial advice question needs.</p>
+              </div>
+              <div class="sheet__sec">
+                <h3>Recommended UX response</h3>
+                <ul class="chk">
+                  <li>State the limitation</li>
+                  <li>Explain what can be answered</li>
+                  <li>Provide a safe alternative</li>
+                  <li>Offer human escalation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sheet__sec">
+              <h3>Redesigned response, draft</h3>
+              <div class="tx"><div class="tx__row tx__row--fix"><span class="tx__who">Assistant</span><span class="tx__said">I can't tell you whether it suits your retirement, because that depends on your circumstances and is financial advice. I can explain how the product works and what it costs, or book a call with a qualified adviser.</span></div></div>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
+    </div>
+  </section>
 
-      <!-- CRM pipeline card -->
-      <div class="glass hm-crm" data-speed="0.09">
-        <div class="gl-head"><b>CRM · Pipeline</b><span class="tag auto">Auto</span></div>
-        <div class="crm-card">
-          <div class="crm-name"><span class="avatar">TM</span><div><b>Thandi M. · Bryanston</b><small>New lead → qualified</small></div></div>
-          <div class="crm-facts"><span>Budget R2m · cash</span><span>Timing · this month</span></div>
-          <div class="crm-assign">Assigned → Consultant <i>with full context</i></div>
+  <!-- Services -->
+  <section class="section wrap" id="services" aria-labelledby="services-title">
+    <div class="svc-intro">
+      <h2 class="h2" id="services-title">Diagnose first. <span class="quiet">Then design it right.</span></h2>
+      <p class="body">Most clients start with an Audit to find out what's really happening, then move to a Blueprint to fix it properly. You can also start with a Blueprint if you're building something new.</p>
+    </div>
+
+    <article class="offer" id="audit" aria-labelledby="audit-title">
+      <div>
+        <h3 class="offer__name" id="audit-title">AI Experience Audit</h3>
+        <p class="offer__tag">Know exactly what's failing your users, and what to fix first.</p>
+        <p class="price"><span class="price__n">R18,500</span><span class="price__vat">Fixed price, excluding VAT. 50% on signing, 50% on delivery.</span></p>
+        <ul class="facts" aria-label="Scope">
+          <li>2 weeks</li><li>One AI experience</li><li>One channel</li>
+        </ul>
+        <div class="offer__cta"><a class="btn btn--solid btn--lg" href="contact.html?enquiry=audit">Book an Audit</a></div>
+      </div>
+      <div class="offer__detail">
+        <div>
+          <h4 class="cap">What we review</h4>
+          <ul class="ticks">
+            <li>Up to 200 anonymised conversations</li>
+            <li>Up to 15 core tasks, end to end</li>
+            <li>Trust and transparency: AI disclosure, confidence, sources, human handoff</li>
+            <li>Failures and recovery</li>
+            <li>Tone and brand voice</li>
+            <li>Compliance-sensitive moments: advice boundaries, POPIA, disclaimers</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="cap">What you receive</h4>
+          <ul class="ticks">
+            <li>A report with findings ranked by severity, each with evidence and a fix</li>
+            <li>A scorecard across six dimensions</li>
+            <li>A prioritised fix list, separating quick wins from structural changes</li>
+            <li>A recorded readout</li>
+          </ul>
         </div>
       </div>
+    </article>
 
-      <!-- Calendar card -->
-      <div class="glass hm-cal" data-speed="0.16">
-        <div class="gl-head"><b>Calendar · Week</b></div>
-        <div class="cal">
-          <div class="cal-day"><small>Thu</small><span></span></div>
-          <div class="cal-day"><small>Fri</small><span></span><span></span></div>
-          <div class="cal-day on"><small>Sat</small><span class="hot">09:30 · Viewing</span></div>
+    <article class="offer" id="blueprint" aria-labelledby="blueprint-title">
+      <div>
+        <h3 class="offer__name" id="blueprint-title">Conversation Design Blueprint</h3>
+        <p class="offer__tag">A build-ready design for an AI assistant your team can implement directly.</p>
+        <p class="price"><span class="price__from">Three tiers, from</span><span class="price__n">R45,000</span><span class="price__vat">Fixed price, excluding VAT. Payment 40 / 30 / 30.</span></p>
+        <div class="offer__cta"><a class="btn btn--line btn--lg" href="contact.html?enquiry=blueprint">Discuss a Blueprint</a></div>
+      </div>
+      <div class="offer__detail" style="grid-template-columns:1fr">
+        <div>
+          <table class="tiers">
+            <caption class="sr-only">Blueprint tiers, prices excluding VAT</caption>
+            <thead><tr><th scope="col">Tier</th><th scope="col">Use cases</th><th scope="col">Timeline</th><th scope="col">Price</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Core</th><td>1</td><td>4 weeks</td><td class="tiers__p">R45,000</td></tr>
+              <tr><th scope="row">Extended</th><td>2</td><td>5 weeks</td><td class="tiers__p">R55,000</td></tr>
+              <tr><th scope="row">Full</th><td>3</td><td>6 weeks</td><td class="tiers__p">R65,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="offer__detail" style="gap:40px">
+          <div>
+            <h4 class="cap">What we design</h4>
+            <ul class="ticks">
+              <li>Assistant persona and voice</li>
+              <li>Conversation architecture and detailed flows, including edge cases</li>
+              <li>Trust patterns: disclosure, uncertainty, sources, advice boundaries, POPIA consent</li>
+              <li>Human handoff</li>
+              <li>15 to 25 sample dialogues per use case</li>
+              <li>A developer handover pack</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="cap">Included</h4>
+            <ul class="ticks">
+              <li>Walkthrough testing with 3 to 5 of your staff</li>
+              <li>One revision round</li>
+              <li>A 90-minute handover</li>
+              <li>2 weeks of email support</li>
+            </ul>
+          </div>
+        </div>
+        <p class="split-line">NeuraUX designs the experience. <span>Your team or agency builds it.</span></p>
+      </div>
+    </article>
+
+    <div class="terms">
+      <div><h3>Pricing</h3><p>All prices are fixed and exclude VAT. Scope and price are agreed in writing before we start.</p></div>
+      <div><h3>Payment terms</h3><p>Audit: 50% on signing, 50% on delivery. Blueprint: 40 / 30 / 30.</p></div>
+      <div class="credit"><h3>Audit credit</h3><p>The Audit fee is credited in full toward a Blueprint signed within 30 days of the readout.</p></div>
+    </div>
+    <p class="meta" style="margin-top:24px">Building AI for clients? <a class="link" href="#agencies">See the white-label partnership for agencies</a>.</p>
+  </section>
+
+  <!-- Human judgment -->
+  <section class="section section--raised" id="ai-use" aria-labelledby="ai-title">
+    <div class="wrap judge">
+      <div>
+        <h2 class="h2" id="ai-title">AI helps us work faster. <span class="quiet">Humans make the decisions.</span></h2>
+        <p class="body" style="margin-top:24px">We use AI tools to speed up analysis and drafting, such as sorting transcripts, spotting patterns, and generating first drafts. AI does not make design decisions or sign off on work. Every deliverable is reviewed and approved by a senior designer, and NeuraUX is fully accountable for everything we deliver.</p>
+        <ol class="chain" aria-label="How work moves from analysis to deliverable">
+          <li><span>AI-assisted analysis</span><span>Tool</span></li>
+          <li><span>Pattern identification</span><span>Tool, checked by a designer</span></li>
+          <li class="is-human"><span>Human design judgment</span><span>Designer</span></li>
+          <li class="is-human"><span>Review</span><span>Senior designer</span></li>
+          <li class="is-human"><span>Final deliverable</span><span>NeuraUX, accountable</span></li>
+        </ol>
+      </div>
+      <figure class="mk notes" data-reveal aria-label="Illustrative working notes with human review decisions" >
+        <div class="mk__bar">
+          <span class="mk__title">Working notes</span>
+          <span class="mk__crumbs"><span>Transcript batch 3</span></span>
+          <span class="mk__spacer"></span>
+          <span class="mk__label">Illustrative</span>
+        </div>
+        <div class="notes__row">
+          <div class="notes__draft"><span class="notes__src">AI draft observation</span><p>Users repeat their question after the first fallback message.</p></div>
+          <span class="review review--ok">Approved</span>
+        </div>
+        <div class="notes__row">
+          <div class="notes__draft"><span class="notes__src">AI draft observation</span><p>Tone feels too formal during onboarding.</p></div>
+          <span class="review">Needs evidence</span>
+        </div>
+        <div class="notes__row">
+          <div class="notes__draft"><span class="notes__src">AI draft observation</span><p>The fallback message ends the conversation with no next step.</p></div>
+          <span class="review">Needs redesign</span>
+        </div>
+        <div class="notes__row">
+          <div class="notes__draft"><span class="notes__src">AI draft observation</span><p>The assistant names a specific product when asked where to invest.</p></div>
+          <span class="review review--flag">Compliance-sensitive</span>
+        </div>
+        <div class="notes__foot"><span class="mk__k">Reviewed by a senior designer</span><span class="mk__k">Nothing ships without sign-off</span></div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Trust and data -->
+  <section class="section wrap" id="data" aria-labelledby="data-title">
+    <h2 class="h2" id="data-title">Designed for sensitive conversations.</h2>
+    <p class="lead" style="margin-top:24px">Your transcripts contain your clients' words. We treat them that way.</p>
+    <ul class="trust">
+      <li><h3>POPIA-aware design</h3><p>Personal information is handled in line with POPIA, and consent is designed into the conversation itself.</p></li>
+      <li><h3>Human review</h3><p>Every deliverable is reviewed and approved by a senior designer before it reaches you.</p></li>
+      <li><h3>Anonymised transcripts</h3><p>We work with anonymised transcripts only, with no unredacted personal information.</p></li>
+      <li><h3>Business-tier AI tools</h3><p>Business-tier AI tools only, never used to train models on client data.</p></li>
+      <li><h3>90-day file deletion</h3><p>Project files are deleted 90 days after the project closes.</p></li>
+      <li><h3>NDAs available</h3><p>We sign NDAs on request. If your policies restrict AI use, we agree in writing which parts of the work stay AI-free.</p></li>
+    </ul>
+    <div class="trust-foot">
+      <p>Have a policy question before we start? Ask it on the first call.</p>
+      <a class="btn btn--line" href="contact.html">Talk through your AI experience</a>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section section--raised" id="industries" aria-labelledby="ind-title">
+    <div class="wrap">
+      <h2 class="h2" id="ind-title">For South African law firms and financial services.</h2>
+      <div class="inds">
+        <article class="ind" aria-labelledby="ind-law">
+          <h3 class="ind__name" id="ind-law">Law firms</h3>
+          <div class="ind__cols">
+            <div><h4 class="cap">AI experiences for</h4><ul><li>Client intake</li><li>FAQs and policy questions</li><li>Matter status</li><li>Document requests</li></ul></div>
+            <div><h4 class="cap">Design concerns</h4><ul><li>Legal advice boundaries</li><li>Confidentiality</li><li>POPIA</li><li>Safe escalation</li></ul></div>
+          </div>
+          <div class="mk" role="group" aria-label="Illustrative intake flow for a law firm">
+            <div class="mk__bar"><span class="mk__title">Intake flow</span><span class="mk__spacer"></span><span class="mk__label">Illustrative</span></div>
+            <ol class="path">
+              <li><span class="mk__k">Client question</span><span class="mk__v">“Do I have a case against my landlord?”</span></li>
+              <li><span class="mk__k">Intent detection</span><span class="mk__v">Legal opinion request, tenancy matter</span></li>
+              <li><span class="mk__k">Safe information</span><span class="mk__v">General information on how tenancy disputes work</span></li>
+              <li class="is-boundary"><span class="mk__k">Advice boundary</span><span class="mk__v">No view on the merits of the case</span></li>
+              <li class="is-human"><span class="mk__k">Human escalation</span><span class="mk__v">Consultation with an attorney, intake details passed on with consent</span></li>
+            </ol>
+          </div>
+        </article>
+        <article class="ind" aria-labelledby="ind-fin">
+          <h3 class="ind__name" id="ind-fin">Fintech and financial services</h3>
+          <div class="ind__cols">
+            <div><h4 class="cap">AI experiences for</h4><ul><li>Onboarding</li><li>Account queries</li><li>Product questions</li><li>Customer support</li></ul></div>
+            <div><h4 class="cap">Design concerns</h4><ul><li>Financial advice boundaries</li><li>Consent and POPIA</li><li>Trust at moments involving money</li><li>High-stakes decisions</li></ul></div>
+          </div>
+          <div class="mk" role="group" aria-label="Illustrative support flow for a fintech">
+            <div class="mk__bar"><span class="mk__title">Support flow</span><span class="mk__spacer"></span><span class="mk__label">Illustrative</span></div>
+            <ol class="path">
+              <li><span class="mk__k">Customer question</span><span class="mk__v">“Why was my payment declined?”</span></li>
+              <li><span class="mk__k">Account context</span><span class="mk__v">Signed-in customer, card payment</span></li>
+              <li class="is-boundary"><span class="mk__k">Verification boundary</span><span class="mk__v">Account details only after verification</span></li>
+              <li><span class="mk__k">Safe response</span><span class="mk__v">Common reasons, and what the customer can check</span></li>
+              <li class="is-human"><span class="mk__k">Human support</span><span class="mk__v">Routed to support with the conversation attached</span></li>
+            </ol>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="section wrap" id="process" aria-labelledby="process-title">
+    <h2 class="h2" id="process-title">Clear scope. Human judgment. <span class="quiet">Careful with your data.</span></h2>
+    <ol class="steps" data-reveal>
+      <li class="step"><div><h3>Discovery call</h3><p>30 minutes, free. We recommend the right starting point.</p></div></li>
+      <li class="step"><div><h3>Proposal</h3><p>A written scope, timeline and fixed price, usually within 2 working days.</p></div></li>
+      <li class="step"><div><h3>Kickoff</h3><p>Access, data handling, and one point of contact.</p></div></li>
+      <li class="step"><div><h3>The work</h3><p>Regular check-ins, plus a midpoint review on Blueprints.</p></div></li>
+      <li class="step"><div><h3>Readout and handover</h3><p>We walk your team through everything. The recording is yours to keep.</p></div></li>
+      <li class="step"><div><h3>Support</h3><p>Two weeks of email support after every Blueprint.</p></div></li>
+    </ol>
+    <p class="meta" style="margin-top:8px"><a class="link" href="how-we-work.html">Read how we work, how we use AI, and how we protect your data</a></p>
+  </section>
+
+  <!-- Agencies -->
+  <section class="agency section" id="agencies" aria-labelledby="agency-title">
+    <div class="wrap agency__grid">
+      <div>
+        <div class="agency__rule" aria-hidden="true"></div>
+        <p class="meta" style="margin-bottom:16px">For AI automation agencies and software studios</p>
+        <h2 class="h2" id="agency-title"><span class="ln">You build the AI.</span> <span class="ln quiet">We make it feel right.</span></h2>
+        <p class="lead agency__sub">NeuraUX is the conversation design team your agency doesn't have to hire. We work white-label, under your brand, inside your projects.</p>
+        <div class="actions actions--stack agency__actions">
+          <a class="btn btn--silver btn--lg" href="contact.html?enquiry=agency">Book a partner call</a>
+          <a class="btn btn--line btn--lg" href="agencies.html">How the partnership works</a>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <!-- Live ticker -->
-  <div class="ticker reveal" data-delay="3" aria-hidden="true">
-    <span class="ticker-dot"></span>
-    <span id="tickerText">Enquiry captured from website form</span>
-  </div>
-  <p class="hero-turn reveal" data-delay="3">But for most businesses, this loop is <em>broken</em> ↓</p>
-</section>
-
-<!-- ================================================== 01 FRICTION -->
-<section class="friction" id="friction">
-  <div class="section-head narrow">
-    <p class="eyebrow reveal">01 · The invisible friction</p>
-    <h2 class="reveal" data-delay="1">Your business probably isn't broken.<br><em>It's interrupted.</em></h2>
-    <p class="lede reveal" data-delay="2">Every enquiry passes through hands, inboxes and spreadsheets before a customer hears back. Nothing looks broken — but the customer feels every gap.</p>
-    <p class="hint reveal" data-delay="2">Hover each step to see where the time goes.</p>
-  </div>
-
-  <div class="friction-stage reveal" data-delay="1">
-    <svg class="friction-wire" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,20 H1200" pathLength="100"/>
-    </svg>
-    <div class="friction-track" id="frictionTrack">
-      <button class="f-step" data-reveal-note="Waiting"><small>Stop 1</small><b>Website form</b><p>Enquiry submitted, no one assigned</p><span class="f-delay">+2h 40m</span></button>
-      <button class="f-step" data-reveal-note="Missed enquiries"><small>Stop 2</small><b>Shared inbox</b><p>Seen, but not actioned</p><span class="f-delay">+6h</span></button>
-      <button class="f-step" data-reveal-note="Lost opportunities"><small>Stop 3</small><b>WhatsApp</b><p>Answered after hours</p><span class="f-delay">+14h</span></button>
-      <button class="f-step" data-reveal-note="Duplicate data"><small>Stop 4</small><b>Spreadsheet</b><p>Re-typed by hand</p><span class="f-delay">Daily</span></button>
-      <button class="f-step" data-reveal-note="Manual work"><small>Stop 5</small><b>Manager</b><p>Chases updates across three tools</p><span class="f-delay">Weekly</span></button>
-    </div>
-    <p class="friction-caption" id="frictionCaption">One enquiry. Watch it stall at every stop.</p>
-    <p class="friction-stat reveal" data-delay="2">4 handovers · 0 owners · 5 disconnected records</p>
-  </div>
-
-  <p class="section-turn reveal">Now imagine the same journey — <em>connected</em> ↓</p>
-</section>
-
-<!-- ================================================== 02 BETTER -->
-<section class="better" id="better">
-  <div class="section-head narrow">
-    <p class="eyebrow reveal">02 · Imagine better</p>
-    <h2 class="reveal" data-delay="1">The same journey.<br><em>One connected system.</em></h2>
-    <p class="lede reveal" data-delay="2">The customer asks once. The system answers, records, books and hands over — and your team only steps in where judgement matters.</p>
-  </div>
-
-  <div class="chain-stage reveal" data-delay="1">
-    <svg class="chain-wire" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
-      <path class="chain-path" d="M20,60 C120,60 140,30 240,30 C340,30 360,90 460,90 C560,90 580,40 640,40 C740,40 760,80 860,80 C960,80 980,45 1080,45 C1130,45 1160,60 1190,60" pathLength="100"/>
-      <path class="chain-flow" d="M20,60 C120,60 140,30 240,30 C340,30 360,90 460,90 C560,90 580,40 640,40 C740,40 760,80 860,80 C960,80 980,45 1080,45 C1130,45 1160,60 1190,60" pathLength="100"/>
-    </svg>
-    <div class="chain">
-      <span class="c-node">Customer</span>
-      <span class="c-node">Website</span>
-      <span class="c-node ai">AI</span>
-      <span class="c-node">CRM</span>
-      <span class="c-node">Calendar</span>
-      <span class="c-node">Team</span>
-      <span class="c-node">Customer</span>
-    </div>
-  </div>
-
-  <div class="metrics reveal" data-delay="2" id="metrics">
-    <p class="metrics-label">What changes, in your numbers</p>
-    <div class="metric-grid">
-      <div class="metric spotlight spotlight-violet">
-        <small>First reply</small>
-        <b id="replyMetric">4 hrs</b>
-        <p>4 hours → answered while it still matters</p>
-      </div>
-      <div class="metric">
-        <small>Internal handovers</small>
-        <b>One workflow</b>
-        <p>20 emails → every step owned and visible</p>
-      </div>
-      <div class="metric">
-        <small>Customer records</small>
-        <b>One system</b>
-        <p>7 spreadsheets → captured once, used everywhere</p>
-      </div>
-    </div>
-  </div>
-
-  <p class="section-turn reveal">Getting there is not a technology decision ↓</p>
-</section>
-
-<!-- ================================================== 03 PHILOSOPHY -->
-<section class="philosophy" id="philosophy">
-  <div class="section-head center">
-    <p class="eyebrow reveal">03 · Why NeuraUX</p>
-    <h2 class="reveal" data-delay="1">Technology isn't the first problem.<br><em>Experience is.</em></h2>
-    <p class="lede reveal" data-delay="2">Most companies bolt a chatbot onto a broken process and hope. We work the other way: understand the experience, improve the experience, then introduce AI — human-centred AI, never the other way around.</p>
-  </div>
-
-  <div class="pipeline reveal" data-delay="2">
-    <div class="pl-step"><small>Step 01</small><b>Understand</b><p>How customers and your team actually experience the business today.</p></div>
-    <span class="pl-wire"></span>
-    <div class="pl-step"><small>Step 02</small><b>Research</b><p>Evidence over opinion — real enquiries, real conversations, real numbers.</p></div>
-    <span class="pl-wire"></span>
-    <div class="pl-step"><small>Step 03</small><b>Design</b><p>A better journey, tested with real people before anything is built.</p></div>
-    <span class="pl-wire"></span>
-    <div class="pl-step ai"><small>Step 04</small><b>AI</b><p>Introduced only where it strengthens what already works.</p></div>
-    <span class="pl-wire"></span>
-    <div class="pl-step"><small>Step 05</small><b>Improve</b><p>Measured against your own numbers, and refined continuously.</p></div>
-  </div>
-
-  <p class="section-turn reveal">Here's how that plays out, week by week ↓</p>
-</section>
-
-<!-- ================================================== 04 PROCESS -->
-<section class="process" id="process">
-  <div class="section-head narrow">
-    <p class="eyebrow reveal">04 · Our process</p>
-    <h2 class="reveal" data-delay="1">One simple process,<br><em>start to finish.</em></h2>
-    <p class="lede reveal" data-delay="2">Every stage ends with something you can see, review and question — never a black box.</p>
-    <p class="hint reveal" data-delay="2">Click a stage to see what's inside.</p>
-  </div>
-
-  <div class="stages reveal" data-delay="1" id="stages">
-    <article class="stage open">
-      <button class="stage-head" aria-expanded="true">
-        <span class="stage-num">01</span><b>Discover</b><span class="chev">↓</span>
-      </button>
-      <div class="stage-body">
-        <p>We start by listening. We talk to your team and look at how customers already interact with your business — calls, WhatsApp messages, enquiries, everything.</p>
-        <p class="deliverable"><small>You get:</small> A clear picture of how customers move through your business</p>
-        <div class="tags"><span>Stakeholder interviews</span><span>Channel audit</span><span>Enquiry review</span></div>
-      </div>
-    </article>
-    <article class="stage">
-      <button class="stage-head" aria-expanded="false">
-        <span class="stage-num">02</span><b>Understand</b><span class="chev">↓</span>
-      </button>
-      <div class="stage-body">
-        <p>We turn what we learn into real customer insights — a clear view of where things break down, and why.</p>
-        <p class="deliverable"><small>You get:</small> Customer journey map</p>
-        <div class="tags"><span>Journey maps</span><span>Personas</span><span>Research findings</span></div>
-      </div>
-    </article>
-    <article class="stage">
-      <button class="stage-head" aria-expanded="false">
-        <span class="stage-num">03</span><b>Design</b><span class="chev">↓</span>
-      </button>
-      <div class="stage-body">
-        <p>We design a better way for customers to move through your business, and test it with real people before anything gets built.</p>
-        <p class="deliverable"><small>You get:</small> Working prototype</p>
-        <div class="tags"><span>Wireframes</span><span>Conversation design</span><span>User testing</span></div>
-      </div>
-    </article>
-    <article class="stage">
-      <button class="stage-head" aria-expanded="false">
-        <span class="stage-num">04</span><b>Build</b><span class="chev">↓</span>
-      </button>
-      <div class="stage-body">
-        <p>We build the tools and workflows — including AI, where it makes sense — so the improvements actually happen. A person is always kept in the loop.</p>
-        <p class="deliverable"><small>You get:</small> Live workflow or AI assistant</p>
-        <div class="tags"><span>AI assistants</span><span>Automation</span><span>Integrations</span></div>
-      </div>
-    </article>
-    <article class="stage">
-      <button class="stage-head" aria-expanded="false">
-        <span class="stage-num">05</span><b>Improve</b><span class="chev">↓</span>
-      </button>
-      <div class="stage-body">
-        <p>We track what's working against your own numbers — set before launch — and keep making it better.</p>
-        <p class="deliverable"><small>You get:</small> Dashboard + improvement roadmap</p>
-        <div class="tags"><span>Dashboards</span><span>Metrics</span><span>Improvement roadmap</span></div>
-      </div>
-    </article>
-  </div>
-
-  <p class="section-turn reveal">Three ways to start ↓</p>
-</section>
-
-<!-- ================================================== 05 SERVICES -->
-<section class="services" id="services">
-  <div class="section-head narrow">
-    <p class="eyebrow reveal">05 · Our services</p>
-    <h2 class="reveal" data-delay="1">Three ways <em>we can help.</em></h2>
-    <p class="lede reveal" data-delay="2">Pick a starting point based on the problem you feel most — respond faster, run smoother, or plan bigger.</p>
-    <p class="hint reveal" data-delay="2">Not sure where to start? The AI Experience Audit near the bottom of this page is built for exactly that.</p>
-  </div>
-
-  <div class="svc-grid">
-    <article class="svc reveal" id="svc-conversations">
-      <div class="svc-visual">
-        <div class="mini-wa">
-          <span class="mw-in">Is the Bryanston unit still available?</span>
-          <span class="mw-out">It is. Viewing this week?</span>
-          <span class="mw-event">Saturday 09:30 booked ✓</span>
-        </div>
-      </div>
-      <h3>AI Conversations</h3>
-      <p>Customers get an answer in minutes, any time of day — not just office hours.</p>
-      <ul class="svc-list">
-        <li>Conversation design</li><li>WhatsApp experiences</li><li>AI assistant setup</li><li>User testing</li>
+      <ul class="agency__list">
+        <li>White-label, under your brand</li>
+        <li>Your client relationship stays yours</li>
+        <li>No poaching of clients or staff</li>
+        <li>Confidential by default, with POPIA-aligned data handling</li>
+        <li>Book days as needed, or reserve monthly capacity</li>
       </ul>
-      <p class="svc-price">Starting from <b>R12,500</b></p>
-    </article>
-
-    <article class="svc reveal" data-delay="1" id="svc-workflows">
-      <div class="svc-visual">
-        <div class="mini-flowlog">
-          <div class="fl-row"><span class="dot ok"></span>New enquiry captured<span class="tag auto">Auto</span></div>
-          <div class="fl-row"><span class="dot ok"></span>CRM record updated<span class="tag auto">Auto</span></div>
-          <div class="fl-row"><span class="dot warn"></span>Complex case escalated<span class="tag human">Human</span></div>
-        </div>
-      </div>
-      <h3>AI Workflow Systems</h3>
-      <p>Your team spends less time on repetitive admin, and nothing gets typed twice.</p>
-      <ul class="svc-list">
-        <li>Workflow design</li><li>Automation</li><li>Dashboards</li><li>Internal systems</li>
-      </ul>
-      <p class="svc-price">Starting from <b>R25,000</b></p>
-    </article>
-
-    <article class="svc reveal" data-delay="2" id="svc-strategy">
-      <div class="svc-visual">
-        <div class="mini-journey">
-          <div class="mj-people"><span>CEO</span><span>Ops Manager</span><span>Team Lead</span></div>
-          <div class="mj-map"><span>Discover</span><i></i><span class="hot">Break point</span><i></i><span>Fix</span></div>
-        </div>
-      </div>
-      <h3>AI Strategy &amp; Experience Design</h3>
-      <p>You get a clear, tested plan for where design and AI will actually move the needle — before you spend on building anything.</p>
-      <ul class="svc-list">
-        <li>UX research</li><li>Journey mapping</li><li>AI strategy</li><li>Opportunity workshops</li>
-      </ul>
-      <p class="svc-price"><b>Custom</b> engagement</p>
-    </article>
-  </div>
-
-  <p class="section-turn reveal">See who this tends to work best for ↓</p>
-</section>
-
-<!-- ================================================== 06 INDUSTRIES -->
-<section class="industries" id="industries">
-  <div class="section-head narrow">
-    <p class="eyebrow reveal">06 · Industries</p>
-    <h2 class="reveal" data-delay="1">Where we do <em>our best work.</em></h2>
-    <p class="lede reveal" data-delay="2">We're deliberately not a fit for everyone. These are the businesses where a connected experience changes the numbers.</p>
-  </div>
-
-  <div class="ind-grid">
-    <article class="ind reveal">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 24 L24 10 L40 24" /><path d="M13 21 V38 H35 V21" /><rect x="21" y="28" width="7" height="10"/><circle cx="31" cy="31" r="1.6" fill="currentColor" stroke="none"/></svg>
-      <h3>Property</h3>
-      <p class="ind-problem"><small>The problem</small>Enquiries arrive at all hours from portals and WhatsApp; consultants triage them by hand the next morning.</p>
-      <p class="ind-outcome"><small>The outcome</small>Every enquiry answered in minutes, and viewings booked straight into the right diary.</p>
-    </article>
-    <article class="ind reveal" data-delay="1">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30 H28 V16 H6 Z"/><path d="M28 21 H37 L42 27 V30 H28"/><circle cx="13" cy="34" r="3.4"/><circle cx="35" cy="34" r="3.4"/><path d="M6 12 C14 14 20 10 27 12" stroke-dasharray="2 3"/></svg>
-      <h3>Logistics</h3>
-      <p class="ind-problem"><small>The problem</small>Clients phone for updates because tracking lives in someone's inbox.</p>
-      <p class="ind-outcome"><small>The outcome</small>Proactive status updates — and an ops team that lives outside the inbox.</p>
-    </article>
-    <article class="ind reveal" data-delay="2">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="12" width="32" height="28" rx="3"/><path d="M8 20 H40"/><path d="M16 12 V8 M32 12 V8"/><path d="M24 25 V33 M20 29 H28"/></svg>
-      <h3>Healthcare</h3>
-      <p class="ind-problem"><small>The problem</small>The front desk juggles bookings, reminders and the same questions on the phone all day.</p>
-      <p class="ind-outcome"><small>The outcome</small>Self-service bookings and automatic reminders; fewer no-shows, calmer reception.</p>
-    </article>
-    <article class="ind reveal">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="7"/><path d="M24 13 V8 M24 40 V35 M35 24 H40 M8 24 H13 M31.8 16.2 L35.3 12.7 M12.7 35.3 L16.2 31.8 M31.8 31.8 L35.3 35.3 M12.7 12.7 L16.2 16.2"/></svg>
-      <h3>Engineering</h3>
-      <p class="ind-problem"><small>The problem</small>Quotes and job cards move through email chains and re-typed spreadsheets.</p>
-      <p class="ind-outcome"><small>The outcome</small>One connected flow from RFQ to job card, with nothing re-typed.</p>
-    </article>
-    <article class="ind reveal" data-delay="1">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="16" width="28" height="22" rx="3"/><path d="M18 16 V12 A2 2 0 0 1 20 10 H28 A2 2 0 0 1 30 12 V16"/><path d="M10 26 H38"/><path d="M22 26 V30 H26 V26"/></svg>
-      <h3>Professional Services</h3>
-      <p class="ind-problem"><small>The problem</small>Junior staff spend billable hours answering the same intake questions.</p>
-      <p class="ind-outcome"><small>The outcome</small>AI handles intake and common questions; complex matters routed to the right person with context.</p>
-    </article>
-    <article class="ind reveal" data-delay="2">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 12 C20 8 12 8 8 11 V36 C12 33 20 33 24 37 C28 33 36 33 40 36 V11 C36 8 28 8 24 12 Z"/><path d="M24 12 V37"/><path d="M13 18 C16 16.5 20 16.8 22 18 M13 24 C16 22.5 20 22.8 22 24"/></svg>
-      <h3>Schools</h3>
-      <p class="ind-problem"><small>The problem</small>Parents' questions flood the office phone and inbox — often in three languages.</p>
-      <p class="ind-outcome"><small>The outcome</small>Instant answers on WhatsApp in the language parents use; the office handles exceptions.</p>
-    </article>
-    <article class="ind wide reveal">
-      <svg class="ind-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 38 L20 26 L27 32 L40 15"/><path d="M32 15 H40 V23"/><path d="M8 42 H42" stroke-dasharray="2 3"/></svg>
-      <h3>Growing SMEs</h3>
-      <p class="ind-problem"><small>The problem</small>The founder is the operating system — every process runs through one person.</p>
-      <p class="ind-outcome"><small>The outcome</small>Systems that run without heroics, so the business can grow past its bottleneck.</p>
-    </article>
-  </div>
-
-  <p class="section-turn reveal">Who's behind this ↓</p>
-</section>
-
-<!-- ================================================== 07 ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-copy glass-panel reveal">
-      <p class="eyebrow">07 · About NeuraUX</p>
-      <div class="founder-path" aria-hidden="true">
-        <span>UX Design</span><i>→</i><span>Enterprise Systems</span><i>→</i><span>AI Experience</span><i>→</i><span class="now">NeuraUX</span>
-      </div>
-      <div class="founder">
-        <span class="avatar big">SP</span>
-        <div><b>Sphamandla</b><small>Founder, NeuraUX</small></div>
-      </div>
-      <blockquote>
-        <p>I spent years designing digital products, and kept seeing the same thing happen: a business would bring in a chatbot or automation tool, and within weeks their own team had quietly stopped using it. The tool wasn't broken. Nobody had designed how it should actually work for real people.</p>
-        <p>That's why NeuraUX exists — we treat AI as a design problem before it's a technology one. South African businesses in particular are underserved here: most AI tools are built for enterprise budgets and Silicon Valley connectivity, not a WhatsApp-first team working around load-shedding and data cost. We'd rather build for that reality than around it.</p>
-      </blockquote>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================================================== 08 FINAL CTA -->
-<section class="closing" id="final-cta">
-  <div class="closing-inner">
-    <p class="eyebrow reveal">08 · Start a conversation</p>
-    <h2 class="reveal" data-delay="1">Let's design better<br><em>business experiences.</em></h2>
-    <p class="lede reveal" data-delay="2">A discovery call takes 30 minutes. We'll look at one part of your business — enquiries, bookings or admin — and leave you with a clear view of what to fix first, whether or not we work together.</p>
-
-    <div class="cta-paths">
-      <div class="cta-card spotlight spotlight-orange reveal" data-delay="2">
-        <small>Ready to talk</small>
-        <h3>Book a discovery call</h3>
-        <p>30 minutes, no pressure. We diagnose before we prescribe.</p>
-        <a class="btn" href="https://wa.me/27614920117?text=Hi%20NeuraUX%20%E2%80%94%20I%27d%20like%20to%20book%20a%20discovery%20call." data-magnet target="_blank" rel="noopener">Book Discovery Call</a>
-        <p class="hint">Prefer email? <a href="mailto:hello@neuraux.co.za?subject=Discovery%20Call">hello@neuraux.co.za</a></p>
+  <!-- Closing -->
+  <section class="closing wrap" aria-labelledby="closing-title">
+    <h2 class="closing__h" id="closing-title">Let's look at your AI experience.</h2>
+    <div class="closing__grid">
+      <div>
+        <p class="lead">Book a free 30-minute call. Tell us what you're running or planning, where users struggle, and what you're worried about.</p>
+        <p class="meta closing__where">Based in Johannesburg, Gauteng. Working with clients across South Africa.</p>
       </div>
-      <div class="cta-card reveal" data-delay="3">
-        <small>Start small</small>
-        <h3>AI Experience Audit</h3>
-        <p>A focused, two-week review of where your customer experience is breaking down — enquiries, bookings or admin — with a clear, written plan for what to fix first.</p>
-        <div class="tags">
-          <span>Findings report</span><span>Prioritised fix list</span><span>45-min walkthrough call</span>
-        </div>
-        <p class="hint">For business owners who want clarity before committing to a bigger project.</p>
-        <a class="btn-secondary" href="https://wa.me/27614920117?text=Hi%20NeuraUX%20%E2%80%94%20I%27d%20like%20to%20ask%20about%20the%20AI%20experience%20audit." target="_blank" rel="noopener">Ask about the Audit<span class="arrow">→</span></a>
+      <div class="actions actions--stack">
+        <a class="btn btn--solid btn--lg" href="contact.html">Book a 30-minute call</a>
+        <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za">Email hello@neuraux.co.za</a>
       </div>
     </div>
-
-    <p class="pricing-line reveal" data-delay="3">AI Conversations from R12,500 · AI Workflow Systems from R25,000 · Experience audit R8,500</p>
-
-    <div class="faq reveal" data-delay="3">
-      <p class="metrics-label">Common questions</p>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <b>What happens during the discovery call?</b>
-          <p>We spend 30 minutes looking at one part of your business — enquiries, bookings or admin — and talk through what's actually happening today. You'll leave with a clear view of what to fix first, whether or not we work together.</p>
-        </div>
-        <div class="faq-item">
-          <b>What do I receive from the AI Experience Audit?</b>
-          <p>A written findings report, a prioritised list of quick fixes, and a walkthrough call to explain it all in plain terms — usually within two weeks.</p>
-        </div>
-        <div class="faq-item">
-          <b>How long do projects usually take?</b>
-          <p>It depends on scope. AI Conversations projects are the fastest to launch; workflow systems and larger experience design engagements take longer. We'll give you a realistic timeline before any work begins.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a class="wordmark" href="#top">Neura<span>UX</span></a>
-      <p>Experience Design &amp; Intelligent Automation Studio<br>Johannesburg · Gauteng · South Africa</p>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="brand" href="./">NeuraUX</a>
+        <p>AI experiences people actually trust.</p>
+        <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="agencies.html">For Agencies</a></li>
+          <li><a href="how-we-work.html">How We Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:hello@neuraux.co.za">hello@neuraux.co.za</a></li>
+          <!-- LinkedIn: add the real URL here once supplied -->
+        </ul>
+      </div>
     </div>
-    <nav class="footer-links" aria-label="Explore">
-      <p class="metrics-label">Explore</p>
-      <a href="#friction">The Problem</a>
-      <a href="#better">The Fix</a>
-      <a href="#process">Process</a>
-      <a href="#industries">Industries</a>
-      <a href="#about">About</a>
-    </nav>
-    <nav class="footer-links" aria-label="Services">
-      <p class="metrics-label">Services</p>
-      <a href="#svc-conversations">AI Conversations</a>
-      <a href="#svc-workflows">AI Workflow Systems</a>
-      <a href="#svc-strategy">AI Strategy &amp; Experience Design</a>
-      <a href="#final-cta">AI Experience Audit</a>
-    </nav>
-    <div class="footer-links">
-      <p class="metrics-label">Contact</p>
-      <a href="mailto:hello@neuraux.co.za">hello@neuraux.co.za</a>
-      <a href="https://wa.me/27614920117" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="ftr__legal">
+      <p>NeuraUX uses AI tools to speed up analysis and drafting. Every deliverable is reviewed and approved by a senior designer, client data is never used to train AI models, and we handle personal information in line with POPIA.</p>
+      <p>&copy; 2026 NeuraUX. [Registered company name and registration number]</p>
     </div>
-    <p class="footer-line">Experience design, conversational AI and workflow automation for growing South African businesses.</p>
-    <p class="footer-copy">© 2026 NeuraUX · hello@neuraux.co.za</p>
   </div>
 </footer>
-
-<script src="js/main.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 7 October 2026.
+Last updated: 7 October 2026 (site rebuilt to the premium redesign brief).
 
 ---
 
@@ -13,7 +13,7 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 - **Founder:** Sphamandla, Product Designer and AI UX Strategist. NeuraUX is currently a founder-led consultancy.
 - **Email:** hello@neuraux.co.za
 - **Domain:** www.neuraux.co.za (hosted on GitHub Pages for now)
-- **Location line:** Gauteng, South Africa. Works with clients across South Africa, remotely.
+- **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
 - **Stage:** launching Q4 2026. No paying clients, case studies or testimonials yet.
 
 ## 2. Positioning
@@ -89,13 +89,13 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | Page | File | Status |
 | --- | --- | --- |
 | Home | `index.html` | Built |
-| Services | `services.html` | To build from section 8 copy |
-| For Agencies | `agencies.html` | To build from section 8 copy |
-| How We Work | `how-we-work.html` | To build from section 8 copy |
-| Contact | `contact.html` | To build from section 8 copy |
-| Privacy Policy | `privacy.html` | Required before launch (POPIA). Needs founder review |
+| Services | `services.html` | Built |
+| For Agencies | `agencies.html` | Built |
+| How We Work | `how-we-work.html` | Built (founder paragraph and photo are placeholders) |
+| Contact | `contact.html` | Built (form composes an email via `mailto:`) |
+| Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
 
-When the other pages exist, update the homepage navigation and buttons from `#anchors` to those pages.
+Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
 ## 6. Brand and visual design rules
 
@@ -128,7 +128,7 @@ When the other pages exist, update the homepage navigation and buttons from `#an
 - "Word — fragment" labels and strings joined with middle dots
 - Identical rounded cards with soft shadows, gradient washes, glows or glassmorphism
 - Monospace fonts, emoji, arrows appended to buttons
-- Fade-and-slide animations on every section; if motion is added, use at most one deliberate moment
+- Fade-and-slide animations on every section. Motion is limited to: the hero entrance, the pinned Audit scroll story, the problem statements, the experience journey, the scorecard, the review tags and the process steps. All of it is disabled under `prefers-reduced-motion`
 - Stock photos of robots, brains, circuits or handshakes
 - Fake chat UIs, invented dashboards or fake metrics
 
@@ -203,11 +203,11 @@ When the other pages exist, update the homepage navigation and buttons from `#an
 
 | Page | Title tag | Meta description |
 | --- | --- | --- |
-| Home | NeuraUX \| AI UX & Conversation Design, South Africa | We audit and design AI assistants for law firms and fintechs that users trust and that stay compliant. |
-| Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints. |
-| For Agencies | White-label Conversation Design for Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. |
-| How We Work | How We Work \| NeuraUX | Our process, how we use AI, and how we protect your data under POPIA. |
-| Contact | Contact \| NeuraUX | Book a free 30-minute call about your AI assistant or chatbot. |
+| Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African law firms, fintechs and regulated businesses, with conversation design, UX and compliance built into the experience. |
+| Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints for South African law firms and fintechs. |
+| For Agencies | White-label Conversation Design for AI Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. For AI automation agencies and software studios in South Africa. |
+| How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we protect your data under POPIA. |
+| Contact | Contact NeuraUX \| AI UX & Conversation Design South Africa | Book a free 30-minute call about your AI assistant or chatbot. |
 
 ## 10. Open items: placeholders to fill, never invent
 
