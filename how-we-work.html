@@ -22,9 +22,9 @@
 <meta name="twitter:description" content="Our process, how we use AI, and how we protect your data under POPIA.">
 <meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/site.js" defer></script>
@@ -58,7 +58,7 @@
 
 <header class="hdr" data-header>
   <div class="hdr__in wrap">
-    <a class="brand" href="./">NeuraUX</a>
+    <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
@@ -89,11 +89,13 @@
 
 
 <main id="main">
+  <div class="page-scene scene scene--crescent">
   <section class="page-hero wrap" aria-labelledby="page-title">
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li aria-current="page">How We Work</li></ol></nav>
     <h1 class="h-hero" id="page-title"><span class="ln">Clear scope.</span> <span class="ln">Human judgment.</span> <span class="ln quiet">Careful with your data.</span></h1>
     <p class="lead">What happens after you contact us, how we use AI, and how we protect your data. NeuraUX is a founder-led AI UX consultancy based in Johannesburg, Gauteng, working with clients across South Africa.</p>
   </section>
+  </div>
 
   <section class="section--sm wrap rule-top" aria-labelledby="process-title">
     <h2 class="h2" id="process-title" style="font-size:clamp(32px,4vw,56px)">The process.</h2>
@@ -107,7 +109,7 @@
     </ol>
   </section>
 
-  <section class="section section--raised" aria-labelledby="principles-title">
+  <section class="section theme-silver" aria-labelledby="principles-title">
     <div class="wrap cols">
       <h2 class="h2" id="principles-title" style="font-size:clamp(32px,4vw,56px)">Principles.</h2>
       <ul class="list-rows">
@@ -211,7 +213,7 @@
     </div>
   </section>
 
-  <section class="section section--raised" id="about" aria-labelledby="about-title">
+  <section class="section theme-mist" id="about" aria-labelledby="about-title">
   <div class="wrap">
     <div class="founder founder--nophoto">
       <!-- TODO: founder photo. Add it here and remove the "founder--nophoto" class above. Replace this comment with e.g. <img class="founder__img" src="assets/founder.jpg" width="320" height="400" alt="Sphamandla, founder of NeuraUX"> -->
@@ -227,7 +229,8 @@
   </div>
   </section>
 
-  <section class="closing wrap rule-top" aria-labelledby="closing-title" style="padding-top:clamp(96px,10vw,160px)">
+  <section class="closing rule-top scene scene--horizon" aria-labelledby="closing-title" style="padding-top:clamp(96px,10vw,160px)">
+  <div class="wrap">
     <h2 class="closing__h" id="closing-title">Let's look at your AI experience.</h2>
     <div class="closing__grid">
       <p class="lead">Book a free 30-minute call. Tell us what you're running or planning, where users struggle, and what you're worried about.</p>
@@ -235,6 +238,7 @@
         <a class="btn btn--solid btn--lg" href="contact.html">Book a free 30-min call</a>
         <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za">Email NeuraUX</a>
       </div>
+    </div>
     </div>
   </section>
 
@@ -244,7 +248,7 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <a class="brand" href="./">NeuraUX</a>
+        <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
         <p>AI experiences people actually trust.</p>
         <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
       </div>

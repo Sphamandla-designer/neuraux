@@ -22,9 +22,9 @@
 <meta name="twitter:description" content="Audit customer-facing AI experiences for trust, clarity, failure states, conversation quality and human handoff. NeuraUX helps South African financial, fintech, legal and AI teams find what to fix first.">
 <meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/site.js" defer></script>
@@ -200,7 +200,7 @@
 
 <header class="hdr" data-header>
   <div class="hdr__in wrap">
-    <a class="brand" href="./">NeuraUX</a>
+    <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
@@ -231,6 +231,7 @@
 
 <main id="main">
   <!-- Hero -->
+  <div class="page-scene scene scene--orbit">
   <section class="svc-hero wrap" id="top" aria-labelledby="page-title" data-sticky-after>
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="services.html">Services</a></li><li aria-current="page">AI Experience Audit</li></ol></nav>
     <h1 class="svc-hero__h enter" id="page-title">Find where your AI experience loses trust, creates friction, or needs human intervention.</h1>
@@ -288,6 +289,7 @@
       </div>
     </figure>
   </section>
+  </div>
 
   <!-- Problem recognition -->
   <section class="section wrap rule-top" id="problem" aria-labelledby="problem-title">
@@ -304,7 +306,7 @@
   </section>
 
   <!-- Do you need this -->
-  <section class="section section--raised" id="fit-check" aria-labelledby="need-title">
+  <section class="section theme-silver" id="fit-check" aria-labelledby="need-title">
     <div class="wrap">
       <h2 class="sec-h" id="need-title">You probably need an AI Experience Audit if...</h2>
       <div class="selfcheck">
@@ -590,7 +592,7 @@
   </section>
 
   <!-- Who it's for / not for -->
-  <section class="section section--raised" id="who" aria-labelledby="who-title">
+  <section class="section theme-mist" id="who" aria-labelledby="who-title">
     <div class="wrap">
       <h2 class="sec-h" id="who-title">Who it's for.</h2>
       <ul class="fit4">
@@ -759,7 +761,7 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <a class="brand" href="./">NeuraUX</a>
+        <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
         <p>AI experiences people actually trust.</p>
         <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
       </div>

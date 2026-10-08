@@ -144,6 +144,67 @@
     select(0, false);
   });
 
+  /* ---------- Scroll reveals ----------
+     Headings, leads and grids below the fold rise in as they enter.
+     Anything already on screen at load is left alone, so nothing flashes. */
+  if ('IntersectionObserver' in window && !reduced()) {
+    var vh0 = window.innerHeight;
+    var below = function (el) { return el.getBoundingClientRect().top > vh0 * 0.92; };
+    // Masked elements are clipped to nothing, which Chrome treats as not
+    // intersecting, so we watch their parent and reveal the child.
+    var proxies = new Map();
+    var mark = function (el, cls, delay) {
+      if (!below(el) || el.closest('.hero-scene, [data-tabs] [role=tabpanel][hidden]')) return;
+      el.classList.add(cls);
+      if (delay) el.style.setProperty('--rv-d', delay + 'ms');
+      var watch = cls === 'rv-mask' ? el.parentNode : el;
+      if (!proxies.has(watch)) proxies.set(watch, []);
+      proxies.get(watch).push(el);
+      rvo.observe(watch);
+    };
+    var rvo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        (proxies.get(en.target) || []).forEach(function (t) { t.classList.add('is-in'); });
+        rvo.unobserve(en.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    doc.querySelectorAll('main h2:not(.sr-only)').forEach(function (el) { mark(el, 'rv-mask'); });
+    doc.querySelectorAll('main .lead, main .sec-lead, main .body, main .svc-intro .body, main .cards__foot, main .split-line, main .terms').forEach(function (el) { mark(el, 'rv', 120); });
+    ['.cards', '.trustband', '.inds', '.pgrid', '.fit4', '.reports', '.artefacts', '.pairs', '.list-rows', '.ticks', '.picks', '.notfor', '.options', '.ww', '.faq'].forEach(function (sel) {
+      doc.querySelectorAll('main ' + sel).forEach(function (group) {
+        Array.prototype.forEach.call(group.children, function (child, i) { mark(child, 'rv', Math.min(i, 8) * 70); });
+      });
+    });
+    doc.querySelectorAll('main .mk:not(.tabs .mk), main .pricebox, main .matrix-wrap, main .versus, main .tabs').forEach(function (el) { mark(el, 'rv', 80); });
+  }
+
+  /* ---------- Background drift: scenery moves slower than the page ---------- */
+  var drifters = Array.prototype.slice.call(doc.querySelectorAll('.scene, .hero-scene__img'));
+  function updateDrift() {
+    if (reduced()) return;
+    var vh = window.innerHeight;
+    drifters.forEach(function (el) {
+      var host = el.classList.contains('hero-scene__img') ? el.parentNode : el;
+      var r = host.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var p = (r.top + r.height / 2 - vh / 2) / vh; // -1..1 around the viewport centre
+      el.style.setProperty('--drift', (p * -40).toFixed(1) + 'px');
+    });
+  }
+
+  /* ---------- Card light follows the pointer (fine pointers only) ---------- */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduced()) {
+    doc.querySelectorAll('.card, .pricebox, .tally, .pgrid > li, .ww > div').forEach(function (el) {
+      el.classList.add('glow');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
   /* ---------- Scroll + resize loop (one rAF per frame) ---------- */
   var ticking = false;
   function onScroll() {
@@ -153,12 +214,14 @@
       ticking = false;
       onHeaderScroll();
       updateJourney();
+      updateDrift();
     });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onHeaderScroll();
   updateJourney();
+  updateDrift();
 
   /* ---------- Event hooks: clicks, section views, FAQ opens ---------- */
   doc.addEventListener('click', function (e) {
