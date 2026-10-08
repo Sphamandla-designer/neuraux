@@ -22,9 +22,9 @@
 <meta name="twitter:description" content="How NeuraUX handles personal information.">
 <meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/site.js" defer></script>
@@ -34,7 +34,7 @@
 
 <header class="hdr" data-header>
   <div class="hdr__in wrap">
-    <a class="brand" href="./">NeuraUX</a>
+    <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
@@ -65,17 +65,19 @@
 
 
 <main id="main">
+  <div class="page-scene scene scene--eclipse scene--quiet">
   <section class="page-hero wrap" aria-labelledby="page-title">
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li aria-current="page">Privacy</li></ol></nav>
     <h1 class="h-hero" id="page-title">Privacy Policy</h1>
   </section>
+  </div>
   <section class="wrap section--sm rule-top" aria-label="Policy text">
     <div class="prose">
       <!-- TODO: full Privacy Policy text, to be reviewed by the founder, ideally with legal input. -->
       <h2>Until the full policy is published</h2>
       <ul>
         <li>This website has no tracking, analytics or advertising cookies.</li>
-        <li>The typeface is loaded from Google Fonts.</li>
+        <li>The typeface, Satoshi, is loaded from Fontshare.</li>
         <li>The contact form doesn't store anything. It opens your own email app, and nothing is sent until you press send.</li>
         <li>We use the details you send only to respond to your enquiry.</li>
         <li>For client work, personal information is handled in line with POPIA.</li>
@@ -91,7 +93,7 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <a class="brand" href="./">NeuraUX</a>
+        <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
         <p>AI experiences people actually trust.</p>
         <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
       </div>

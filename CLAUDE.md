@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 7 October 2026 (site rebuilt to the premium redesign brief).
+Last updated: 8 October 2026 (Satoshi, light sections, rim-light imagery and motion).
 
 ---
 
@@ -115,7 +115,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Direction:** monochrome, editorial, restrained. Black, charcoal, grey, silver and white. This **replaces** an earlier dark brand with cyan accents and Syne/DM Sans/Space Mono, which must not be used anywhere.
 
-**Colour tokens** (defined as CSS variables in `index.html`; reuse them, don't add colours):
+**Colour tokens** (defined as CSS variables at the top of `css/site.css`; reuse them, don't add colours. Light sections redefine them locally):
 
 | Token | Hex | Use |
 | --- | --- | --- |
@@ -128,11 +128,13 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | `--silver` | #C7CBD1 | Prices, and the agency band only |
 | `--silver-deep` | #9EA3AA | Rule above problem points |
 
-**Type:** Inter only (Google Fonts, weights 400/500/600), with `font-feature-settings: 'ss01','cv11'` switched on. Headlines are weight 500 with tight negative tracking (−0.04 to −0.055em). Body is 17px at 1.6 line height. Keep line lengths under about 80 characters.
+**Type:** Satoshi only, loaded from Fontshare's CDN (`api.fontshare.com`, weights 400/500/700). Headlines are weight 500 with tight negative tracking (about −0.035 to −0.045em). Body is 17px at 1.6 line height. Keep line lengths under about 80 characters. It is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
 **Layout:** a max width of 1280px, generous vertical spacing, and hairline dividers instead of cards. Left-aligned, except where noted. Pill-shaped buttons (border-radius 999px). Solid white is the primary action; an outlined button is secondary.
 
-**The one bold element:** the silver agency band. Keep everything else quiet. Don't add a second highlight.
+**Light sections:** silver (`.theme-silver`, with the brushed-silver image) and mist (`.theme-mist`, a plain light grey) sections alternate with the dark ones. These classes redefine the colour tokens, so components adapt by themselves; interface mockups (`.mk`) stay dark on light sections. Use at most one or two light sections per page, never two in a row.
+
+**Imagery:** rim-lit, monochrome space imagery, starting from the founder-supplied eclipse (`assets/img/hero-eclipse-*.webp`, homepage hero). Companion backgrounds in the same style live in `assets/img/bg-*.webp`: eclipse, crescent, horizon, orbit and silver. Apply them with `.scene .scene--{name}` on a full-width section. Use the horizon for closing calls to action, and keep a dark veil behind any text that sits on an image.
 
 **Avoid (these make the site look AI-generated):**
 
@@ -140,13 +142,13 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - ALL-CAPS eyebrow labels above headings
 - Numbered markers (01, 02) on anything that isn't a real sequence (the process steps are the only numbered list)
 - "Word — fragment" labels and strings joined with middle dots
-- Identical rounded cards with soft shadows, gradient washes, glows or glassmorphism
+- Identical rounded cards, glassmorphism, or decorative gradients and glows that aren't part of the rim-light imagery
 - Monospace fonts, emoji, arrows appended to buttons
-- Fade-and-slide animations on every section. Motion is limited to: the hero entrance, the pinned Audit scroll story, the problem statements, the experience journey, the scorecard, the review tags and the process steps. All of it is disabled under `prefers-reduced-motion`
+- Gimmicky motion. The motion system is: the hero image's dawn and slow light "breathe", headings that rise out of a mask, content that rises in as it scrolls into view (applied by `js/site.js` to anything below the fold), scenery that drifts slower than the page, a light that follows the pointer on cards, and a sheen across primary buttons. All of it is disabled under `prefers-reduced-motion`
 - Stock photos of robots, brains, circuits or handshakes
 - Fake chat UIs, invented dashboards or fake metrics
 
-**Imagery:** typographic for now. A real founder photo goes on How We Work. A sample Audit excerpt can be added once it exists.
+**Photography:** a real founder photo goes on How We Work. A sample Audit excerpt can be added once it exists. No stock photos.
 
 ## 7. Voice and copy rules
 

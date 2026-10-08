@@ -22,9 +22,9 @@
 <meta name="twitter:description" content="Design customer-facing AI experiences with conversation architecture, AI behaviour, recovery, uncertainty, edge cases and human handoff. NeuraUX serves South African product and AI teams.">
 <meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/site.js" defer></script>
@@ -203,7 +203,7 @@
 
 <header class="hdr" data-header>
   <div class="hdr__in wrap">
-    <a class="brand" href="./">NeuraUX</a>
+    <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
@@ -234,6 +234,7 @@
 
 <main id="main">
   <!-- Hero -->
+  <div class="page-scene scene scene--orbit">
   <section class="svc-hero wrap" id="top" aria-labelledby="page-title" data-sticky-after>
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li><a href="services.html">Services</a></li><li aria-current="page">Conversation Design Blueprint</li></ol></nav>
     <h1 class="svc-hero__h enter" id="page-title">Design the experience around your AI, not just the AI itself.</h1>
@@ -283,6 +284,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- Problem -->
   <section class="section wrap rule-top" id="problem" aria-labelledby="problem-title">
@@ -295,7 +297,7 @@
   </section>
 
   <!-- Who needs it -->
-  <section class="section section--raised" id="who" aria-labelledby="who-title">
+  <section class="section theme-silver" id="who" aria-labelledby="who-title">
     <div class="wrap">
       <h2 class="sec-h" id="who-title">A Blueprint is for you if...</h2>
       <ul class="pgrid">
@@ -363,11 +365,13 @@
   </section>
 
   <!-- Without / with -->
-  <section class="section wrap" id="difference" aria-labelledby="ww-title">
+  <section class="section theme-mist" id="difference" aria-labelledby="ww-title">
+  <div class="wrap">
     <h2 class="sec-h" id="ww-title">What changes with a Blueprint.</h2>
     <div class="ww">
       <div><h3>Without a Blueprint</h3><ul><li>Scattered conversations</li><li>Unclear ownership</li><li>Missing edge cases</li><li>Inconsistent AI responses</li><li>Unclear handoff</li></ul></div>
       <div><h3>With a Blueprint</h3><ul><li>Defined journeys</li><li>Explicit behaviour</li><li>Clear boundaries</li><li>Designed recovery</li><li>Documented handoff</li><li>Build-ready direction for your developers</li></ul></div>
+    </div>
     </div>
   </section>
 
@@ -557,7 +561,7 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <a class="brand" href="./">NeuraUX</a>
+        <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
         <p>AI experiences people actually trust.</p>
         <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
       </div>

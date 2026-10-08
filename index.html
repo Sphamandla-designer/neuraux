@@ -22,9 +22,10 @@
 <meta name="twitter:description" content="AI experience audits and conversation design for South African law firms, fintechs and regulated businesses.">
 <meta name="twitter:image" content="https://sphamandla-designer.github.io/neuraux/assets/og-image.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero-eclipse-1672.webp" media="(min-width: 961px)">
 <link rel="stylesheet" href="css/site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script src="js/site.js" defer></script>
@@ -78,7 +79,7 @@
 
 <header class="hdr" data-header>
   <div class="hdr__in wrap">
-    <a class="brand" href="./" aria-current="page">NeuraUX</a>
+    <a class="brand" href="./" aria-current="page"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
@@ -110,6 +111,9 @@
 <main id="main">
 
   <!-- 1. Hero -->
+  <div class="hero-scene">
+  <div class="hero-scene__img" role="img" aria-label="A dark sphere with a bright rim of light along its edge"></div>
+  <div class="hero-scene__glow" aria-hidden="true"></div>
   <section class="hero wrap" aria-labelledby="hero-title">
     <div class="hero__copy">
       <h1 class="h-hero hero__h1" id="hero-title">
@@ -126,6 +130,7 @@
       <p class="meta hero__where enter" style="--d:460ms">AI UX and conversation design consultancy based in Johannesburg, Gauteng. Working with clients across South Africa.</p>
     </div>
   </section>
+  </div>
 
   <!-- 2. Problem -->
   <section class="section section--peek wrap" id="problem" aria-labelledby="problem-title">
@@ -175,11 +180,12 @@
         </div>
       </div>
     </div>
-    <p class="meta" style="margin-top:20px"><a class="link" href="how-we-work.html#design">How we design the moments between the question and the answer</a></p>
+    <p class="lead problem__bridge">NeuraUX designs for those moments. First we find where your assistant breaks, then we design what it should do instead.</p>
+    <p class="meta" style="margin-top:16px"><a class="link" href="how-we-work.html#design">How we design the moments between the question and the answer</a></p>
   </section>
 
   <!-- 3. Services and pricing -->
-  <section class="section section--raised" id="services" aria-labelledby="services-title">
+  <section class="section theme-silver" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="svc-intro">
         <h2 class="h2" id="services-title">Diagnose first. <span class="quiet">Then design it right.</span></h2>
@@ -219,7 +225,8 @@
   </section>
 
   <!-- 4. What an Audit finds -->
-  <section class="section wrap" id="sample-audit" aria-labelledby="sample-title">
+  <section class="section scene scene--orbit" id="sample-audit" aria-labelledby="sample-title">
+  <div class="wrap">
     <h2 class="h2" id="sample-title">What an Audit finds.</h2>
     <p class="lead" style="margin-top:24px">Six dimensions scored from 1 to 5, and every finding backed by evidence, with what to do instead.</p>
 
@@ -280,6 +287,7 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- 5. Who it's for -->
@@ -332,7 +340,8 @@
   </section>
 
   <!-- 6. Trust band: founder, how we use AI, data handling -->
-  <section class="section wrap" id="trust" aria-labelledby="trust-title">
+  <section class="section theme-mist" id="trust" aria-labelledby="trust-title">
+  <div class="wrap">
     <h2 class="h2" id="trust-title">Human judgment. <span class="quiet">Careful with your data.</span></h2>
     <div class="trustband">
       <!-- TODO: founder. Add the photo, confirm name and role, write the 2 to 3 sentence background and add the LinkedIn URL, then remove the hidden attribute from this div. -->
@@ -360,6 +369,7 @@
         </ul>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- 7. Agency strip and final call to action -->
@@ -369,7 +379,8 @@
     </div>
   </section>
 
-  <section class="closing wrap" aria-labelledby="closing-title">
+  <section class="closing scene scene--horizon" aria-labelledby="closing-title">
+  <div class="wrap">
     <h2 class="closing__h" id="closing-title">Let's look at your AI experience.</h2>
     <div class="closing__grid">
       <div>
@@ -381,6 +392,7 @@
         <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za">Email hello@neuraux.co.za</a>
       </div>
     </div>
+    </div>
   </section>
 
 </main>
@@ -390,7 +402,7 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <a class="brand" href="./">NeuraUX</a>
+        <a class="brand" href="./"><span class="brand__mark" aria-hidden="true"></span>NeuraUX</a>
         <p>AI experiences people actually trust.</p>
         <p class="ftr__loc">Johannesburg, Gauteng<br>South Africa</p>
       </div>
