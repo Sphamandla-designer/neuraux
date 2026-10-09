@@ -97,11 +97,12 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 | About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
-| Home FIX case study | `case-studies/home-fix/index.html` | Built. Concept project, labelled as such above the fold. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Not linked from the nav yet |
+| Case Studies | `case-studies/index.html` | Built. Lists case studies as cards; for now one concept project (Home FIX). Built from `case-studies/src/index.main.html` by `case-studies/tools/build_index.py` (header and footer copied from `about.html`). In the main nav after How We Work, and in the footer's Company column |
+| Home FIX case study | `case-studies/home-fix/index.html` | Built. Concept project, labelled as such above the fold. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Breadcrumb: Home, Case studies, Home FIX concept |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
-**Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once.
+**Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once. The case-study pages copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py` and `case-studies/home-fix/tools/build.py`.
 
 **Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 

@@ -27,6 +27,8 @@ def repath(fragment):
         attr, q, val = m.group(1), m.group(2), m.group(3)
         if re.match(r"^(https?:|mailto:|tel:|#|data:|/|\.\./)", val):
             return m.group(0)
+        if val == "case-studies/":
+            return f'{attr}={q}../{q}'
         val = "../../" if val in ("./", "") else "../../" + val
         return f'{attr}={q}{val}{q}'
     return re.sub(r'\b(href|src)=(["\'])([^"\']*)\2', fix, fragment)
@@ -56,7 +58,8 @@ def main():
           '{"@context":"https://schema.org","@graph":['
           '{"@type":"BreadcrumbList","itemListElement":['
           f'{{"@type":"ListItem","position":1,"name":"Home","item":"{BASE}"}},'
-          f'{{"@type":"ListItem","position":2,"name":"Home FIX concept","item":"{URL}"}}]}},'
+          f'{{"@type":"ListItem","position":2,"name":"Case studies","item":"{BASE}case-studies/"}},'
+          f'{{"@type":"ListItem","position":3,"name":"Home FIX concept","item":"{URL}"}}]}},'
           f'{{"@type":"Article","@id":"{URL}","url":"{URL}","headline":"{TITLE}","description":"{DESC}",'
           f'"inLanguage":"en-ZA","author":{{"@id":"{BASE}#org"}},"publisher":{{"@id":"{BASE}#org"}},'
           f'"image":"{URL}assets/screens/serial-confirmation.png"}}]}}\n</script>\n')

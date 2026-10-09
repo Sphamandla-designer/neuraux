@@ -3,6 +3,7 @@
 Generated from `src/main.html` by `tools/build.py`. Edit the copy in `src/main.html`, then rebuild. Alt text is listed at the end.
 
 - Home
+- Case studies
 - Home FIX concept
 
 Concept project. Home FIX is a fictional company; the people and job details are invented.
