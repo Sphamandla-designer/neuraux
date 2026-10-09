@@ -1,0 +1,18 @@
+00-entry -> 00-entry: 25.8% of pixels, frame 0%
+01-language -> 01-start: 35.9% of pixels, frame 0%
+02-summary -> 02-summary: 26% of pixels, frame 0%
+03-before -> 03-before: 44.5% of pixels, frame 0%
+04-before_retake -> 04-before_retake: 47.4% of pixels, frame 0%
+05-before_ok -> 05-before_ok: 45.6% of pixels, frame 0.31%
+06-serial -> 07-serial: 43.9% of pixels, frame 0%
+07-serial_retake -> 08-serial_retake: 40.2% of pixels, frame 0%
+08-serial_ok -> 09-serial_ok: 44.2% of pixels, frame 0.3%
+09-compliance -> 12-compliance: 43.4% of pixels, frame 0%
+10-upload -> 12-compliance: 44.4% of pixels, frame 0%
+11-offline -> 14-offline: 55.2% of pixels, frame 0.59%
+12-submitted -> 15-submitted: 28.1% of pixels, frame 0.02%
+13-review -> 15-submitted: 41.3% of pixels, frame 0%
+outcome-approved -> 16-outcome-approved: 2.4% of pixels, frame 0%
+outcome-retake -> 17-outcome-retake: 49.5% of pixels, frame 0.03%
+outcome-rejected -> 18-outcome-rejected: 19% of pixels, frame 0%
+errors: none

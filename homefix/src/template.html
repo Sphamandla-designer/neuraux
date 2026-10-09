@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="34469d35-4869-4a60-8983-856511024ed4"></script>
+</head>
+<body>
+
+<x-dc>
+<helmet>
+<meta name="theme-color" content="#075E54">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cde7eb5f-d99f-4613-85dd-d75ddf2d97bd") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0ebf495f-200f-4824-ae35-2c783e58c576") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("88e15231-be18-4492-95bd-a723fda6d865") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("74e4648f-2d40-4d8a-b1b8-c65e88f1c113") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* math */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("b8d1c916-6b4e-4a20-8cb0-c2cdd23d2ba4") format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-209F, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("04da5544-88bc-46f4-a75c-931f3b2b80b8") format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AE, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F8D0-1F8D8, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FAC6, U+1FAC8, U+1FACC-1FADD, U+1FADF-1FAEB, U+1FAEF-1FAFA, U+1FB00-1FBFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9f88bd07-98e8-44e4-a286-28e7e289d3c3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("ef6c9f6f-6c5d-4b4c-be36-85497248dbdc") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("541cab17-f593-43c6-9fdd-6073d46647d8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cde7eb5f-d99f-4613-85dd-d75ddf2d97bd") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0ebf495f-200f-4824-ae35-2c783e58c576") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("88e15231-be18-4492-95bd-a723fda6d865") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("74e4648f-2d40-4d8a-b1b8-c65e88f1c113") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* math */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("b8d1c916-6b4e-4a20-8cb0-c2cdd23d2ba4") format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-209F, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("04da5544-88bc-46f4-a75c-931f3b2b80b8") format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AE, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F8D0-1F8D8, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FAC6, U+1FAC8, U+1FACC-1FADD, U+1FADF-1FAEB, U+1FAEF-1FAFA, U+1FB00-1FBFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9f88bd07-98e8-44e4-a286-28e7e289d3c3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("ef6c9f6f-6c5d-4b4c-be36-85497248dbdc") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("541cab17-f593-43c6-9fdd-6073d46647d8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cde7eb5f-d99f-4613-85dd-d75ddf2d97bd") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0ebf495f-200f-4824-ae35-2c783e58c576") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("88e15231-be18-4492-95bd-a723fda6d865") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("74e4648f-2d40-4d8a-b1b8-c65e88f1c113") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* math */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("b8d1c916-6b4e-4a20-8cb0-c2cdd23d2ba4") format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-209F, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("04da5544-88bc-46f4-a75c-931f3b2b80b8") format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AE, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F8D0-1F8D8, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FAC6, U+1FAC8, U+1FACC-1FADD, U+1FADF-1FAEB, U+1FAEF-1FAFA, U+1FB00-1FBFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9f88bd07-98e8-44e4-a286-28e7e289d3c3") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("ef6c9f6f-6c5d-4b4c-be36-85497248dbdc") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("541cab17-f593-43c6-9fdd-6073d46647d8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("9adb34b7-38fc-4918-b29a-df58ecc72642") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("dd8e8568-622f-48a0-b75a-d75e87ae406c") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("a52a0844-82ea-4340-8012-76a9047aedc0") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("33fc982c-b077-4908-ab5d-a09b3ee0b745") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("67f35663-f9ec-41f1-8f8d-ca668e2672bf") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("0f977ce6-7943-4aff-9947-e466b809df9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9adb34b7-38fc-4918-b29a-df58ecc72642") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("dd8e8568-622f-48a0-b75a-d75e87ae406c") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("a52a0844-82ea-4340-8012-76a9047aedc0") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("33fc982c-b077-4908-ab5d-a09b3ee0b745") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("67f35663-f9ec-41f1-8f8d-ca668e2672bf") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("0f977ce6-7943-4aff-9947-e466b809df9e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;background:#ECE5DD;overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}
+button{touch-action:manipulation;}
+@keyframes ha-in{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:none;}}
+@keyframes ha-dot{0%,60%,100%{opacity:.25;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
+.hf-input::placeholder{color:#9aa0a4;opacity:1;}
+.hf-field::placeholder{color:#9aa0a4;opacity:1;}
+button:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within{outline:2px solid #0F766E;outline-offset:2px;}
+.hf-input:focus-visible{outline:none;}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</helmet>
+
+<div style="height:100dvh;width:100%;max-width:520px;margin:0 auto;background:#ECE5DD;display:flex;flex-direction:column;overflow:hidden;position:relative;font-family:Roboto,system-ui,sans-serif;color:#1F2A30;">
+
+<!-- ===== WELCOME + CONSENT (T05) ===== -->
+<sc-if value="{{ phaseWelcome }}">
+<div style="{{ headerStyle }}">
+<div style="display:flex;align-items:center;gap:9px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;">
+<div style="width:38px;height:38px;border-radius:50%;background:#0B5249;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.22);">
+<span style="color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.02em;">HF</span>
+</div>
+<h1 style="margin:0;color:#fff;font-size:15.5px;font-weight:600;">{{ w.title }}</h1>
+</div>
+</div>
+<div style="flex:1;overflow-y:auto;padding:12px 10px calc(16px + env(safe-area-inset-bottom));">
+<div style="width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;">
+<div style="padding:11px 13px 9px;border-bottom:1px solid #EFEAE3;">
+<div id="hf-lang-label" style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin-bottom:7px;">{{ w.lang }}</div>
+<div role="group" aria-labelledby="hf-lang-label" style="display:flex;gap:7px;flex-wrap:wrap;">
+<sc-for list="{{ welcomeLangs }}" as="wl">
+<button data-wlang="{{ wl.code }}" aria-pressed="{{ wl.pressed }}" sc-camel-on-click="{{ wl.onClick }}" style="{{ wl.style }}">{{ wl.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="padding:11px 13px 3px;">
+<p style="margin:0 0 10px;font-size:14.5px;font-weight:600;color:#111B21;line-height:1.42;">{{ w.proto }}</p>
+<p style="margin:0 0 11px;font-size:13.5px;color:#3B4A54;line-height:1.42;">{{ w.task }}</p>
+<div style="margin-bottom:11px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin-bottom:6px;">{{ w.recH }}</div>
+<div style="display:flex;gap:9px;align-items:flex-start;margin-bottom:5px;">
+<div style="width:6px;height:6px;border-radius:50%;background:#0F766E;margin-top:6px;flex-shrink:0;"></div>
+<div style="font-size:13.5px;color:#3B4A54;line-height:1.35;">{{ w.rec }}</div>
+</div>
+</div>
+<div style="margin-bottom:11px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin-bottom:6px;">{{ w.noRecH }}</div>
+<div style="display:flex;gap:9px;align-items:flex-start;margin-bottom:5px;">
+<div style="width:6px;height:6px;border-radius:50%;background:#0F766E;margin-top:6px;flex-shrink:0;"></div>
+<div style="font-size:13.5px;color:#3B4A54;line-height:1.35;">{{ w.noRec }}</div>
+</div>
+</div>
+</div>
+<div style="padding:9px 13px;background:#F7F4EF;border-top:1px solid #EFEAE3;font-size:13px;font-weight:600;color:#5C6B72;line-height:1.4;">{{ w.noPi }}</div>
+<div style="padding:11px 13px 13px;">
+<label for="hf-pcode" style="display:block;font-size:12.5px;color:#667781;margin-bottom:5px;">{{ w.code }}</label>
+<input id="hf-pcode" class="hf-field" type="text" autoComplete="off" value="{{ pcode }}" onChange="{{ onPcode }}" style="width:100%;min-height:44px;border:1px solid #D9D2C7;border-radius:12px;padding:9px 13px;font-family:inherit;font-size:16px;color:#111B21;background:#fff;">
+<label style="display:flex;align-items:center;gap:11px;min-height:48px;margin-top:9px;cursor:pointer;">
+<input id="hf-consent" type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" style="width:22px;height:22px;margin:0;accent-color:#0F766E;flex-shrink:0;">
+<span style="font-size:13.5px;color:#2B3A40;line-height:1.35;">{{ w.consent }}</span>
+</label>
+<button id="hf-start" disabled="{{ startDisabled }}" sc-camel-on-click="{{ onStart }}" style="{{ startStyle }}">
+<span style="flex-shrink:0;display:flex;"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="{{ startFg }}"></path></svg></span>
+<span style="flex:1;min-width:0;"><span style="display:block;font-size:15px;font-weight:600;line-height:1.2;color:{{ startFg }};">{{ w.start }}</span></span>
+</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ phaseChat }}">
+<!-- header -->
+<div style="{{ headerStyle }}">
+<div style="display:flex;align-items:center;gap:9px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;">
+<svg width="11" height="20" sc-camel-view-box="0 0 12 22" fill="none" aria-hidden="true"><path d="M10 2L2 11l8 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<div style="width:38px;height:38px;border-radius:50%;background:#0B5249;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.22);">
+<span style="color:#fff;font-size:13.5px;font-weight:700;letter-spacing:.02em;">HF</span>
+</div>
+<div style="flex:1;min-width:0;">
+<div style="display:flex;align-items:center;gap:5px;">
+<h1 style="margin:0;color:#fff;font-size:15.5px;font-weight:600;">{{ businessName }}</h1>
+<span style="width:14px;height:14px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<svg width="9" height="9" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#075E54" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</span>
+</div>
+<div id="hf-status" aria-live="polite" style="color:rgba(255,255,255,.8);font-size:11.5px;">{{ statusText }}</div>
+</div>
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="#fff" style="opacity:.92;" aria-hidden="true"><path d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h12a1 1 0 001-1v-3.5l4 4v-11z"></path></svg>
+<svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="#fff" style="opacity:.92;" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.6a1 1 0 01-.24 1z"></path></svg>
+<svg width="6" height="20" sc-camel-view-box="0 0 6 24" fill="#fff" style="opacity:.92;" aria-hidden="true"><circle cx="3" cy="4" r="2"></circle><circle cx="3" cy="12" r="2"></circle><circle cx="3" cy="20" r="2"></circle></svg>
+</div>
+</div>
+
+<!-- progress strip -->
+<div style="background:#FBF9F5;border-bottom:1px solid #E7E0D5;padding:7px 14px;display:flex;align-items:center;gap:11px;">
+<span style="font-size:11px;font-weight:600;color:#3B4A54;white-space:nowrap;">{{ evidenceLabel }}</span>
+<div style="flex:1;height:6px;border-radius:3px;background:#E7E0D5;overflow:hidden;"><div style="{{ progressFillStyle }}"></div></div>
+<span style="font-size:11px;font-weight:700;color:#0F766E;white-space:nowrap;">{{ progressLabel }}</span>
+</div>
+
+<!-- messages -->
+<div id="hf-log" role="log" aria-live="polite" ref="{{ setScrollEl }}" style="flex:1;overflow-y:auto;overflow-x:hidden;background-color:#ECE5DD;background-image:radial-gradient(rgba(0,0,0,.02) 1px,transparent 0);background-size:18px 18px;padding:10px 9px 6px;">
+<sc-for list="{{ messages }}" as="m" hint-placeholder-count="4">
+
+<!-- SYSTEM -->
+<sc-if value="{{ m.sideSys }}">
+<div style="display:flex;justify-content:center;margin:8px 0;">
+<span style="background:#E4F0EE;color:#5C6B72;font-size:11px;font-weight:600;padding:4px 11px;border-radius:8px;box-shadow:0 1px .5px rgba(0,0,0,.08);">{{ m.text }}</span>
+</div>
+</sc-if>
+
+<!-- OUTGOING -->
+<sc-if value="{{ m.sideOut }}">
+<div class="hf-out" style="display:flex;justify-content:flex-end;padding:2px 2px;">
+<div style="max-width:82%;background:#DCF8C6;border-radius:13px 13px 4px 13px;padding:6px 9px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ha-in .26s ease both;">
+<sc-if value="{{ m.isText }}">
+<div style="font-size:14.5px;color:#111B21;line-height:1.42;white-space:pre-line;overflow-wrap:anywhere;">{{ m.text }}</div>
+</sc-if>
+<sc-if value="{{ m.isPhoto }}">
+<div style="border-radius:7px;overflow:hidden;">
+<sc-if value="{{ m.isPhotoReal }}">
+<div class="hf-real-photo" role="img" aria-label="{{ m.alt }}" style="{{ m.gridStyle }}">
+<sc-for list="{{ m.thumbs }}" as="th"><div class="hf-thumb" style="{{ th.style }}"></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ m.isPhotoSample }}">
+<div role="img" aria-label="{{ m.photoLabel }}" style="width:200px;max-width:62vw;height:144px;background-image:repeating-linear-gradient(135deg,#C9D8D0 0 9px,#D8E3DC 9px 18px);display:flex;align-items:center;justify-content:center;border-radius:6px;">
+<span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#5C6E64;background:rgba(255,255,255,.7);padding:3px 8px;border-radius:5px;">{{ m.photoLabel }}</span>
+</div>
+</sc-if>
+<sc-if value="{{ m.hasCaption }}"><div style="font-size:11.5px;color:#4f6b56;padding:4px 2px 0;">{{ m.caption }}</div></sc-if>
+</div>
+</sc-if>
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:3px;">
+<span style="font-size:11px;color:#5a7a66;">{{ m.time }}</span>
+<sc-if value="{{ m.isPending }}"><svg class="hf-clock" width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="#5a7a66" stroke-width="2"></circle><path d="M12 7.5V12l3 2" stroke="#5a7a66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+<sc-if value="{{ m.isDelivered }}"><svg class="hf-ticks" width="17" height="11" sc-camel-view-box="0 0 17 11" fill="none" aria-hidden="true"><path d="M1 5.6l3 3 5.4-7" stroke="#53BDEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.2 8.6L12.4 1.6" stroke="#53BDEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- INCOMING -->
+<sc-if value="{{ m.sideIn }}">
+<div class="hf-in" style="display:flex;justify-content:flex-start;padding:2px 2px;">
+
+<sc-if value="{{ m.isText }}">
+<div style="max-width:84%;background:#fff;border-radius:13px 13px 13px 4px;padding:6px 9px 5px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ha-in .26s ease both;">
+<sc-if value="{{ m.hasAgent }}"><div class="hf-agent" style="font-size:14.5px;font-weight:700;color:#111B21;line-height:1.42;">{{ m.agentName }}</div></sc-if>
+<div style="font-size:14.5px;color:#111B21;line-height:1.42;white-space:pre-line;">{{ m.text }}</div>
+<div style="text-align:right;margin-top:1px;"><span style="font-size:11px;color:#8696a0;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ m.isPhoto }}">
+<div style="max-width:84%;background:#fff;border-radius:13px 13px 13px 4px;padding:5px 5px 4px;box-shadow:0 1px .5px rgba(0,0,0,.13);animation:ha-in .26s ease both;">
+<div role="img" aria-label="{{ m.photoLabel }}" style="width:200px;height:140px;background-image:repeating-linear-gradient(135deg,#D9E4DE 0 9px,#E6EEE9 9px 18px);display:flex;align-items:center;justify-content:center;border-radius:8px;">
+<span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#6B7C74;background:rgba(255,255,255,.72);padding:3px 8px;border-radius:5px;">{{ m.photoLabel }}</span>
+</div>
+<sc-if value="{{ m.hasCaption }}"><div style="font-size:11.5px;color:#667781;padding:5px 5px 1px;">{{ m.caption }}</div></sc-if>
+<div style="text-align:right;padding:0 4px;"><span style="font-size:11px;color:#8696a0;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<!-- GUIDANCE CARD -->
+<sc-if value="{{ m.isGuidance }}">
+<div style="width:302px;max-width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="padding:11px 13px 9px;border-bottom:1px solid #EFEAE3;display:flex;gap:10px;align-items:flex-start;">
+<div style="width:30px;height:30px;border-radius:8px;background:#0F766E;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+<svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-1.7h7.4L17 7h2.5A1.5 1.5 0 0121 8.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z" stroke="#fff" stroke-width="1.6"></path><circle cx="12" cy="13" r="3.2" stroke="#fff" stroke-width="1.6"></circle></svg>
+</div>
+<div style="flex:1;min-width:0;">
+<div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
+<span style="font-size:14.5px;font-weight:600;color:#111B21;">{{ m.title }}</span>
+<sc-if value="{{ m.isImportant }}"><span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#9A5B00;background:#FBF3E0;padding:2px 6px;border-radius:5px;">{{ m.importantLabel }}</span></sc-if>
+</div>
+<sc-if value="{{ m.hasSubtitle }}"><div style="font-size:11.5px;color:#667781;margin-top:1px;">{{ m.subtitle }}</div></sc-if>
+</div>
+</div>
+<div style="padding:11px 13px 3px;">
+<sc-for list="{{ m.sections }}" as="sec" hint-placeholder-count="2">
+<div style="margin-bottom:11px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin-bottom:6px;">{{ sec.heading }}</div>
+<sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="2">
+<div style="display:flex;gap:9px;align-items:flex-start;margin-bottom:5px;">
+<div style="width:6px;height:6px;border-radius:50%;background:#0F766E;margin-top:6px;flex-shrink:0;"></div>
+<div style="font-size:13.5px;color:#3B4A54;line-height:1.35;">{{ it }}</div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ m.hasExamples }}">
+<div style="display:flex;gap:8px;padding:0 13px 11px;">
+<sc-for list="{{ m.examples }}" as="ex" hint-placeholder-count="2">
+<div style="flex:1;">
+<div style="height:76px;border-radius:7px;background-image:repeating-linear-gradient(135deg,#EDE7DF 0 8px,#F5F1EA 8px 16px);border:1px solid #E6DFD5;display:flex;align-items:center;justify-content:center;position:relative;">
+<span style="font-family:'Roboto Mono',monospace;font-size:11px;color:#9A9085;">{{ ex.label }}</span>
+<sc-if value="{{ ex.isGood }}"><div style="position:absolute;top:5px;left:5px;background:#1B7F4B;color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;">{{ ex.badgeLabel }}</div></sc-if>
+<sc-if value="{{ ex.isAvoid }}"><div style="position:absolute;top:5px;left:5px;background:#B26B00;color:#fff;font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;">{{ ex.badgeLabel }}</div></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ m.hasFooter }}">
+<div style="padding:9px 13px;background:#F7F4EF;border-top:1px solid #EFEAE3;font-size:12px;color:#5C6B72;line-height:1.4;">{{ m.footer }}</div>
+</sc-if>
+<div style="padding:3px 13px 8px;text-align:right;"><span style="font-size:11px;color:#aab0b4;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<!-- SUMMARY CARD -->
+<sc-if value="{{ m.isSummary }}">
+<div style="width:302px;max-width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="padding:11px 13px 9px;border-bottom:1px solid #EFEAE3;display:flex;gap:10px;align-items:center;">
+<div style="width:30px;height:30px;border-radius:8px;background:#0F766E;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2.5" stroke="#fff" stroke-width="1.6"></rect><path d="M8.5 9h7M8.5 13h7M8.5 17h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path></svg>
+</div>
+<span style="font-size:14.5px;font-weight:600;color:#111B21;">{{ m.summaryTitle }}</span>
+</div>
+<div style="padding:9px 13px 4px;">
+<sc-for list="{{ m.fields }}" as="f" hint-placeholder-count="4">
+<div style="display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid #F4F0EA;">
+<span style="font-size:12.5px;color:#8696a0;">{{ f.k }}</span>
+<span style="font-size:12.5px;font-weight:600;color:#2B3A40;text-align:right;">{{ f.v }}</span>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ m.hasProgress }}">
+<div style="padding:9px 13px 11px;">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
+<span style="font-size:11px;color:#667781;">{{ m.progressNote }}</span>
+<span style="font-size:11px;font-weight:700;color:#0F766E;">{{ m.progressLabel }}</span>
+</div>
+<div style="height:7px;border-radius:4px;background:#ECECEC;overflow:hidden;"><div style="{{ m.sumFillStyle }}"></div></div>
+</div>
+</sc-if>
+<div style="padding:0 13px 8px;text-align:right;"><span style="font-size:11px;color:#aab0b4;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<!-- CHECKLIST CARD -->
+<sc-if value="{{ m.isChecklist }}">
+<div style="width:302px;max-width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="padding:11px 13px 9px;border-bottom:1px solid #EFEAE3;display:flex;gap:10px;align-items:center;">
+<div style="width:30px;height:30px;border-radius:8px;background:#0F766E;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path><path d="M3.5 6l1.3 1.3L7 5M3.5 12l1.3 1.3L7 11M3.5 18l1.3 1.3L7 17" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span style="font-size:14.5px;font-weight:600;color:#111B21;">{{ m.checkTitle }}</span>
+</div>
+<div style="padding:6px 13px 4px;">
+<sc-for list="{{ m.checks }}" as="ck" hint-placeholder-count="4">
+<div style="display:flex;gap:11px;align-items:center;padding:7px 0;border-bottom:1px solid #F4F0EA;">
+<sc-if value="{{ ck.done }}">
+<div style="width:23px;height:23px;border-radius:50%;background:#1B7F4B;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<svg width="13" height="13" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+</sc-if>
+<sc-if value="{{ ck.pending }}">
+<div style="width:23px;height:23px;border-radius:50%;border:2px solid #CBD2CE;flex-shrink:0;"></div>
+</sc-if>
+<div style="flex:1;min-width:0;">
+<div style="font-size:13.5px;font-weight:500;color:#2B3A40;">{{ ck.label }}</div>
+<sc-if value="{{ ck.hasSub }}"><div style="font-size:11.5px;color:#8696a0;margin-top:1px;">{{ ck.sub }}</div></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ m.hasNote }}"><div style="padding:9px 13px;background:#F7F4EF;border-top:1px solid #EFEAE3;font-size:12px;color:#5C6B72;">{{ m.note }}</div></sc-if>
+<div style="padding:3px 13px 8px;text-align:right;"><span style="font-size:11px;color:#aab0b4;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<!-- AI CARD -->
+<sc-if value="{{ m.isAi }}">
+<div class="hf-ai" style="width:302px;max-width:100%;background:#fff;border:1px solid #E1E9E7;border-radius:11px;box-shadow:0 1px 1px rgba(0,0,0,.08);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="display:flex;align-items:center;gap:9px;padding:9px 13px;background:#F2F6F5;border-bottom:1px solid #E6EDEC;">
+<div style="width:26px;height:26px;border-radius:7px;background:#0F766E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="1.7"></circle><path d="M15 15l4.5 4.5" stroke="#fff" stroke-width="1.7" stroke-linecap="round"></path></svg>
+</div>
+<div style="flex:1;min-width:0;">
+<div style="font-size:13px;font-weight:700;color:#134E48;">Home FIX AI</div>
+<div style="font-size:11px;color:#5B7B76;">{{ m.aiSub }} · {{ m.aiAuto }}</div>
+</div>
+<span style="font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F766E;background:#DCEAE7;padding:2px 7px;border-radius:5px;">AI</span>
+</div>
+<div style="padding:11px 13px;">
+<div style="font-size:13.5px;color:#2B3A40;line-height:1.42;">{{ m.text }}</div>
+<sc-if value="{{ m.hasReasons }}">
+<div style="margin-top:9px;display:flex;flex-direction:column;gap:5px;">
+<sc-for list="{{ m.reasons }}" as="r" hint-placeholder-count="2">
+<div style="display:flex;gap:8px;align-items:flex-start;">
+<div style="width:5px;height:5px;border-radius:50%;background:#C99A3A;margin-top:6px;flex-shrink:0;"></div>
+<div style="font-size:12.5px;color:#5C6B66;line-height:1.35;">{{ r }}</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ m.hasAiFields }}">
+<div style="margin-top:10px;background:#F3F6F5;border:1px solid #E2EAE8;border-radius:8px;padding:9px 11px;">
+<sc-for list="{{ m.aiFields }}" as="af" hint-placeholder-count="1">
+<div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#7B8C88;">{{ af.k }}</div>
+<div style="font-family:'Roboto Mono',monospace;font-size:16px;font-weight:500;color:#134E48;letter-spacing:.02em;margin-top:1px;">{{ af.v }}</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ m.hasNote }}">
+<div style="display:flex;gap:8px;align-items:flex-start;padding:9px 13px;background:#FBFAF8;border-top:1px solid #EFEAE3;">
+<svg width="15" height="15" sc-camel-view-box="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:1px;" aria-hidden="true"><path d="M2 12s3.5-6.5 10-6.5S22 12 22 12s-3.5 6.5-10 6.5S2 12 2 12z" stroke="#6B8079" stroke-width="1.6"></path><circle cx="12" cy="12" r="2.6" stroke="#6B8079" stroke-width="1.6"></circle></svg>
+<div style="font-size:11.5px;color:#5C6B66;line-height:1.38;">{{ m.note }}</div>
+</div>
+</sc-if>
+<div style="padding:3px 13px 8px;text-align:right;"><span style="font-size:11px;color:#aab0b4;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+<!-- STATUS CARD -->
+<sc-if value="{{ m.isStatus }}">
+<div class="hf-status-card" style="width:302px;max-width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="{{ m.headStyle }}">
+<div style="{{ m.chipStyle }}">
+<sc-if value="{{ m.isGood }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+<sc-if value="{{ m.isWarn }}"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4l9 15H3z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"></path><path d="M12 10v4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path><circle cx="12" cy="16.6" r="1" fill="#fff"></circle></svg></sc-if>
+<sc-if value="{{ m.isWait }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.8"></circle><path d="M12 7.5V12l3 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+<sc-if value="{{ m.isBad }}"><svg width="17" height="17" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.8"></circle><path d="M12 11v5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"></path><circle cx="12" cy="7.8" r="1" fill="#fff"></circle></svg></sc-if>
+</div>
+<span style="{{ m.titleStyle }}">{{ m.statusTitle }}</span>
+</div>
+<div style="padding:11px 14px 4px;">
+<sc-if value="{{ m.hasBody }}"><div style="font-size:13px;color:#3B4A54;line-height:1.45;">{{ m.body }}</div></sc-if>
+<sc-if value="{{ m.hasFields }}">
+<div style="margin-top:9px;">
+<sc-for list="{{ m.fields }}" as="f" hint-placeholder-count="3">
+<div style="display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid #F4F0EA;">
+<span style="font-size:12px;color:#8696a0;">{{ f.k }}</span>
+<span style="font-size:12px;font-weight:600;color:#2B3A40;text-align:right;">{{ f.v }}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ m.hasGuide }}">
+<div style="margin-top:9px;background:#F7F4EF;border-radius:8px;padding:9px 11px;font-size:12.5px;color:#5C6B72;line-height:1.4;">{{ m.guide }}</div>
+</sc-if>
+</div>
+<sc-if value="{{ m.hasNote }}">
+<div style="margin:6px 14px 4px;padding:9px 11px;background:#F1F6F4;border-radius:8px;font-size:12px;color:#3B5A52;line-height:1.4;">{{ m.note }}</div>
+</sc-if>
+<div style="padding:3px 14px 8px;text-align:right;"><span style="font-size:11px;color:#aab0b4;">{{ m.time }}</span></div>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+
+</sc-for>
+
+<!-- typing -->
+<sc-if value="{{ isTyping }}">
+<div style="display:flex;justify-content:flex-start;padding:2px 2px;">
+<div style="background:#fff;border-radius:13px 13px 13px 4px;padding:11px 13px;box-shadow:0 1px .5px rgba(0,0,0,.13);display:flex;gap:4px;">
+<span style="width:7px;height:7px;border-radius:50%;background:#90A4AE;animation:ha-dot 1.2s infinite;"></span>
+<span style="width:7px;height:7px;border-radius:50%;background:#90A4AE;animation:ha-dot 1.2s infinite .2s;"></span>
+<span style="width:7px;height:7px;border-radius:50%;background:#90A4AE;animation:ha-dot 1.2s infinite .4s;"></span>
+</div>
+</div>
+</sc-if>
+
+<!-- RESULTS CARD (T05) -->
+<sc-if value="{{ showResults }}">
+<div style="display:flex;justify-content:flex-start;padding:2px 2px;">
+<div id="hf-results" style="width:100%;background:#fff;border-radius:11px;box-shadow:0 1px 1.5px rgba(0,0,0,.14);overflow:hidden;animation:ha-in .26s ease both;">
+<div style="padding:11px 13px 9px;border-bottom:1px solid #EFEAE3;display:flex;gap:10px;align-items:center;">
+<div style="width:30px;height:30px;border-radius:8px;background:#0F766E;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+<svg width="16" height="16" sc-camel-view-box="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path><path d="M3.5 6l1.3 1.3L7 5M3.5 12l1.3 1.3L7 11M3.5 18l1.3 1.3L7 17" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span style="font-size:14.5px;font-weight:600;color:#111B21;">{{ res.title }}</span>
+</div>
+<div style="padding:11px 13px 3px;">
+<div id="hf-ease-label" style="font-size:13.5px;font-weight:600;color:#2B3A40;">{{ res.easy }}</div>
+<div style="font-size:11.5px;color:#667781;margin:2px 0 8px;">{{ res.scale }}</div>
+<div role="group" aria-labelledby="hf-ease-label" style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;">
+<sc-for list="{{ easeButtons }}" as="eb">
+<button data-ease="{{ eb.n }}" aria-pressed="{{ eb.pressed }}" sc-camel-on-click="{{ eb.onClick }}" style="{{ eb.style }}">{{ eb.n }}</button>
+</sc-for>
+</div>
+<label for="hf-hardest" style="display:block;font-size:13.5px;font-weight:600;color:#2B3A40;margin-bottom:6px;">{{ res.hardest }}</label>
+<textarea id="hf-hardest" class="hf-field" rows="3" value="{{ hardest }}" onChange="{{ onHardest }}" style="width:100%;border:1px solid #D9D2C7;border-radius:12px;padding:9px 13px;font-family:inherit;font-size:16px;color:#111B21;resize:vertical;"></textarea>
+</div>
+<div style="padding:9px 13px 4px;display:flex;flex-direction:column;gap:7px;">
+<sc-if value="{{ hasEndpoint }}">
+<button id="hf-send-results" sc-camel-on-click="{{ onSendResults }}" style="{{ resPrimaryStyle }}"><span style="flex:1;font-size:15px;font-weight:600;color:#fff;">{{ res.send }}</span></button>
+</sc-if>
+<button id="hf-dl-json" sc-camel-on-click="{{ onDownloadJson }}" style="{{ resBtnStyle }}"><span style="flex:1;font-size:15px;font-weight:600;color:#0F766E;">{{ res.json }}</span></button>
+<button id="hf-dl-csv" sc-camel-on-click="{{ onDownloadCsv }}" style="{{ resBtnStyle }}"><span style="flex:1;font-size:15px;font-weight:600;color:#0F766E;">{{ res.csv }}</span></button>
+<button id="hf-copy" sc-camel-on-click="{{ onCopy }}" style="{{ resBtnStyle }}"><span style="flex:1;font-size:15px;font-weight:600;color:#0F766E;">{{ res.copy }}</span></button>
+<sc-if value="{{ hasResultMsg }}"><div id="hf-result-msg" role="status" style="font-size:12.5px;color:#3B5A52;background:#F1F6F4;border-radius:8px;padding:9px 11px;line-height:1.4;">{{ resultMsg }}</div></sc-if>
+<sc-if value="{{ showCopyBox }}"><textarea id="hf-copy-box" readOnly="{{ true }}" rows="6" ref="{{ setCopyBox }}" value="{{ copyText }}" style="width:100%;border:1px solid #D9D2C7;border-radius:8px;padding:8px;font-family:'Roboto Mono',monospace;font-size:11px;color:#2B3A40;"></textarea></sc-if>
+</div>
+<div style="padding:9px 13px;background:#F7F4EF;border-top:1px solid #EFEAE3;font-size:12px;color:#5C6B72;line-height:1.4;">{{ res.instructions }}</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+
+<!-- quick replies -->
+<sc-if value="{{ showQuick }}">
+<div id="hf-quick" style="background:#ECE5DD;padding:7px 10px 8px;display:flex;flex-direction:column;gap:7px;border-top:1px solid rgba(0,0,0,.05);">
+<sc-for list="{{ quick }}" as="q" hint-placeholder-count="2">
+<button data-qr="{{ q.id }}" sc-camel-on-click="{{ q.onClick }}" style="{{ q.style }}">
+<sc-if value="{{ q.hasIcon }}">
+<span style="flex-shrink:0;display:flex;" aria-hidden="true">
+<sc-if value="{{ q.iconCamera }}"><svg width="21" height="21" sc-camel-view-box="0 0 24 24" fill="none"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-1.7h7.4L17 7h2.5A1.5 1.5 0 0121 8.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z" stroke="{{ q.btnFg }}" stroke-width="1.7"></path><circle cx="12" cy="13" r="3.2" stroke="{{ q.btnFg }}" stroke-width="1.7"></circle></svg></sc-if>
+<sc-if value="{{ q.iconRefresh }}"><svg width="21" height="21" sc-camel-view-box="0 0 24 24" fill="none"><path d="M20 7a8 8 0 10.5 7" stroke="{{ q.btnFg }}" stroke-width="1.8" stroke-linecap="round"></path><path d="M20 3v4h-4" stroke="{{ q.btnFg }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+<sc-if value="{{ q.iconSupport }}"><svg width="21" height="21" sc-camel-view-box="0 0 24 24" fill="none"><path d="M5.5 4.5h3l1.4 4-2 1.4a11 11 0 005.2 5.2l1.4-2 4 1.4v3a2 2 0 01-2 2A14.5 14.5 0 013.5 6.5a2 2 0 012-2z" stroke="{{ q.btnFg }}" stroke-width="1.7" stroke-linejoin="round"></path></svg></sc-if>
+<sc-if value="{{ q.iconHelp }}"><svg width="21" height="21" sc-camel-view-box="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="{{ q.btnFg }}" stroke-width="1.7"></circle><path d="M9.5 9.5a2.6 2.6 0 015 .9c0 1.7-2.4 2-2.4 3.6" stroke="{{ q.btnFg }}" stroke-width="1.7" stroke-linecap="round"></path><circle cx="12" cy="17" r="1" fill="{{ q.btnFg }}"></circle></svg></sc-if>
+<sc-if value="{{ q.iconPlay }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="{{ q.btnFg }}"></path></svg></sc-if>
+<sc-if value="{{ q.iconCheck }}"><svg width="21" height="21" sc-camel-view-box="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="{{ q.btnFg }}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+</span>
+</sc-if>
+<span style="flex:1;min-width:0;">
+<span style="{{ q.labelStyle }}">{{ q.label }}</span>
+<sc-if value="{{ q.hasSub }}"><span style="{{ q.subStyle }}">{{ q.sub }}</span></sc-if>
+</span>
+<svg width="9" height="16" sc-camel-view-box="0 0 9 16" fill="none" style="flex-shrink:0;opacity:.45;" aria-hidden="true"><path d="M1.5 1.5L7 8l-5.5 6.5" stroke="{{ q.btnFg }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</sc-for>
+<sc-if value="{{ showSample }}">
+<button id="hf-sample" sc-camel-on-click="{{ onSample }}" style="align-self:center;min-height:44px;padding:0 12px;background:transparent;border:0;font-family:inherit;font-size:13px;color:#0F766E;text-decoration:underline;cursor:pointer;">{{ sampleLabel }}</button>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- input bar -->
+<form sc-camel-on-submit="{{ onSubmitText }}" style="background:#F0F0F0;padding:6px 8px calc(8px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:7px;margin:0;">
+<div style="flex:1;min-width:0;background:#fff;border-radius:22px;padding:9px 13px;display:flex;align-items:center;gap:9px;box-shadow:0 1px 1px rgba(0,0,0,.05);overflow:hidden;">
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" style="opacity:.5;flex-shrink:0;" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#667781" stroke-width="1.6"></circle><path d="M9 14c.8 1 2 1.6 3 1.6s2.2-.6 3-1.6" stroke="#667781" stroke-width="1.6" stroke-linecap="round"></path><circle cx="9" cy="10" r="1" fill="#667781"></circle><circle cx="15" cy="10" r="1" fill="#667781"></circle></svg>
+<div style="flex:1;min-width:0;height:20px;display:flex;align-items:center;">
+<input id="hf-input" class="hf-input" type="text" autoComplete="off" enterKeyHint="send" aria-label="{{ inputPlaceholder }}" placeholder="{{ inputPlaceholder }}" value="{{ draft }}" onChange="{{ onDraft }}" style="width:114.2857%;margin-right:-14.2857%;transform:scale(.875);transform-origin:left center;border:0;outline:0;background:transparent;padding:0;font-family:inherit;font-size:16px;color:#111B21;min-width:0;">
+</div>
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" style="opacity:.5;flex-shrink:0;" aria-hidden="true"><path d="M21 11.5l-8.5 8.5a5 5 0 01-7-7l8.5-8.5a3.3 3.3 0 014.7 4.7l-8.5 8.5a1.6 1.6 0 01-2.3-2.3l7.8-7.8" stroke="#667781" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" style="opacity:.5;flex-shrink:0;" aria-hidden="true"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-1.7h7.4L17 7h2.5A1.5 1.5 0 0121 8.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z" stroke="#667781" stroke-width="1.5"></path><circle cx="12" cy="13" r="3" stroke="#667781" stroke-width="1.5"></circle></svg>
+</div>
+<button id="hf-send" type="submit" aria-label="{{ sendLabel }}" disabled="{{ sendDisabled }}" style="width:44px;height:44px;padding:0;margin:-1px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;">
+<span style="width:42px;height:42px;border-radius:50%;background:#0F766E;display:flex;align-items:center;justify-content:center;">
+<sc-if value="{{ showMic }}"><svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 14a3 3 0 003-3V6a3 3 0 00-6 0v5a3 3 0 003 3z"></path><path d="M6 11a6 6 0 0012 0" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"></path><path d="M12 17v3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path></svg></sc-if>
+<sc-if value="{{ showSendIcon }}"><svg class="hf-send-icon" width="20" height="20" sc-camel-view-box="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M3.4 20.4l17.45-7.48a1 1 0 000-1.84L3.4 3.6a.99.99 0 00-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"></path></svg></sc-if>
+</span>
+</button>
+</form>
+<input id="hf-file" type="file" accept="image/*" ref="{{ setFileEl }}" onChange="{{ onFiles }}" tabIndex="-1" aria-hidden="true" style="display:none;">
+</sc-if>
+
+<!-- ===== FACILITATOR (T03): rendered only when the URL hash contains #facilitator ===== -->
+<sc-if value="{{ facMode }}">
+<button id="hf-fac-toggle" aria-label="Facilitator panel" sc-camel-on-click="{{ onFacToggle }}" style="position:absolute;left:0;top:calc(7px + env(safe-area-inset-top));width:44px;height:44px;border:0;border-radius:0 12px 12px 0;background:#0B5249;color:#fff;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;z-index:20;">F</button>
+<sc-if value="{{ facOpen }}">
+<div id="hf-fac" role="dialog" aria-label="Facilitator panel" style="position:absolute;top:0;right:0;bottom:0;width:min(340px,92%);background:#fff;box-shadow:-2px 0 10px rgba(0,0,0,.18);z-index:30;display:flex;flex-direction:column;font-family:Roboto,system-ui,sans-serif;">
+<div style="background:#075E54;color:#fff;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;align-items:center;gap:9px;">
+<span style="flex:1;font-size:15.5px;font-weight:600;">Facilitator</span>
+<button sc-camel-on-click="{{ onFacToggle }}" aria-label="Close" style="min-width:44px;min-height:44px;border:0;background:transparent;color:#fff;font-size:20px;cursor:pointer;">×</button>
+</div>
+<div style="flex:1;overflow-y:auto;padding:10px 12px 16px;font-size:12.5px;color:#2B3A40;">
+<sc-if value="{{ facLocked }}">
+<label for="hf-pin" style="display:block;font-size:12.5px;color:#667781;margin-bottom:5px;">PIN</label>
+<div style="display:flex;gap:7px;">
+<input id="hf-pin" class="hf-field" type="password" inputMode="numeric" value="{{ pinDraft }}" onChange="{{ onPin }}" style="flex:1;min-width:0;min-height:44px;border:1px solid #D9D2C7;border-radius:12px;padding:9px 13px;font-family:inherit;font-size:16px;">
+<button id="hf-pin-ok" sc-camel-on-click="{{ onPinOk }}" style="{{ facBtnPrimary }}">Unlock</button>
+</div>
+<sc-if value="{{ pinError }}"><div style="margin-top:6px;color:#9A5B00;">Wrong PIN.</div></sc-if>
+</sc-if>
+<sc-if value="{{ facUnlocked }}">
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:2px 0 6px;">Outcome after review</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;">
+<sc-for list="{{ facOutcomes }}" as="fo"><button data-fac-outcome="{{ fo.id }}" aria-pressed="{{ fo.pressed }}" sc-camel-on-click="{{ fo.onClick }}" style="{{ fo.style }}">{{ fo.label }}</button></sc-for>
+</div>
+<button id="hf-fac-send-outcome" sc-camel-on-click="{{ onSendOutcomeNow }}" style="{{ facBtn }}">Send outcome now</button>
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:14px 0 6px;">AI result for the next attempt</div>
+<sc-for list="{{ facChecks }}" as="fc">
+<div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+<span style="flex:1;">{{ fc.label }}</span>
+<button data-fac-check="{{ fc.passId }}" aria-pressed="{{ fc.passPressed }}" sc-camel-on-click="{{ fc.onPass }}" style="{{ fc.passStyle }}">Pass</button>
+<button data-fac-check="{{ fc.retakeId }}" aria-pressed="{{ fc.retakePressed }}" sc-camel-on-click="{{ fc.onRetake }}" style="{{ fc.retakeStyle }}">Retake</button>
+</div>
+</sc-for>
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:14px 0 6px;">Signal</div>
+<button id="hf-fac-offline" sc-camel-on-click="{{ onToggleOffline }}" style="{{ facBtn }}">{{ offlineLabel }}</button>
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:14px 0 6px;">Jump to a beat</div>
+<sc-for list="{{ groups }}" as="g">
+<div style="font-size:11px;font-weight:600;color:#667781;margin:8px 0 3px;">{{ g.name }}</div>
+<sc-for list="{{ g.items }}" as="it">
+<button data-jump="{{ it.id }}" sc-camel-on-click="{{ it.onClick }}" style="{{ it.style }}"><span style="{{ it.numStyle }}">{{ it.num }}</span><span style="{{ it.labelStyle }}">{{ it.label }}</span></button>
+</sc-for>
+</sc-for>
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:14px 0 6px;">AI confidence (hidden from installer)</div>
+<sc-if value="{{ noAiLog }}"><div style="color:#667781;">No AI checks yet.</div></sc-if>
+<sc-for list="{{ aiLog }}" as="al"><div class="hf-fac-conf" style="padding:4px 0;border-bottom:1px solid #F4F0EA;">{{ al.text }}</div></sc-for>
+<div style="font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A9299;margin:14px 0 6px;">Event log (newest first)</div>
+<div id="hf-fac-log" style="font-family:'Roboto Mono',monospace;font-size:11px;line-height:1.45;color:#3B4A54;">
+<sc-for list="{{ logLines }}" as="ll"><div>{{ ll }}</div></sc-for>
+</div>
+<button id="hf-fac-reset" sc-camel-on-click="{{ onReset }}" style="{{ facBtnDanger }}">Reset session</button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;businessName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Home FIX&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;headerColor&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;#075E54&quot;,&quot;options&quot;:[&quot;#075E54&quot;,&quot;#0F766E&quot;,&quot;#1F6F54&quot;,&quot;#11463E&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+// ===== Settings =====
+const RESULTS_ENDPOINT = '';           // optional HTTPS URL; empty = off (T05)
+const FACILITATOR_PIN = '2468';        // T03
+const STORE_KEY = 'homefix_proto_state_v1';
+const JOB_KEY = 'homefix_proto_job_v1';
+const JOB_REF = 'HF-2026-DBN-04821';
+const SERIAL_READ = 'KWH-8842-ZA-117';
+// Scripted AI confidence values. Shown in the facilitator panel only (F12).
+const CONF = { accept: 96, retake: 41, read: 98 };
+const LANGS = ['en', 'zu', 'af'];
+const PACE = { beat: 820, extra: 680, agent: 1500, drop: 3000, outcome: 6000, afterRetake: 4000 };
+
+/*COPY-START*/
+// Every user-facing string. b = beat, e = element. All zu/af need native review.
+function c(b, e, en, zu, af) { return { b: b, e: e, en: en, zu: zu, af: af }; }
+const COPY = {
+  // Chrome
+  ui_online: c('all', 'status', 'online', 'uxhumekile', 'aanlyn'),
+  ui_typing: c('all', 'status', 'typing…', 'uyabhala…', 'tik tans…'),
+  ui_connecting: c('all', 'status', 'Connecting…', 'Iyaxhuma…', 'Koppel tans…'),
+  ui_message: c('all', 'input', 'Message', 'Umlayezo', 'Boodskap'),
+  ui_send: c('all', 'input', 'Send', 'Thumela', 'Stuur'),
+  ui_evidence: c('all', 'progress', 'Evidence', 'Ubufakazi', 'Bewyse'),
+  ui_ai_auto: c('all', 'ai-card', 'automated check', 'ukuhlola okuzenzakalelayo', 'outomatiese kontrole'),
+  ui_sample: c('all', 'link', 'Use a sample photo instead', 'Sebenzisa isithombe sesibonelo', "Gebruik eerder 'n voorbeeldfoto"),
+  ui_photo_alt: c('all', 'photo', 'Your photo', 'Isithombe sakho', 'Jou foto'),
+  ui_photo: c('all', 'photo', 'photo', 'isithombe', 'foto'),
+  ui_photos_n: c('all', 'photo', '{n} photos', 'izithombe ezingu-{n}', "{n} foto's"),
+  badge_important: c('serial', 'badge', 'Most important', 'Okubaluleke kakhulu', 'Belangrikste'),
+  badge_good: c('all', 'badge', 'GOOD', 'KUHLE', 'GOED'),
+  badge_avoid: c('all', 'badge', 'AVOID', 'GWEMA', 'VERMY'),
+  ph_good_example: c('before', 'placeholder', 'good example', 'isibonelo esihle', 'goeie voorbeeld'),
+  ph_too_close: c('before', 'placeholder', 'too close', 'kuseduze kakhulu', 'te naby'),
+  ph_serial_label: c('serial', 'placeholder', 'serial label', 'ilebula ye-serial', 'reeksnommer-etiket'),
+  ph_glare: c('serial', 'placeholder', 'glare / blur', 'ukucwebezela / ukufiphala', 'glans / vaag'),
+  ph_geyser: c('before', 'placeholder', 'geyser photo', 'isithombe se-geyser', 'geiserfoto'),
+  ph_compliance: c('compliance', 'placeholder', 'compliance photos', 'izithombe ze-compliance', "voldoeningsfoto's"),
+  ph_example_serial: c('serial', 'placeholder', 'example: serial label', 'isibonelo: ilebula ye-serial', 'voorbeeld: reeksnommer-etiket'),
+  chip_today: c('entry', 'date-chip', 'TODAY', 'NAMUHLA', 'VANDAG'),
+  chip_later: c('serial', 'date-chip', 'Later today', 'Kamuva namuhla', 'Later vandag'),
+
+  // Language (shown in their own language in every UI language)
+  lang_en: c('entry', 'button', 'English', 'English', 'English'),
+  lang_zu: c('entry', 'button', 'isiZulu', 'isiZulu', 'isiZulu'),
+  lang_af: c('entry', 'button', 'Afrikaans', 'Afrikaans', 'Afrikaans'),
+  lang_en_sub: c('entry', 'button-sub', 'Continue in English', 'Continue in English', 'Continue in English'),
+  lang_zu_sub: c('entry', 'button-sub', 'Qhubeka ngesiZulu', 'Qhubeka ngesiZulu', 'Qhubeka ngesiZulu'),
+  lang_af_sub: c('entry', 'button-sub', 'Gaan voort in Afrikaans', 'Gaan voort in Afrikaans', 'Gaan voort in Afrikaans'),
+
+  // Entry and start
+  m_greeting: c('entry', 'message', 'Good morning, Sipho. This is Home FIX verification.', 'Sawubona, Sipho. Lena yinsizakalo yokuqinisekisa ye-Home FIX.', 'Goeie môre, Sipho. Dit is Home FIX-verifikasie.'),
+  m_lang_q: c('entry', 'message', 'Which language would you like to continue in? You can change this at any time.', 'Ungathanda ukuqhubeka ngaluphi ulimi? Ungalushintsha noma nini.', 'In watter taal wil jy voortgaan? Jy kan dit enige tyd verander.'),
+  m_hi: c('start', 'message', 'Great — let’s get started.', 'Kuhle — masiqale.', 'Wonderlik — kom ons begin.'),
+  m_popia: c('start', 'message', 'We use your photos and job details only to verify this job, in line with POPIA.', 'Sisebenzisa izithombe zakho nemininingwane yomsebenzi kuphela ukuqinisekisa lo msebenzi, ngokuhambisana ne-POPIA.', "Ons gebruik jou foto's en werkbesonderhede net om hierdie werk te verifieer, in lyn met POPIA."),
+  m_jobs: c('start', 'message', 'You have 1 job ready for evidence capture today. It should take about 5 minutes.', 'Unomsebenzi o-1 olungele ukuthathwa kobufakazi namuhla. Kufanele uthathe cishe imizuzu emi-5.', 'Jy het vandag 1 werk gereed vir bewysopname. Dit behoort sowat 5 minute te neem.'),
+  btn_start: c('start', 'button', 'Start job', 'Qala umsebenzi', 'Begin werk'),
+  btn_resume: c('start', 'button', 'Resume previous job', 'Buyela emsebenzini', 'Hervat vorige werk'),
+  btn_privacy: c('start', 'button', 'Privacy notice', 'Isaziso semfihlo', 'Privaatheidskennis'),
+  m_privacy_tap: c('start', 'message', 'Opens our privacy notice. Not part of this prototype.', 'Kuvula isaziso sethu semfihlo. Akuyona ingxenye yale prototype.', 'Maak ons privaatheidskennisgewing oop. Nie deel van hierdie prototipe nie.'),
+  m_resume_none: c('start', 'message', 'You don’t have a job in progress. Tap Start job to begin.', 'Awunawo umsebenzi oqhubekayo. Thepha ku-Qala umsebenzi ukuze uqale.', "Jy het nie 'n werk aan die gang nie. Tik Begin werk om te begin."),
+  m_resume_back: c('start', 'message', 'Welcome back. You were on: {step}.', 'Siyakwamukela futhi. Ubukade ukulesi sinyathelo: {step}.', 'Welkom terug. Jy was by: {step}.'),
+
+  // Summary
+  card_summary_title: c('summary', 'card-title', 'Job summary', 'Isifinyezo somsebenzi', 'Werkopsomming'),
+  f_reference: c('summary', 'field-label', 'Reference', 'Inkomba', 'Verwysing'),
+  f_customer: c('summary', 'field-label', 'Customer', 'Ikhasimende', 'Kliënt'),
+  f_region: c('summary', 'field-label', 'Region', 'Isifunda', 'Streek'),
+  f_installation: c('summary', 'field-label', 'Installation', 'Ukufaka', 'Installasie'),
+  v_installation: c('summary', 'field-value', 'Electric geyser — replacement', 'I-geyser kagesi — ukushintshwa', 'Elektriese geiser — vervanging'),
+  sum_progress_note: c('summary', 'card-text', 'Evidence steps remaining', 'Izinyathelo zobufakazi ezisele', 'Bewysstappe oor'),
+  m_ready: c('summary', 'message', 'When you’re ready, we’ll go one step at a time.', 'Uma usulungile, sizohamba isinyathelo ngesinyathelo.', "Wanneer jy gereed is, gaan ons een stap op 'n slag."),
+  btn_begin: c('summary', 'button', 'Begin verification', 'Qala ukuqinisekisa', 'Begin verifikasie'),
+
+  // Before photo
+  m_before_intro: c('before', 'message', 'First, a photo of the geyser as it is now.', 'Okokuqala, isithombe se-geyser njengoba injalo manje.', "Eerstens, 'n foto van die geiser soos dit nou is."),
+  g_before_title: c('before', 'card-title', 'Before photo', 'Isithombe sangaphambili', 'Voor-foto'),
+  g_before_sub: c('before', 'card-subtitle', 'Current geyser & area', 'I-geyser ekhona nendawo', 'Huidige geiser en area'),
+  h_what: c('before', 'card-heading', 'What to show', 'Okumele kubonakale', 'Wat om te wys'),
+  i_whole: c('before', 'card-item', 'The entire geyser', 'I-geyser yonke', 'Die hele geiser'),
+  i_area: c('before', 'card-item', 'The area around it', 'Indawo eyizungezile', 'Die area rondom dit'),
+  h_tips: c('before', 'card-heading', 'Photo tips', 'Amathiphu esithombe', 'Fotowenke'),
+  i_light: c('before', 'card-item', 'Good lighting', 'Ukukhanya okuhle', 'Goeie beligting'),
+  i_back: c('before', 'card-item', 'Step back slightly', 'Hlehla kancane', 'Staan effens terug'),
+  i_lens: c('before', 'card-item', 'Keep the lens clear', 'Gcina ilensi ihlanzekile', 'Hou die lens skoon'),
+  g_before_footer: c('before', 'card-footer', 'Take your time — you can always retake.', 'Thatha isikhathi sakho — ungaphinda uthathe noma nini.', 'Neem jou tyd — jy kan altyd weer neem.'),
+  btn_upload_photo: c('before', 'button', 'Upload photo', 'Thumela isithombe', 'Laai foto op'),
+  btn_need_help: c('before', 'button', 'Need help', 'Ngidinga usizo', 'Ek het hulp nodig'),
+  m_need_help: c('before', 'message', 'Sure. Hold the phone with both hands if you can, and tap the screen once to focus before the shot. A blurry one is fine — we’ll just ask for one more.', 'Kulungile. Bamba ifoni ngezandla zombili uma ukwazi, bese uthepha isikrini kanye ukuze igxile ngaphambi kokuthatha. Uma isithombe sifiphele kulungile — sizocela esinye.', "Seker. Hou die foon met albei hande vas as jy kan, en tik een keer op die skerm om te fokus voor jy die foto neem. 'n Vaag foto is reg — ons sal net vir nog een vra."),
+  ai_photo_check: c('before', 'ai-card', 'Photo check', 'Ukuhlola isithombe', 'Fotokontrole'),
+  ai_blurry: c('before_retake', 'ai-card', 'This one came out a little blurry, so it may be hard to verify.', 'Lesi sithombe siphume sifiphele kancane, ngakho kungaba nzima ukusiqinisekisa.', 'Hierdie een is effens vaag, so dit kan moeilik wees om te verifieer.'),
+  ai_blurry_note: c('before_retake', 'ai-card-note', 'No problem — this happens often. A clearer shot will help your job get approved faster.', 'Akunankinga — lokhu kwenzeka kaningi. Isithombe esicacile sizosiza ukuthi umsebenzi wakho ugunyazwe ngokushesha.', "Geen probleem nie — dit gebeur dikwels. 'n Duideliker foto sal help dat jou werk vinniger goedgekeur word."),
+  btn_retake: c('before_retake', 'button', 'Retake photo', 'Phinda uthathe', 'Neem weer'),
+  btn_support: c('all', 'button', 'Contact support', 'Xhumana nosizo', 'Kontak ondersteuning'),
+  ai_before_ok: c('before_ok', 'ai-card', '✅ Clear photo received. The whole geyser and the area around it are visible.', '✅ Isithombe esicacile samukelwe. I-geyser yonke nendawo eyizungezile kuyabonakala.', '✅ Duidelike foto ontvang. Die hele geiser en die area rondom dit is sigbaar.'),
+  ai_reviewer_later: c('before_ok', 'ai-card-note', 'A Home FIX reviewer can still check this later.', 'Umbuyekezi we-Home FIX usengakuhlola lokhu kamuva.', "'n Home FIX-beoordelaar kan dit later steeds nagaan."),
+  m_one_of_six: c('before_ok', 'message', 'That’s 1 of 6 evidence items captured.', 'Lokho kungu-1 kwezingu-6 zobufakazi esezithathiwe.', 'Dis 1 van 6 bewysitems vasgelê.'),
+
+  // Installation (F04)
+  m_install: c('install', 'message', 'Before photo saved. Go ahead with the installation. When the new geyser is in, tap Installation done. Your progress is saved.', 'Isithombe sangaphambili silondoloziwe. Qhubeka nokufaka. Uma i-geyser entsha isifakiwe, thepha ku-Ukufaka kuqediwe. Inqubekela phambili yakho ilondoloziwe.', 'Voor-foto gestoor. Gaan voort met die installasie. Wanneer die nuwe geiser in is, tik Installasie klaar. Jou vordering is gestoor.'),
+  btn_install_done: c('install', 'button', 'Installation done', 'Ukufaka kuqediwe', 'Installasie klaar'),
+
+  // Serial
+  m_serial_intro: c('serial', 'message', 'This next one matters most: the serial number label.', 'Lokhu okulandelayo kubaluleke kakhulu: ilebula yenombolo ye-serial.', 'Hierdie volgende een is die belangrikste: die reeksnommer-etiket.'),
+  g_serial_title: c('serial', 'card-title', 'Serial number label', 'Ilebula yenombolo ye-serial', 'Reeksnommer-etiket'),
+  g_serial_sub: c('serial', 'card-subtitle', 'Proves which geyser was installed', 'Ikhombisa ukuthi iyiphi i-geyser efakiwe', 'Bewys watter geiser geïnstalleer is'),
+  i_only_label: c('serial', 'card-item', 'Only the serial number label', 'Ilebula yenombolo ye-serial kuphela', 'Net die reeksnommer-etiket'),
+  h_close: c('serial', 'card-heading', 'How close', 'Useduze kangakanani', 'Hoe naby'),
+  i_15_20: c('serial', 'card-item', 'About 15–20 cm away', 'Cishe ku-15–20 cm', 'Sowat 15–20 cm weg'),
+  i_fill: c('serial', 'card-item', 'Fill the frame with the label', 'Gcwalisa isithombe ngelebula', 'Vul die raam met die etiket'),
+  h_lighting: c('serial', 'card-heading', 'Lighting', 'Ukukhanya', 'Beligting'),
+  i_torch: c('serial', 'card-item', 'Use your phone torch if it’s dark', 'Sebenzisa ithoshi yefoni uma kumnyama', 'Gebruik jou foon se flits as dit donker is'),
+  g_serial_footer: c('serial', 'card-footer', 'This is the single most important photo — take your time.', 'Lesi yisithombe esibaluleke kunazo zonke — thatha isikhathi sakho.', 'Dit is die heel belangrikste foto — neem jou tyd.'),
+  btn_upload_serial: c('serial', 'button', 'Upload serial photo', 'Thumela i-serial', 'Laai reeksfoto op'),
+  btn_view_example: c('serial', 'button', 'View example', 'Bona isibonelo', 'Sien voorbeeld'),
+  m_example_caption: c('serial', 'photo-caption', 'Aim for this — the label fills the frame.', 'Zama lokhu — ilebula igcwalisa isithombe.', 'Mik hierna — die etiket vul die raam.'),
+  ai_reading: c('serial', 'ai-card', 'Reading text', 'Ukufunda umbhalo', 'Lees teks'),
+  ai_glare: c('serial_retake', 'ai-card', 'I can see the label, but I can’t read every character clearly yet.', 'Ngiyayibona ilebula, kodwa angikakwazi ukufunda zonke izinhlamvu ngokucacile.', 'Ek kan die etiket sien, maar ek kan nog nie elke karakter duidelik lees nie.'),
+  r_glare: c('serial_retake', 'ai-reason', 'Glare across part of the label', 'Ukucwebezela engxenyeni yelebula', "Glans oor 'n deel van die etiket"),
+  r_hidden: c('serial_retake', 'ai-reason', 'A few characters are hidden', 'Ezinye izinhlamvu zifihlekile', "'n Paar karakters is versteek"),
+  ai_glare_note: c('serial_retake', 'ai-card-note', 'You’re very close — one more try should do it.', 'Ususeduze kakhulu — omunye umzamo kufanele wanele.', 'Jy is baie naby — nog een probeerslag behoort dit te doen.'),
+  btn_type_in: c('serial_retake', 'button', 'Type it in instead', 'Yibhale esikhundleni', 'Tik dit eerder in'),
+  ai_serial_ok: c('serial_ok', 'ai-card', '✅ Got it — serial number captured.', '✅ Ngiyitholile — inombolo ye-serial ithathiwe.', '✅ Reg so — reeksnommer vasgelê.'),
+  ai_field_serial: c('serial_ok', 'ai-field-label', 'Serial number', 'Inombolo ye-serial', 'Reeksnommer'),
+  ai_reviewer_too: c('serial_ok', 'ai-card-note', 'A Home FIX reviewer checks this too.', 'Umbuyekezi we-Home FIX uyakuhlola nalokhu.', "'n Home FIX-beoordelaar kontroleer dit ook."),
+  m_serial_check: c('serial_confirm', 'message', 'Please check the serial number: {serial}. Is that right?', 'Sicela uhlole inombolo ye-serial: {serial}. Ingabe ilungile?', 'Kontroleer asseblief die reeksnommer: {serial}. Is dit reg?'),
+  btn_yes_correct: c('serial_confirm', 'button', 'Yes, correct', 'Yebo, ilungile', 'Ja, korrek'),
+  btn_no_fix: c('serial_confirm', 'button', 'No, fix it', 'Cha, yilungise', 'Nee, maak reg'),
+  m_serial_type: c('serial_type', 'message', 'Please type the serial number exactly as it is on the label.', 'Sicela ubhale inombolo ye-serial ngqo njengoba injalo elebuleni.', 'Tik asseblief die reeksnommer presies soos dit op die etiket is.'),
+  m_serial_saved: c('serial_type', 'message', 'Thanks. Saved as {serial}. A reviewer will compare it with the photo.', 'Siyabonga. Ilondolozwe njengo-{serial}. Umbuyekezi uzoyiqhathanisa nesithombe.', "Dankie. Gestoor as {serial}. 'n Beoordelaar sal dit met die foto vergelyk."),
+
+  // Compliance (F06, F07)
+  m_compliance_intro: c('compliance', 'message', 'Almost there. A few items to confirm the installation is safe and to standard.', 'Sesiseduze. Izinto ezimbalwa zokuqinisekisa ukuthi ukufaka kuphephile futhi kusezingeni.', "Amper klaar. 'n Paar items om te bevestig dat die installasie veilig en volgens standaard is."),
+  c_title: c('compliance', 'card-title', 'Compliance evidence', 'Ubufakazi be-compliance', 'Voldoeningsbewyse'),
+  c_pcv: c('compliance', 'card-item', 'Pressure control valve (PCV)', 'I-pressure control valve (PCV)', 'Drukbeheerklep (PCV)'),
+  c_pcv_sub: c('compliance', 'card-item-sub', 'Keeps the geyser at a safe pressure', 'Igcina i-geyser isengcindezelweni ephephile', "Hou die geiser op 'n veilige druk"),
+  c_overview: c('compliance', 'card-item', 'Installation overview', 'Isithombe sokufaka sonke', 'Oorsig van installasie'),
+  c_overview_sub: c('compliance', 'card-item-sub', 'A wide shot of the finished work', 'Isithombe esibanzi somsebenzi oqediwe', "'n Wye foto van die voltooide werk"),
+  c_drip: c('compliance', 'card-item', 'Drip tray & overflow', 'I-drip tray ne-overflow', 'Drupbak en oorloop'),
+  c_drip_sub: c('compliance', 'card-item-sub', 'Catches and drains any leaks', 'Ibamba futhi ikhiphe noma yikuphi ukuvuza', 'Vang en dreineer enige lekke'),
+  c_isolator: c('compliance', 'card-item', 'Electrical isolator', 'I-isolator kagesi', 'Elektriese isolator'),
+  c_isolator_sub: c('compliance', 'card-item-sub', 'The switch that cuts power safely', 'Iswishi evala ugesi ngokuphepha', 'Die skakelaar wat krag veilig afsny'),
+  c_note: c('compliance', 'card-note', 'Send all four together, or one at a time.', 'Thumela zonke ezine ndawonye, noma eyodwa ngesikhathi.', "Stuur al vier saam, of een op 'n slag."),
+  btn_upload_photos: c('compliance', 'button', 'Upload photos', 'Thumela izithombe', "Laai foto's op"),
+  btn_skip: c('compliance', 'button', 'Skip for later', 'Yeqa okwamanje', 'Slaan nou oor'),
+  m_skip: c('compliance', 'message', 'No problem. We’ll keep your place and remind you before final submission.', 'Akunankinga. Sizogcina lapho ufike khona futhi sikukhumbuze ngaphambi kokuthumela kokugcina.', 'Geen probleem nie. Ons hou jou plek en herinner jou voor die finale indiening.'),
+  btn_continue: c('compliance', 'button', 'Continue', 'Qhubeka', 'Gaan voort'),
+  m_reminder: c('reminder', 'message', 'Before you submit, I still need the {n} compliance photos.', 'Ngaphambi kokuthi uthumele, ngisadinga izithombe ze-compliance ezingu-{n}.', "Voor jy indien, het ek nog die {n} voldoeningsfoto's nodig."),
+  m_partial: c('compliance', 'message', 'Got {got} of 4. Send the other {left} when you’re ready.', 'Ngithole ezingu-{got} kwezingu-4. Thumela ezinye ezingu-{left} uma usulungile.', '{got} van 4 ontvang. Stuur die ander {left} wanneer jy gereed is.'),
+
+  // Signal drop (F08)
+  s_came_through: c('offline', 'status-title', 'Your photos came through', 'Izithombe zakho zifikile', "Jou foto's het deurgekom"),
+  s_came_body: c('offline', 'status-body', 'The signal dropped while sending, but nothing was lost.', 'Isignali yanqamuka ngesikhathi kuthunyelwa, kodwa akukho okulahlekile.', 'Die sein het weggeval terwyl dit gestuur is, maar niks het verlore gegaan nie.'),
+  f_completed: c('offline', 'field-label', 'Completed', 'Kuqediwe', 'Voltooi'),
+  v_6of6_items: c('offline', 'field-value', '6 of 6 items', 'izinto ezingu-6 kwezingu-6', '6 van 6 items'),
+  f_photos_received: c('offline', 'field-label', 'Photos received', 'Izithombe ezitholiwe', "Foto's ontvang"),
+  v_4of4: c('offline', 'field-value', '4 of 4', '4 kwezingu-4', '4 van 4'),
+  s_came_note: c('offline', 'status-note', 'You can keep working or come back later — your place is held.', 'Ungaqhubeka usebenza noma ubuye kamuva — indawo yakho igciniwe.', 'Jy kan aanhou werk of later terugkom — jou plek word gehou.'),
+  btn_submit: c('offline', 'button', 'Submit evidence', 'Thumela ubufakazi', 'Dien bewyse in'),
+
+  // Submitted + in review (F09)
+  s_ok: c('submitted', 'status-title', 'Evidence submitted successfully', 'Ubufakazi bakho buthunyelwe ngempumelelo', 'Jou bewyse is suksesvol ingedien'),
+  s_ok_body: c('submitted', 'status-body', 'All six evidence items have been received.', 'Zonke izinto eziyisithupha zobufakazi zitholakele.', 'Al ses bewysitems is ontvang.'),
+  f_submitted: c('submitted', 'field-label', 'Submitted', 'Kuthunyelwe', 'Ingedien'),
+  v_date_submit: c('submitted', 'field-value', '18 Jun 2026, 13:18', '18 Juni 2026, 13:18', '18 Jun. 2026, 13:18'),
+  f_items: c('submitted', 'field-label', 'Items', 'Izinto', 'Items'),
+  v_6complete: c('submitted', 'field-value', '6 of 6 complete', '6 kwezingu-6 ziphelele', '6 van 6 voltooi'),
+  s_ok_note: c('submitted', 'status-note', 'This is everything needed for your job to be processed — no further action right now.', 'Lokhu yikho konke okudingekayo ukuze umsebenzi wakho ucutshungulwe — akukho okunye okudingekayo manje.', 'Dit is alles wat nodig is om jou werk te verwerk — niks verder nodig nie.'),
+  m_thanks_team: c('submitted', 'message', 'Thank you, Sipho. Your evidence is now with our team.', 'Siyabonga, Sipho. Ubufakazi bakho manje busethimbeni lethu.', 'Dankie, Sipho. Jou bewyse is nou by ons span.'),
+  s_review: c('submitted', 'status-title', 'In review', 'Kuyabuyekezwa', 'Word hersien'),
+  s_review_body: c('submitted', 'status-body', 'A Home FIX specialist is checking your evidence. Most reviews finish within 2 hours — we’ll message you right here.', 'Uchwepheshe we-Home FIX uhlola ubufakazi bakho. Ukubuyekezwa okuningi kuqeda phakathi kwamahora ama-2 — sizokuthumelela umlayezo lapha.', "'n Home FIX-spesialis gaan jou bewyse na. Die meeste hersienings is binne 2 uur klaar — ons stuur vir jou 'n boodskap net hier."),
+  f_est: c('submitted', 'field-label', 'Estimated time', 'Isikhathi esilinganisiwe', 'Geskatte tyd'),
+  v_2h: c('submitted', 'field-value', '~2 hours', '~amahora ama-2', '~2 uur'),
+  f_reviewed_by: c('submitted', 'field-label', 'Reviewed by', 'Kubuyekezwa ngu', 'Hersien deur'),
+  v_specialist: c('submitted', 'field-value', 'A Home FIX specialist', 'Uchwepheshe we-Home FIX', "'n Home FIX-spesialis"),
+  s_review_note: c('submitted', 'status-note', 'A real person makes the final decision, not an automated system. Payment is processed once the job is approved.', 'Umuntu wangempela wenza isinqumo sokugcina, hhayi uhlelo oluzenzakalelayo. Inkokhelo icutshungulwa uma umsebenzi usugunyaziwe.', "'n Regte persoon neem die finale besluit, nie 'n outomatiese stelsel nie. Betaling word verwerk sodra die werk goedgekeur is."),
+
+  // Outcome: approved
+  m_good_news: c('approved', 'message', 'Good news, Sipho — your review is complete.', 'Izindaba ezinhle, Sipho — ukubuyekezwa kwakho kuqediwe.', 'Goeie nuus, Sipho — jou hersiening is voltooi.'),
+  s_approved: c('approved', 'status-title', 'Installation approved', 'Ukufaka kugunyaziwe', 'Installasie goedgekeur'),
+  s_approved_body: c('approved', 'status-body', 'Your evidence met all requirements. The job is complete.', 'Ubufakazi bakho buhlangabezane nazo zonke izidingo. Umsebenzi uqediwe.', 'Jou bewyse voldoen aan alle vereistes. Die werk is voltooi.'),
+  v_date_approved: c('approved', 'field-value', '18 Jun 2026, 14:52', '18 Juni 2026, 14:52', '18 Jun. 2026, 14:52'),
+  v_6verified: c('approved', 'field-value', '6 of 6 verified', '6 kwezingu-6 ziqinisekisiwe', '6 van 6 geverifieer'),
+  s_approved_note: c('approved', 'status-note', 'Thank you for your work today.', 'Siyabonga ngomsebenzi wakho namuhla.', 'Dankie vir jou werk vandag.'),
+  btn_close_job: c('approved', 'button', 'Close job', 'Vala umsebenzi', 'Sluit werk'),
+
+  // Outcome: retake (F18)
+  m_almost: c('retake', 'message', 'Almost there — one item needs another look.', 'Sesiseduze — into eyodwa idinga ukubhekwa futhi.', 'Amper daar — een item moet weer bekyk word.'),
+  s_retake: c('retake', 'status-title', 'One item needs a retake', 'Into eyodwa idinga ukuthathwa kabusha', 'Een item moet oorgeneem word'),
+  s_retake_body: c('retake', 'status-body', 'The reviewer needs a clearer view of one item before approving the job.', 'Umbuyekezi udinga ukubona into eyodwa ngokucacile ngaphambi kokugunyaza umsebenzi.', "Die beoordelaar het 'n duideliker beeld van een item nodig voordat die werk goedgekeur word."),
+  f_item: c('retake', 'field-label', 'Item', 'Into', 'Item'),
+  f_reason: c('retake', 'field-label', 'Reason', 'Isizathu', 'Rede'),
+  v_glare_reason: c('retake', 'field-value', 'Part of the serial is hidden by glare', 'Ingxenye ye-serial ifihlwe ukucwebezela', 'Deel van die reeksnommer word deur glans versteek'),
+  s_retake_guide: c('retake', 'status-guide', 'Stand 15–20 cm back and use your torch to avoid glare. Everything else is approved and saved.', 'Hlehla ku-15–20 cm bese usebenzisa ithoshi ukuze ugweme ukucwebezela. Konke okunye kugunyaziwe futhi kulondoloziwe.', 'Staan 15–20 cm terug en gebruik jou flits om glans te vermy. Alles anders is goedgekeur en gestoor.'),
+  btn_retake_now: c('retake', 'button', 'Retake now', 'Phinda manje', 'Neem nou weer'),
+  btn_later: c('retake', 'button', 'Continue later', 'Qhubeka kamuva', 'Gaan later voort'),
+  m_later_one: c('retake', 'message', 'Saved. We’ll remind you to finish this one item.', 'Kulondoloziwe. Sizokukhumbuza ukuqeda le nto eyodwa.', 'Gestoor. Ons sal jou herinner om hierdie een item klaar te maak.'),
+  ai_retake_ok: c('retake', 'ai-card', '✅ Clear photo received. The serial number label is easy to read.', '✅ Isithombe esicacile samukelwe. Ilebula yenombolo ye-serial ifundeka kalula.', '✅ Duidelike foto ontvang. Die reeksnommer-etiket is maklik om te lees.'),
+  m_sent_reviewer: c('retake', 'message', 'Thanks. Sent to the reviewer.', 'Siyabonga. Kuthunyelwe kumbuyekezi.', 'Dankie. Na die beoordelaar gestuur.'),
+
+  // Outcome: needs assistance (F16)
+  m_patience: c('rejected', 'message', 'Thanks for your patience, Sipho.', 'Siyabonga ngokubekezela kwakho, Sipho.', 'Dankie vir jou geduld, Sipho.'),
+  s_agent_finish: c('rejected', 'status-title', 'A Home FIX agent will finish this with you', 'Umenzeli we-Home FIX uzoqeda lokhu nawe', "'n Home FIX-agent sal dit saam met jou klaarmaak"),
+  s_agent_body: c('rejected', 'status-body', 'The reviewer couldn’t approve the job from the photos alone.', 'Umbuyekezi akakwazanga ukugunyaza umsebenzi ngezithombe kuphela.', "Die beoordelaar kon nie die werk net uit die foto's goedkeur nie."),
+  v_mismatch: c('rejected', 'field-value', 'The serial number doesn’t match the geyser on the order', 'Inombolo ye-serial ayifani ne-geyser ese-oda', 'Die reeksnommer stem nie ooreen met die geiser op die bestelling nie'),
+  f_who: c('rejected', 'field-label', 'Who', 'Ubani', 'Wie'),
+  v_thandi: c('rejected', 'field-value', 'Thandi, Home FIX team', 'UThandi, ithimba le-Home FIX', 'Thandi, Home FIX-span'),
+  f_when: c('rejected', 'field-label', 'When', 'Nini', 'Wanneer'),
+  v_before15: c('rejected', 'field-value', 'Today before 15:00', 'Namuhla ngaphambi kuka-15:00', 'Vandag voor 15:00'),
+  s_agent_note: c('rejected', 'status-note', 'Your job stays open and nothing you sent is lost.', 'Umsebenzi wakho uhlala uvuliwe futhi akukho okuthumele okulahlekile.', 'Jou werk bly oop en niks wat jy gestuur het, is verlore nie.'),
+  btn_chat_thandi: c('rejected', 'button', 'Chat to Thandi now', 'Xoxa noThandi manje', 'Gesels met Thandi'),
+
+  // Support handover (F15)
+  s_connecting: c('support', 'status-title', 'Connecting you to our team', 'Sikuxhumanisa nethimba lethu', 'Ons verbind jou met ons span'),
+  s_connecting_body: c('support', 'status-body', 'A Home FIX agent will reply here, usually within 5 minutes (Mon–Sat, 07:00–19:00). Your progress is saved.', 'Umenzeli we-Home FIX uzophendula lapha, ngokuvamile phakathi kwemizuzu emi-5 (uMsombuluko–uMgqibelo, 07:00–19:00). Inqubekela phambili yakho ilondoloziwe.', "'n Home FIX-agent sal hier antwoord, gewoonlik binne 5 minute (Ma–Sa, 07:00–19:00). Jou vordering is gestoor."),
+  f_hours: c('support', 'field-label', 'Hours', 'Amahora', 'Ure'),
+  v_hours: c('support', 'field-value', 'Mon–Sat, 07:00–19:00', 'uMsombuluko–uMgqibelo, 07:00–19:00', 'Ma–Sa, 07:00–19:00'),
+  agent_name: c('support', 'agent-name', 'Thandi · Home FIX team', 'Thandi · ithimba le-Home FIX', 'Thandi · Home FIX-span'),
+  m_agent_hi: c('support', 'agent-message', 'Hi Sipho, Thandi here. I can see your job. How can I help?', 'Sawubona Sipho, nguThandi lo. Ngiyawubona umsebenzi wakho. Ngingakusiza ngani?', 'Hallo Sipho, dis Thandi hier. Ek kan jou werk sien. Hoe kan ek help?'),
+  m_agent_back: c('support', 'agent-message', 'Thanks. I’m handing you back to the assistant.', 'Siyabonga. Ngikubuyisela kumsizi.', 'Dankie. Ek gee jou terug aan die assistent.'),
+
+  // Keywords, help and repair (T02)
+  m_repair: c('all', 'message', 'Sorry, I didn’t catch that. {step}', 'Uxolo, angikuzwanga kahle. {step}', 'Jammer, ek het dit nie mooi verstaan nie. {step}'),
+  m_repair2_btn: c('all', 'message', 'If you’re stuck, tap Contact support.', 'Uma ubambekile, thepha ku-Xhumana nosizo.', 'As jy vassit, tik Kontak ondersteuning.'),
+  m_repair2_kw: c('all', 'message', 'If you’re stuck, type “person” to reach our team.', 'Uma ubambekile, bhala “umuntu” ukuze uthole ithimba lethu.', 'As jy vassit, tik “persoon” om ons span te bereik.'),
+  m_help: c('all', 'message', '{step} Type “person” to talk to our team, or “language” to change language.', '{step} Bhala “umuntu” ukuze ukhulume nethimba lethu, noma “ulimi” ukuze ushintshe ulimi.', '{step} Tik “persoon” om met ons span te praat, of “taal” om die taal te verander.'),
+  m_lang_changed: c('all', 'message', 'Done. I’ll continue in English.', 'Kulungile. Ngizoqhubeka ngesiZulu.', 'Reg so. Ek gaan voort in Afrikaans.'),
+  step_entry: c('entry', 'step', 'Choose a language to continue.', 'Khetha ulimi ukuze uqhubeke.', "Kies 'n taal om voort te gaan."),
+  step_start: c('start', 'step', 'Tap Start job to begin.', 'Thepha ku-Qala umsebenzi ukuze uqale.', 'Tik Begin werk om te begin.'),
+  step_summary: c('summary', 'step', 'Tap Begin verification to start with the first photo.', 'Thepha ku-Qala ukuqinisekisa ukuze uqale ngesithombe sokuqala.', 'Tik Begin verifikasie om met die eerste foto te begin.'),
+  step_before: c('before', 'step', 'Send one photo of the whole geyser and the area around it.', 'Thumela isithombe esisodwa se-geyser yonke nendawo eyizungezile.', 'Stuur een foto van die hele geiser en die area rondom dit.'),
+  step_install: c('install', 'step', 'Do the installation, then tap Installation done.', 'Yenza ukufaka, bese uthepha ku-Ukufaka kuqediwe.', 'Doen die installasie en tik dan Installasie klaar.'),
+  step_serial: c('serial', 'step', 'Send a close, clear photo of the new geyser’s serial number label.', 'Thumela isithombe esiseduze nesicacile selebula yenombolo ye-serial ye-geyser entsha.', "Stuur 'n nabye, duidelike foto van die nuwe geiser se reeksnommer-etiket."),
+  step_serial_confirm: c('serial_confirm', 'step', 'Tap Yes, correct if the serial number is right, or No, fix it.', 'Thepha ku-Yebo, ilungile uma inombolo ye-serial ilungile, noma ku-Cha, yilungise.', 'Tik Ja, korrek as die reeksnommer reg is, of Nee, maak reg.'),
+  step_serial_type: c('serial_type', 'step', 'Type the serial number exactly as it is on the label.', 'Bhala inombolo ye-serial ngqo njengoba injalo elebuleni.', 'Tik die reeksnommer presies soos dit op die etiket is.'),
+  step_compliance: c('compliance', 'step', 'Send the 4 compliance photos: PCV, overview, drip tray and isolator.', 'Thumela izithombe ze-compliance ezi-4: i-PCV, isithombe sonke, i-drip tray ne-isolator.', "Stuur die 4 voldoeningsfoto's: PCV, oorsig, drupbak en isolator."),
+  step_submit: c('offline', 'step', 'Tap Submit evidence to send your job for review.', 'Thepha ku-Thumela ubufakazi ukuze uthumele umsebenzi wakho ubuyekezwe.', 'Tik Dien bewyse in om jou werk vir hersiening te stuur.'),
+  step_review: c('submitted', 'step', 'Your job is with a reviewer. We’ll message you here.', 'Umsebenzi wakho ukumbuyekezi. Sizokuthumelela umlayezo lapha.', "Jou werk is by 'n beoordelaar. Ons stuur vir jou 'n boodskap hier."),
+  step_retake: c('retake', 'step', 'Tap Retake now to send a clearer photo of the serial number label.', 'Thepha ku-Phinda manje ukuze uthumele isithombe esicacile selebula ye-serial.', "Tik Neem nou weer om 'n duideliker foto van die reeksnommer-etiket te stuur."),
+  step_done: c('approved', 'step', 'Your job is complete. Nothing else is needed.', 'Umsebenzi wakho uqediwe. Akukho okunye okudingekayo.', 'Jou werk is voltooi. Niks anders is nodig nie.'),
+  step_agent: c('rejected', 'step', 'Tap Chat to Thandi now to finish this with our team.', 'Thepha ku-Xoxa noThandi manje ukuze uqede lokhu nethimba lethu.', 'Tik Gesels met Thandi om dit saam met ons span klaar te maak.'),
+
+  // Welcome and consent (T05)
+  w_title: c('welcome', 'heading', 'Home FIX prototype', 'I-prototype ye-Home FIX', 'Home FIX-prototipe'),
+  w_lang: c('welcome', 'label', 'Language', 'Ulimi', 'Taal'),
+  w_proto: c('welcome', 'text', 'This is a prototype for research. It is not WhatsApp and not a real company.', 'Lena yi-prototype yocwaningo. Akuyona i-WhatsApp futhi akuyona inkampani yangempela.', "Dit is 'n prototipe vir navorsing. Dit is nie WhatsApp nie en nie 'n regte maatskappy nie."),
+  w_task: c('welcome', 'text', 'You’ll play Sipho, a plumber. Use the chat to send proof that a geyser was replaced. You can stop at any time.', 'Uzoba nguSipho, uplamba. Sebenzisa ingxoxo ukuthumela ubufakazi bokuthi i-geyser ishintshiwe. Ungayeka noma nini.', "Jy speel Sipho, 'n loodgieter. Gebruik die klets om bewys te stuur dat 'n geiser vervang is. Jy kan enige tyd ophou."),
+  w_rec_h: c('welcome', 'heading', 'What we record', 'Esikuqophayo', 'Wat ons aanteken'),
+  w_rec: c('welcome', 'text', 'Your taps, the messages you type, and how long each step takes.', 'Lapho uthepha khona, imilayezo oyibhalayo, nokuthi isinyathelo ngasinye sithatha isikhathi esingakanani.', 'Jou tikke, die boodskappe wat jy tik, en hoe lank elke stap neem.'),
+  w_norec_h: c('welcome', 'heading', 'What we don’t record', 'Esingakuqophi', 'Wat ons nie aanteken nie'),
+  w_norec: c('welcome', 'text', 'Your photos, your name or your phone number. Photos stay on your phone.', 'Izithombe zakho, igama lakho noma inombolo yakho yefoni. Izithombe zihlala efonini yakho.', "Jou foto's, jou naam of jou foonnommer. Foto's bly op jou foon."),
+  w_nopi: c('welcome', 'text', 'Please don’t type personal information.', 'Sicela ungabhali imininingwane yakho siqu.', 'Moet asseblief nie persoonlike inligting tik nie.'),
+  w_code: c('welcome', 'label', 'Participant code', 'Ikhodi yomhlanganyeli', 'Deelnemerkode'),
+  w_consent: c('welcome', 'label', 'I understand and agree to take part.', 'Ngiyaqonda futhi ngiyavuma ukubamba iqhaza.', 'Ek verstaan en stem in om deel te neem.'),
+  w_start: c('welcome', 'research-button', 'Start', 'Qala', 'Begin'),
+
+  // Results (T05)
+  r_title: c('results', 'heading', 'Thank you. Two quick questions', 'Siyabonga. Imibuzo emibili emifushane', 'Dankie. Twee vinnige vrae'),
+  r_easy: c('results', 'label', 'How easy was this?', 'Bekulula kangakanani lokhu?', 'Hoe maklik was dit?'),
+  r_scale: c('results', 'text', '1 = very hard, 7 = very easy', '1 = kunzima kakhulu, 7 = kulula kakhulu', '1 = baie moeilik, 7 = baie maklik'),
+  r_hardest: c('results', 'label', 'What was hardest?', 'Yini ebinzima kakhulu?', 'Wat was die moeilikste?'),
+  r_send: c('results', 'research-button', 'Send results', 'Thumela imiphumela', 'Stuur resultate'),
+  r_json: c('results', 'research-button', 'Download results (JSON)', 'Landa imiphumela (JSON)', 'Laai resultate af (JSON)'),
+  r_csv: c('results', 'research-button', 'Download results (CSV)', 'Landa imiphumela (CSV)', 'Laai resultate af (CSV)'),
+  r_copy: c('results', 'research-button', 'Copy results', 'Kopisha imiphumela', 'Kopieer resultate'),
+  r_copied: c('results', 'status', 'Copied. Paste it into a message to the researcher.', 'Kukopishiwe. Kunamathisele emlayezweni oya kumcwaningi.', "Gekopieer. Plak dit in 'n boodskap aan die navorser."),
+  r_copy_fallback: c('results', 'status', 'Select all the text below and copy it.', 'Khetha wonke umbhalo ongezansi bese uwukopisha.', 'Kies al die teks hieronder en kopieer dit.'),
+  r_downloaded: c('results', 'status', 'Saved to your phone’s downloads.', 'Kulondolozwe kuma-download efoni yakho.', 'Gestoor in jou foon se aflaaie.'),
+  r_sent: c('results', 'status', 'Results sent. Thank you.', 'Imiphumela ithunyelwe. Siyabonga.', 'Resultate gestuur. Dankie.'),
+  r_send_fail: c('results', 'status', 'Couldn’t send. Please download or copy the results instead.', 'Akukwazanga ukuthumela. Sicela ulande noma ukopishe imiphumela esikhundleni.', 'Kon nie stuur nie. Laai eerder die resultate af of kopieer dit.'),
+  r_instructions: c('results', 'text', 'Please send the results to the researcher in the way they asked you to.', 'Sicela uthumele imiphumela kumcwaningi ngendlela akucele ngayo.', 'Stuur asseblief die resultate aan die navorser soos hulle jou gevra het.'),
+};
+/*COPY-END*/
+
+const KEYWORDS = {
+  help: ['help', 'usizo', 'hulp'],
+  person: ['person', 'umuntu', 'persoon'],
+  language: ['language', 'ulimi', 'taal'],
+};
+const LANG_WORDS = { en: ['english'], zu: ['isizulu', 'zulu'], af: ['afrikaans'] };
+
+// Facilitator jump list (labels are for the facilitator, English only).
+const GROUPS = [
+  ['Start', [['Greeting and language', 'entry'], ['Start job', 'start'], ['Job summary', 'summary']]],
+  ['Before photo', [['Before photo: guidance', 'before'], ['Before photo: retake', 'before_retake'], ['Before photo: captured', 'before_ok'], ['Installation (time passes)', 'install']]],
+  ['Serial number', [['Serial: guidance', 'serial'], ['Serial: retake', 'serial_retake'], ['Serial: captured', 'serial_ok'], ['Serial: confirm', 'serial_confirm'], ['Serial: type it in', 'serial_type']]],
+  ['Compliance', [['Compliance photos', 'compliance'], ['Reminder after skip', 'reminder'], ['Signal drop and recovery', 'offline']]],
+  ['Submit', [['Submitted and in review', 'submitted']]],
+  ['Outcomes', [['Approved', 'o:approved'], ['Needs a retake', 'o:retake'], ['Needs assistance', 'o:rejected']]],
+];
+const MAIN_PATH = ['entry', 'start', 'summary', 'before', 'before_retake', 'before_ok', 'install', 'serial', 'serial_retake', 'serial_ok', 'serial_confirm', 'compliance', 'offline', 'submitted'];
+
+function normText(s) {
+  return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function newSessionId() {
+  let s = '';
+  for (let i = 0; i < 12; i++) s += Math.floor(Math.random() * 16).toString(16);
+  return s;
+}
+function readHash() {
+  const out = { facilitator: false };
+  const h = (typeof location !== 'undefined' && location.hash) ? location.hash.replace(/^#/, '') : '';
+  h.split('&').forEach(function (part) {
+    if (!part) return;
+    const i = part.indexOf('=');
+    const k = decodeURIComponent(i < 0 ? part : part.slice(0, i)).toLowerCase();
+    const v = i < 0 ? '' : decodeURIComponent(part.slice(i + 1));
+    if (k === 'facilitator') out.facilitator = true;
+    else if (k === 'lang' && LANGS.indexOf(v) >= 0) out.lang = v;
+    else if (k === 'p') out.p = v.slice(0, 32);
+  });
+  return out;
+}
+function storeGet(key) {
+  try { const raw = window.localStorage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+}
+function storeSet(key, val) {
+  try { window.localStorage.setItem(key, JSON.stringify(val)); return true; } catch (e) { return false; }
+}
+function storeDel(key) {
+  try { window.localStorage.removeItem(key); } catch (e) { /* storage unavailable */ }
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this._t = null; this._ot = null; this._ct = null;
+    this.fileUrls = {};      // object URLs for real photos; memory only
+    this.pendingPhoto = null;
+    this.hash = readHash();
+    this.state = this.freshState(this.hash.lang || 'en');
+  }
+
+  freshState(lang) {
+    return {
+      phase: 'welcome', lang: lang, consent: false, pcode: this.hash ? (this.hash.p || '') : '',
+      sid: newSessionId(), t0: Date.now(), mid: 0,
+      beat: 'entry', outcome: null, messages: [], quick: [], queue: [], typing: false,
+      draft: '', repairs: 0, agent: false, agentReturn: null, agentEnds: false,
+      langPrompt: false, langReturn: null,
+      offline: false, connecting: false, connectDueAt: 0,
+      outcomeChoice: 'approved', outcomeDueAt: 0, outcomeForce: null,
+      aiNext: { before: 'retake', serial: 'retake' }, aiLog: [], attempts: { before: 0, serial: 0, retake: 0 },
+      photos: 0, serial: null, serialRead: false,
+      ended: false, ease: 0, hardest: '', resultMsg: '', showCopyBox: false,
+      log: [], facOpen: false, facUnlocked: false, pinDraft: '', pinError: false,
+    };
+  }
+
+  // ---------- copy ----------
+  copyTable() { return COPY; }
+  t(id, params, lang) {
+    const row = COPY[id];
+    const L = lang || this.state.lang;
+    let s = row && row[L];
+    if (typeof s !== 'string' || !s) {
+      console.error('[copy] missing string: ' + id + ' (' + L + ')');
+      return '[' + id + ']';
+    }
+    if (params) Object.keys(params).forEach(function (k) { s = s.split('{' + k + '}').join(String(params[k])); });
+    return s;
+  }
+
+  // ---------- lifecycle ----------
+  componentDidMount() {
+    const saved = storeGet(STORE_KEY);
+    if (saved && saved.sid && saved.phase) {
+      const st = Object.assign(this.freshState(saved.lang || 'en'), saved, { typing: false, facOpen: false, pinDraft: '', pinError: false });
+      st.messages = (st.messages || []).map(m => this.stripPhoto(m));
+      if (this.hash.p && !st.pcode) st.pcode = this.hash.p;
+      this.setState(st, () => { this.setDocLang(); this.resumeTimers(); this.pump(); });
+    } else {
+      this.setDocLang();
+      this.log('session_start', { restored: false });
+    }
+    this._onHash = () => { this.hash = readHash(); this.forceUpdate(); };
+    window.addEventListener('hashchange', this._onHash);
+  }
+  componentWillUnmount() {
+    clearTimeout(this._t); clearTimeout(this._ot); clearTimeout(this._ct);
+    window.removeEventListener('hashchange', this._onHash);
+  }
+  componentDidUpdate() {
+    const s = this.state;
+    const sig = s.messages.length + '|' + s.typing + '|' + s.ended + '|' + s.quick.length;
+    if (this.scrollEl && sig !== this._scrollSig) { this.scrollEl.scrollTop = this.scrollEl.scrollHeight; }
+    this._scrollSig = sig;
+    this.save();
+  }
+  setDocLang() {
+    try { document.documentElement.lang = { en: 'en-ZA', zu: 'zu-ZA', af: 'af-ZA' }[this.state.lang]; } catch (e) { /* no document */ }
+  }
+
+  // ---------- persistence (T04) ----------
+  stripPhoto(m) {
+    if (!m || !m.isPhotoReal) return m;
+    // Real photos never leave memory: after a refresh they come back as a placeholder.
+    return this.norm(Object.assign({}, m.raw || {}, { urls: null, photoLabel: this.t('ui_photo', null, m.lang || this.state.lang), caption: m.caption }), m.time, m.id);
+  }
+  save() {
+    const s = this.state;
+    const copy = Object.assign({}, s, { typing: false, facOpen: false, pinDraft: '', pinError: false, facUnlocked: false });
+    copy.messages = s.messages.map(m => this.stripPhoto(m));
+    storeSet(STORE_KEY, copy);
+    if (s.phase === 'chat' && (s.outcome || MAIN_PATH.indexOf(s.beat) > MAIN_PATH.indexOf('summary') || ['serial_type', 'reminder'].indexOf(s.beat) >= 0)) {
+      storeSet(JOB_KEY, { beat: s.beat, outcome: s.outcome, messages: copy.messages, quick: s.quick, photos: s.photos, serial: s.serial, serialRead: s.serialRead, mid: s.mid });
+    }
+  }
+  resumeTimers() {
+    const s = this.state;
+    if (s.connecting) this.armConnect(Math.max(0, s.connectDueAt - Date.now()));
+    if (s.outcomeDueAt) this.armOutcome(Math.max(0, s.outcomeDueAt - Date.now()));
+  }
+
+  // ---------- event log (T05) ----------
+  log(event, detail) {
+    const s = this.state;
+    const now = Date.now();
+    const row = { t_iso: new Date(now).toISOString(), ms: now - (s.t0 || now), beat: s.outcome ? 'outcome_' + s.outcome : s.beat, lang: s.lang, event: event, detail: detail || {} };
+    this.setState(st => ({ log: st.log.concat([row]) }));
+  }
+
+  // ---------- message building ----------
+  norm(m, time, keepId) {
+    const o = Object.assign({ side: 'in', kind: 'text' }, m);
+    o.raw = Object.assign({}, m);
+    delete o.raw.raw;
+    if (keepId) o.id = keepId;
+    else { o.id = 'm' + this.state.mid; this.state.mid = this.state.mid + 1; }
+    o.time = o.time || time;
+    o.lang = o.lang || this.state.lang;
+    o.sideOut = o.side === 'out'; o.sideIn = o.side === 'in'; o.sideSys = o.side === 'sys';
+    o.isText = o.kind === 'text'; o.isPhoto = o.kind === 'photo'; o.isGuidance = o.kind === 'guidance';
+    o.isSummary = o.kind === 'summary'; o.isChecklist = o.kind === 'checklist'; o.isAi = o.kind === 'ai'; o.isStatus = o.kind === 'status';
+    o.sections = o.sections || [];
+    o.examples = (o.examples || []).map(e => Object.assign({}, e, { isGood: e.badge === 'good', isAvoid: e.badge === 'avoid' }));
+    o.fields = o.fields || [];
+    o.checks = (o.checks || []).map(c2 => Object.assign({}, c2, { done: !!c2.done, pending: !c2.done, hasSub: !!c2.sub }));
+    o.reasons = o.reasons || [];
+    o.aiFields = o.aiFields || [];
+    o.hasCaption = !!o.caption; o.hasSubtitle = !!o.subtitle; o.hasFooter = !!o.footer;
+    o.hasExamples = o.examples.length > 0; o.isImportant = !!o.important;
+    o.hasReasons = o.reasons.length > 0; o.hasAiFields = o.aiFields.length > 0; o.hasNote = !!o.note;
+    o.hasBody = !!o.body; o.hasFields = o.fields.length > 0; o.hasGuide = !!o.guide;
+    o.hasAgent = !!o.agentName;
+    o.isPending = !!o.pending; o.isDelivered = o.sideOut && !o.pending;
+    if (o.kind === 'photo') {
+      const urls = o.urls || [];
+      o.isPhotoReal = urls.length > 0; o.isPhotoSample = !o.isPhotoReal;
+      const n = urls.length;
+      o.gridStyle = { width: '200px', maxWidth: '62vw', height: '144px', borderRadius: '6px', overflow: 'hidden', display: 'grid', gridTemplateColumns: n > 1 ? '1fr 1fr' : '1fr', gridTemplateRows: n > 2 ? '1fr 1fr' : '1fr', gap: n > 1 ? '2px' : '0', background: '#C9D8D0' };
+      o.thumbs = urls.slice(0, 4).map(u => ({ url: u, style: { width: '100%', height: '100%', backgroundImage: 'url("' + u + '")', backgroundSize: 'cover', backgroundPosition: 'center' } }));
+    }
+    if (o.kind === 'status') {
+      const tone = o.tone || 'wait';
+      const T = {
+        good: { bg: '#E7F7EC', fg: '#1B7F4B', chip: '#1B7F4B' },
+        warn: { bg: '#FBF3E0', fg: '#9A5B00', chip: '#B26B00' },
+        wait: { bg: '#ECF1F8', fg: '#2E5AAC', chip: '#2E5AAC' },
+        bad: { bg: '#F1EFEC', fg: '#44403C', chip: '#57534E' },
+      };
+      const cc = T[tone];
+      o.isGood = tone === 'good'; o.isWarn = tone === 'warn'; o.isWait = tone === 'wait'; o.isBad = tone === 'bad';
+      o.headStyle = { background: cc.bg, padding: '12px 14px', display: 'flex', gap: '11px', alignItems: 'center' };
+      o.chipStyle = { width: '30px', height: '30px', borderRadius: '9px', background: cc.chip, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' };
+      o.titleStyle = { fontSize: '14.5px', fontWeight: 700, color: cc.fg, lineHeight: 1.25 };
+    }
+    if (o.kind === 'summary' && o.progress) {
+      const p = o.progress;
+      o.progressLabel = p.done + ' / ' + p.total;
+      o.sumFillStyle = { width: Math.round(p.done / p.total * 100) + '%', height: '100%', background: '#0F766E', borderRadius: '4px' };
+      o.hasProgress = true;
+    }
+    return o;
+  }
+
+  Q(id, kind, icon, act, arg, sub) { return { id: id, kind: kind, icon: icon, act: act, arg: arg || null, sub: sub || null }; }
+  langQuick() {
+    return LANGS.map(L => this.Q('lang_' + L, 'secondary', null, 'lang', L, 'lang_' + L + '_sub'));
+  }
+
+  aiCard(sub, textId, extra) { return Object.assign({ kind: 'ai', aiSub: this.t(sub), aiAuto: this.t('ui_ai_auto'), text: this.t(textId) }, extra || {}); }
+
+  supportCard() {
+    return { kind: 'status', tone: 'wait', statusTitle: this.t('s_connecting'), body: this.t('s_connecting_body'),
+      fields: [{ k: this.t('f_reference'), v: JOB_REF }, { k: this.t('f_hours'), v: this.t('v_hours') }] };
+  }
+
+  beatDefs() {
+    const t = (id, p) => this.t(id, p);
+    const Q = this.Q.bind(this);
+    return {
+      entry: { time: '09:30', progress: 0, step: 'step_entry', name: 'card_summary_title',
+        msgs: () => [{ side: 'sys', text: t('chip_today') }, { text: t('m_greeting') }, { text: t('m_lang_q') }],
+        quick: () => this.langQuick() },
+      start: { time: '09:31', progress: 0, step: 'step_start', name: 'card_summary_title', lead: { lang: true },
+        msgs: () => [{ text: t('m_hi') }, { text: t('m_popia') }, { text: t('m_jobs') }],
+        quick: () => [Q('btn_start', 'primary', 'play', 'goto', 'summary'), Q('btn_resume', 'secondary', 'refresh', 'resume'), Q('btn_privacy', 'secondary', 'help', 'extra', 'm_privacy_tap')] },
+      summary: { time: '09:32', progress: 0, step: 'step_summary', name: 'card_summary_title', lead: { btn: 'btn_start' },
+        msgs: () => [
+          { kind: 'summary', summaryTitle: t('card_summary_title'), fields: [
+            { k: t('f_reference'), v: JOB_REF }, { k: t('f_customer'), v: 'M. Khumalo' },
+            { k: t('f_region'), v: 'Durban, KZN' }, { k: t('f_installation'), v: t('v_installation') }],
+            progress: { done: 0, total: 6 }, progressNote: t('sum_progress_note') },
+          { text: t('m_ready') }],
+        quick: () => [Q('btn_begin', 'primary', 'play', 'goto', 'before')] },
+      before: { time: '09:33', progress: 0, step: 'step_before', name: 'g_before_title', lead: { btn: 'btn_begin' },
+        msgs: () => [
+          { text: t('m_before_intro') },
+          { kind: 'guidance', title: t('g_before_title'), subtitle: t('g_before_sub'),
+            sections: [{ heading: t('h_what'), items: [t('i_whole'), t('i_area')] }, { heading: t('h_tips'), items: [t('i_light'), t('i_back'), t('i_lens')] }],
+            examples: [{ label: t('ph_good_example'), badge: 'good', badgeLabel: t('badge_good') }, { label: t('ph_too_close'), badge: 'avoid', badgeLabel: t('badge_avoid') }],
+            footer: t('g_before_footer') }],
+        quick: () => [Q('btn_upload_photo', 'primary', 'camera', 'photo', 'before'), Q('btn_need_help', 'secondary', 'help', 'extra', 'm_need_help')] },
+      before_retake: { time: '09:34', progress: 0, step: 'step_before', name: 'g_before_title', lead: { photo: 'before' },
+        msgs: () => [this.aiCard('ai_photo_check', 'ai_blurry', { note: t('ai_blurry_note') })],
+        quick: () => [Q('btn_retake', 'primary', 'camera', 'photo', 'before'), Q('btn_support', 'secondary', 'support', 'support')] },
+      before_ok: { time: '09:35', progress: 1, step: 'step_before', name: 'g_before_title', lead: { photo: 'before', attempt: 2 }, auto: 'install',
+        msgs: () => [this.aiCard('ai_photo_check', 'ai_before_ok', { note: t('ai_reviewer_later') }), { text: t('m_one_of_six') }],
+        quick: () => [] },
+      install: { time: '09:35', progress: 1, step: 'step_install', name: 'f_installation',
+        msgs: () => [{ text: t('m_install') }],
+        quick: () => [Q('btn_install_done', 'primary', 'check', 'goto', 'serial')] },
+      serial: { time: '13:10', progress: 1, step: 'step_serial', name: 'g_serial_title', chip: 'chip_later', lead: { btn: 'btn_install_done' },
+        msgs: () => [
+          { text: t('m_serial_intro') },
+          { kind: 'guidance', important: true, importantLabel: t('badge_important'), title: t('g_serial_title'), subtitle: t('g_serial_sub'),
+            sections: [{ heading: t('h_what'), items: [t('i_only_label')] }, { heading: t('h_close'), items: [t('i_15_20'), t('i_fill')] }, { heading: t('h_lighting'), items: [t('i_torch')] }],
+            examples: [{ label: t('ph_serial_label'), badge: 'good', badgeLabel: t('badge_good') }, { label: t('ph_glare'), badge: 'avoid', badgeLabel: t('badge_avoid') }],
+            footer: t('g_serial_footer') }],
+        quick: () => [Q('btn_upload_serial', 'primary', 'camera', 'photo', 'serial'), Q('btn_view_example', 'secondary', 'help', 'example')] },
+      serial_retake: { time: '13:11', progress: 1, step: 'step_serial', name: 'g_serial_title', lead: { photo: 'serial' },
+        msgs: () => [this.aiCard('ai_reading', 'ai_glare', { reasons: [t('r_glare'), t('r_hidden')], note: t('ai_glare_note') })],
+        quick: () => [Q('btn_retake', 'primary', 'camera', 'photo', 'serial'), Q('btn_type_in', 'secondary', 'help', 'type')] },
+      serial_ok: { time: '13:12', progress: 2, step: 'step_serial', name: 'g_serial_title', lead: { photo: 'serial', attempt: 2 }, auto: 'serial_confirm',
+        msgs: () => [this.aiCard('ai_reading', 'ai_serial_ok', { aiFields: [{ k: t('ai_field_serial'), v: SERIAL_READ }], note: t('ai_reviewer_too') })],
+        quick: () => [] },
+      serial_confirm: { time: '13:12', progress: 2, step: 'step_serial_confirm', name: 'g_serial_title',
+        msgs: () => [{ text: t('m_serial_check', { serial: SERIAL_READ }) }],
+        quick: () => [Q('btn_yes_correct', 'primary', 'check', 'goto', 'compliance'), Q('btn_no_fix', 'secondary', 'help', 'type')] },
+      serial_type: { time: '13:13', progress: () => (this.state.serialRead ? 2 : 1), step: 'step_serial_type', name: 'g_serial_title', lead: { btn: 'btn_no_fix' }, expects: 'serial',
+        msgs: () => [{ text: t('m_serial_type') }],
+        quick: () => [] },
+      compliance: { time: '13:14', progress: 2, step: 'step_compliance', name: 'c_title', lead: { btn: 'btn_yes_correct' },
+        msgs: () => [
+          { text: t('m_compliance_intro') },
+          { kind: 'checklist', checkTitle: t('c_title'), checks: [
+            { label: t('c_pcv'), sub: t('c_pcv_sub') }, { label: t('c_overview'), sub: t('c_overview_sub') },
+            { label: t('c_drip'), sub: t('c_drip_sub') }, { label: t('c_isolator'), sub: t('c_isolator_sub') }],
+            note: t('c_note') }],
+        quick: () => [Q('btn_upload_photos', 'primary', 'camera', 'photo', 'compliance'), Q('btn_skip', 'secondary', 'refresh', 'skip')] },
+      reminder: { time: '13:15', progress: 2, step: 'step_compliance', name: 'c_title', lead: { btn: 'btn_continue' },
+        msgs: () => [{ text: t('m_reminder', { n: 4 - this.state.photos }) }],
+        quick: () => [Q('btn_upload_photos', 'primary', 'camera', 'photo', 'compliance')] },
+      offline: { time: '13:16', progress: 6, step: 'step_submit', name: 'c_title', lead: { photo: 'compliance' },
+        msgs: () => [{ kind: 'status', tone: 'wait', statusTitle: t('s_came_through'), body: t('s_came_body'),
+          fields: [{ k: t('f_completed'), v: t('v_6of6_items') }, { k: t('f_photos_received'), v: t('v_4of4') }],
+          note: t('s_came_note') }],
+        quick: () => [Q('btn_submit', 'primary', 'check', 'goto', 'submitted')] },
+      submitted: { time: '13:18', progress: 6, step: 'step_review', name: 's_review', lead: { btn: 'btn_submit' }, effect: 'scheduleOutcome',
+        msgs: () => [
+          { kind: 'status', tone: 'good', statusTitle: t('s_ok'), body: t('s_ok_body'),
+            fields: [{ k: t('f_reference'), v: JOB_REF }, { k: t('f_submitted'), v: t('v_date_submit') }, { k: t('f_items'), v: t('v_6complete') }],
+            note: t('s_ok_note') },
+          { text: t('m_thanks_team') },
+          { kind: 'status', tone: 'wait', statusTitle: t('s_review'), body: t('s_review_body'),
+            fields: [{ k: t('f_est'), v: t('v_2h') }, { k: t('f_reviewed_by'), v: t('v_specialist') }],
+            note: t('s_review_note') }],
+        quick: () => [Q('btn_support', 'secondary', 'support', 'support')] },
+    };
+  }
+
+  outcomeDefs() {
+    const t = (id, p) => this.t(id, p);
+    const Q = this.Q.bind(this);
+    return {
+      approved: { time: '14:52', progress: 6, step: 'step_done',
+        msgs: () => [{ text: t('m_good_news') },
+          { kind: 'status', tone: 'good', statusTitle: t('s_approved'), body: t('s_approved_body'),
+            fields: [{ k: t('f_reference'), v: JOB_REF }, { k: t('f_completed'), v: t('v_date_approved') }, { k: t('f_items'), v: t('v_6verified') }],
+            note: t('s_approved_note') }],
+        quick: () => [Q('btn_close_job', 'primary', 'check', 'end')] },
+      retake: { time: '14:40', progress: 5, step: 'step_retake',
+        msgs: () => [{ text: t('m_almost') },
+          { kind: 'status', tone: 'warn', statusTitle: t('s_retake'), body: t('s_retake_body'),
+            fields: [{ k: t('f_item'), v: t('g_serial_title') }, { k: t('f_reason'), v: t('v_glare_reason') }],
+            guide: t('s_retake_guide') }],
+        quick: () => [Q('btn_retake_now', 'primary', 'camera', 'photo', 'retake'), Q('btn_later', 'secondary', 'refresh', 'extra', 'm_later_one'), Q('btn_support', 'secondary', 'support', 'support')] },
+      rejected: { time: '14:35', progress: 6, step: 'step_agent',
+        msgs: () => [{ text: t('m_patience') },
+          { kind: 'status', tone: 'bad', statusTitle: t('s_agent_finish'), body: t('s_agent_body'),
+            fields: [{ k: t('f_reason'), v: t('v_mismatch') }, { k: t('f_who'), v: t('v_thandi') }, { k: t('f_when'), v: t('v_before15') }],
+            note: t('s_agent_note') }],
+        quick: () => [Q('btn_chat_thandi', 'primary', 'support', 'agentNow')] },
+    };
+  }
+
+  currentTime() {
+    const s = this.state;
+    if (s.outcome) return s.outcome === 'retake' && s.attempts.retake > 0 ? '14:44' : this.outcomeDefs()[s.outcome].time;
+    return this.beatDefs()[s.beat].time;
+  }
+  currentStepId() {
+    const s = this.state;
+    if (s.outcome) return this.outcomeDefs()[s.outcome].step;
+    return this.beatDefs()[s.beat].step;
+  }
+  currentStepName() {
+    const s = this.state;
+    if (s.outcome) return this.t(s.outcome === 'approved' ? 's_approved' : s.outcome === 'retake' ? 's_retake' : 's_agent_finish');
+    return this.t(this.beatDefs()[s.beat].name);
+  }
+
+  samplePhoto(check, attempt) {
+    const t = (id, p) => this.t(id, p);
+    if (check === 'before') return { photoLabel: t('ph_geyser'), caption: attempt > 1 ? 'before-' + attempt + '.jpg' : 'before.jpg' };
+    if (check === 'serial') return { photoLabel: t('ph_serial_label'), caption: attempt > 1 ? 'serial-' + attempt + '.jpg' : 'serial.jpg' };
+    if (check === 'retake') return { photoLabel: t('ph_serial_label'), caption: 'serial-retake.jpg' };
+    return { photoLabel: t('ph_compliance'), caption: t('ui_photos_n', { n: 4 }) };
+  }
+  leadMsg(lead) {
+    if (!lead) return null;
+    if (lead.btn) return { side: 'out', text: this.t(lead.btn) };
+    if (lead.lang) return { side: 'out', text: this.t('lang_' + this.state.lang) };
+    if (lead.photo) return Object.assign({ side: 'out', kind: 'photo' }, this.samplePhoto(lead.photo, lead.attempt || 1));
+    return null;
+  }
+
+  // ---------- queue ----------
+  enqueue(steps, front) {
+    this.setState(st => ({ queue: front ? steps.concat(st.queue) : st.queue.concat(steps) }), () => this.pump());
+  }
+  paused() { return this.state.offline || this.state.agent || this.state.connecting; }
+  pump() {
+    if (this._t || this.paused()) return;
+    const q = this.state.queue;
+    if (!q.length) return;
+    const step = q[0];
+    const typing = (step.msgs || []).some(m => m.side === 'in');
+    if (typing) this.setState({ typing: true });
+    this._t = setTimeout(() => {
+      this._t = null;
+      if (this.paused()) { this.setState({ typing: false }); return; }
+      const st = this.state;
+      const cur = st.queue[0];
+      if (!cur) { this.setState({ typing: false }); return; }
+      const patch = { queue: st.queue.slice(1), typing: false };
+      if (cur.msgs && cur.msgs.length) patch.messages = st.messages.concat(cur.msgs);
+      if (cur.quick) patch.quick = cur.quick;
+      this.setState(patch, () => { if (cur.effect) this.applyEffect(cur.effect); this.pump(); });
+    }, step.delay || 0);
+  }
+  clearRun() {
+    clearTimeout(this._t); this._t = null;
+    clearTimeout(this._ot); this._ot = null;
+    clearTimeout(this._ct); this._ct = null;
+  }
+  applyEffect(eff) {
+    if (eff.indexOf('enter:') === 0) return this.enterBeat(eff.slice(6), null);
+    if (eff === 'scheduleOutcome') return this.scheduleOutcome(PACE.outcome, null);
+    if (eff === 'agentOn') return this.setState({ agent: true });
+    if (eff === 'end') return this.endSession();
+    if (eff === 'approveAfterRetake') return this.scheduleOutcome(PACE.afterRetake, 'approved');
+  }
+
+  // ---------- beats ----------
+  enterBeat(id, lead, extra) {
+    const b = this.beatDefs()[id];
+    const pre = [];
+    const time = b.time;
+    if (b.chip) pre.push(this.norm({ side: 'sys', text: this.t(b.chip) }, time));
+    if (lead) pre.push(lead.id ? lead : this.norm(lead, time));
+    this.setState(st => Object.assign({ beat: id, outcome: null, quick: [], repairs: 0, messages: st.messages.concat(pre) }, extra || {}));
+    this.log('beat_enter', {});
+    const msgs = b.msgs().map(m => this.norm(m, time));
+    const effect = b.auto ? 'enter:' + b.auto : (b.effect || null);
+    this.enqueue([{ delay: PACE.beat, msgs: msgs, quick: b.quick(), effect: effect }]);
+  }
+  enterOutcome(id) {
+    const o = this.outcomeDefs()[id];
+    this.setState({ outcome: id, quick: [], repairs: 0, outcomeDueAt: 0, outcomeForce: null });
+    this.log('outcome', { outcome: id });
+    this.enqueue([{ delay: PACE.beat, msgs: o.msgs().map(m => this.norm(m, o.time)), quick: o.quick() }]);
+  }
+  scheduleOutcome(ms, force) {
+    this.setState({ outcomeDueAt: Date.now() + ms, outcomeForce: force || null });
+    this.armOutcome(ms);
+  }
+  armOutcome(ms) {
+    clearTimeout(this._ot);
+    this._ot = setTimeout(() => {
+      this._ot = null;
+      const s = this.state;
+      if (!s.outcomeDueAt) return;
+      if (this.paused() || s.queue.length || this._t) { this.armOutcome(1000); return; }
+      this.enterOutcome(s.outcomeForce || s.outcomeChoice);
+    }, ms);
+  }
+
+  // ---------- user actions ----------
+  outText(text) {
+    const s = this.state;
+    return this.norm({ side: 'out', text: text, pending: s.offline }, this.currentTime());
+  }
+  appendOut(msg) { this.setState(st => ({ messages: st.messages.concat([msg]) })); }
+
+  handleQuick(q) {
+    const s = this.state;
+    if (s.ended) return;
+    this.log('quick_reply', { id: q.id, act: q.act });
+    const label = this.t(q.id);
+    const a = q.act;
+    if (a === 'photo') return this.openPicker(q.arg);
+    this.setState({ repairs: 0 });
+    if (a === 'goto') { this.setState({ quick: [] }); return this.enterBeat(q.arg, this.norm({ side: 'out', text: label, pending: s.offline }, this.beatDefs()[q.arg].time)); }
+    if (a === 'lang') return this.chooseLang(q.arg, label);
+    if (a === 'type') { this.setState({ quick: [] }); return this.enterBeat('serial_type', this.norm({ side: 'out', text: label, pending: s.offline }, this.beatDefs().serial_type.time)); }
+    if (a === 'resume') return this.resumeJob();
+    if (a === 'support') return this.startHandover(false);
+    if (a === 'agentNow') { this.appendOut(this.outText(label)); return this.startHandover(true); }
+    if (a === 'end') { this.appendOut(this.outText(label)); this.setState({ quick: [] }); return this.endSession(); }
+    if (a === 'skip') {
+      const keep = [this.Q('btn_continue', 'primary', 'play', 'goto', 'reminder')];
+      this.setState({ quick: [] });
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_skip') }, this.currentTime())], quick: keep }]);
+    }
+    if (a === 'example') {
+      const keep = s.quick;
+      this.setState({ quick: [] });
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ kind: 'photo', photoLabel: this.t('ph_example_serial'), caption: this.t('m_example_caption') }, this.currentTime())], quick: keep }]);
+    }
+    if (a === 'extra') {
+      const keep = s.quick;
+      this.setState({ quick: [] });
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t(q.arg) }, this.currentTime())], quick: keep }]);
+    }
+  }
+
+  chooseLang(L, label) {
+    const s = this.state;
+    const prompt = s.langPrompt;
+    this.setState({ lang: L, quick: [], langPrompt: false }, () => this.setDocLang());
+    this.log('language', { lang: L, via: prompt ? 'keyword' : 'start' });
+    if (prompt || s.beat !== 'entry' || s.outcome) {
+      this.appendOut(this.outText(this.t('lang_' + L, null, L)));
+      this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_lang_changed', null, L) }, this.currentTime())], quick: s.langReturn || this.currentQuick() }]);
+      this.setState({ langReturn: null });
+      return;
+    }
+    this.enterBeat('start', this.norm({ side: 'out', text: this.t('lang_' + L, null, L) }, this.beatDefs().start.time));
+  }
+  currentQuick() {
+    const s = this.state;
+    if (s.outcome) return this.outcomeDefs()[s.outcome].quick();
+    return this.beatDefs()[s.beat].quick();
+  }
+
+  resumeJob() {
+    const s = this.state;
+    const job = storeGet(JOB_KEY);
+    if (job && job.messages && job.messages.length && (job.outcome || job.beat)) {
+      this.clearRun();
+      this.setState({ messages: job.messages, beat: job.beat, outcome: job.outcome || null, photos: job.photos || 0, serial: job.serial || null, serialRead: !!job.serialRead, mid: Math.max(s.mid, job.mid || 0), queue: [], quick: [], typing: false, agent: false, connecting: false });
+      this.log('resume', { found: true, beat: job.beat });
+      const name = this.currentStepName();
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_resume_back', { step: name }) }, this.currentTime())], quick: job.quick && job.quick.length ? job.quick : this.currentQuick() }]);
+    }
+    this.log('resume', { found: false });
+    const keep = s.quick;
+    this.setState({ quick: [] });
+    this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_resume_none') }, this.currentTime())], quick: keep }]);
+  }
+
+  startHandover(endsAfter) {
+    const s = this.state;
+    if (s.agent) return;
+    this.log('support_open', { from: s.outcome ? 'outcome_' + s.outcome : s.beat });
+    const back = (s.quick && s.quick.length) ? s.quick : this.currentQuick();
+    this.setState({ quick: [], agentReturn: back, agentEnds: !!endsAfter, repairs: 0 });
+    const time = this.currentTime();
+    this.enqueue([
+      { delay: PACE.extra, msgs: [this.norm(this.supportCard(), time)] },
+      { delay: PACE.agent, msgs: [this.norm({ agentName: this.t('agent_name'), text: this.t('m_agent_hi') }, time)], effect: 'agentOn' },
+    ]);
+  }
+  agentReply(text) {
+    const s = this.state;
+    this.appendOut(this.outText(text));
+    this.log('text_sent', { chars: text.length, keyword: null, to: 'agent', text: text });
+    const back = s.agentEnds ? [] : (s.agentReturn || this.currentQuick());
+    this.setState({ agent: false, agentReturn: null });
+    this.enqueue([{ delay: PACE.agent, msgs: [this.norm({ agentName: this.t('agent_name'), text: this.t('m_agent_back') }, this.currentTime())], quick: back, effect: s.agentEnds ? 'end' : null }], true);
+  }
+
+  // ---------- typed text (T02) ----------
+  matchKeyword(text) {
+    const n = normText(text);
+    for (const k in KEYWORDS) { if (KEYWORDS[k].indexOf(n) >= 0) return k; }
+    return null;
+  }
+  matchLangWord(text) {
+    const n = normText(text);
+    for (const L in LANG_WORDS) { if (LANG_WORDS[L].indexOf(n) >= 0) return L; }
+    return null;
+  }
+  submitText() {
+    const s = this.state;
+    const text = String(s.draft || '').trim();
+    if (!text || s.ended) return;
+    this.setState({ draft: '' });
+    if (s.agent) return this.agentReply(text);
+    const kw = this.matchKeyword(text);
+    const out = this.outText(text);
+    this.appendOut(out);
+    const time = this.currentTime();
+    if (kw) {
+      this.log('text_sent', { chars: text.length, keyword: kw, text: text });
+      this.setState({ repairs: 0 });
+      if (kw === 'person') return this.startHandover(false);
+      const keep = s.quick.length ? s.quick : this.currentQuick();
+      if (kw === 'help') {
+        this.setState({ quick: [] });
+        return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_help', { step: this.t(this.currentStepId()) }) }, time)], quick: keep }]);
+      }
+      if (kw === 'language') {
+        this.setState({ quick: [], langPrompt: true, langReturn: keep });
+        return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_lang_q') }, time)], quick: this.langQuick() }]);
+      }
+    }
+    const lw = this.matchLangWord(text);
+    if (lw && (s.langPrompt || (s.beat === 'entry' && !s.outcome))) {
+      this.log('text_sent', { chars: text.length, keyword: 'lang:' + lw, text: text });
+      // The typed word is already in the chat, so choose without a second bubble.
+      const prompt = s.langPrompt;
+      this.setState({ lang: lw, quick: [], langPrompt: false, repairs: 0 }, () => this.setDocLang());
+      this.log('language', { lang: lw, via: 'typed' });
+      if (prompt || s.beat !== 'entry') {
+        this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_lang_changed', null, lw) }, time)], quick: s.langReturn || this.currentQuick() }]);
+        return this.setState({ langReturn: null });
+      }
+      return this.enterBeat('start', null);
+    }
+    const expects = !s.outcome && this.beatDefs()[s.beat].expects;
+    if (expects === 'serial') {
+      const val = text.replace(/\s+/g, ' ').trim().toUpperCase();
+      this.log('text_sent', { chars: text.length, keyword: null, intent: 'serial', text: text });
+      this.setState({ serial: val, repairs: 0 });
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_serial_saved', { serial: val }) }, time)], effect: 'enter:compliance' }]);
+    }
+    // Not understood: repair at most twice, then hand over to a person.
+    const r = s.repairs + 1;
+    this.log('text_sent', { chars: text.length, keyword: null, text: text });
+    this.log('repair', { count: r });
+    if (r >= 3) { this.setState({ repairs: 0 }); return this.startHandover(false); }
+    const base = s.quick.length ? s.quick : this.currentQuick();
+    let quick = base;
+    let msg = this.t('m_repair', { step: this.t(this.currentStepId()) });
+    if (r === 2) {
+      const hasSupport = base.some(q => q.act === 'support' || q.act === 'agentNow');
+      if (!hasSupport && base.length < 3) { quick = base.concat([this.Q('btn_support', 'secondary', 'support', 'support')]); msg += ' ' + this.t('m_repair2_btn'); }
+      else if (hasSupport) msg += ' ' + this.t('m_repair2_btn');
+      else msg += ' ' + this.t('m_repair2_kw');
+    }
+    this.setState({ repairs: r, quick: [] });
+    this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: msg }, time)], quick: quick }]);
+  }
+
+  // ---------- photos (T01) ----------
+  openPicker(check) {
+    this.pendingPhoto = check;
+    const el = this.fileEl;
+    if (!el) return;
+    el.value = '';
+    if (check === 'compliance') { el.setAttribute('multiple', ''); el.removeAttribute('capture'); }
+    else { el.removeAttribute('multiple'); el.setAttribute('capture', 'environment'); }
+    el.click();
+  }
+  onFiles(e) {
+    const files = Array.prototype.slice.call((e && e.target && e.target.files) || []);
+    const check = this.pendingPhoto || this.sampleCheck();
+    if (!files.length || !check) return;   // cancelled: nothing happens
+    this.pendingPhoto = null;
+    const urls = files.slice(0, check === 'compliance' ? 4 - this.state.photos : 1).map(f => URL.createObjectURL(f));
+    this.sendPhoto(check, urls);
+    if (e && e.target) e.target.value = '';
+  }
+  sampleCheck() {
+    const q = this.state.quick.find(x => x.act === 'photo');
+    return q ? q.arg : null;
+  }
+  sendPhoto(check, urls) {
+    const s = this.state;
+    if (s.ended) return;
+    const attempts = Object.assign({}, s.attempts);
+    if (check in attempts) attempts[check] = attempts[check] + 1;
+    const sample = !urls || !urls.length;
+    const count = sample ? (check === 'compliance' ? 4 - s.photos : 1) : urls.length;
+    this.log('photo_sent', { source: sample ? 'sample' : 'real', count: count, check: check });
+    this.setState({ attempts: attempts, repairs: 0, quick: [] });
+    const nextBeat = this.photoResult(check, attempts, count);
+    const timeBeat = nextBeat && nextBeat.beat ? this.beatDefs()[nextBeat.beat].time : this.currentTime();
+    const base = sample ? this.samplePhoto(check, attempts[check] || 1) : { urls: urls, alt: this.t('ui_photo_alt'), caption: urls.length > 1 ? this.t('ui_photos_n', { n: urls.length }) : '' };
+    if (check === 'compliance' && sample) base.caption = this.t('ui_photos_n', { n: count });
+    const drop = nextBeat && nextBeat.beat === 'offline';
+    const msg = this.norm(Object.assign({ side: 'out', kind: 'photo', pending: s.offline || drop }, base), timeBeat);
+    if (drop) {
+      // F08: the phone loses signal while sending. The bot sends nothing until it is back.
+      this.setState(st => ({ messages: st.messages.concat([msg]), connecting: true, connectDueAt: Date.now() + PACE.drop }));
+      this.log('offline', { cause: 'scripted signal drop' });
+      return this.armConnect(PACE.drop);
+    }
+    this.appendOut(msg);
+    if (nextBeat.beat) return this.enterBeat(nextBeat.beat, null, nextBeat.extra);
+    if (nextBeat.partial) {
+      return this.enqueue([{ delay: PACE.extra, msgs: [this.norm({ text: this.t('m_partial', { got: this.state.photos, left: 4 - this.state.photos }) }, this.currentTime())], quick: this.beatDefs()[this.state.beat].quick() }]);
+    }
+    if (nextBeat.retakeOk) {
+      const time = '14:44';
+      return this.enqueue([{ delay: PACE.beat, msgs: [this.norm(this.aiCard('ai_photo_check', 'ai_retake_ok'), time), this.norm({ text: this.t('m_sent_reviewer') }, time)], quick: [], effect: 'approveAfterRetake' }]);
+    }
+  }
+  photoResult(check, attempts, count) {
+    const s = this.state;
+    const now = new Date().toISOString();
+    if (check === 'before' || check === 'serial') {
+      const res = s.aiNext[check];
+      const conf = check === 'serial' ? (res === 'pass' ? CONF.read : CONF.retake) : (res === 'pass' ? CONF.accept : CONF.retake);
+      const aiNext = Object.assign({}, s.aiNext); aiNext[check] = 'pass';
+      this.setState(st => ({ aiNext: aiNext, aiLog: st.aiLog.concat([{ check: check, attempt: attempts[check], result: res, confidence: conf, at: now }]) }));
+      this.log('ai_check', { check: check, result: res, confidence: conf });
+      if (check === 'before') return { beat: res === 'pass' ? 'before_ok' : 'before_retake' };
+      return { beat: res === 'pass' ? 'serial_ok' : 'serial_retake', extra: res === 'pass' ? { serialRead: true, serial: SERIAL_READ } : null };
+    }
+    if (check === 'compliance') {
+      const total = Math.min(4, s.photos + count);
+      this.setState({ photos: total });
+      if (total < 4) return { partial: true };
+      this.setState(st => ({ aiLog: st.aiLog.concat([{ check: 'compliance', attempt: 1, result: 'pass', confidence: CONF.accept, at: now }]) }));
+      return { beat: 'offline' };
+    }
+    if (check === 'retake') {
+      this.setState(st => ({ aiLog: st.aiLog.concat([{ check: 'retake', attempt: attempts.retake, result: 'pass', confidence: CONF.read, at: now }]) }));
+      this.log('ai_check', { check: 'retake', result: 'pass', confidence: CONF.read });
+      return { retakeOk: true };
+    }
+    return {};
+  }
+  armConnect(ms) {
+    clearTimeout(this._ct);
+    this._ct = setTimeout(() => {
+      this._ct = null;
+      if (this.state.offline) { this.armConnect(1000); return; }
+      this.setState(st => ({ connecting: false, connectDueAt: 0, messages: st.messages.map(m => m.pending && !st.offline ? this.norm(Object.assign({}, m.raw, { pending: false, urls: m.raw.urls }), m.time, m.id) : m) }));
+      this.log('online', { cause: 'scripted signal drop' });
+      this.enterBeat('offline', null);
+    }, ms);
+  }
+
+  // ---------- session end and results (T05) ----------
+  endSession() {
+    if (this.state.ended) return;
+    this.clearRun();
+    this.setState({ ended: true, quick: [], queue: [], typing: false, outcomeDueAt: 0 });
+    this.log('session_end', {});
+  }
+  results() {
+    const s = this.state;
+    return {
+      schema: 'homefix-prototype-results/1',
+      session_id: s.sid, participant: s.pcode || '', lang: s.lang,
+      started: new Date(s.t0).toISOString(), exported: new Date().toISOString(),
+      answers: { ease_1_to_7: s.ease || null, hardest: s.hardest || '' },
+      events: s.log,
+    };
+  }
+  csv() {
+    const s = this.state;
+    const esc = v => { const x = String(v == null ? '' : v); return /[",\n\r]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
+    const head = ['session_id', 'participant', 't_iso', 'ms_since_start', 'beat', 'lang', 'event', 'detail'];
+    const rows = s.log.map(r => [s.sid, s.pcode || '', r.t_iso, r.ms, r.beat, r.lang, r.event, JSON.stringify(r.detail || {})]);
+    const now = Date.now();
+    rows.push([s.sid, s.pcode || '', new Date(now).toISOString(), now - s.t0, 'results', s.lang, 'answer_ease', JSON.stringify({ value: s.ease || null })]);
+    rows.push([s.sid, s.pcode || '', new Date(now).toISOString(), now - s.t0, 'results', s.lang, 'answer_hardest', JSON.stringify({ value: s.hardest || '' })]);
+    return [head].concat(rows).map(r => r.map(esc).join(',')).join('\r\n');
+  }
+  download(name, text, type) {
+    try {
+      const blob = new Blob([type === 'text/csv' ? '﻿' + text : text], { type: type + ';charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      this.setState({ resultMsg: this.t('r_downloaded') });
+      this.log('results_download', { format: type });
+    } catch (e) {
+      this.setState({ resultMsg: this.t('r_copy_fallback'), showCopyBox: true });
+    }
+  }
+  fileBase() { return 'homefix-results-' + (this.state.pcode || 'anon').replace(/[^A-Za-z0-9_-]/g, '') + '-' + this.state.sid; }
+  copyResults() {
+    const text = JSON.stringify(this.results(), null, 2);
+    const fallback = () => {
+      this.setState({ resultMsg: this.t('r_copy_fallback'), showCopyBox: true }, () => {
+        if (this.copyBox) { try { this.copyBox.focus(); this.copyBox.select(); document.execCommand('copy'); } catch (e) { /* user copies by hand */ } }
+      });
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => { this.setState({ resultMsg: this.t('r_copied') }); this.log('results_copy', { method: 'clipboard' }); }, fallback);
+      } else fallback();
+    } catch (e) { fallback(); }
+  }
+  sendResults() {
+    if (!RESULTS_ENDPOINT) return;
+    try {
+      fetch(RESULTS_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(this.results()) })
+        .then(r => this.setState({ resultMsg: this.t(r.ok ? 'r_sent' : 'r_send_fail') }), () => this.setState({ resultMsg: this.t('r_send_fail') }));
+    } catch (e) { this.setState({ resultMsg: this.t('r_send_fail') }); }
+  }
+
+  // ---------- facilitator (T03) ----------
+  facJump(id) {
+    this.clearRun();
+    this.state.mid = 0;
+    const defs = this.beatDefs();
+    let path;
+    if (id.indexOf('o:') === 0) path = MAIN_PATH.slice();
+    else if (id === 'serial_type') path = MAIN_PATH.slice(0, MAIN_PATH.indexOf('serial_confirm') + 1).concat(['serial_type']);
+    else if (id === 'reminder') path = MAIN_PATH.slice(0, MAIN_PATH.indexOf('compliance') + 1).concat(['reminder']);
+    else path = MAIN_PATH.slice(0, MAIN_PATH.indexOf(id) + 1);
+    let all = [];
+    path.forEach((bid, i) => {
+      const b = defs[bid];
+      if (b.chip) all.push(this.norm({ side: 'sys', text: this.t(b.chip) }, b.time));
+      if (b.lead) {
+        let lead = this.leadMsg(b.lead);
+        if (bid === 'serial_type') lead = { side: 'out', text: this.t('btn_no_fix') };
+        if (bid === 'reminder') all.push(this.norm({ text: this.t('m_skip') }, defs.compliance.time));
+        if (bid === 'compliance' && path[i - 1] !== 'serial_confirm') lead = null;
+        if (lead) all.push(this.norm(lead, b.time));
+      }
+      all = all.concat(b.msgs().map(m => this.norm(m, b.time)));
+    });
+    const last = path[path.length - 1];
+    const st = { messages: all, beat: last, outcome: null, queue: [], typing: false, agent: false, connecting: false, outcomeDueAt: 0, ended: false, langPrompt: false,
+      photos: MAIN_PATH.indexOf(last) >= MAIN_PATH.indexOf('offline') ? 4 : 0, serialRead: MAIN_PATH.indexOf(last) >= MAIN_PATH.indexOf('serial_ok'), serial: MAIN_PATH.indexOf(last) >= MAIN_PATH.indexOf('serial_ok') ? SERIAL_READ : null,
+      aiNext: { before: last === 'before' ? 'retake' : 'pass', serial: last === 'serial' ? 'retake' : 'pass' }, phase: 'chat' };
+    if (id.indexOf('o:') === 0) {
+      const oid = id.slice(2);
+      const o = this.outcomeDefs()[oid];
+      st.messages = all.concat(o.msgs().map(m => this.norm(m, o.time)));
+      st.outcome = oid; st.quick = o.quick();
+      this.setState(st);
+      this.log('facilitator_jump', { to: id });
+      return;
+    }
+    st.quick = defs[last].quick();
+    this.setState(st);
+    this.log('facilitator_jump', { to: id });
+    if (defs[last].auto) this.enterBeat(defs[last].auto, null);
+    if (last === 'submitted') this.scheduleOutcome(PACE.outcome, null);
+  }
+  resetSession() {
+    this.clearRun();
+    storeDel(STORE_KEY); storeDel(JOB_KEY);
+    const fresh = this.freshState(this.hash.lang || 'en');
+    fresh.facOpen = true; fresh.facUnlocked = true;
+    this.setState(fresh, () => { this.setDocLang(); this.log('session_start', { restored: false, reset: true }); });
+  }
+  toggleOffline() {
+    const s = this.state;
+    if (!s.offline) {
+      this.setState({ offline: true, typing: false });
+      clearTimeout(this._t); this._t = null;
+      this.log('offline', { cause: 'facilitator' });
+    } else {
+      this.setState(st => ({ offline: false, messages: st.messages.map(m => m.pending && !st.connecting ? this.norm(Object.assign({}, m.raw, { pending: false, urls: m.raw.urls }), m.time, m.id) : m) }));
+      this.log('online', { cause: 'facilitator' });
+      this.pump();
+    }
+  }
+
+  // ---------- start ----------
+  startChat() {
+    const s = this.state;
+    if (!s.consent) return;
+    this.log('consent', { participant: s.pcode || '' });
+    this.setState({ phase: 'chat', t0: s.t0 || Date.now() });
+    const b = this.beatDefs().entry;
+    const msgs = b.msgs().map(m => this.norm(m, b.time));
+    // The date chip shows at once; the bot messages arrive with the usual pacing.
+    this.setState({ messages: [msgs[0]], beat: 'entry' });
+    this.log('beat_enter', {});
+    this.enqueue([{ delay: PACE.beat, msgs: msgs.slice(1), quick: b.quick() }]);
+  }
+
+  // ---------- render ----------
+  quickVals(list) {
+    return (list || []).map(q => {
+      const primary = q.kind === 'primary';
+      const bg = primary ? '#0F766E' : '#FFFFFF';
+      const fg = primary ? '#FFFFFF' : '#0F766E';
+      const border = primary ? '#0F766E' : '#D9D2C7';
+      const sub = primary ? 'rgba(255,255,255,.82)' : '#8A9299';
+      const label = q.act === 'lang' ? this.t(q.id, null, q.arg) : this.t(q.id);
+      return Object.assign({}, q, {
+        label: label, sub: q.sub ? this.t(q.sub, null, q.act === 'lang' ? q.arg : undefined) : '', hasSub: !!q.sub, hasIcon: !!q.icon,
+        iconCamera: q.icon === 'camera', iconRefresh: q.icon === 'refresh', iconSupport: q.icon === 'support',
+        iconHelp: q.icon === 'help', iconPlay: q.icon === 'play', iconCheck: q.icon === 'check',
+        btnFg: fg,
+        style: { display: 'flex', alignItems: 'center', gap: '11px', width: '100%', minHeight: '52px', padding: '10px 14px', borderRadius: '12px', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', border: '1px solid ' + border, background: bg, boxShadow: primary ? '0 2px 5px rgba(15,118,110,.28)' : '0 1px 1.5px rgba(0,0,0,.06)' },
+        labelStyle: { display: 'block', fontSize: '15px', fontWeight: 600, color: fg, lineHeight: 1.2 },
+        subStyle: { display: 'block', fontSize: '12px', color: sub, marginTop: '1px' },
+        onClick: () => this.handleQuick(q),
+      });
+    });
+  }
+  pill(active, extra) {
+    return Object.assign({ minHeight: '44px', minWidth: '44px', padding: '8px 14px', borderRadius: '12px', fontFamily: 'inherit', fontSize: '14px', fontWeight: 600, cursor: 'pointer', border: '1px solid ' + (active ? '#0F766E' : '#D9D2C7'), background: active ? '#0F766E' : '#fff', color: active ? '#fff' : '#0F766E' }, extra || {});
+  }
+
+  renderVals() {
+    const s = this.state;
+    const t = (id, p) => this.t(id, p);
+    const headerColor = this.props.headerColor || '#075E54';
+    const businessName = this.props.businessName || 'Home FIX';
+    let progress = 0;
+    if (s.outcome) progress = this.outcomeDefs()[s.outcome].progress;
+    else { const b = this.beatDefs()[s.beat]; progress = typeof b.progress === 'function' ? b.progress() : b.progress; }
+
+    const quick = this.quickVals(s.quick);
+    const showQuick = quick.length > 0 && !s.typing && !s.ended && s.phase === 'chat';
+    const sampleCheck = this.sampleCheck();
+    const facMode = !!this.hash.facilitator;
+
+    let num = 0;
+    const active = s.outcome ? 'o:' + s.outcome : s.beat;
+    const groups = GROUPS.map(([name, items]) => ({
+      name: name,
+      items: items.map(([label, id]) => {
+        num++;
+        const on = active === id;
+        return {
+          id: id, label: label, num: (num < 10 ? '0' : '') + num,
+          style: { display: 'flex', alignItems: 'center', gap: '9px', width: '100%', minHeight: '44px', padding: '7px 9px', borderRadius: '9px', border: '1px solid ' + (on ? '#BFE0D9' : 'transparent'), background: on ? '#E7F1EF' : 'transparent', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', marginBottom: '3px' },
+          numStyle: { fontSize: '11px', fontWeight: 700, width: '22px', height: '20px', borderRadius: '5px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, background: on ? '#0F766E' : '#EFEDE8', color: on ? '#fff' : '#667781' },
+          labelStyle: { fontSize: '12.5px', fontWeight: on ? 600 : 500, color: on ? '#134E48' : '#48555c', lineHeight: 1.25 },
+          onClick: () => this.facJump(id),
+        };
+      }),
+    }));
+    const outcomeLabels = { approved: 'Approved', retake: 'Needs a retake', rejected: 'Needs assistance' };
+    const facOutcomes = ['approved', 'retake', 'rejected'].map(id => ({ id: id, label: outcomeLabels[id], pressed: s.outcomeChoice === id ? 'true' : 'false', style: this.pill(s.outcomeChoice === id, { fontSize: '12.5px', padding: '6px 10px' }), onClick: () => { this.setState({ outcomeChoice: id }); this.log('facilitator_outcome', { outcome: id }); } }));
+    const facChecks = [['before', 'Before photo'], ['serial', 'Serial number label']].map(([id, label]) => ({
+      label: label, passId: id + ':pass', retakeId: id + ':retake',
+      passPressed: s.aiNext[id] === 'pass' ? 'true' : 'false', retakePressed: s.aiNext[id] === 'retake' ? 'true' : 'false',
+      passStyle: this.pill(s.aiNext[id] === 'pass', { fontSize: '12.5px', padding: '6px 10px' }), retakeStyle: this.pill(s.aiNext[id] === 'retake', { fontSize: '12.5px', padding: '6px 10px' }),
+      onPass: () => this.setState(st => ({ aiNext: Object.assign({}, st.aiNext, { [id]: 'pass' }) })),
+      onRetake: () => this.setState(st => ({ aiNext: Object.assign({}, st.aiNext, { [id]: 'retake' }) })),
+    }));
+    const facBtn = this.pill(false, { width: '100%', marginTop: '8px' });
+
+    const welcomeLangs = LANGS.map(L => ({ code: L, label: this.t('lang_' + L, null, L), pressed: s.lang === L ? 'true' : 'false', style: this.pill(s.lang === L), onClick: () => { this.setState({ lang: L }, () => this.setDocLang()); this.log('language', { lang: L, via: 'welcome' }); } }));
+    const startDisabled = !s.consent;
+    const startFg = startDisabled ? '#8A9299' : '#FFFFFF';
+
+    const easeButtons = [1, 2, 3, 4, 5, 6, 7].map(n => ({ n: n, pressed: s.ease === n ? 'true' : 'false', style: this.pill(s.ease === n, { padding: '0', width: '44px' }), onClick: () => this.setState({ ease: n }) }));
+    const resBtnStyle = { display: 'flex', alignItems: 'center', width: '100%', minHeight: '48px', padding: '10px 14px', borderRadius: '12px', cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit', border: '1px solid #D9D2C7', background: '#fff', boxShadow: '0 1px 1.5px rgba(0,0,0,.06)' };
+
+    const hasDraft = !!String(s.draft || '').trim();
+    return {
+      headerColor: headerColor, businessName: businessName,
+      headerStyle: { background: headerColor },
+      phaseWelcome: s.phase === 'welcome', phaseChat: s.phase === 'chat',
+      statusText: (s.offline || s.connecting) ? t('ui_connecting') : s.typing ? t('ui_typing') : t('ui_online'),
+      evidenceLabel: t('ui_evidence'),
+      isTyping: s.typing && !s.offline && !s.connecting,
+      messages: s.messages,
+      quick: quick, showQuick: showQuick,
+      showSample: showQuick && !!sampleCheck, sampleLabel: t('ui_sample'),
+      onSample: () => { const c2 = this.sampleCheck(); if (c2) { this.log('quick_reply', { id: 'ui_sample', act: 'sample' }); this.sendPhoto(c2, null); } },
+      progressLabel: progress + ' / 6',
+      progressFillStyle: { width: Math.round(progress / 6 * 100) + '%', height: '100%', background: '#0F766E', borderRadius: '3px', transition: 'width .45s ease' },
+      setScrollEl: (el) => { this.scrollEl = el; },
+      setFileEl: (el) => { this.fileEl = el; },
+      setCopyBox: (el) => { this.copyBox = el; },
+      onFiles: (e) => this.onFiles(e),
+      inputPlaceholder: t('ui_message'), sendLabel: t('ui_send'),
+      draft: s.draft,
+      onDraft: (e) => this.setState({ draft: e.target.value }),
+      onSubmitText: (e) => { if (e && e.preventDefault) e.preventDefault(); this.submitText(); },
+      showMic: !hasDraft, showSendIcon: hasDraft, sendDisabled: !hasDraft,
+      // welcome
+      w: { title: t('w_title'), lang: t('w_lang'), proto: t('w_proto'), task: t('w_task'), recH: t('w_rec_h'), rec: t('w_rec'), noRecH: t('w_norec_h'), noRec: t('w_norec'), noPi: t('w_nopi'), code: t('w_code'), consent: t('w_consent'), start: t('w_start') },
+      welcomeLangs: welcomeLangs, pcode: s.pcode, consent: !!s.consent,
+      onPcode: (e) => this.setState({ pcode: String(e.target.value || '').slice(0, 32) }),
+      onConsent: (e) => this.setState({ consent: !!e.target.checked }),
+      startDisabled: startDisabled, startFg: startFg,
+      startStyle: { display: 'flex', alignItems: 'center', gap: '11px', width: '100%', minHeight: '52px', marginTop: '9px', padding: '10px 14px', borderRadius: '12px', cursor: startDisabled ? 'not-allowed' : 'pointer', textAlign: 'left', fontFamily: 'inherit', border: '1px solid ' + (startDisabled ? '#D9D2C7' : '#0F766E'), background: startDisabled ? '#F0F0F0' : '#0F766E', boxShadow: startDisabled ? 'none' : '0 2px 5px rgba(15,118,110,.28)' },
+      onStart: () => this.startChat(),
+      // results
+      showResults: s.ended && s.phase === 'chat',
+      res: { title: t('r_title'), easy: t('r_easy'), scale: t('r_scale'), hardest: t('r_hardest'), send: t('r_send'), json: t('r_json'), csv: t('r_csv'), copy: t('r_copy'), instructions: t('r_instructions') },
+      easeButtons: easeButtons, hardest: s.hardest,
+      onHardest: (e) => this.setState({ hardest: String(e.target.value || '').slice(0, 2000) }),
+      hasEndpoint: !!RESULTS_ENDPOINT,
+      resBtnStyle: resBtnStyle, resPrimaryStyle: Object.assign({}, resBtnStyle, { background: '#0F766E', border: '1px solid #0F766E' }),
+      onSendResults: () => this.sendResults(),
+      onDownloadJson: () => this.download(this.fileBase() + '.json', JSON.stringify(this.results(), null, 2), 'application/json'),
+      onDownloadCsv: () => this.download(this.fileBase() + '.csv', this.csv(), 'text/csv'),
+      onCopy: () => this.copyResults(),
+      hasResultMsg: !!s.resultMsg, resultMsg: s.resultMsg, showCopyBox: !!s.showCopyBox, copyText: s.showCopyBox ? JSON.stringify(this.results(), null, 2) : '',
+      // facilitator
+      facMode: facMode, facOpen: facMode && s.facOpen, facLocked: !s.facUnlocked, facUnlocked: !!s.facUnlocked,
+      onFacToggle: () => this.setState({ facOpen: !s.facOpen }),
+      pinDraft: s.pinDraft, pinError: s.pinError,
+      onPin: (e) => this.setState({ pinDraft: String(e.target.value || ''), pinError: false }),
+      onPinOk: () => { if (this.state.pinDraft === FACILITATOR_PIN) this.setState({ facUnlocked: true, pinDraft: '' }); else this.setState({ pinError: true }); },
+      facBtnPrimary: this.pill(true), facBtn: facBtn, facBtnDanger: Object.assign({}, facBtn, { marginTop: '16px', color: '#9A5B00', borderColor: '#E7C98F' }),
+      facOutcomes: facOutcomes, facChecks: facChecks,
+      onSendOutcomeNow: () => { if (s.phase === 'chat' && !s.ended) { this.scheduleOutcome(0, null); this.log('facilitator_outcome_now', { outcome: s.outcomeChoice }); } },
+      offlineLabel: s.offline ? 'Back online' : 'Go offline',
+      onToggleOffline: () => this.toggleOffline(),
+      groups: groups,
+      noAiLog: !s.aiLog.length,
+      aiLog: s.aiLog.map(a => ({ text: ({ before: 'Before photo', serial: 'Serial reading', compliance: 'Compliance photos', retake: 'Retake photo' }[a.check] || a.check) + ' #' + a.attempt + ': ' + a.result + ' (confidence ' + a.confidence + ')' })),
+      logLines: s.log.slice(-60).reverse().map(r => r.t_iso.slice(11, 19) + ' ' + r.event + ' [' + r.beat + '/' + r.lang + '] ' + (r.detail && Object.keys(r.detail).length ? JSON.stringify(r.detail) : '')),
+      onReset: () => this.resetSession(),
+    };
+  }
+}
+
+</script>
+
+
+</body></html>
