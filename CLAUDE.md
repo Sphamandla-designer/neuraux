@@ -96,10 +96,11 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
+| About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
-**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
@@ -228,17 +229,18 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | For Agencies | White-label Conversation Design for AI Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. For AI automation agencies and software studios in South Africa. |
 | How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we protect your data under POPIA. |
 | Contact | Contact NeuraUX \| AI UX & Conversation Design South Africa | Book a free 30-minute call about your AI assistant or chatbot. |
+| About | About NeuraUX \| AI UX Consultancy in Johannesburg | NeuraUX is a founder-led AI UX and conversation design consultancy in Johannesburg, Gauteng, designing AI assistants for South African law firms and fintechs. |
 
 ## 10. Open items: placeholders to fill, never invent
 
 - [ ] Registered company name and registration number (footer)
-- [ ] Founder paragraph and photo (How We Work)
+- [ ] Founder paragraph and photo (How We Work, About, and the homepage trust band)
 - [ ] Calendar booking link (Contact and all "Book" buttons)
 - [ ] Form service choice (Contact)
 - [ ] Privacy Policy text, to be reviewed by the founder, ideally with legal input
 - [ ] Sample Audit report (PDF) to link from the Services page once it exists
 - [ ] Pilot pricing decision: a R9,500 founding-client Audit for 2 clients vs full price. **Do not show a pilot price on the site unless told to.**
-- [ ] LinkedIn URL for the footer
+- [ ] LinkedIn URL for the footer and the About page founder block
 
 ## 11. How to work in this repo
 
