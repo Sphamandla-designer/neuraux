@@ -1,0 +1,222 @@
+﻿id,beat,element,en,zu,af,en_chars,zu_chars,af_chars,limit,needs_native_review
+ui_online,all,status,online,uxhumekile,aanlyn,6,10,6,1024,yes
+ui_typing,all,status,typing…,uyabhala…,tik tans…,7,9,9,1024,yes
+ui_connecting,all,status,Connecting…,Iyaxhuma…,Koppel tans…,11,9,12,1024,yes
+ui_message,all,input,Message,Umlayezo,Boodskap,7,8,8,1024,yes
+ui_send,all,input,Send,Thumela,Stuur,4,7,5,1024,yes
+ui_evidence,all,progress,Evidence,Ubufakazi,Bewyse,8,9,6,1024,yes
+ui_ai_auto,all,ai-card,automated check,ukuhlola okuzenzakalelayo,outomatiese kontrole,15,25,20,1024,yes
+ui_sample,all,link,Use a sample photo instead,Sebenzisa isithombe sesibonelo,Gebruik eerder 'n voorbeeldfoto,26,30,31,1024,yes
+ui_photo_alt,all,photo,Your photo,Isithombe sakho,Jou foto,10,15,8,1024,yes
+ui_photo,all,photo,photo,isithombe,foto,5,9,4,1024,yes
+ui_photos_n,all,photo,{n} photos,izithombe ezingu-{n},{n} foto's,10,20,10,1024,yes
+badge_important,serial,badge,Most important,Okubaluleke kakhulu,Belangrikste,14,19,12,1024,yes
+badge_good,all,badge,GOOD,KUHLE,GOED,4,5,4,1024,yes
+badge_avoid,all,badge,AVOID,GWEMA,VERMY,5,5,5,1024,yes
+ph_good_example,before,placeholder,good example,isibonelo esihle,goeie voorbeeld,12,16,15,1024,yes
+ph_too_close,before,placeholder,too close,kuseduze kakhulu,te naby,9,16,7,1024,yes
+ph_serial_label,serial,placeholder,serial label,ilebula ye-serial,reeksnommer-etiket,12,17,18,1024,yes
+ph_glare,serial,placeholder,glare / blur,ukucwebezela / ukufiphala,glans / vaag,12,25,12,1024,yes
+ph_geyser,before,placeholder,geyser photo,isithombe se-geyser,geiserfoto,12,19,10,1024,yes
+ph_compliance,compliance,placeholder,compliance photos,izithombe ze-compliance,voldoeningsfoto's,17,23,17,1024,yes
+ph_example_serial,serial,placeholder,example: serial label,isibonelo: ilebula ye-serial,voorbeeld: reeksnommer-etiket,21,28,29,1024,yes
+chip_today,entry,date-chip,TODAY,NAMUHLA,VANDAG,5,7,6,1024,yes
+chip_later,serial,date-chip,Later today,Kamuva namuhla,Later vandag,11,14,12,1024,yes
+lang_en,entry,button,English,English,English,7,7,7,20,no
+lang_zu,entry,button,isiZulu,isiZulu,isiZulu,7,7,7,20,no
+lang_af,entry,button,Afrikaans,Afrikaans,Afrikaans,9,9,9,20,no
+lang_en_sub,entry,button-sub,Continue in English,Continue in English,Continue in English,19,19,19,72,no
+lang_zu_sub,entry,button-sub,Qhubeka ngesiZulu,Qhubeka ngesiZulu,Qhubeka ngesiZulu,17,17,17,72,no
+lang_af_sub,entry,button-sub,Gaan voort in Afrikaans,Gaan voort in Afrikaans,Gaan voort in Afrikaans,23,23,23,72,no
+m_greeting,entry,message,"Good morning, Sipho. This is Home FIX verification.","Sawubona, Sipho. Lena yinsizakalo yokuqinisekisa ye-Home FIX.","Goeie môre, Sipho. Dit is Home FIX-verifikasie.",51,61,47,1024,yes
+m_lang_q,entry,message,Which language would you like to continue in? You can change this at any time.,Ungathanda ukuqhubeka ngaluphi ulimi? Ungalushintsha noma nini.,In watter taal wil jy voortgaan? Jy kan dit enige tyd verander.,78,63,63,1024,yes
+m_hi,start,message,Great — let’s get started.,Kuhle — masiqale.,Wonderlik — kom ons begin.,26,17,26,1024,yes
+m_popia,start,message,"We use your photos and job details only to verify this job, in line with POPIA.","Sisebenzisa izithombe zakho nemininingwane yomsebenzi kuphela ukuqinisekisa lo msebenzi, ngokuhambisana ne-POPIA.","Ons gebruik jou foto's en werkbesonderhede net om hierdie werk te verifieer, in lyn met POPIA.",79,113,94,1024,yes
+m_jobs,start,message,You have 1 job ready for evidence capture today. It should take about 5 minutes.,Unomsebenzi o-1 olungele ukuthathwa kobufakazi namuhla. Kufanele uthathe cishe imizuzu emi-5.,Jy het vandag 1 werk gereed vir bewysopname. Dit behoort sowat 5 minute te neem.,80,93,80,1024,yes
+btn_start,start,button,Start job,Qala umsebenzi,Begin werk,9,14,10,20,yes
+btn_resume,start,button,Resume previous job,Buyela emsebenzini,Hervat vorige werk,19,18,18,20,yes
+btn_privacy,start,button,Privacy notice,Isaziso semfihlo,Privaatheidskennis,14,16,18,20,yes
+m_privacy_tap,start,message,Opens our privacy notice. Not part of this prototype.,Kuvula isaziso sethu semfihlo. Akuyona ingxenye yale prototype.,Maak ons privaatheidskennisgewing oop. Nie deel van hierdie prototipe nie.,53,63,74,1024,yes
+m_resume_none,start,message,You don’t have a job in progress. Tap Start job to begin.,Awunawo umsebenzi oqhubekayo. Thepha ku-Qala umsebenzi ukuze uqale.,Jy het nie 'n werk aan die gang nie. Tik Begin werk om te begin.,57,67,64,1024,yes
+m_resume_back,start,message,Welcome back. You were on: {step}.,Siyakwamukela futhi. Ubukade ukulesi sinyathelo: {step}.,Welkom terug. Jy was by: {step}.,34,56,32,1024,yes
+card_summary_title,summary,card-title,Job summary,Isifinyezo somsebenzi,Werkopsomming,11,21,13,60,yes
+f_reference,summary,field-label,Reference,Inkomba,Verwysing,9,7,9,30,yes
+f_customer,summary,field-label,Customer,Ikhasimende,Kliënt,8,11,6,30,yes
+f_region,summary,field-label,Region,Isifunda,Streek,6,8,6,30,yes
+f_installation,summary,field-label,Installation,Ukufaka,Installasie,12,7,11,30,yes
+v_installation,summary,field-value,Electric geyser — replacement,I-geyser kagesi — ukushintshwa,Elektriese geiser — vervanging,29,30,30,1024,yes
+sum_progress_note,summary,card-text,Evidence steps remaining,Izinyathelo zobufakazi ezisele,Bewysstappe oor,24,30,15,1024,yes
+m_ready,summary,message,"When you’re ready, we’ll go one step at a time.","Uma usulungile, sizohamba isinyathelo ngesinyathelo.","Wanneer jy gereed is, gaan ons een stap op 'n slag.",47,52,51,1024,yes
+btn_begin,summary,button,Begin verification,Qala ukuqinisekisa,Begin verifikasie,18,18,17,20,yes
+m_before_intro,before,message,"First, a photo of the geyser as it is now.","Okokuqala, isithombe se-geyser njengoba injalo manje.","Eerstens, 'n foto van die geiser soos dit nou is.",42,53,49,1024,yes
+g_before_title,before,card-title,Before photo,Isithombe sangaphambili,Voor-foto,12,23,9,60,yes
+g_before_sub,before,card-subtitle,Current geyser & area,I-geyser ekhona nendawo,Huidige geiser en area,21,23,22,1024,yes
+h_what,before,card-heading,What to show,Okumele kubonakale,Wat om te wys,12,18,13,1024,yes
+i_whole,before,card-item,The entire geyser,I-geyser yonke,Die hele geiser,17,14,15,1024,yes
+i_area,before,card-item,The area around it,Indawo eyizungezile,Die area rondom dit,18,19,19,1024,yes
+h_tips,before,card-heading,Photo tips,Amathiphu esithombe,Fotowenke,10,19,9,1024,yes
+i_light,before,card-item,Good lighting,Ukukhanya okuhle,Goeie beligting,13,16,15,1024,yes
+i_back,before,card-item,Step back slightly,Hlehla kancane,Staan effens terug,18,14,18,1024,yes
+i_lens,before,card-item,Keep the lens clear,Gcina ilensi ihlanzekile,Hou die lens skoon,19,24,18,1024,yes
+g_before_footer,before,card-footer,Take your time — you can always retake.,Thatha isikhathi sakho — ungaphinda uthathe noma nini.,Neem jou tyd — jy kan altyd weer neem.,39,54,38,1024,yes
+btn_upload_photo,before,button,Upload photo,Thumela isithombe,Laai foto op,12,17,12,20,yes
+btn_need_help,before,button,Need help,Ngidinga usizo,Ek het hulp nodig,9,14,17,20,yes
+m_need_help,before,message,"Sure. Hold the phone with both hands if you can, and tap the screen once to focus before the shot. A blurry one is fine — we’ll just ask for one more.","Kulungile. Bamba ifoni ngezandla zombili uma ukwazi, bese uthepha isikrini kanye ukuze igxile ngaphambi kokuthatha. Uma isithombe sifiphele kulungile — sizocela esinye.","Seker. Hou die foon met albei hande vas as jy kan, en tik een keer op die skerm om te fokus voor jy die foto neem. 'n Vaag foto is reg — ons sal net vir nog een vra.",150,168,165,1024,yes
+ai_photo_check,before,ai-card,Photo check,Ukuhlola isithombe,Fotokontrole,11,18,12,1024,yes
+ai_blurry,before_retake,ai-card,"This one came out a little blurry, so it may be hard to verify.","Lesi sithombe siphume sifiphele kancane, ngakho kungaba nzima ukusiqinisekisa.","Hierdie een is effens vaag, so dit kan moeilik wees om te verifieer.",63,78,68,1024,yes
+ai_blurry_note,before_retake,ai-card-note,No problem — this happens often. A clearer shot will help your job get approved faster.,Akunankinga — lokhu kwenzeka kaningi. Isithombe esicacile sizosiza ukuthi umsebenzi wakho ugunyazwe ngokushesha.,Geen probleem nie — dit gebeur dikwels. 'n Duideliker foto sal help dat jou werk vinniger goedgekeur word.,87,112,106,1024,yes
+btn_retake,before_retake,button,Retake photo,Phinda uthathe,Neem weer,12,14,9,20,yes
+btn_support,all,button,Contact support,Xhumana nosizo,Kontak ondersteuning,15,14,20,20,yes
+ai_before_ok,before_ok,ai-card,✅ Clear photo received. The whole geyser and the area around it are visible.,✅ Isithombe esicacile samukelwe. I-geyser yonke nendawo eyizungezile kuyabonakala.,✅ Duidelike foto ontvang. Die hele geiser en die area rondom dit is sigbaar.,76,82,76,1024,yes
+ai_reviewer_later,before_ok,ai-card-note,A Home FIX reviewer can still check this later.,Umbuyekezi we-Home FIX usengakuhlola lokhu kamuva.,'n Home FIX-beoordelaar kan dit later steeds nagaan.,47,50,52,1024,yes
+m_one_of_six,before_ok,message,That’s 1 of 6 evidence items captured.,Lokho kungu-1 kwezingu-6 zobufakazi esezithathiwe.,Dis 1 van 6 bewysitems vasgelê.,38,50,31,1024,yes
+m_install,install,message,"Before photo saved. Go ahead with the installation. When the new geyser is in, tap Installation done. Your progress is saved.","Isithombe sangaphambili silondoloziwe. Qhubeka nokufaka. Uma i-geyser entsha isifakiwe, thepha ku-Ukufaka kuqediwe. Inqubekela phambili yakho ilondoloziwe.","Voor-foto gestoor. Gaan voort met die installasie. Wanneer die nuwe geiser in is, tik Installasie klaar. Jou vordering is gestoor.",125,155,130,1024,yes
+btn_install_done,install,button,Installation done,Ukufaka kuqediwe,Installasie klaar,17,16,17,20,yes
+m_serial_intro,serial,message,This next one matters most: the serial number label.,Lokhu okulandelayo kubaluleke kakhulu: ilebula yenombolo ye-serial.,Hierdie volgende een is die belangrikste: die reeksnommer-etiket.,52,67,65,1024,yes
+g_serial_title,serial,card-title,Serial number label,Ilebula yenombolo ye-serial,Reeksnommer-etiket,19,27,18,60,yes
+g_serial_sub,serial,card-subtitle,Proves which geyser was installed,Ikhombisa ukuthi iyiphi i-geyser efakiwe,Bewys watter geiser geïnstalleer is,33,40,35,1024,yes
+i_only_label,serial,card-item,Only the serial number label,Ilebula yenombolo ye-serial kuphela,Net die reeksnommer-etiket,28,35,26,1024,yes
+h_close,serial,card-heading,How close,Useduze kangakanani,Hoe naby,9,19,8,1024,yes
+i_15_20,serial,card-item,About 15–20 cm away,Cishe ku-15–20 cm,Sowat 15–20 cm weg,19,17,18,1024,yes
+i_fill,serial,card-item,Fill the frame with the label,Gcwalisa isithombe ngelebula,Vul die raam met die etiket,29,28,27,1024,yes
+h_lighting,serial,card-heading,Lighting,Ukukhanya,Beligting,8,9,9,1024,yes
+i_torch,serial,card-item,Use your phone torch if it’s dark,Sebenzisa ithoshi yefoni uma kumnyama,Gebruik jou foon se flits as dit donker is,33,37,42,1024,yes
+g_serial_footer,serial,card-footer,This is the single most important photo — take your time.,Lesi yisithombe esibaluleke kunazo zonke — thatha isikhathi sakho.,Dit is die heel belangrikste foto — neem jou tyd.,57,66,49,1024,yes
+btn_upload_serial,serial,button,Upload serial photo,Thumela i-serial,Laai reeksfoto op,19,16,17,20,yes
+btn_view_example,serial,button,View example,Bona isibonelo,Sien voorbeeld,12,14,14,20,yes
+m_example_caption,serial,photo-caption,Aim for this — the label fills the frame.,Zama lokhu — ilebula igcwalisa isithombe.,Mik hierna — die etiket vul die raam.,41,41,37,1024,yes
+ai_reading,serial,ai-card,Reading text,Ukufunda umbhalo,Lees teks,12,16,9,1024,yes
+ai_glare,serial_retake,ai-card,"I can see the label, but I can’t read every character clearly yet.","Ngiyayibona ilebula, kodwa angikakwazi ukufunda zonke izinhlamvu ngokucacile.","Ek kan die etiket sien, maar ek kan nog nie elke karakter duidelik lees nie.",66,77,76,1024,yes
+r_glare,serial_retake,ai-reason,Glare across part of the label,Ukucwebezela engxenyeni yelebula,Glans oor 'n deel van die etiket,30,32,32,1024,yes
+r_hidden,serial_retake,ai-reason,A few characters are hidden,Ezinye izinhlamvu zifihlekile,'n Paar karakters is versteek,27,29,29,1024,yes
+ai_glare_note,serial_retake,ai-card-note,You’re very close — one more try should do it.,Ususeduze kakhulu — omunye umzamo kufanele wanele.,Jy is baie naby — nog een probeerslag behoort dit te doen.,46,50,58,1024,yes
+btn_type_in,serial_retake,button,Type it in instead,Yibhale esikhundleni,Tik dit eerder in,18,20,17,20,yes
+ai_serial_ok,serial_ok,ai-card,✅ Got it — serial number captured.,✅ Ngiyitholile — inombolo ye-serial ithathiwe.,✅ Reg so — reeksnommer vasgelê.,34,46,31,1024,yes
+ai_field_serial,serial_ok,ai-field-label,Serial number,Inombolo ye-serial,Reeksnommer,13,18,11,1024,yes
+ai_reviewer_too,serial_ok,ai-card-note,A Home FIX reviewer checks this too.,Umbuyekezi we-Home FIX uyakuhlola nalokhu.,'n Home FIX-beoordelaar kontroleer dit ook.,36,42,43,1024,yes
+m_serial_check,serial_confirm,message,Please check the serial number: {serial}. Is that right?,Sicela uhlole inombolo ye-serial: {serial}. Ingabe ilungile?,Kontroleer asseblief die reeksnommer: {serial}. Is dit reg?,56,60,59,1024,yes
+btn_yes_correct,serial_confirm,button,"Yes, correct","Yebo, ilungile","Ja, korrek",12,14,10,20,yes
+btn_no_fix,serial_confirm,button,"No, fix it","Cha, yilungise","Nee, maak reg",10,14,13,20,yes
+m_serial_type,serial_type,message,Please type the serial number exactly as it is on the label.,Sicela ubhale inombolo ye-serial ngqo njengoba injalo elebuleni.,Tik asseblief die reeksnommer presies soos dit op die etiket is.,60,64,64,1024,yes
+m_serial_saved,serial_type,message,Thanks. Saved as {serial}. A reviewer will compare it with the photo.,Siyabonga. Ilondolozwe njengo-{serial}. Umbuyekezi uzoyiqhathanisa nesithombe.,Dankie. Gestoor as {serial}. 'n Beoordelaar sal dit met die foto vergelyk.,69,78,74,1024,yes
+m_compliance_intro,compliance,message,Almost there. A few items to confirm the installation is safe and to standard.,Sesiseduze. Izinto ezimbalwa zokuqinisekisa ukuthi ukufaka kuphephile futhi kusezingeni.,Amper klaar. 'n Paar items om te bevestig dat die installasie veilig en volgens standaard is.,78,88,93,1024,yes
+c_title,compliance,card-title,Compliance evidence,Ubufakazi be-compliance,Voldoeningsbewyse,19,23,17,60,yes
+c_pcv,compliance,card-item,Pressure control valve (PCV),I-pressure control valve (PCV),Drukbeheerklep (PCV),28,30,20,1024,yes
+c_pcv_sub,compliance,card-item-sub,Keeps the geyser at a safe pressure,Igcina i-geyser isengcindezelweni ephephile,Hou die geiser op 'n veilige druk,35,43,33,1024,yes
+c_overview,compliance,card-item,Installation overview,Isithombe sokufaka sonke,Oorsig van installasie,21,24,22,1024,yes
+c_overview_sub,compliance,card-item-sub,A wide shot of the finished work,Isithombe esibanzi somsebenzi oqediwe,'n Wye foto van die voltooide werk,32,37,34,1024,yes
+c_drip,compliance,card-item,Drip tray & overflow,I-drip tray ne-overflow,Drupbak en oorloop,20,23,18,1024,yes
+c_drip_sub,compliance,card-item-sub,Catches and drains any leaks,Ibamba futhi ikhiphe noma yikuphi ukuvuza,Vang en dreineer enige lekke,28,41,28,1024,yes
+c_isolator,compliance,card-item,Electrical isolator,I-isolator kagesi,Elektriese isolator,19,17,19,1024,yes
+c_isolator_sub,compliance,card-item-sub,The switch that cuts power safely,Iswishi evala ugesi ngokuphepha,Die skakelaar wat krag veilig afsny,33,31,35,1024,yes
+c_note,compliance,card-note,"Send all four together, or one at a time.","Thumela zonke ezine ndawonye, noma eyodwa ngesikhathi.","Stuur al vier saam, of een op 'n slag.",41,54,38,1024,yes
+btn_upload_photos,compliance,button,Upload photos,Thumela izithombe,Laai foto's op,13,17,14,20,yes
+btn_skip,compliance,button,Skip for later,Yeqa okwamanje,Slaan nou oor,14,14,13,20,yes
+m_skip,compliance,message,No problem. We’ll keep your place and remind you before final submission.,Akunankinga. Sizogcina lapho ufike khona futhi sikukhumbuze ngaphambi kokuthumela kokugcina.,Geen probleem nie. Ons hou jou plek en herinner jou voor die finale indiening.,73,92,78,1024,yes
+btn_continue,compliance,button,Continue,Qhubeka,Gaan voort,8,7,10,20,yes
+m_reminder,reminder,message,"Before you submit, I still need the {n} compliance photos.","Ngaphambi kokuthi uthumele, ngisadinga izithombe ze-compliance ezingu-{n}.","Voor jy indien, het ek nog die {n} voldoeningsfoto's nodig.",58,74,59,1024,yes
+m_partial,compliance,message,Got {got} of 4. Send the other {left} when you’re ready.,Ngithole ezingu-{got} kwezingu-4. Thumela ezinye ezingu-{left} uma usulungile.,{got} van 4 ontvang. Stuur die ander {left} wanneer jy gereed is.,56,78,65,1024,yes
+s_came_through,offline,status-title,Your photos came through,Izithombe zakho zifikile,Jou foto's het deurgekom,24,24,24,60,yes
+s_came_body,offline,status-body,"The signal dropped while sending, but nothing was lost.","Isignali yanqamuka ngesikhathi kuthunyelwa, kodwa akukho okulahlekile.","Die sein het weggeval terwyl dit gestuur is, maar niks het verlore gegaan nie.",55,70,78,1024,yes
+f_completed,offline,field-label,Completed,Kuqediwe,Voltooi,9,8,7,30,yes
+v_6of6_items,offline,field-value,6 of 6 items,izinto ezingu-6 kwezingu-6,6 van 6 items,12,26,13,1024,yes
+f_photos_received,offline,field-label,Photos received,Izithombe ezitholiwe,Foto's ontvang,15,20,14,30,yes
+v_4of4,offline,field-value,4 of 4,4 kwezingu-4,4 van 4,6,12,7,1024,yes
+s_came_note,offline,status-note,You can keep working or come back later — your place is held.,Ungaqhubeka usebenza noma ubuye kamuva — indawo yakho igciniwe.,Jy kan aanhou werk of later terugkom — jou plek word gehou.,61,63,59,1024,yes
+btn_submit,offline,button,Submit evidence,Thumela ubufakazi,Dien bewyse in,15,17,14,20,yes
+s_ok,submitted,status-title,Evidence submitted successfully,Ubufakazi bakho buthunyelwe ngempumelelo,Jou bewyse is suksesvol ingedien,31,40,32,60,yes
+s_ok_body,submitted,status-body,All six evidence items have been received.,Zonke izinto eziyisithupha zobufakazi zitholakele.,Al ses bewysitems is ontvang.,42,50,29,1024,yes
+f_submitted,submitted,field-label,Submitted,Kuthunyelwe,Ingedien,9,11,8,30,yes
+v_date_submit,submitted,field-value,"18 Jun 2026, 13:18","18 Juni 2026, 13:18","18 Jun. 2026, 13:18",18,19,19,1024,yes
+f_items,submitted,field-label,Items,Izinto,Items,5,6,5,30,yes
+v_6complete,submitted,field-value,6 of 6 complete,6 kwezingu-6 ziphelele,6 van 6 voltooi,15,22,15,1024,yes
+s_ok_note,submitted,status-note,This is everything needed for your job to be processed — no further action right now.,Lokhu yikho konke okudingekayo ukuze umsebenzi wakho ucutshungulwe — akukho okunye okudingekayo manje.,Dit is alles wat nodig is om jou werk te verwerk — niks verder nodig nie.,85,102,73,1024,yes
+m_thanks_team,submitted,message,"Thank you, Sipho. Your evidence is now with our team.","Siyabonga, Sipho. Ubufakazi bakho manje busethimbeni lethu.","Dankie, Sipho. Jou bewyse is nou by ons span.",53,59,45,1024,yes
+s_review,submitted,status-title,In review,Kuyabuyekezwa,Word hersien,9,13,12,60,yes
+s_review_body,submitted,status-body,A Home FIX specialist is checking your evidence. Most reviews finish within 2 hours — we’ll message you right here.,Uchwepheshe we-Home FIX uhlola ubufakazi bakho. Ukubuyekezwa okuningi kuqeda phakathi kwamahora ama-2 — sizokuthumelela umlayezo lapha.,'n Home FIX-spesialis gaan jou bewyse na. Die meeste hersienings is binne 2 uur klaar — ons stuur vir jou 'n boodskap net hier.,115,135,127,1024,yes
+f_est,submitted,field-label,Estimated time,Isikhathi esilinganisiwe,Geskatte tyd,14,24,12,30,yes
+v_2h,submitted,field-value,~2 hours,~amahora ama-2,~2 uur,8,14,6,1024,yes
+f_reviewed_by,submitted,field-label,Reviewed by,Kubuyekezwa ngu,Hersien deur,11,15,12,30,yes
+v_specialist,submitted,field-value,A Home FIX specialist,Uchwepheshe we-Home FIX,'n Home FIX-spesialis,21,23,21,1024,yes
+s_review_note,submitted,status-note,"A real person makes the final decision, not an automated system. Payment is processed once the job is approved.","Umuntu wangempela wenza isinqumo sokugcina, hhayi uhlelo oluzenzakalelayo. Inkokhelo icutshungulwa uma umsebenzi usugunyaziwe.","'n Regte persoon neem die finale besluit, nie 'n outomatiese stelsel nie. Betaling word verwerk sodra die werk goedgekeur is.",111,126,125,1024,yes
+m_good_news,approved,message,"Good news, Sipho — your review is complete.","Izindaba ezinhle, Sipho — ukubuyekezwa kwakho kuqediwe.","Goeie nuus, Sipho — jou hersiening is voltooi.",43,55,46,1024,yes
+s_approved,approved,status-title,Installation approved,Ukufaka kugunyaziwe,Installasie goedgekeur,21,19,22,60,yes
+s_approved_body,approved,status-body,Your evidence met all requirements. The job is complete.,Ubufakazi bakho buhlangabezane nazo zonke izidingo. Umsebenzi uqediwe.,Jou bewyse voldoen aan alle vereistes. Die werk is voltooi.,56,70,59,1024,yes
+v_date_approved,approved,field-value,"18 Jun 2026, 14:52","18 Juni 2026, 14:52","18 Jun. 2026, 14:52",18,19,19,1024,yes
+v_6verified,approved,field-value,6 of 6 verified,6 kwezingu-6 ziqinisekisiwe,6 van 6 geverifieer,15,27,19,1024,yes
+s_approved_note,approved,status-note,Thank you for your work today.,Siyabonga ngomsebenzi wakho namuhla.,Dankie vir jou werk vandag.,30,36,27,1024,yes
+btn_close_job,approved,button,Close job,Vala umsebenzi,Sluit werk,9,14,10,20,yes
+m_almost,retake,message,Almost there — one item needs another look.,Sesiseduze — into eyodwa idinga ukubhekwa futhi.,Amper daar — een item moet weer bekyk word.,43,48,43,1024,yes
+s_retake,retake,status-title,One item needs a retake,Into eyodwa idinga ukuthathwa kabusha,Een item moet oorgeneem word,23,37,28,60,yes
+s_retake_body,retake,status-body,The reviewer needs a clearer view of one item before approving the job.,Umbuyekezi udinga ukubona into eyodwa ngokucacile ngaphambi kokugunyaza umsebenzi.,Die beoordelaar het 'n duideliker beeld van een item nodig voordat die werk goedgekeur word.,71,82,92,1024,yes
+f_item,retake,field-label,Item,Into,Item,4,4,4,30,yes
+f_reason,retake,field-label,Reason,Isizathu,Rede,6,8,4,30,yes
+v_glare_reason,retake,field-value,Part of the serial is hidden by glare,Ingxenye ye-serial ifihlwe ukucwebezela,Deel van die reeksnommer word deur glans versteek,37,39,49,1024,yes
+s_retake_guide,retake,status-guide,Stand 15–20 cm back and use your torch to avoid glare. Everything else is approved and saved.,Hlehla ku-15–20 cm bese usebenzisa ithoshi ukuze ugweme ukucwebezela. Konke okunye kugunyaziwe futhi kulondoloziwe.,Staan 15–20 cm terug en gebruik jou flits om glans te vermy. Alles anders is goedgekeur en gestoor.,93,115,99,1024,yes
+btn_retake_now,retake,button,Retake now,Phinda manje,Neem nou weer,10,12,13,20,yes
+btn_later,retake,button,Continue later,Qhubeka kamuva,Gaan later voort,14,14,16,20,yes
+m_later_one,retake,message,Saved. We’ll remind you to finish this one item.,Kulondoloziwe. Sizokukhumbuza ukuqeda le nto eyodwa.,Gestoor. Ons sal jou herinner om hierdie een item klaar te maak.,48,52,64,1024,yes
+ai_retake_ok,retake,ai-card,✅ Clear photo received. The serial number label is easy to read.,✅ Isithombe esicacile samukelwe. Ilebula yenombolo ye-serial ifundeka kalula.,✅ Duidelike foto ontvang. Die reeksnommer-etiket is maklik om te lees.,64,77,70,1024,yes
+m_sent_reviewer,retake,message,Thanks. Sent to the reviewer.,Siyabonga. Kuthunyelwe kumbuyekezi.,Dankie. Na die beoordelaar gestuur.,29,35,35,1024,yes
+m_patience,rejected,message,"Thanks for your patience, Sipho.","Siyabonga ngokubekezela kwakho, Sipho.","Dankie vir jou geduld, Sipho.",32,38,29,1024,yes
+s_agent_finish,rejected,status-title,A Home FIX agent will finish this with you,Umenzeli we-Home FIX uzoqeda lokhu nawe,'n Home FIX-agent sal dit saam met jou klaarmaak,42,39,48,60,yes
+s_agent_body,rejected,status-body,The reviewer couldn’t approve the job from the photos alone.,Umbuyekezi akakwazanga ukugunyaza umsebenzi ngezithombe kuphela.,Die beoordelaar kon nie die werk net uit die foto's goedkeur nie.,60,64,65,1024,yes
+v_mismatch,rejected,field-value,The serial number doesn’t match the geyser on the order,Inombolo ye-serial ayifani ne-geyser ese-oda,Die reeksnommer stem nie ooreen met die geiser op die bestelling nie,55,44,68,1024,yes
+f_who,rejected,field-label,Who,Ubani,Wie,3,5,3,30,yes
+v_thandi,rejected,field-value,"Thandi, Home FIX team","UThandi, ithimba le-Home FIX","Thandi, Home FIX-span",21,28,21,1024,yes
+f_when,rejected,field-label,When,Nini,Wanneer,4,4,7,30,yes
+v_before15,rejected,field-value,Today before 15:00,Namuhla ngaphambi kuka-15:00,Vandag voor 15:00,18,28,17,1024,yes
+s_agent_note,rejected,status-note,Your job stays open and nothing you sent is lost.,Umsebenzi wakho uhlala uvuliwe futhi akukho okuthumele okulahlekile.,"Jou werk bly oop en niks wat jy gestuur het, is verlore nie.",49,68,60,1024,yes
+btn_chat_thandi,rejected,button,Chat to Thandi now,Xoxa noThandi manje,Gesels met Thandi,18,19,17,20,yes
+s_connecting,support,status-title,Connecting you to our team,Sikuxhumanisa nethimba lethu,Ons verbind jou met ons span,26,28,28,60,yes
+s_connecting_body,support,status-body,"A Home FIX agent will reply here, usually within 5 minutes (Mon–Sat, 07:00–19:00). Your progress is saved.","Umenzeli we-Home FIX uzophendula lapha, ngokuvamile phakathi kwemizuzu emi-5 (uMsombuluko–uMgqibelo, 07:00–19:00). Inqubekela phambili yakho ilondoloziwe.","'n Home FIX-agent sal hier antwoord, gewoonlik binne 5 minute (Ma–Sa, 07:00–19:00). Jou vordering is gestoor.",106,154,109,1024,yes
+f_hours,support,field-label,Hours,Amahora,Ure,5,7,3,30,yes
+v_hours,support,field-value,"Mon–Sat, 07:00–19:00","uMsombuluko–uMgqibelo, 07:00–19:00","Ma–Sa, 07:00–19:00",20,34,18,1024,yes
+agent_name,support,agent-name,Thandi · Home FIX team,Thandi · ithimba le-Home FIX,Thandi · Home FIX-span,22,28,22,1024,yes
+m_agent_hi,support,agent-message,"Hi Sipho, Thandi here. I can see your job. How can I help?","Sawubona Sipho, nguThandi lo. Ngiyawubona umsebenzi wakho. Ngingakusiza ngani?","Hallo Sipho, dis Thandi hier. Ek kan jou werk sien. Hoe kan ek help?",58,78,68,1024,yes
+m_agent_back,support,agent-message,Thanks. I’m handing you back to the assistant.,Siyabonga. Ngikubuyisela kumsizi.,Dankie. Ek gee jou terug aan die assistent.,46,33,43,1024,yes
+m_repair,all,message,"Sorry, I didn’t catch that. {step}","Uxolo, angikuzwanga kahle. {step}","Jammer, ek het dit nie mooi verstaan nie. {step}",34,33,48,1024,yes
+m_repair2_btn,all,message,"If you’re stuck, tap Contact support.","Uma ubambekile, thepha ku-Xhumana nosizo.","As jy vassit, tik Kontak ondersteuning.",37,41,39,1024,yes
+m_repair2_kw,all,message,"If you’re stuck, type “person” to reach our team.","Uma ubambekile, bhala “umuntu” ukuze uthole ithimba lethu.","As jy vassit, tik “persoon” om ons span te bereik.",49,58,50,1024,yes
+m_help,all,message,"{step} Type “person” to talk to our team, or “language” to change language.","{step} Bhala “umuntu” ukuze ukhulume nethimba lethu, noma “ulimi” ukuze ushintshe ulimi.","{step} Tik “persoon” om met ons span te praat, of “taal” om die taal te verander.",75,88,81,1024,yes
+m_lang_changed,all,message,Done. I’ll continue in English.,Kulungile. Ngizoqhubeka ngesiZulu.,Reg so. Ek gaan voort in Afrikaans.,31,34,35,1024,yes
+step_entry,entry,step,Choose a language to continue.,Khetha ulimi ukuze uqhubeke.,Kies 'n taal om voort te gaan.,30,28,30,200,yes
+step_start,start,step,Tap Start job to begin.,Thepha ku-Qala umsebenzi ukuze uqale.,Tik Begin werk om te begin.,23,37,27,200,yes
+step_summary,summary,step,Tap Begin verification to start with the first photo.,Thepha ku-Qala ukuqinisekisa ukuze uqale ngesithombe sokuqala.,Tik Begin verifikasie om met die eerste foto te begin.,53,62,54,200,yes
+step_before,before,step,Send one photo of the whole geyser and the area around it.,Thumela isithombe esisodwa se-geyser yonke nendawo eyizungezile.,Stuur een foto van die hele geiser en die area rondom dit.,58,64,58,200,yes
+step_install,install,step,"Do the installation, then tap Installation done.","Yenza ukufaka, bese uthepha ku-Ukufaka kuqediwe.",Doen die installasie en tik dan Installasie klaar.,48,48,50,200,yes
+step_serial,serial,step,"Send a close, clear photo of the new geyser’s serial number label.",Thumela isithombe esiseduze nesicacile selebula yenombolo ye-serial ye-geyser entsha.,"Stuur 'n nabye, duidelike foto van die nuwe geiser se reeksnommer-etiket.",66,85,73,200,yes
+step_serial_confirm,serial_confirm,step,"Tap Yes, correct if the serial number is right, or No, fix it.","Thepha ku-Yebo, ilungile uma inombolo ye-serial ilungile, noma ku-Cha, yilungise.","Tik Ja, korrek as die reeksnommer reg is, of Nee, maak reg.",62,81,59,200,yes
+step_serial_type,serial_type,step,Type the serial number exactly as it is on the label.,Bhala inombolo ye-serial ngqo njengoba injalo elebuleni.,Tik die reeksnommer presies soos dit op die etiket is.,53,56,54,200,yes
+step_compliance,compliance,step,"Send the 4 compliance photos: PCV, overview, drip tray and isolator.","Thumela izithombe ze-compliance ezi-4: i-PCV, isithombe sonke, i-drip tray ne-isolator.","Stuur die 4 voldoeningsfoto's: PCV, oorsig, drupbak en isolator.",68,87,64,200,yes
+step_submit,offline,step,Tap Submit evidence to send your job for review.,Thepha ku-Thumela ubufakazi ukuze uthumele umsebenzi wakho ubuyekezwe.,Tik Dien bewyse in om jou werk vir hersiening te stuur.,48,70,55,200,yes
+step_review,submitted,step,Your job is with a reviewer. We’ll message you here.,Umsebenzi wakho ukumbuyekezi. Sizokuthumelela umlayezo lapha.,Jou werk is by 'n beoordelaar. Ons stuur vir jou 'n boodskap hier.,52,61,66,200,yes
+step_retake,retake,step,Tap Retake now to send a clearer photo of the serial number label.,Thepha ku-Phinda manje ukuze uthumele isithombe esicacile selebula ye-serial.,Tik Neem nou weer om 'n duideliker foto van die reeksnommer-etiket te stuur.,66,77,76,200,yes
+step_done,approved,step,Your job is complete. Nothing else is needed.,Umsebenzi wakho uqediwe. Akukho okunye okudingekayo.,Jou werk is voltooi. Niks anders is nodig nie.,45,52,46,200,yes
+step_agent,rejected,step,Tap Chat to Thandi now to finish this with our team.,Thepha ku-Xoxa noThandi manje ukuze uqede lokhu nethimba lethu.,Tik Gesels met Thandi om dit saam met ons span klaar te maak.,52,63,61,200,yes
+w_title,welcome,heading,Home FIX prototype,I-prototype ye-Home FIX,Home FIX-prototipe,18,23,18,1024,yes
+w_lang,welcome,label,Language,Ulimi,Taal,8,5,4,1024,yes
+w_proto,welcome,text,This is a prototype for research. It is not WhatsApp and not a real company.,Lena yi-prototype yocwaningo. Akuyona i-WhatsApp futhi akuyona inkampani yangempela.,Dit is 'n prototipe vir navorsing. Dit is nie WhatsApp nie en nie 'n regte maatskappy nie.,76,84,90,1024,yes
+w_task,welcome,text,"You’ll play Sipho, a plumber. Use the chat to send proof that a geyser was replaced. You can stop at any time.","Uzoba nguSipho, uplamba. Sebenzisa ingxoxo ukuthumela ubufakazi bokuthi i-geyser ishintshiwe. Ungayeka noma nini.","Jy speel Sipho, 'n loodgieter. Gebruik die klets om bewys te stuur dat 'n geiser vervang is. Jy kan enige tyd ophou.",110,113,116,1024,yes
+w_rec_h,welcome,heading,What we record,Esikuqophayo,Wat ons aanteken,14,12,16,1024,yes
+w_rec,welcome,text,"Your taps, the messages you type, and how long each step takes.","Lapho uthepha khona, imilayezo oyibhalayo, nokuthi isinyathelo ngasinye sithatha isikhathi esingakanani.","Jou tikke, die boodskappe wat jy tik, en hoe lank elke stap neem.",63,104,65,1024,yes
+w_norec_h,welcome,heading,What we don’t record,Esingakuqophi,Wat ons nie aanteken nie,20,13,24,1024,yes
+w_norec,welcome,text,"Your photos, your name or your phone number. Photos stay on your phone.","Izithombe zakho, igama lakho noma inombolo yakho yefoni. Izithombe zihlala efonini yakho.","Jou foto's, jou naam of jou foonnommer. Foto's bly op jou foon.",71,89,63,1024,yes
+w_nopi,welcome,text,Please don’t type personal information.,Sicela ungabhali imininingwane yakho siqu.,Moet asseblief nie persoonlike inligting tik nie.,39,42,49,1024,yes
+w_code,welcome,label,Participant code,Ikhodi yomhlanganyeli,Deelnemerkode,16,21,13,1024,yes
+w_consent,welcome,label,I understand and agree to take part.,Ngiyaqonda futhi ngiyavuma ukubamba iqhaza.,Ek verstaan en stem in om deel te neem.,36,43,39,1024,yes
+w_start,welcome,research-button,Start,Qala,Begin,5,4,5,1024,yes
+r_title,results,heading,Thank you. Two quick questions,Siyabonga. Imibuzo emibili emifushane,Dankie. Twee vinnige vrae,30,37,25,1024,yes
+r_easy,results,label,How easy was this?,Bekulula kangakanani lokhu?,Hoe maklik was dit?,18,27,19,1024,yes
+r_scale,results,text,"1 = very hard, 7 = very easy","1 = kunzima kakhulu, 7 = kulula kakhulu","1 = baie moeilik, 7 = baie maklik",28,39,33,1024,yes
+r_hardest,results,label,What was hardest?,Yini ebinzima kakhulu?,Wat was die moeilikste?,17,22,23,1024,yes
+r_send,results,research-button,Send results,Thumela imiphumela,Stuur resultate,12,18,15,1024,yes
+r_json,results,research-button,Download results (JSON),Landa imiphumela (JSON),Laai resultate af (JSON),23,23,24,1024,yes
+r_csv,results,research-button,Download results (CSV),Landa imiphumela (CSV),Laai resultate af (CSV),22,22,23,1024,yes
+r_copy,results,research-button,Copy results,Kopisha imiphumela,Kopieer resultate,12,18,17,1024,yes
+r_copied,results,status,Copied. Paste it into a message to the researcher.,Kukopishiwe. Kunamathisele emlayezweni oya kumcwaningi.,Gekopieer. Plak dit in 'n boodskap aan die navorser.,50,55,52,1024,yes
+r_copy_fallback,results,status,Select all the text below and copy it.,Khetha wonke umbhalo ongezansi bese uwukopisha.,Kies al die teks hieronder en kopieer dit.,38,47,42,1024,yes
+r_downloaded,results,status,Saved to your phone’s downloads.,Kulondolozwe kuma-download efoni yakho.,Gestoor in jou foon se aflaaie.,32,39,31,1024,yes
+r_sent,results,status,Results sent. Thank you.,Imiphumela ithunyelwe. Siyabonga.,Resultate gestuur. Dankie.,24,33,26,1024,yes
+r_send_fail,results,status,Couldn’t send. Please download or copy the results instead.,Akukwazanga ukuthumela. Sicela ulande noma ukopishe imiphumela esikhundleni.,Kon nie stuur nie. Laai eerder die resultate af of kopieer dit.,59,76,63,1024,yes
+r_instructions,results,text,Please send the results to the researcher in the way they asked you to.,Sicela uthumele imiphumela kumcwaningi ngendlela akucele ngayo.,Stuur asseblief die resultate aan die navorser soos hulle jou gevra het.,71,63,72,1024,yes

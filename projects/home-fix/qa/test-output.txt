@@ -1,0 +1,54 @@
+PASS P7-01 original/ is byte-identical to the uploaded file — sha256 f696f7e7570a46b3a85303b647dfab3dc494704851b7104b5d4e984c2f55f731
+PASS P7-02 dist opens offline with no console errors — context offline; 0 console errors; 0 network requests
+PASS P7-03 outcome "approved" completes in en (facilitator-set, real photos) — completed to results card
+PASS P7-03 happy path completes in en (default script, sample photos) + P7-04 no English after choosing en — completed to results card; n/a; 0 errors; 0 network requests
+PASS P7-03 happy path completes in af (default script, sample photos) + P7-04 no English after choosing af — completed to results card; 0 English strings; 0 errors; 0 network requests
+PASS P7-03 happy path completes in zu (default script, sample photos) + P7-04 no English after choosing zu — completed to results card; 0 English strings; 0 errors; 0 network requests
+PASS P7-03 outcome "approved" completes in zu (facilitator-set, real photos) — completed to results card
+PASS P7-03 outcome "rejected" completes in en (facilitator-set, real photos) — completed to results card
+PASS P7-03 outcome "retake" completes in en (facilitator-set, real photos) — completed to results card
+PASS P7-03 outcome "retake" completes in zu (facilitator-set, real photos) — completed to results card
+PASS P7-03 outcome "approved" completes in af (facilitator-set, real photos) — completed to results card
+PASS P7-05 F01 every string id has en, zu and af (build check) — build check ok: 221 string ids x 3 languages; 215 zu and 215 af strings need native review; docs/copy-deck.csv written
+PASS P7-03 outcome "rejected" completes in zu (facilitator-set, real photos) — completed to results card
+PASS F01 no localizedEn sub-line; status/placeholder translated — placeholder, status and progress label in isiZulu
+PASS F02 language is asked first; Start job comes after, in that language — opening offers en/zu/af with subtitles; Start job shows as "Begin werk" after choosing Afrikaans
+PASS F03 South African English: PCV, UK spelling, 24-hour times — 0 US spellings; "(PCV)" shown; 29 times all 24-hour
+PASS P7-03 outcome "rejected" completes in af (facilitator-set, real photos) — completed to results card
+PASS F06 one compliance checklist with the new note — 1 checklist, sub-lines kept, new note, Upload photos + Skip for later
+PASS P7-03 outcome "retake" completes in af (facilitator-set, real photos) — completed to results card
+PASS F05 Resume previous job: none, then restore with "Welcome back" — no-job reply keeps Start job; saved job restored at the serial retake beat
+PASS F09 submitted and in review merged; no Finish or Exit; new note — one beat with both cards; only Contact support
+PASS F10 reference HF-2026 and date 18 Jun 2026 everywhere — HF-2026-DBN-04821, 18 Jun 2026; no HF-2024 or 16 Jun in source
+PASS F08 realistic signal drop: clock, Connecting…, silence, then ticks and status card — clock + "Connecting…" + no bot message for 2 s; then ticks, online, "Your photos came through", 6 of 6 / 4 of 4
+PASS F04 two sittings: installation beat, "Later today" chip, serial from 13:10 — chip "Later today" then "Installation done 13:10"; before photo 09:34–09:35
+PASS F11 greeting uses the name — first message: "Good morning, Sipho. This is Home FIX verification."
+PASS F07 Skip for later comes back before submission — skip → Continue → reminder; submit only after 4 of 4
+PASS F14 serial retake offers Type it in instead — Retake photo | Type it in instead → typing path
+PASS F12 confidence values appear in the facilitator panel only — Before photo #1: retake (confidence 41) / Before photo #2: pass (confidence 96)
+PASS F16 needs-assistance outcome says why and who — title, body, reason, who, when, note and "Chat to Thandi now"
+PASS F13 serial confirmation and typed correction — confirm beat shown; typed value trimmed and uppercased; flow continues to compliance
+PASS F15 Contact support is an in-chat handover to Thandi — status card + Thandi bold name; participant types; hand-back restores Retake photo + Contact support
+PASS F17 no fake security banner; POPIA message; Privacy notice reply — banner gone; POPIA line after greeting; Privacy notice answers
+PASS T01 real photo, 2x2 grid for multiple, cancel does nothing, sample link — capture=environment (before, serial), multiple (compliance); 200×144 bubble; 2×2 grid; cancel = no-op; no blob URL in storage
+PASS F18 retake outcome appends a new exchange, then Approved — transcript kept (39 items) and 5 appended; approved follows
+PASS F19 no text below 11px in the chat area — every text node in the chat is 11px or larger
+PASS T02 keywords in en at a waiting beat return to the same beat — help/language/person: help line, language switch to af with the serial buttons re-sent, handover
+PASS T02 keywords in zu at a waiting beat return to the same beat — usizo/ulimi/umuntu: help line, language switch to af with the serial buttons re-sent, handover
+PASS T02 unrecognised text: repair, repair + Contact support, then never a third repair — repair 1, repair 2 adds Contact support, third unrecognised message goes to a person (2 repairs total)
+PASS F12 no confidence number or bar for the installer; ✅ on accepted photos — no "%" or "confidence" in participant mode; 2 ✅ results
+PASS T02 keywords in af at a waiting beat return to the same beat — hulp/taal/persoon: help line, language switch to zu with the serial buttons re-sent, handover
+PASS T03 facilitator drawer: hidden without #facilitator, PIN, controls, reset — no trace without #facilitator; PIN 2468; defaults Approved / Retake-then-pass; 19 jump items; offline toggle; log; reset to welcome
+PASS T03 facilitator offline: bot waits, outgoing bubble shows clock until back online — no bot message for 2 s while offline; delivered after Back online
+PASS T05 welcome: consent gates Start; #p prefill; language switcher — Start disabled until ticked; P07 prefilled; welcome switches to isiZulu
+PASS T04 real photos come back as a "photo" placeholder after refresh — photo restored as the striped placeholder labelled "photo"
+PASS T05 copy falls back to select-all when the clipboard is unavailable — textarea with the results shown and selected
+PASS T04 refresh restores beat, language, messages and outcome at 3 beats — serial_confirm:true, retake_outcome:true, serial_type:true
+PASS T04 works when localStorage is unavailable — flow runs with storage throwing; 0 console errors
+PASS T06 hash settings: #lang, #p, #facilitator (hash only) — #lang=af&p=P11 applied; no query-string reads in source
+PASS T05 results: JSON and CSV downloads match the schema; copy and fallback — 12 events; JSON + CSV (BOM, schema header); clipboard copy
+PASS T06 desktop 1280x800 full run — completed at 1280×800; 0 errors; no overflow
+PASS T06 no horizontal scroll at 320/375/390/430; tap targets >= 44px — 320px ok, 375px ok, 390px ok, 430px ok
+PASS P7-06 F20 every quick-reply label <= 20 chars and <= 3 per beat (seen in all runs) — no violations across every quick-reply state reached in the 12 full runs
+
+52/52 passed

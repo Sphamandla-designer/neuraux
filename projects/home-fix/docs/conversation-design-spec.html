@@ -1,0 +1,4389 @@
+<!doctype html><html lang="en-ZA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Home FIX conversation design spec</title><meta name="description" content="Conversation design specification for the Home FIX geyser verification prototype."><style>
+:root{--ink:#1F2A30;--muted:#5C6B72;--line:#E7E0D5;--paper:#FFFFFF;--tint:#F7F4EF;--brand:#075E54;--accent:#0F766E;}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Roboto,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:16px 16px 48px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 12px;color:var(--brand)}
+h2{font-size:20px;margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--line);color:var(--brand)}
+h3{font-size:17px;margin:22px 0 8px}
+p,li{max-width:75ch}
+code{font-family:"Roboto Mono",ui-monospace,monospace;font-size:.86em;background:var(--tint);padding:1px 4px;border-radius:4px}
+pre{background:var(--tint);padding:12px;border-radius:8px;overflow:auto;font-size:13px}
+pre code{background:none;padding:0}
+.table-wrap{overflow-x:auto;margin:10px 0 18px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:7px 9px;border-bottom:1px solid var(--line)}
+th{background:var(--tint);font-weight:600;position:sticky;top:0}
+.inventory table{font-size:12.5px}
+.inventory td:nth-child(n+4):nth-child(-n+6){min-width:180px}
+nav.toc{background:var(--tint);border-radius:8px;padding:10px 16px;margin:12px 0}
+nav.toc ol{margin:6px 0;padding-left:22px;columns:2;column-gap:24px}
+nav.toc a{color:var(--accent)}
+svg.flow{max-width:700px;display:block;margin:10px auto;height:auto}
+details{margin:10px 0}
+summary{cursor:pointer;color:var(--accent);min-height:44px;display:flex;align-items:center}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:600px){nav.toc ol{columns:1} h1{font-size:22px}}
+@media print{
+  body{font-size:11pt} main{max-width:none;padding:0}
+  h2{break-before:auto;break-after:avoid} table,svg,pre{break-inside:avoid}
+  .table-wrap{overflow:visible;border:0} th{position:static}
+  details{display:block} details>summary{display:none} nav.toc{display:none}
+  a{color:inherit;text-decoration:none}
+}
+</style></head><body><main><h1 id="home-fix-conversation-design-specification">Home FIX: conversation design specification</h1><nav class="toc" aria-label="Contents"><strong>Contents</strong><ol><li><a href="#1-summary">Summary</a></li><li><a href="#2-users-and-context">Users and context</a></li><li><a href="#3-assistant-persona-and-voice">Assistant persona and voice</a></li><li><a href="#4-language-system">Language system</a></li><li><a href="#5-flow-map">Flow map</a></li><li><a href="#6-beat-inventory">Beat inventory</a></li><li><a href="#7-message-inventory">Message inventory</a></li><li><a href="#8-component-mapping-to-whatsapp">Component mapping to WhatsApp</a></li><li><a href="#9-ai-checks">AI checks</a></li><li><a href="#10-errors-and-recovery">Errors and recovery</a></li><li><a href="#11-human-handover">Human handover</a></li><li><a href="#12-review-outcomes">Review outcomes</a></li><li><a href="#13-privacy-and-popia">Privacy and POPIA</a></li><li><a href="#14-accessibility">Accessibility</a></li><li><a href="#15-measures-for-the-pilot">Measures for the pilot</a></li><li><a href="#16-test-cases">Test cases</a></li><li><a href="#17-decision-log">Decision log</a></li><li><a href="#18-open-questions">Open questions</a></li><li><a href="#19-changelog-original-this-version">Changelog: original → this version</a></li></ol></nav>
+<p>Prototype: <code>dist/Home_FIX_Mobile.html</code>. This document describes the prototype as it stands after fixes F01–F20 and testing-readiness items T01–T06. It does not describe features the prototype does not have.</p>
+<p>String ids in this document (for example <code>m_greeting</code>) refer to the <code>COPY</code> table in <code>src/template.html</code> and to <code>docs/copy-deck.csv</code>. The isiZulu and Afrikaans strings are drafts that need native review.</p>
+<h2 id="1-summary">1. Summary</h2>
+<p><strong>Problem.</strong> Insurance-panel plumbers replace burst electric geysers. Home FIX needs proof that each replacement was done properly before it approves the job and pays. Today that proof is uneven: photos are blurry, the serial number label is unreadable, compliance items are missing, and installers do not know what "good" looks like.</p>
+<p><strong>Users.</strong> The installer (a plumber, here "Sipho") sends the evidence. A Home FIX reviewer decides. A support agent ("Thandi") helps when the installer is stuck or when the reviewer cannot approve from the photos.</p>
+<p><strong>Channel.</strong> A WhatsApp Business conversation. The prototype imitates a generic chat app; it is not WhatsApp.</p>
+<p><strong>Languages.</strong> English, isiZulu and Afrikaans. The installer chooses in the first message and can switch at any time.</p>
+<p><strong>What the AI does.</strong> Two automated checks: a photo quality check (is the photo clear enough, does it show what was asked) and a serial number reading (OCR). The AI can accept a photo or ask for another one. It never rejects a job, never blocks the installer, and never approves payment.</p>
+<p><strong>What people do.</strong> The installer confirms or corrects what the AI read. A reviewer makes every approval decision. An agent takes over in the chat when asked, or when the reviewer cannot approve.</p>
+<p><strong>Evidence collected (6 items).</strong> 1 before photo, 1 serial number label photo, 4 compliance photos: pressure control valve (PCV), installation overview, drip tray and overflow, electrical isolator. Plus the serial number value, confirmed or typed by the installer.</p>
+<h2 id="2-users-and-context">2. Users and context</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Person</th>
+<th>Role in the conversation</th>
+<th>What they need</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installer (Sipho)</td>
+<td>Sends photos, confirms the serial number, submits</td>
+<td>Short steps, clear photo guidance, a way out when stuck, to know when they will be paid</td>
+</tr>
+<tr>
+<td>Reviewer (Home FIX specialist)</td>
+<td>Sees the evidence and the AI results; approves, asks for a retake or refers to an agent</td>
+<td>Clear photos, the serial value with its source (read or typed), reason codes for anything unusual</td>
+</tr>
+<tr>
+<td>Support agent (Thandi)</td>
+<td>Replies in the same chat; finishes jobs the reviewer could not approve</td>
+<td>The job reference, where the installer is in the flow, what has been sent</td>
+</tr>
+<tr>
+<td>Customer (M. Khumalo)</td>
+<td>Not in the conversation</td>
+<td>A safe, compliant installation</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Site conditions in South Africa that shape the design</strong></p>
+<ul>
+<li><strong>Roof spaces and geyser cupboards.</strong> Cramped, hot and dark. Installers often hold a torch or a ladder with one hand. Guidance says "Use your phone torch if it's dark" and gives a distance (15–20 cm) rather than abstract advice.</li>
+<li><strong>Low light and glare.</strong> Serial labels are often metallic or behind a plastic sleeve. Glare is the most likely failure, so the serial step has its own retake guidance and a "Type it in instead" way out.</li>
+<li><strong>Poor signal.</strong> Roof spaces and townhouse complexes often drop signal. The flow tolerates a dropped upload without scaring the installer (F08).</li>
+<li><strong>Load-shedding.</strong> Routers and towers can go down. Progress is saved after every step; the installer can come back.</li>
+<li><strong>Data cost.</strong> Prepaid data is expensive. The flow asks for each photo once, explains failures in text, and avoids sending images back to the installer apart from one optional example.</li>
+<li><strong>Two sittings.</strong> The before photo is taken on arrival. The serial label belongs to the new geyser, so it can only be photographed hours later, after installation (F04).</li>
+</ul>
+<p><strong>Trade vocabulary</strong> kept in English in every language because installers use it: geyser (isiZulu loan word i-geyser), PCV, drip tray, overflow, isolator, serial. Afrikaans uses the common trade words geiser, drukbeheerklep, drupbak, oorloop, isolator, reeksnommer.</p>
+<h2 id="3-assistant-persona-and-voice">3. Assistant persona and voice</h2>
+<p><strong>Name.</strong> The assistant has no personal name. It speaks as "Home FIX verification" (<code>m_greeting</code>), and its AI checks appear under "Home FIX AI · automated check". People in the conversation have names (Thandi). This keeps the line between the automated assistant and a person clear.</p>
+<p><strong>Disclosure.</strong> The AI card header always says "automated check". The in-review card says "A real person makes the final decision, not an automated system." The support agent introduces herself by name in a bold first line.</p>
+<p><strong>Tone.</strong> Plain, respectful and practical. Short sentences. It explains what to do, not how the system works. It treats failures as normal ("No problem — this happens often.").</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Do</th>
+<th>Don't</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name the next action: "Tap Installation done."</td>
+<td>Say "Please proceed to the next step."</td>
+</tr>
+<tr>
+<td>Give a concrete fix: "Stand 15–20 cm back and use your torch."</td>
+<td>Say "Image quality insufficient."</td>
+</tr>
+<tr>
+<td>Use the installer's name at the start and at outcomes</td>
+<td>Use the name in every message</td>
+</tr>
+<tr>
+<td>Say who decides and when: "A real person makes the final decision."</td>
+<td>Imply the AI approves or rejects</td>
+</tr>
+<tr>
+<td>Keep trade terms installers use (geyser, PCV, isolator)</td>
+<td>Translate trade terms into words nobody uses on site</td>
+</tr>
+<tr>
+<td>Admit limits: "Sorry, I didn't catch that."</td>
+<td>Pretend to understand free text</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Formatting rules</strong></p>
+<ul>
+<li>One idea per message; no message longer than three short sentences.</li>
+<li>Cards carry structured information (fields, checklists, guidance). Text bubbles carry conversation.</li>
+<li>24-hour times (13:18). Dates as "18 Jun 2026" (isiZulu "18 Juni 2026", Afrikaans "18 Jun. 2026").</li>
+<li>UK spelling. "Geyser" and "torch", not "water heater" and "flashlight".</li>
+<li>Quoted keywords use curly quotes: type “person”.</li>
+</ul>
+<p><strong>Emoji policy.</strong> Only ✅ at the start of an accepted AI result. No other emoji. The original 🔒 banner was removed (F17).</p>
+<h2 id="4-language-system">4. Language system</h2>
+<p><strong>Selection.</strong> The welcome screen has a language switcher, and <code>#lang=xx</code> in the link preselects it. The first chat messages (greeting and language question) appear in that language. The first message then offers three reply buttons: English, isiZulu, Afrikaans, each with a subtitle in its own language (<code>lang_*</code>, <code>lang_*_sub</code>). Everything from "Start job" onwards appears in the chosen language (F02).</p>
+<p><strong>Typed choice.</strong> At the language question, typing "English", "isiZulu", "Zulu" or "Afrikaans" (any case, accents ignored) also chooses.</p>
+<p><strong>Switching.</strong> Typing a language keyword at any point shows the language buttons again. Choosing one switches immediately, confirms in the new language (<code>m_lang_changed</code>) and re-sends the current step's quick replies in the new language. Progress is kept. Earlier messages stay in the language they were sent in, as in a real chat.</p>
+<p><strong>Keywords.</strong> Recognised in every language at every point. Matching ignores case, accents and punctuation, and the whole message must be the keyword.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Intent</th>
+<th>English</th>
+<th>isiZulu</th>
+<th>Afrikaans</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Help</td>
+<td>help</td>
+<td>usizo</td>
+<td>hulp</td>
+<td>One line describing the current step, plus the person and language keywords (<code>m_help</code> + <code>step_*</code>)</td>
+</tr>
+<tr>
+<td>Person</td>
+<td>person</td>
+<td>umuntu</td>
+<td>persoon</td>
+<td>In-chat handover to Thandi (section 11)</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>language</td>
+<td>ulimi</td>
+<td>taal</td>
+<td>Language buttons (<code>m_lang_q</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Never fall back to English.</strong> Every string id has en, zu and af. <code>tools/check.js</code> fails the build if any is missing, and <code>t()</code> logs an error and shows <code>[id]</code> rather than English if a string is ever missing at runtime.</p>
+<p><strong>Not translated.</strong> Home FIX, Home FIX AI, the job reference (HF-2026-DBN-04821), the serial number, POPIA, names (Sipho, Thandi, M. Khumalo), places (Durban, KZN), file names on sample photos, and the AI badge "AI".</p>
+<p><strong>Numbers and dates.</strong> 24-hour time in all languages. Dates: "18 Jun 2026" (en), "18 Juni 2026" (zu), "18 Jun. 2026" (af). Ranges use an en dash: 15–20 cm, 07:00–19:00.</p>
+<p><strong>Character limits.</strong> Reply button labels: 20 characters in every language (WhatsApp limit). The build check enforces this for every <code>btn_*</code> string and for every label a beat shows; the tests also check every quick-reply state reached in 12 full runs. Translations were shortened to fit (for example Afrikaans "Gesels met Thandi" for "Chat to Thandi now"). Labels are never visually truncated.</p>
+<p><strong>Native review.</strong> All isiZulu and Afrikaans strings except the six language names are marked <code>needs_native_review = yes</code> in <code>docs/copy-deck.csv</code>. Process: a first-language speaker who knows the trade reviews the CSV, edits the <code>zu</code>/<code>af</code> columns, and the strings are copied back into <code>COPY</code>. Re-run <code>tools/pack.py</code>; the build check confirms nothing is missing and every label still fits.</p>
+<h2 id="5-flow-map">5. Flow map</h2>
+<svg class="flow" viewBox="0 0 700 1358" width="100%" role="img" aria-labelledby="flow-title" xmlns="http://www.w3.org/2000/svg" font-family="Roboto, system-ui, sans-serif"><title id="flow-title">Home FIX flow: beats, branches and outcomes</title><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3B4A54"/></marker></defs><rect x="225" y="14" width="210" height="46" rx="9" fill="#EFEDE8" stroke="#667781" stroke-width="1.4"/><text x="330" y="34" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">Welcome and consent</text><text x="330" y="49" text-anchor="middle" font-size="12" fill="#1F2A30">language, code, consent</text><rect x="225" y="86" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">entry</text><text x="330" y="121" text-anchor="middle" font-size="12" fill="#1F2A30">greeting, language question</text><rect x="225" y="158" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="178" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">start</text><text x="330" y="193" text-anchor="middle" font-size="12" fill="#1F2A30">POPIA line, 1 job today</text><rect x="225" y="230" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="250" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">summary</text><text x="330" y="265" text-anchor="middle" font-size="12" fill="#1F2A30">job card</text><rect x="225" y="302" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="322" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">before</text><text x="330" y="337" text-anchor="middle" font-size="12" fill="#1F2A30">guidance card</text><rect x="225" y="374" width="210" height="46" rx="9" fill="#F2F6F5" stroke="#134E48" stroke-width="1.4" stroke-dasharray="4 3"/><text x="330" y="394" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">AI photo check</text><text x="330" y="409" text-anchor="middle" font-size="12" fill="#1F2A30">pass or retake</text><rect x="225" y="446" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="466" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">before_ok</text><text x="330" y="481" text-anchor="middle" font-size="12" fill="#1F2A30">1 of 6</text><rect x="225" y="518" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="538" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">install</text><text x="330" y="553" text-anchor="middle" font-size="12" fill="#1F2A30">installation off-chat</text><rect x="225" y="590" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="610" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">serial</text><text x="330" y="625" text-anchor="middle" font-size="12" fill="#1F2A30">later today, 13:10</text><rect x="225" y="662" width="210" height="46" rx="9" fill="#F2F6F5" stroke="#134E48" stroke-width="1.4" stroke-dasharray="4 3"/><text x="330" y="682" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">AI serial reading</text><text x="330" y="697" text-anchor="middle" font-size="12" fill="#1F2A30">read or retake</text><rect x="225" y="734" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="754" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">serial_ok + serial_confirm</text><text x="330" y="769" text-anchor="middle" font-size="12" fill="#1F2A30">Is that right?</text><rect x="225" y="806" width="210" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="330" y="826" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">compliance</text><text x="330" y="841" text-anchor="middle" font-size="12" fill="#1F2A30">4 photos, any order</text><rect x="225" y="878" width="210" height="46" rx="9" fill="#ECF1F8" stroke="#2E5AAC" stroke-width="1.4"/><text x="330" y="898" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">signal drop</text><text x="330" y="913" text-anchor="middle" font-size="12" fill="#1F2A30">clock, Connecting…, silence</text><rect x="225" y="950" width="210" height="46" rx="9" fill="#ECF1F8" stroke="#2E5AAC" stroke-width="1.4"/><text x="330" y="970" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">offline</text><text x="330" y="985" text-anchor="middle" font-size="12" fill="#1F2A30">Your photos came through</text><rect x="225" y="1022" width="210" height="46" rx="9" fill="#E7F7EC" stroke="#1B7F4B" stroke-width="1.4"/><text x="330" y="1042" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">submitted + in review</text><text x="330" y="1057" text-anchor="middle" font-size="12" fill="#1F2A30">a person decides</text><line x1="330" y1="60" x2="330" y2="84" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="77" font-size="11" fill="#5C6B72">Start</text><line x1="330" y1="132" x2="330" y2="156" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="149" font-size="11" fill="#5C6B72">English / isiZulu / Afrikaans</text><line x1="330" y1="204" x2="330" y2="228" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="221" font-size="11" fill="#5C6B72">Start job</text><line x1="330" y1="276" x2="330" y2="300" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="293" font-size="11" fill="#5C6B72">Begin verification</text><line x1="330" y1="348" x2="330" y2="372" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="365" font-size="11" fill="#5C6B72">photo</text><line x1="330" y1="420" x2="330" y2="444" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="437" font-size="11" fill="#5C6B72">pass</text><line x1="330" y1="492" x2="330" y2="516" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><line x1="330" y1="564" x2="330" y2="588" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="581" font-size="11" fill="#5C6B72">Installation done</text><line x1="330" y1="636" x2="330" y2="660" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="653" font-size="11" fill="#5C6B72">photo</text><line x1="330" y1="708" x2="330" y2="732" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="725" font-size="11" fill="#5C6B72">read</text><line x1="330" y1="780" x2="330" y2="804" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="797" font-size="11" fill="#5C6B72">Yes, correct</text><line x1="330" y1="852" x2="330" y2="876" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="869" font-size="11" fill="#5C6B72">4 of 4</text><line x1="330" y1="924" x2="330" y2="948" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="941" font-size="11" fill="#5C6B72">after 3 s</text><line x1="330" y1="996" x2="330" y2="1020" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="337" y="1013" font-size="11" fill="#5C6B72">Submit evidence</text><rect x="30" y="374" width="150" height="46" rx="9" fill="#FBF3E0" stroke="#B26B00" stroke-width="1.4"/><text x="105" y="394" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">before_retake</text><text x="105" y="409" text-anchor="middle" font-size="12" fill="#1F2A30">Retake / Contact support</text><path d="M225.0 388 H182" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="219.0" y="384" text-anchor="end" font-size="11" fill="#5C6B72">retake</text><path d="M105 420 V432 H245.0 V422" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="45" y="446" font-size="11" fill="#5C6B72">Retake photo</text><rect x="30" y="662" width="150" height="46" rx="9" fill="#FBF3E0" stroke="#B26B00" stroke-width="1.4"/><text x="105" y="682" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">serial_retake</text><text x="105" y="697" text-anchor="middle" font-size="12" fill="#1F2A30">Retake / Type it in</text><path d="M225.0 676 H182" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="219.0" y="672" text-anchor="end" font-size="11" fill="#5C6B72">retake</text><path d="M75 708 V722 H245.0 V710" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="33" y="736" font-size="11" fill="#5C6B72">Retake photo</text><rect x="495" y="738" width="160" height="46" rx="9" fill="#FFFFFF" stroke="#0F766E" stroke-width="1.4"/><text x="575" y="758" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">serial_type</text><text x="575" y="773" text-anchor="middle" font-size="12" fill="#1F2A30">typed, saved, compared</text><path d="M435.0 754 H493" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="443.0" y="749" text-anchor="start" font-size="11" fill="#5C6B72">No, fix it</text><path d="M145 708 V738 H575 V736" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="151" y="734" text-anchor="start" font-size="11" fill="#5C6B72">Type it in instead</text><path d="M575 784 V820 H437.0" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="581" y="808" text-anchor="start" font-size="11" fill="#5C6B72">saved</text><rect x="490" y="840" width="170" height="46" rx="9" fill="#FBF3E0" stroke="#B26B00" stroke-width="1.4"/><text x="575" y="860" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">reminder</text><text x="575" y="875" text-anchor="middle" font-size="12" fill="#1F2A30">Upload photos → 4 of 4</text><path d="M435.0 840 H493" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="441.0" y="854" font-size="11" fill="#5C6B72">Skip, Continue</text><rect x="490" y="158" width="170" height="46" rx="9" fill="#F7F4EF" stroke="#8A9299" stroke-width="1.4"/><text x="575" y="178" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">Privacy notice / Resume</text><text x="575" y="193" text-anchor="middle" font-size="12" fill="#1F2A30">reply, or restore saved job</text><path d="M435.0 180 H488" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><rect x="480" y="416" width="190" height="76" rx="9" fill="#F7F4EF" stroke="#8A9299" stroke-width="1.4"/><text x="575" y="436" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">Any beat</text><text x="575" y="451" text-anchor="middle" font-size="12" fill="#1F2A30">Contact support, “person”,</text><text x="575" y="466" text-anchor="middle" font-size="12" fill="#1F2A30">or 3rd unrecognised message</text><text x="575" y="481" text-anchor="middle" font-size="12" fill="#1F2A30">→ Thandi in chat → same beat</text><rect x="35" y="1118" width="170" height="46" rx="9" fill="#E7F7EC" stroke="#1B7F4B" stroke-width="1.4"/><text x="120" y="1138" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">approved</text><text x="120" y="1153" text-anchor="middle" font-size="12" fill="#1F2A30">Close job</text><rect x="245" y="1118" width="170" height="46" rx="9" fill="#FBF3E0" stroke="#B26B00" stroke-width="1.4"/><text x="330" y="1138" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">retake</text><text x="330" y="1153" text-anchor="middle" font-size="12" fill="#1F2A30">Retake now</text><rect x="455" y="1118" width="170" height="46" rx="9" fill="#F1EFEC" stroke="#57534E" stroke-width="1.4"/><text x="540" y="1138" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">needs assistance</text><text x="540" y="1153" text-anchor="middle" font-size="12" fill="#1F2A30">Chat to Thandi now</text><path d="M330 1068 V1090 H120 V1116" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><path d="M330 1068 V1090 H330 V1116" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><path d="M330 1068 V1090 H540 V1116" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="338" y="1084" font-size="11" fill="#5C6B72">about 6 s, outcome set by the facilitator</text><path d="M330 1164 V1184 H160 V1166" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="336" y="1180" text-anchor="start" font-size="11" fill="#5C6B72">photo accepted → approved</text><rect x="455" y="1214" width="170" height="46" rx="9" fill="#F7F4EF" stroke="#8A9299" stroke-width="1.4"/><text x="540" y="1234" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">Thandi in chat</text><text x="540" y="1249" text-anchor="middle" font-size="12" fill="#1F2A30">participant types</text><path d="M540 1164 V1212" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><rect x="225" y="1296" width="210" height="46" rx="9" fill="#EFEDE8" stroke="#667781" stroke-width="1.4"/><text x="330" y="1316" text-anchor="middle" font-size="12" font-weight="600" fill="#1F2A30">Results card</text><text x="330" y="1331" text-anchor="middle" font-size="12" fill="#1F2A30">ease 1–7, hardest, download/copy</text><path d="M120 1164 V1314 H223" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="126" y="1302" text-anchor="start" font-size="11" fill="#5C6B72">Close job</text><path d="M540 1260 V1314 H437" fill="none" stroke="#3B4A54" stroke-width="1.3" marker-end="url(#arr)"/><text x="546" y="1302" text-anchor="start" font-size="11" fill="#5C6B72">hand-back</text></svg>
+
+<details><summary>Mermaid source of the same diagram</summary>
+
+
+<pre><code class="language-mermaid">flowchart TD
+  W[Welcome and consent] --&gt; E[entry: greeting and language question]
+  E --&gt;|English / isiZulu / Afrikaans| S[start: POPIA line, 1 job today]
+  S --&gt;|Privacy notice| S
+  S --&gt;|Resume previous job| R{saved job?}
+  R --&gt;|no| S
+  R --&gt;|yes| X[saved beat restored]
+  S --&gt;|Start job| SUM[summary: job card]
+  SUM --&gt;|Begin verification| B[before: guidance card]
+  B --&gt;|photo| AQ{AI photo check}
+  AQ --&gt;|retake| BR[before_retake]
+  BR --&gt;|Retake photo| AQ
+  AQ --&gt;|pass| BO[before_ok] --&gt; I[install: off-chat]
+  I --&gt;|Installation done - later today| SE[serial: guidance card]
+  SE --&gt;|photo| OCR{AI serial reading}
+  OCR --&gt;|retake| SR[serial_retake]
+  SR --&gt;|Retake photo| OCR
+  SR --&gt;|Type it in instead| ST[serial_type]
+  OCR --&gt;|read| SO[serial_ok] --&gt; SC[serial_confirm]
+  SC --&gt;|No, fix it| ST
+  ST --&gt;|typed serial saved| C
+  SC --&gt;|Yes, correct| C[compliance: 4 photos]
+  C --&gt;|fewer than 4| C
+  C --&gt;|Skip for later| RM[reminder] --&gt;|photos| C
+  C --&gt;|4 of 4| D[signal drop: clock, Connecting...] --&gt; O[offline: photos came through]
+  O --&gt;|Submit evidence| SUB[submitted + in review]
+  SUB --&gt;|about 6 s; reviewer decides| OUT{outcome}
+  OUT --&gt; AP[approved]
+  OUT --&gt; RT[retake]
+  OUT --&gt; RJ[needs assistance]
+  RT --&gt;|Retake now, photo accepted| AP
+  RJ --&gt;|Chat to Thandi now| TH[Thandi in chat]
+  AP --&gt;|Close job| RES[results card]
+  TH --&gt;|hand-back| RES
+  ANY[[Any beat: Contact support, person keyword or 3rd unrecognised message]] --&gt; HO[Thandi in chat] --&gt;|hand-back| BACK[same beat, same buttons]
+</code></pre>
+
+
+</details>
+
+<h2 id="6-beat-inventory">6. Beat inventory</h2>
+<p>A beat is one turn of the assistant: the messages it sends and the quick replies it then shows. Progress is the evidence count shown in the strip under the header (0–6). Times are the simulated clock.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Beat id</th>
+<th>Purpose</th>
+<th>Bot messages (string ids)</th>
+<th>Card</th>
+<th>Quick replies → destination</th>
+<th>Typed input accepted</th>
+<th>Progress</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entry</code></td>
+<td>Greet, ask for language</td>
+<td><code>chip_today</code>, <code>m_greeting</code>, <code>m_lang_q</code></td>
+<td>—</td>
+<td><code>lang_en</code>, <code>lang_zu</code>, <code>lang_af</code> → <code>start</code></td>
+<td>Language names; keywords</td>
+<td>0</td>
+<td>09:30</td>
+</tr>
+<tr>
+<td><code>start</code></td>
+<td>Confirm language, privacy notice, job count</td>
+<td><code>m_hi</code>, <code>m_popia</code>, <code>m_jobs</code></td>
+<td>—</td>
+<td><code>btn_start</code> → <code>summary</code>; <code>btn_resume</code> → resume (F05); <code>btn_privacy</code> → <code>m_privacy_tap</code></td>
+<td>Keywords</td>
+<td>0</td>
+<td>09:31</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>Show the job</td>
+<td>summary card (<code>card_summary_title</code>, <code>f_reference</code>, <code>f_customer</code>, <code>f_region</code>, <code>f_installation</code>, <code>v_installation</code>, <code>sum_progress_note</code>), <code>m_ready</code></td>
+<td>Summary</td>
+<td><code>btn_begin</code> → <code>before</code></td>
+<td>Keywords</td>
+<td>0</td>
+<td>09:32</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>Ask for the before photo</td>
+<td><code>m_before_intro</code>, guidance card (<code>g_before_title</code>, <code>g_before_sub</code>, <code>h_what</code>, <code>i_whole</code>, <code>i_area</code>, <code>h_tips</code>, <code>i_light</code>, <code>i_back</code>, <code>i_lens</code>, <code>ph_good_example</code>, <code>ph_too_close</code>, <code>badge_good</code>, <code>badge_avoid</code>, <code>g_before_footer</code>)</td>
+<td>Guidance</td>
+<td><code>btn_upload_photo</code> → camera → photo check → <code>before_retake</code> or <code>before_ok</code>; <code>btn_need_help</code> → <code>m_need_help</code></td>
+<td>Photo; keywords</td>
+<td>0</td>
+<td>09:33</td>
+</tr>
+<tr>
+<td><code>before_retake</code></td>
+<td>Photo too blurry</td>
+<td>AI card (<code>ai_photo_check</code>, <code>ui_ai_auto</code>, <code>ai_blurry</code>, <code>ai_blurry_note</code>)</td>
+<td>AI</td>
+<td><code>btn_retake</code> → camera → photo check; <code>btn_support</code> → handover</td>
+<td>Photo; keywords</td>
+<td>0</td>
+<td>09:34</td>
+</tr>
+<tr>
+<td><code>before_ok</code></td>
+<td>Photo accepted</td>
+<td>AI card (<code>ai_photo_check</code>, <code>ai_before_ok</code>, <code>ai_reviewer_later</code>), <code>m_one_of_six</code></td>
+<td>AI</td>
+<td>none; continues to <code>install</code></td>
+<td>—</td>
+<td>1</td>
+<td>09:35</td>
+</tr>
+<tr>
+<td><code>install</code></td>
+<td>Installation happens off-chat (F04)</td>
+<td><code>m_install</code></td>
+<td>—</td>
+<td><code>btn_install_done</code> → <code>serial</code></td>
+<td>Keywords</td>
+<td>1</td>
+<td>09:35</td>
+</tr>
+<tr>
+<td><code>serial</code></td>
+<td>Ask for the serial label, hours later</td>
+<td><code>chip_later</code> (before the reply bubble), <code>m_serial_intro</code>, guidance card (<code>g_serial_title</code>, <code>badge_important</code>, <code>g_serial_sub</code>, <code>h_what</code>, <code>i_only_label</code>, <code>h_close</code>, <code>i_15_20</code>, <code>i_fill</code>, <code>h_lighting</code>, <code>i_torch</code>, <code>ph_serial_label</code>, <code>ph_glare</code>, <code>g_serial_footer</code>)</td>
+<td>Guidance</td>
+<td><code>btn_upload_serial</code> → camera → serial reading → <code>serial_retake</code> or <code>serial_ok</code>; <code>btn_view_example</code> → example photo (<code>ph_example_serial</code>, <code>m_example_caption</code>)</td>
+<td>Photo; keywords</td>
+<td>1</td>
+<td>13:10</td>
+</tr>
+<tr>
+<td><code>serial_retake</code></td>
+<td>Label unreadable (glare)</td>
+<td>AI card (<code>ai_reading</code>, <code>ai_glare</code>, <code>r_glare</code>, <code>r_hidden</code>, <code>ai_glare_note</code>)</td>
+<td>AI</td>
+<td><code>btn_retake</code> → camera; <code>btn_type_in</code> → <code>serial_type</code> (F14)</td>
+<td>Photo; keywords</td>
+<td>1</td>
+<td>13:11</td>
+</tr>
+<tr>
+<td><code>serial_ok</code></td>
+<td>Serial read</td>
+<td>AI card (<code>ai_reading</code>, <code>ai_serial_ok</code>, <code>ai_field_serial</code> = KWH-8842-ZA-117, <code>ai_reviewer_too</code>)</td>
+<td>AI</td>
+<td>none; continues to <code>serial_confirm</code></td>
+<td>—</td>
+<td>2</td>
+<td>13:12</td>
+</tr>
+<tr>
+<td><code>serial_confirm</code></td>
+<td>Installer confirms the reading (F13)</td>
+<td><code>m_serial_check</code></td>
+<td>—</td>
+<td><code>btn_yes_correct</code> → <code>compliance</code>; <code>btn_no_fix</code> → <code>serial_type</code></td>
+<td>Keywords</td>
+<td>2</td>
+<td>13:12</td>
+</tr>
+<tr>
+<td><code>serial_type</code></td>
+<td>Installer types the serial</td>
+<td><code>m_serial_type</code>; after the reply <code>m_serial_saved</code></td>
+<td>—</td>
+<td>none</td>
+<td>Any text (not a keyword) → saved trimmed, spaces collapsed, upper case → <code>compliance</code></td>
+<td>1 if never read, else 2</td>
+<td>13:13</td>
+</tr>
+<tr>
+<td><code>compliance</code></td>
+<td>Ask for the 4 compliance photos (F06)</td>
+<td><code>m_compliance_intro</code>, checklist card (<code>c_title</code>, <code>c_pcv</code>, <code>c_pcv_sub</code>, <code>c_overview</code>, <code>c_overview_sub</code>, <code>c_drip</code>, <code>c_drip_sub</code>, <code>c_isolator</code>, <code>c_isolator_sub</code>, <code>c_note</code>)</td>
+<td>Checklist</td>
+<td><code>btn_upload_photos</code> → gallery (multiple) → fewer than 4: <code>m_partial</code>, stay; 4 in total: signal drop → <code>offline</code>. <code>btn_skip</code> → <code>m_skip</code> + <code>btn_continue</code> → <code>reminder</code></td>
+<td>Photos; keywords</td>
+<td>2</td>
+<td>13:14</td>
+</tr>
+<tr>
+<td><code>reminder</code></td>
+<td>Ask again after a skip (F07)</td>
+<td><code>m_reminder</code></td>
+<td>—</td>
+<td><code>btn_upload_photos</code> (only)</td>
+<td>Photos; keywords</td>
+<td>2</td>
+<td>13:15</td>
+</tr>
+<tr>
+<td><code>offline</code></td>
+<td>Photos arrived after the signal came back (F08)</td>
+<td>status card (<code>s_came_through</code>, <code>s_came_body</code>, <code>f_completed</code> = <code>v_6of6_items</code>, <code>f_photos_received</code> = <code>v_4of4</code>, <code>s_came_note</code>)</td>
+<td>Status (wait)</td>
+<td><code>btn_submit</code> → <code>submitted</code></td>
+<td>Keywords</td>
+<td>6</td>
+<td>13:16</td>
+</tr>
+<tr>
+<td><code>submitted</code></td>
+<td>Submitted, then in review (F09)</td>
+<td>status card (<code>s_ok</code>, <code>s_ok_body</code>, <code>f_reference</code>, <code>f_submitted</code> = <code>v_date_submit</code>, <code>f_items</code> = <code>v_6complete</code>, <code>s_ok_note</code>), <code>m_thanks_team</code>, status card (<code>s_review</code>, <code>s_review_body</code>, <code>f_est</code> = <code>v_2h</code>, <code>f_reviewed_by</code> = <code>v_specialist</code>, <code>s_review_note</code>)</td>
+<td>Status (good), status (wait)</td>
+<td><code>btn_support</code> → handover. The review outcome follows about 6 s later</td>
+<td>Keywords</td>
+<td>6</td>
+<td>13:18</td>
+</tr>
+<tr>
+<td><code>approved</code></td>
+<td>Outcome: approved</td>
+<td><code>m_good_news</code>, status card (<code>s_approved</code>, <code>s_approved_body</code>, <code>f_reference</code>, <code>f_completed</code> = <code>v_date_approved</code>, <code>f_items</code> = <code>v_6verified</code>, <code>s_approved_note</code>)</td>
+<td>Status (good)</td>
+<td><code>btn_close_job</code> → session ends, results card</td>
+<td>Keywords</td>
+<td>6</td>
+<td>14:52</td>
+</tr>
+<tr>
+<td><code>retake</code></td>
+<td>Outcome: one item needs a retake</td>
+<td><code>m_almost</code>, status card (<code>s_retake</code>, <code>s_retake_body</code>, <code>f_item</code> = <code>g_serial_title</code>, <code>f_reason</code> = <code>v_glare_reason</code>, <code>s_retake_guide</code>)</td>
+<td>Status (warn)</td>
+<td><code>btn_retake_now</code> → camera → AI card (<code>ai_photo_check</code>, <code>ai_retake_ok</code>), <code>m_sent_reviewer</code> → <code>approved</code> after about 4 s (F18); <code>btn_later</code> → <code>m_later_one</code>; <code>btn_support</code> → handover</td>
+<td>Photo; keywords</td>
+<td>5</td>
+<td>14:40 (retake reply 14:44)</td>
+</tr>
+<tr>
+<td><code>rejected</code></td>
+<td>Outcome: needs assistance (F16)</td>
+<td><code>m_patience</code>, status card (<code>s_agent_finish</code>, <code>s_agent_body</code>, <code>f_reason</code> = <code>v_mismatch</code>, <code>f_who</code> = <code>v_thandi</code>, <code>f_when</code> = <code>v_before15</code>, <code>s_agent_note</code>)</td>
+<td>Status (bad)</td>
+<td><code>btn_chat_thandi</code> → handover; after the hand-back the session ends</td>
+<td>Keywords</td>
+<td>6</td>
+<td>14:35</td>
+</tr>
+</tbody>
+</table></div>
+<p>Global replies available at any beat through typing: help, person and language keywords (section 4), and repair (section 10).</p>
+<h2 id="7-message-inventory">7. Message inventory</h2>
+<p>Generated from the <code>COPY</code> table by <code>tools/check.js</code>; identical to <code>docs/copy-deck.csv</code>. Character counts are Unicode code points. Limit is the WhatsApp limit for the element (20 for reply buttons) or a working limit for card parts.</p>
+<div class="inventory">
+
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>id</th>
+<th>beat</th>
+<th>element</th>
+<th>en</th>
+<th>zu</th>
+<th>af</th>
+<th>en_chars</th>
+<th>zu_chars</th>
+<th>af_chars</th>
+<th>limit</th>
+<th>needs_native_review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ui_online</td>
+<td>all</td>
+<td>status</td>
+<td>online</td>
+<td>uxhumekile</td>
+<td>aanlyn</td>
+<td>6</td>
+<td>10</td>
+<td>6</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_typing</td>
+<td>all</td>
+<td>status</td>
+<td>typing…</td>
+<td>uyabhala…</td>
+<td>tik tans…</td>
+<td>7</td>
+<td>9</td>
+<td>9</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_connecting</td>
+<td>all</td>
+<td>status</td>
+<td>Connecting…</td>
+<td>Iyaxhuma…</td>
+<td>Koppel tans…</td>
+<td>11</td>
+<td>9</td>
+<td>12</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_message</td>
+<td>all</td>
+<td>input</td>
+<td>Message</td>
+<td>Umlayezo</td>
+<td>Boodskap</td>
+<td>7</td>
+<td>8</td>
+<td>8</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_send</td>
+<td>all</td>
+<td>input</td>
+<td>Send</td>
+<td>Thumela</td>
+<td>Stuur</td>
+<td>4</td>
+<td>7</td>
+<td>5</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_evidence</td>
+<td>all</td>
+<td>progress</td>
+<td>Evidence</td>
+<td>Ubufakazi</td>
+<td>Bewyse</td>
+<td>8</td>
+<td>9</td>
+<td>6</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_ai_auto</td>
+<td>all</td>
+<td>ai-card</td>
+<td>automated check</td>
+<td>ukuhlola okuzenzakalelayo</td>
+<td>outomatiese kontrole</td>
+<td>15</td>
+<td>25</td>
+<td>20</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_sample</td>
+<td>all</td>
+<td>link</td>
+<td>Use a sample photo instead</td>
+<td>Sebenzisa isithombe sesibonelo</td>
+<td>Gebruik eerder 'n voorbeeldfoto</td>
+<td>26</td>
+<td>30</td>
+<td>31</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_photo_alt</td>
+<td>all</td>
+<td>photo</td>
+<td>Your photo</td>
+<td>Isithombe sakho</td>
+<td>Jou foto</td>
+<td>10</td>
+<td>15</td>
+<td>8</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_photo</td>
+<td>all</td>
+<td>photo</td>
+<td>photo</td>
+<td>isithombe</td>
+<td>foto</td>
+<td>5</td>
+<td>9</td>
+<td>4</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ui_photos_n</td>
+<td>all</td>
+<td>photo</td>
+<td>{n} photos</td>
+<td>izithombe ezingu-{n}</td>
+<td>{n} foto's</td>
+<td>10</td>
+<td>20</td>
+<td>10</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>badge_important</td>
+<td>serial</td>
+<td>badge</td>
+<td>Most important</td>
+<td>Okubaluleke kakhulu</td>
+<td>Belangrikste</td>
+<td>14</td>
+<td>19</td>
+<td>12</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>badge_good</td>
+<td>all</td>
+<td>badge</td>
+<td>GOOD</td>
+<td>KUHLE</td>
+<td>GOED</td>
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>badge_avoid</td>
+<td>all</td>
+<td>badge</td>
+<td>AVOID</td>
+<td>GWEMA</td>
+<td>VERMY</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_good_example</td>
+<td>before</td>
+<td>placeholder</td>
+<td>good example</td>
+<td>isibonelo esihle</td>
+<td>goeie voorbeeld</td>
+<td>12</td>
+<td>16</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_too_close</td>
+<td>before</td>
+<td>placeholder</td>
+<td>too close</td>
+<td>kuseduze kakhulu</td>
+<td>te naby</td>
+<td>9</td>
+<td>16</td>
+<td>7</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_serial_label</td>
+<td>serial</td>
+<td>placeholder</td>
+<td>serial label</td>
+<td>ilebula ye-serial</td>
+<td>reeksnommer-etiket</td>
+<td>12</td>
+<td>17</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_glare</td>
+<td>serial</td>
+<td>placeholder</td>
+<td>glare / blur</td>
+<td>ukucwebezela / ukufiphala</td>
+<td>glans / vaag</td>
+<td>12</td>
+<td>25</td>
+<td>12</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_geyser</td>
+<td>before</td>
+<td>placeholder</td>
+<td>geyser photo</td>
+<td>isithombe se-geyser</td>
+<td>geiserfoto</td>
+<td>12</td>
+<td>19</td>
+<td>10</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_compliance</td>
+<td>compliance</td>
+<td>placeholder</td>
+<td>compliance photos</td>
+<td>izithombe ze-compliance</td>
+<td>voldoeningsfoto's</td>
+<td>17</td>
+<td>23</td>
+<td>17</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ph_example_serial</td>
+<td>serial</td>
+<td>placeholder</td>
+<td>example: serial label</td>
+<td>isibonelo: ilebula ye-serial</td>
+<td>voorbeeld: reeksnommer-etiket</td>
+<td>21</td>
+<td>28</td>
+<td>29</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>chip_today</td>
+<td>entry</td>
+<td>date-chip</td>
+<td>TODAY</td>
+<td>NAMUHLA</td>
+<td>VANDAG</td>
+<td>5</td>
+<td>7</td>
+<td>6</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>chip_later</td>
+<td>serial</td>
+<td>date-chip</td>
+<td>Later today</td>
+<td>Kamuva namuhla</td>
+<td>Later vandag</td>
+<td>11</td>
+<td>14</td>
+<td>12</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>lang_en</td>
+<td>entry</td>
+<td>button</td>
+<td>English</td>
+<td>English</td>
+<td>English</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>20</td>
+<td>no</td>
+</tr>
+<tr>
+<td>lang_zu</td>
+<td>entry</td>
+<td>button</td>
+<td>isiZulu</td>
+<td>isiZulu</td>
+<td>isiZulu</td>
+<td>7</td>
+<td>7</td>
+<td>7</td>
+<td>20</td>
+<td>no</td>
+</tr>
+<tr>
+<td>lang_af</td>
+<td>entry</td>
+<td>button</td>
+<td>Afrikaans</td>
+<td>Afrikaans</td>
+<td>Afrikaans</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>20</td>
+<td>no</td>
+</tr>
+<tr>
+<td>lang_en_sub</td>
+<td>entry</td>
+<td>button-sub</td>
+<td>Continue in English</td>
+<td>Continue in English</td>
+<td>Continue in English</td>
+<td>19</td>
+<td>19</td>
+<td>19</td>
+<td>72</td>
+<td>no</td>
+</tr>
+<tr>
+<td>lang_zu_sub</td>
+<td>entry</td>
+<td>button-sub</td>
+<td>Qhubeka ngesiZulu</td>
+<td>Qhubeka ngesiZulu</td>
+<td>Qhubeka ngesiZulu</td>
+<td>17</td>
+<td>17</td>
+<td>17</td>
+<td>72</td>
+<td>no</td>
+</tr>
+<tr>
+<td>lang_af_sub</td>
+<td>entry</td>
+<td>button-sub</td>
+<td>Gaan voort in Afrikaans</td>
+<td>Gaan voort in Afrikaans</td>
+<td>Gaan voort in Afrikaans</td>
+<td>23</td>
+<td>23</td>
+<td>23</td>
+<td>72</td>
+<td>no</td>
+</tr>
+<tr>
+<td>m_greeting</td>
+<td>entry</td>
+<td>message</td>
+<td>Good morning, Sipho. This is Home FIX verification.</td>
+<td>Sawubona, Sipho. Lena yinsizakalo yokuqinisekisa ye-Home FIX.</td>
+<td>Goeie môre, Sipho. Dit is Home FIX-verifikasie.</td>
+<td>51</td>
+<td>61</td>
+<td>47</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_lang_q</td>
+<td>entry</td>
+<td>message</td>
+<td>Which language would you like to continue in? You can change this at any time.</td>
+<td>Ungathanda ukuqhubeka ngaluphi ulimi? Ungalushintsha noma nini.</td>
+<td>In watter taal wil jy voortgaan? Jy kan dit enige tyd verander.</td>
+<td>78</td>
+<td>63</td>
+<td>63</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_hi</td>
+<td>start</td>
+<td>message</td>
+<td>Great — let’s get started.</td>
+<td>Kuhle — masiqale.</td>
+<td>Wonderlik — kom ons begin.</td>
+<td>26</td>
+<td>17</td>
+<td>26</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_popia</td>
+<td>start</td>
+<td>message</td>
+<td>We use your photos and job details only to verify this job, in line with POPIA.</td>
+<td>Sisebenzisa izithombe zakho nemininingwane yomsebenzi kuphela ukuqinisekisa lo msebenzi, ngokuhambisana ne-POPIA.</td>
+<td>Ons gebruik jou foto's en werkbesonderhede net om hierdie werk te verifieer, in lyn met POPIA.</td>
+<td>79</td>
+<td>113</td>
+<td>94</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_jobs</td>
+<td>start</td>
+<td>message</td>
+<td>You have 1 job ready for evidence capture today. It should take about 5 minutes.</td>
+<td>Unomsebenzi o-1 olungele ukuthathwa kobufakazi namuhla. Kufanele uthathe cishe imizuzu emi-5.</td>
+<td>Jy het vandag 1 werk gereed vir bewysopname. Dit behoort sowat 5 minute te neem.</td>
+<td>80</td>
+<td>93</td>
+<td>80</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_start</td>
+<td>start</td>
+<td>button</td>
+<td>Start job</td>
+<td>Qala umsebenzi</td>
+<td>Begin werk</td>
+<td>9</td>
+<td>14</td>
+<td>10</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_resume</td>
+<td>start</td>
+<td>button</td>
+<td>Resume previous job</td>
+<td>Buyela emsebenzini</td>
+<td>Hervat vorige werk</td>
+<td>19</td>
+<td>18</td>
+<td>18</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_privacy</td>
+<td>start</td>
+<td>button</td>
+<td>Privacy notice</td>
+<td>Isaziso semfihlo</td>
+<td>Privaatheidskennis</td>
+<td>14</td>
+<td>16</td>
+<td>18</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_privacy_tap</td>
+<td>start</td>
+<td>message</td>
+<td>Opens our privacy notice. Not part of this prototype.</td>
+<td>Kuvula isaziso sethu semfihlo. Akuyona ingxenye yale prototype.</td>
+<td>Maak ons privaatheidskennisgewing oop. Nie deel van hierdie prototipe nie.</td>
+<td>53</td>
+<td>63</td>
+<td>74</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_resume_none</td>
+<td>start</td>
+<td>message</td>
+<td>You don’t have a job in progress. Tap Start job to begin.</td>
+<td>Awunawo umsebenzi oqhubekayo. Thepha ku-Qala umsebenzi ukuze uqale.</td>
+<td>Jy het nie 'n werk aan die gang nie. Tik Begin werk om te begin.</td>
+<td>57</td>
+<td>67</td>
+<td>64</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_resume_back</td>
+<td>start</td>
+<td>message</td>
+<td>Welcome back. You were on: {step}.</td>
+<td>Siyakwamukela futhi. Ubukade ukulesi sinyathelo: {step}.</td>
+<td>Welkom terug. Jy was by: {step}.</td>
+<td>34</td>
+<td>56</td>
+<td>32</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>card_summary_title</td>
+<td>summary</td>
+<td>card-title</td>
+<td>Job summary</td>
+<td>Isifinyezo somsebenzi</td>
+<td>Werkopsomming</td>
+<td>11</td>
+<td>21</td>
+<td>13</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_reference</td>
+<td>summary</td>
+<td>field-label</td>
+<td>Reference</td>
+<td>Inkomba</td>
+<td>Verwysing</td>
+<td>9</td>
+<td>7</td>
+<td>9</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_customer</td>
+<td>summary</td>
+<td>field-label</td>
+<td>Customer</td>
+<td>Ikhasimende</td>
+<td>Kliënt</td>
+<td>8</td>
+<td>11</td>
+<td>6</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_region</td>
+<td>summary</td>
+<td>field-label</td>
+<td>Region</td>
+<td>Isifunda</td>
+<td>Streek</td>
+<td>6</td>
+<td>8</td>
+<td>6</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_installation</td>
+<td>summary</td>
+<td>field-label</td>
+<td>Installation</td>
+<td>Ukufaka</td>
+<td>Installasie</td>
+<td>12</td>
+<td>7</td>
+<td>11</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_installation</td>
+<td>summary</td>
+<td>field-value</td>
+<td>Electric geyser — replacement</td>
+<td>I-geyser kagesi — ukushintshwa</td>
+<td>Elektriese geiser — vervanging</td>
+<td>29</td>
+<td>30</td>
+<td>30</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>sum_progress_note</td>
+<td>summary</td>
+<td>card-text</td>
+<td>Evidence steps remaining</td>
+<td>Izinyathelo zobufakazi ezisele</td>
+<td>Bewysstappe oor</td>
+<td>24</td>
+<td>30</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_ready</td>
+<td>summary</td>
+<td>message</td>
+<td>When you’re ready, we’ll go one step at a time.</td>
+<td>Uma usulungile, sizohamba isinyathelo ngesinyathelo.</td>
+<td>Wanneer jy gereed is, gaan ons een stap op 'n slag.</td>
+<td>47</td>
+<td>52</td>
+<td>51</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_begin</td>
+<td>summary</td>
+<td>button</td>
+<td>Begin verification</td>
+<td>Qala ukuqinisekisa</td>
+<td>Begin verifikasie</td>
+<td>18</td>
+<td>18</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_before_intro</td>
+<td>before</td>
+<td>message</td>
+<td>First, a photo of the geyser as it is now.</td>
+<td>Okokuqala, isithombe se-geyser njengoba injalo manje.</td>
+<td>Eerstens, 'n foto van die geiser soos dit nou is.</td>
+<td>42</td>
+<td>53</td>
+<td>49</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_before_title</td>
+<td>before</td>
+<td>card-title</td>
+<td>Before photo</td>
+<td>Isithombe sangaphambili</td>
+<td>Voor-foto</td>
+<td>12</td>
+<td>23</td>
+<td>9</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_before_sub</td>
+<td>before</td>
+<td>card-subtitle</td>
+<td>Current geyser &amp; area</td>
+<td>I-geyser ekhona nendawo</td>
+<td>Huidige geiser en area</td>
+<td>21</td>
+<td>23</td>
+<td>22</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>h_what</td>
+<td>before</td>
+<td>card-heading</td>
+<td>What to show</td>
+<td>Okumele kubonakale</td>
+<td>Wat om te wys</td>
+<td>12</td>
+<td>18</td>
+<td>13</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_whole</td>
+<td>before</td>
+<td>card-item</td>
+<td>The entire geyser</td>
+<td>I-geyser yonke</td>
+<td>Die hele geiser</td>
+<td>17</td>
+<td>14</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_area</td>
+<td>before</td>
+<td>card-item</td>
+<td>The area around it</td>
+<td>Indawo eyizungezile</td>
+<td>Die area rondom dit</td>
+<td>18</td>
+<td>19</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>h_tips</td>
+<td>before</td>
+<td>card-heading</td>
+<td>Photo tips</td>
+<td>Amathiphu esithombe</td>
+<td>Fotowenke</td>
+<td>10</td>
+<td>19</td>
+<td>9</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_light</td>
+<td>before</td>
+<td>card-item</td>
+<td>Good lighting</td>
+<td>Ukukhanya okuhle</td>
+<td>Goeie beligting</td>
+<td>13</td>
+<td>16</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_back</td>
+<td>before</td>
+<td>card-item</td>
+<td>Step back slightly</td>
+<td>Hlehla kancane</td>
+<td>Staan effens terug</td>
+<td>18</td>
+<td>14</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_lens</td>
+<td>before</td>
+<td>card-item</td>
+<td>Keep the lens clear</td>
+<td>Gcina ilensi ihlanzekile</td>
+<td>Hou die lens skoon</td>
+<td>19</td>
+<td>24</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_before_footer</td>
+<td>before</td>
+<td>card-footer</td>
+<td>Take your time — you can always retake.</td>
+<td>Thatha isikhathi sakho — ungaphinda uthathe noma nini.</td>
+<td>Neem jou tyd — jy kan altyd weer neem.</td>
+<td>39</td>
+<td>54</td>
+<td>38</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_upload_photo</td>
+<td>before</td>
+<td>button</td>
+<td>Upload photo</td>
+<td>Thumela isithombe</td>
+<td>Laai foto op</td>
+<td>12</td>
+<td>17</td>
+<td>12</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_need_help</td>
+<td>before</td>
+<td>button</td>
+<td>Need help</td>
+<td>Ngidinga usizo</td>
+<td>Ek het hulp nodig</td>
+<td>9</td>
+<td>14</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_need_help</td>
+<td>before</td>
+<td>message</td>
+<td>Sure. Hold the phone with both hands if you can, and tap the screen once to focus before the shot. A blurry one is fine — we’ll just ask for one more.</td>
+<td>Kulungile. Bamba ifoni ngezandla zombili uma ukwazi, bese uthepha isikrini kanye ukuze igxile ngaphambi kokuthatha. Uma isithombe sifiphele kulungile — sizocela esinye.</td>
+<td>Seker. Hou die foon met albei hande vas as jy kan, en tik een keer op die skerm om te fokus voor jy die foto neem. 'n Vaag foto is reg — ons sal net vir nog een vra.</td>
+<td>150</td>
+<td>168</td>
+<td>165</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_photo_check</td>
+<td>before</td>
+<td>ai-card</td>
+<td>Photo check</td>
+<td>Ukuhlola isithombe</td>
+<td>Fotokontrole</td>
+<td>11</td>
+<td>18</td>
+<td>12</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_blurry</td>
+<td>before_retake</td>
+<td>ai-card</td>
+<td>This one came out a little blurry, so it may be hard to verify.</td>
+<td>Lesi sithombe siphume sifiphele kancane, ngakho kungaba nzima ukusiqinisekisa.</td>
+<td>Hierdie een is effens vaag, so dit kan moeilik wees om te verifieer.</td>
+<td>63</td>
+<td>78</td>
+<td>68</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_blurry_note</td>
+<td>before_retake</td>
+<td>ai-card-note</td>
+<td>No problem — this happens often. A clearer shot will help your job get approved faster.</td>
+<td>Akunankinga — lokhu kwenzeka kaningi. Isithombe esicacile sizosiza ukuthi umsebenzi wakho ugunyazwe ngokushesha.</td>
+<td>Geen probleem nie — dit gebeur dikwels. 'n Duideliker foto sal help dat jou werk vinniger goedgekeur word.</td>
+<td>87</td>
+<td>112</td>
+<td>106</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_retake</td>
+<td>before_retake</td>
+<td>button</td>
+<td>Retake photo</td>
+<td>Phinda uthathe</td>
+<td>Neem weer</td>
+<td>12</td>
+<td>14</td>
+<td>9</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_support</td>
+<td>all</td>
+<td>button</td>
+<td>Contact support</td>
+<td>Xhumana nosizo</td>
+<td>Kontak ondersteuning</td>
+<td>15</td>
+<td>14</td>
+<td>20</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_before_ok</td>
+<td>before_ok</td>
+<td>ai-card</td>
+<td>✅ Clear photo received. The whole geyser and the area around it are visible.</td>
+<td>✅ Isithombe esicacile samukelwe. I-geyser yonke nendawo eyizungezile kuyabonakala.</td>
+<td>✅ Duidelike foto ontvang. Die hele geiser en die area rondom dit is sigbaar.</td>
+<td>76</td>
+<td>82</td>
+<td>76</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_reviewer_later</td>
+<td>before_ok</td>
+<td>ai-card-note</td>
+<td>A Home FIX reviewer can still check this later.</td>
+<td>Umbuyekezi we-Home FIX usengakuhlola lokhu kamuva.</td>
+<td>'n Home FIX-beoordelaar kan dit later steeds nagaan.</td>
+<td>47</td>
+<td>50</td>
+<td>52</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_one_of_six</td>
+<td>before_ok</td>
+<td>message</td>
+<td>That’s 1 of 6 evidence items captured.</td>
+<td>Lokho kungu-1 kwezingu-6 zobufakazi esezithathiwe.</td>
+<td>Dis 1 van 6 bewysitems vasgelê.</td>
+<td>38</td>
+<td>50</td>
+<td>31</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_install</td>
+<td>install</td>
+<td>message</td>
+<td>Before photo saved. Go ahead with the installation. When the new geyser is in, tap Installation done. Your progress is saved.</td>
+<td>Isithombe sangaphambili silondoloziwe. Qhubeka nokufaka. Uma i-geyser entsha isifakiwe, thepha ku-Ukufaka kuqediwe. Inqubekela phambili yakho ilondoloziwe.</td>
+<td>Voor-foto gestoor. Gaan voort met die installasie. Wanneer die nuwe geiser in is, tik Installasie klaar. Jou vordering is gestoor.</td>
+<td>125</td>
+<td>155</td>
+<td>130</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_install_done</td>
+<td>install</td>
+<td>button</td>
+<td>Installation done</td>
+<td>Ukufaka kuqediwe</td>
+<td>Installasie klaar</td>
+<td>17</td>
+<td>16</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_serial_intro</td>
+<td>serial</td>
+<td>message</td>
+<td>This next one matters most: the serial number label.</td>
+<td>Lokhu okulandelayo kubaluleke kakhulu: ilebula yenombolo ye-serial.</td>
+<td>Hierdie volgende een is die belangrikste: die reeksnommer-etiket.</td>
+<td>52</td>
+<td>67</td>
+<td>65</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_serial_title</td>
+<td>serial</td>
+<td>card-title</td>
+<td>Serial number label</td>
+<td>Ilebula yenombolo ye-serial</td>
+<td>Reeksnommer-etiket</td>
+<td>19</td>
+<td>27</td>
+<td>18</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_serial_sub</td>
+<td>serial</td>
+<td>card-subtitle</td>
+<td>Proves which geyser was installed</td>
+<td>Ikhombisa ukuthi iyiphi i-geyser efakiwe</td>
+<td>Bewys watter geiser geïnstalleer is</td>
+<td>33</td>
+<td>40</td>
+<td>35</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_only_label</td>
+<td>serial</td>
+<td>card-item</td>
+<td>Only the serial number label</td>
+<td>Ilebula yenombolo ye-serial kuphela</td>
+<td>Net die reeksnommer-etiket</td>
+<td>28</td>
+<td>35</td>
+<td>26</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>h_close</td>
+<td>serial</td>
+<td>card-heading</td>
+<td>How close</td>
+<td>Useduze kangakanani</td>
+<td>Hoe naby</td>
+<td>9</td>
+<td>19</td>
+<td>8</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_15_20</td>
+<td>serial</td>
+<td>card-item</td>
+<td>About 15–20 cm away</td>
+<td>Cishe ku-15–20 cm</td>
+<td>Sowat 15–20 cm weg</td>
+<td>19</td>
+<td>17</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_fill</td>
+<td>serial</td>
+<td>card-item</td>
+<td>Fill the frame with the label</td>
+<td>Gcwalisa isithombe ngelebula</td>
+<td>Vul die raam met die etiket</td>
+<td>29</td>
+<td>28</td>
+<td>27</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>h_lighting</td>
+<td>serial</td>
+<td>card-heading</td>
+<td>Lighting</td>
+<td>Ukukhanya</td>
+<td>Beligting</td>
+<td>8</td>
+<td>9</td>
+<td>9</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>i_torch</td>
+<td>serial</td>
+<td>card-item</td>
+<td>Use your phone torch if it’s dark</td>
+<td>Sebenzisa ithoshi yefoni uma kumnyama</td>
+<td>Gebruik jou foon se flits as dit donker is</td>
+<td>33</td>
+<td>37</td>
+<td>42</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>g_serial_footer</td>
+<td>serial</td>
+<td>card-footer</td>
+<td>This is the single most important photo — take your time.</td>
+<td>Lesi yisithombe esibaluleke kunazo zonke — thatha isikhathi sakho.</td>
+<td>Dit is die heel belangrikste foto — neem jou tyd.</td>
+<td>57</td>
+<td>66</td>
+<td>49</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_upload_serial</td>
+<td>serial</td>
+<td>button</td>
+<td>Upload serial photo</td>
+<td>Thumela i-serial</td>
+<td>Laai reeksfoto op</td>
+<td>19</td>
+<td>16</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_view_example</td>
+<td>serial</td>
+<td>button</td>
+<td>View example</td>
+<td>Bona isibonelo</td>
+<td>Sien voorbeeld</td>
+<td>12</td>
+<td>14</td>
+<td>14</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_example_caption</td>
+<td>serial</td>
+<td>photo-caption</td>
+<td>Aim for this — the label fills the frame.</td>
+<td>Zama lokhu — ilebula igcwalisa isithombe.</td>
+<td>Mik hierna — die etiket vul die raam.</td>
+<td>41</td>
+<td>41</td>
+<td>37</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_reading</td>
+<td>serial</td>
+<td>ai-card</td>
+<td>Reading text</td>
+<td>Ukufunda umbhalo</td>
+<td>Lees teks</td>
+<td>12</td>
+<td>16</td>
+<td>9</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_glare</td>
+<td>serial_retake</td>
+<td>ai-card</td>
+<td>I can see the label, but I can’t read every character clearly yet.</td>
+<td>Ngiyayibona ilebula, kodwa angikakwazi ukufunda zonke izinhlamvu ngokucacile.</td>
+<td>Ek kan die etiket sien, maar ek kan nog nie elke karakter duidelik lees nie.</td>
+<td>66</td>
+<td>77</td>
+<td>76</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_glare</td>
+<td>serial_retake</td>
+<td>ai-reason</td>
+<td>Glare across part of the label</td>
+<td>Ukucwebezela engxenyeni yelebula</td>
+<td>Glans oor 'n deel van die etiket</td>
+<td>30</td>
+<td>32</td>
+<td>32</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_hidden</td>
+<td>serial_retake</td>
+<td>ai-reason</td>
+<td>A few characters are hidden</td>
+<td>Ezinye izinhlamvu zifihlekile</td>
+<td>'n Paar karakters is versteek</td>
+<td>27</td>
+<td>29</td>
+<td>29</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_glare_note</td>
+<td>serial_retake</td>
+<td>ai-card-note</td>
+<td>You’re very close — one more try should do it.</td>
+<td>Ususeduze kakhulu — omunye umzamo kufanele wanele.</td>
+<td>Jy is baie naby — nog een probeerslag behoort dit te doen.</td>
+<td>46</td>
+<td>50</td>
+<td>58</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_type_in</td>
+<td>serial_retake</td>
+<td>button</td>
+<td>Type it in instead</td>
+<td>Yibhale esikhundleni</td>
+<td>Tik dit eerder in</td>
+<td>18</td>
+<td>20</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_serial_ok</td>
+<td>serial_ok</td>
+<td>ai-card</td>
+<td>✅ Got it — serial number captured.</td>
+<td>✅ Ngiyitholile — inombolo ye-serial ithathiwe.</td>
+<td>✅ Reg so — reeksnommer vasgelê.</td>
+<td>34</td>
+<td>46</td>
+<td>31</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_field_serial</td>
+<td>serial_ok</td>
+<td>ai-field-label</td>
+<td>Serial number</td>
+<td>Inombolo ye-serial</td>
+<td>Reeksnommer</td>
+<td>13</td>
+<td>18</td>
+<td>11</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_reviewer_too</td>
+<td>serial_ok</td>
+<td>ai-card-note</td>
+<td>A Home FIX reviewer checks this too.</td>
+<td>Umbuyekezi we-Home FIX uyakuhlola nalokhu.</td>
+<td>'n Home FIX-beoordelaar kontroleer dit ook.</td>
+<td>36</td>
+<td>42</td>
+<td>43</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_serial_check</td>
+<td>serial_confirm</td>
+<td>message</td>
+<td>Please check the serial number: {serial}. Is that right?</td>
+<td>Sicela uhlole inombolo ye-serial: {serial}. Ingabe ilungile?</td>
+<td>Kontroleer asseblief die reeksnommer: {serial}. Is dit reg?</td>
+<td>56</td>
+<td>60</td>
+<td>59</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_yes_correct</td>
+<td>serial_confirm</td>
+<td>button</td>
+<td>Yes, correct</td>
+<td>Yebo, ilungile</td>
+<td>Ja, korrek</td>
+<td>12</td>
+<td>14</td>
+<td>10</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_no_fix</td>
+<td>serial_confirm</td>
+<td>button</td>
+<td>No, fix it</td>
+<td>Cha, yilungise</td>
+<td>Nee, maak reg</td>
+<td>10</td>
+<td>14</td>
+<td>13</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_serial_type</td>
+<td>serial_type</td>
+<td>message</td>
+<td>Please type the serial number exactly as it is on the label.</td>
+<td>Sicela ubhale inombolo ye-serial ngqo njengoba injalo elebuleni.</td>
+<td>Tik asseblief die reeksnommer presies soos dit op die etiket is.</td>
+<td>60</td>
+<td>64</td>
+<td>64</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_serial_saved</td>
+<td>serial_type</td>
+<td>message</td>
+<td>Thanks. Saved as {serial}. A reviewer will compare it with the photo.</td>
+<td>Siyabonga. Ilondolozwe njengo-{serial}. Umbuyekezi uzoyiqhathanisa nesithombe.</td>
+<td>Dankie. Gestoor as {serial}. 'n Beoordelaar sal dit met die foto vergelyk.</td>
+<td>69</td>
+<td>78</td>
+<td>74</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_compliance_intro</td>
+<td>compliance</td>
+<td>message</td>
+<td>Almost there. A few items to confirm the installation is safe and to standard.</td>
+<td>Sesiseduze. Izinto ezimbalwa zokuqinisekisa ukuthi ukufaka kuphephile futhi kusezingeni.</td>
+<td>Amper klaar. 'n Paar items om te bevestig dat die installasie veilig en volgens standaard is.</td>
+<td>78</td>
+<td>88</td>
+<td>93</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_title</td>
+<td>compliance</td>
+<td>card-title</td>
+<td>Compliance evidence</td>
+<td>Ubufakazi be-compliance</td>
+<td>Voldoeningsbewyse</td>
+<td>19</td>
+<td>23</td>
+<td>17</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_pcv</td>
+<td>compliance</td>
+<td>card-item</td>
+<td>Pressure control valve (PCV)</td>
+<td>I-pressure control valve (PCV)</td>
+<td>Drukbeheerklep (PCV)</td>
+<td>28</td>
+<td>30</td>
+<td>20</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_pcv_sub</td>
+<td>compliance</td>
+<td>card-item-sub</td>
+<td>Keeps the geyser at a safe pressure</td>
+<td>Igcina i-geyser isengcindezelweni ephephile</td>
+<td>Hou die geiser op 'n veilige druk</td>
+<td>35</td>
+<td>43</td>
+<td>33</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_overview</td>
+<td>compliance</td>
+<td>card-item</td>
+<td>Installation overview</td>
+<td>Isithombe sokufaka sonke</td>
+<td>Oorsig van installasie</td>
+<td>21</td>
+<td>24</td>
+<td>22</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_overview_sub</td>
+<td>compliance</td>
+<td>card-item-sub</td>
+<td>A wide shot of the finished work</td>
+<td>Isithombe esibanzi somsebenzi oqediwe</td>
+<td>'n Wye foto van die voltooide werk</td>
+<td>32</td>
+<td>37</td>
+<td>34</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_drip</td>
+<td>compliance</td>
+<td>card-item</td>
+<td>Drip tray &amp; overflow</td>
+<td>I-drip tray ne-overflow</td>
+<td>Drupbak en oorloop</td>
+<td>20</td>
+<td>23</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_drip_sub</td>
+<td>compliance</td>
+<td>card-item-sub</td>
+<td>Catches and drains any leaks</td>
+<td>Ibamba futhi ikhiphe noma yikuphi ukuvuza</td>
+<td>Vang en dreineer enige lekke</td>
+<td>28</td>
+<td>41</td>
+<td>28</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_isolator</td>
+<td>compliance</td>
+<td>card-item</td>
+<td>Electrical isolator</td>
+<td>I-isolator kagesi</td>
+<td>Elektriese isolator</td>
+<td>19</td>
+<td>17</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_isolator_sub</td>
+<td>compliance</td>
+<td>card-item-sub</td>
+<td>The switch that cuts power safely</td>
+<td>Iswishi evala ugesi ngokuphepha</td>
+<td>Die skakelaar wat krag veilig afsny</td>
+<td>33</td>
+<td>31</td>
+<td>35</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>c_note</td>
+<td>compliance</td>
+<td>card-note</td>
+<td>Send all four together, or one at a time.</td>
+<td>Thumela zonke ezine ndawonye, noma eyodwa ngesikhathi.</td>
+<td>Stuur al vier saam, of een op 'n slag.</td>
+<td>41</td>
+<td>54</td>
+<td>38</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_upload_photos</td>
+<td>compliance</td>
+<td>button</td>
+<td>Upload photos</td>
+<td>Thumela izithombe</td>
+<td>Laai foto's op</td>
+<td>13</td>
+<td>17</td>
+<td>14</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_skip</td>
+<td>compliance</td>
+<td>button</td>
+<td>Skip for later</td>
+<td>Yeqa okwamanje</td>
+<td>Slaan nou oor</td>
+<td>14</td>
+<td>14</td>
+<td>13</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_skip</td>
+<td>compliance</td>
+<td>message</td>
+<td>No problem. We’ll keep your place and remind you before final submission.</td>
+<td>Akunankinga. Sizogcina lapho ufike khona futhi sikukhumbuze ngaphambi kokuthumela kokugcina.</td>
+<td>Geen probleem nie. Ons hou jou plek en herinner jou voor die finale indiening.</td>
+<td>73</td>
+<td>92</td>
+<td>78</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_continue</td>
+<td>compliance</td>
+<td>button</td>
+<td>Continue</td>
+<td>Qhubeka</td>
+<td>Gaan voort</td>
+<td>8</td>
+<td>7</td>
+<td>10</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_reminder</td>
+<td>reminder</td>
+<td>message</td>
+<td>Before you submit, I still need the {n} compliance photos.</td>
+<td>Ngaphambi kokuthi uthumele, ngisadinga izithombe ze-compliance ezingu-{n}.</td>
+<td>Voor jy indien, het ek nog die {n} voldoeningsfoto's nodig.</td>
+<td>58</td>
+<td>74</td>
+<td>59</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_partial</td>
+<td>compliance</td>
+<td>message</td>
+<td>Got {got} of 4. Send the other {left} when you’re ready.</td>
+<td>Ngithole ezingu-{got} kwezingu-4. Thumela ezinye ezingu-{left} uma usulungile.</td>
+<td>{got} van 4 ontvang. Stuur die ander {left} wanneer jy gereed is.</td>
+<td>56</td>
+<td>78</td>
+<td>65</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_came_through</td>
+<td>offline</td>
+<td>status-title</td>
+<td>Your photos came through</td>
+<td>Izithombe zakho zifikile</td>
+<td>Jou foto's het deurgekom</td>
+<td>24</td>
+<td>24</td>
+<td>24</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_came_body</td>
+<td>offline</td>
+<td>status-body</td>
+<td>The signal dropped while sending, but nothing was lost.</td>
+<td>Isignali yanqamuka ngesikhathi kuthunyelwa, kodwa akukho okulahlekile.</td>
+<td>Die sein het weggeval terwyl dit gestuur is, maar niks het verlore gegaan nie.</td>
+<td>55</td>
+<td>70</td>
+<td>78</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_completed</td>
+<td>offline</td>
+<td>field-label</td>
+<td>Completed</td>
+<td>Kuqediwe</td>
+<td>Voltooi</td>
+<td>9</td>
+<td>8</td>
+<td>7</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_6of6_items</td>
+<td>offline</td>
+<td>field-value</td>
+<td>6 of 6 items</td>
+<td>izinto ezingu-6 kwezingu-6</td>
+<td>6 van 6 items</td>
+<td>12</td>
+<td>26</td>
+<td>13</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_photos_received</td>
+<td>offline</td>
+<td>field-label</td>
+<td>Photos received</td>
+<td>Izithombe ezitholiwe</td>
+<td>Foto's ontvang</td>
+<td>15</td>
+<td>20</td>
+<td>14</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_4of4</td>
+<td>offline</td>
+<td>field-value</td>
+<td>4 of 4</td>
+<td>4 kwezingu-4</td>
+<td>4 van 4</td>
+<td>6</td>
+<td>12</td>
+<td>7</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_came_note</td>
+<td>offline</td>
+<td>status-note</td>
+<td>You can keep working or come back later — your place is held.</td>
+<td>Ungaqhubeka usebenza noma ubuye kamuva — indawo yakho igciniwe.</td>
+<td>Jy kan aanhou werk of later terugkom — jou plek word gehou.</td>
+<td>61</td>
+<td>63</td>
+<td>59</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_submit</td>
+<td>offline</td>
+<td>button</td>
+<td>Submit evidence</td>
+<td>Thumela ubufakazi</td>
+<td>Dien bewyse in</td>
+<td>15</td>
+<td>17</td>
+<td>14</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_ok</td>
+<td>submitted</td>
+<td>status-title</td>
+<td>Evidence submitted successfully</td>
+<td>Ubufakazi bakho buthunyelwe ngempumelelo</td>
+<td>Jou bewyse is suksesvol ingedien</td>
+<td>31</td>
+<td>40</td>
+<td>32</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_ok_body</td>
+<td>submitted</td>
+<td>status-body</td>
+<td>All six evidence items have been received.</td>
+<td>Zonke izinto eziyisithupha zobufakazi zitholakele.</td>
+<td>Al ses bewysitems is ontvang.</td>
+<td>42</td>
+<td>50</td>
+<td>29</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_submitted</td>
+<td>submitted</td>
+<td>field-label</td>
+<td>Submitted</td>
+<td>Kuthunyelwe</td>
+<td>Ingedien</td>
+<td>9</td>
+<td>11</td>
+<td>8</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_date_submit</td>
+<td>submitted</td>
+<td>field-value</td>
+<td>18 Jun 2026, 13:18</td>
+<td>18 Juni 2026, 13:18</td>
+<td>18 Jun. 2026, 13:18</td>
+<td>18</td>
+<td>19</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_items</td>
+<td>submitted</td>
+<td>field-label</td>
+<td>Items</td>
+<td>Izinto</td>
+<td>Items</td>
+<td>5</td>
+<td>6</td>
+<td>5</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_6complete</td>
+<td>submitted</td>
+<td>field-value</td>
+<td>6 of 6 complete</td>
+<td>6 kwezingu-6 ziphelele</td>
+<td>6 van 6 voltooi</td>
+<td>15</td>
+<td>22</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_ok_note</td>
+<td>submitted</td>
+<td>status-note</td>
+<td>This is everything needed for your job to be processed — no further action right now.</td>
+<td>Lokhu yikho konke okudingekayo ukuze umsebenzi wakho ucutshungulwe — akukho okunye okudingekayo manje.</td>
+<td>Dit is alles wat nodig is om jou werk te verwerk — niks verder nodig nie.</td>
+<td>85</td>
+<td>102</td>
+<td>73</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_thanks_team</td>
+<td>submitted</td>
+<td>message</td>
+<td>Thank you, Sipho. Your evidence is now with our team.</td>
+<td>Siyabonga, Sipho. Ubufakazi bakho manje busethimbeni lethu.</td>
+<td>Dankie, Sipho. Jou bewyse is nou by ons span.</td>
+<td>53</td>
+<td>59</td>
+<td>45</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_review</td>
+<td>submitted</td>
+<td>status-title</td>
+<td>In review</td>
+<td>Kuyabuyekezwa</td>
+<td>Word hersien</td>
+<td>9</td>
+<td>13</td>
+<td>12</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_review_body</td>
+<td>submitted</td>
+<td>status-body</td>
+<td>A Home FIX specialist is checking your evidence. Most reviews finish within 2 hours — we’ll message you right here.</td>
+<td>Uchwepheshe we-Home FIX uhlola ubufakazi bakho. Ukubuyekezwa okuningi kuqeda phakathi kwamahora ama-2 — sizokuthumelela umlayezo lapha.</td>
+<td>'n Home FIX-spesialis gaan jou bewyse na. Die meeste hersienings is binne 2 uur klaar — ons stuur vir jou 'n boodskap net hier.</td>
+<td>115</td>
+<td>135</td>
+<td>127</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_est</td>
+<td>submitted</td>
+<td>field-label</td>
+<td>Estimated time</td>
+<td>Isikhathi esilinganisiwe</td>
+<td>Geskatte tyd</td>
+<td>14</td>
+<td>24</td>
+<td>12</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_2h</td>
+<td>submitted</td>
+<td>field-value</td>
+<td>~2 hours</td>
+<td>~amahora ama-2</td>
+<td>~2 uur</td>
+<td>8</td>
+<td>14</td>
+<td>6</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_reviewed_by</td>
+<td>submitted</td>
+<td>field-label</td>
+<td>Reviewed by</td>
+<td>Kubuyekezwa ngu</td>
+<td>Hersien deur</td>
+<td>11</td>
+<td>15</td>
+<td>12</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_specialist</td>
+<td>submitted</td>
+<td>field-value</td>
+<td>A Home FIX specialist</td>
+<td>Uchwepheshe we-Home FIX</td>
+<td>'n Home FIX-spesialis</td>
+<td>21</td>
+<td>23</td>
+<td>21</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_review_note</td>
+<td>submitted</td>
+<td>status-note</td>
+<td>A real person makes the final decision, not an automated system. Payment is processed once the job is approved.</td>
+<td>Umuntu wangempela wenza isinqumo sokugcina, hhayi uhlelo oluzenzakalelayo. Inkokhelo icutshungulwa uma umsebenzi usugunyaziwe.</td>
+<td>'n Regte persoon neem die finale besluit, nie 'n outomatiese stelsel nie. Betaling word verwerk sodra die werk goedgekeur is.</td>
+<td>111</td>
+<td>126</td>
+<td>125</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_good_news</td>
+<td>approved</td>
+<td>message</td>
+<td>Good news, Sipho — your review is complete.</td>
+<td>Izindaba ezinhle, Sipho — ukubuyekezwa kwakho kuqediwe.</td>
+<td>Goeie nuus, Sipho — jou hersiening is voltooi.</td>
+<td>43</td>
+<td>55</td>
+<td>46</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_approved</td>
+<td>approved</td>
+<td>status-title</td>
+<td>Installation approved</td>
+<td>Ukufaka kugunyaziwe</td>
+<td>Installasie goedgekeur</td>
+<td>21</td>
+<td>19</td>
+<td>22</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_approved_body</td>
+<td>approved</td>
+<td>status-body</td>
+<td>Your evidence met all requirements. The job is complete.</td>
+<td>Ubufakazi bakho buhlangabezane nazo zonke izidingo. Umsebenzi uqediwe.</td>
+<td>Jou bewyse voldoen aan alle vereistes. Die werk is voltooi.</td>
+<td>56</td>
+<td>70</td>
+<td>59</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_date_approved</td>
+<td>approved</td>
+<td>field-value</td>
+<td>18 Jun 2026, 14:52</td>
+<td>18 Juni 2026, 14:52</td>
+<td>18 Jun. 2026, 14:52</td>
+<td>18</td>
+<td>19</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_6verified</td>
+<td>approved</td>
+<td>field-value</td>
+<td>6 of 6 verified</td>
+<td>6 kwezingu-6 ziqinisekisiwe</td>
+<td>6 van 6 geverifieer</td>
+<td>15</td>
+<td>27</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_approved_note</td>
+<td>approved</td>
+<td>status-note</td>
+<td>Thank you for your work today.</td>
+<td>Siyabonga ngomsebenzi wakho namuhla.</td>
+<td>Dankie vir jou werk vandag.</td>
+<td>30</td>
+<td>36</td>
+<td>27</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_close_job</td>
+<td>approved</td>
+<td>button</td>
+<td>Close job</td>
+<td>Vala umsebenzi</td>
+<td>Sluit werk</td>
+<td>9</td>
+<td>14</td>
+<td>10</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_almost</td>
+<td>retake</td>
+<td>message</td>
+<td>Almost there — one item needs another look.</td>
+<td>Sesiseduze — into eyodwa idinga ukubhekwa futhi.</td>
+<td>Amper daar — een item moet weer bekyk word.</td>
+<td>43</td>
+<td>48</td>
+<td>43</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_retake</td>
+<td>retake</td>
+<td>status-title</td>
+<td>One item needs a retake</td>
+<td>Into eyodwa idinga ukuthathwa kabusha</td>
+<td>Een item moet oorgeneem word</td>
+<td>23</td>
+<td>37</td>
+<td>28</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_retake_body</td>
+<td>retake</td>
+<td>status-body</td>
+<td>The reviewer needs a clearer view of one item before approving the job.</td>
+<td>Umbuyekezi udinga ukubona into eyodwa ngokucacile ngaphambi kokugunyaza umsebenzi.</td>
+<td>Die beoordelaar het 'n duideliker beeld van een item nodig voordat die werk goedgekeur word.</td>
+<td>71</td>
+<td>82</td>
+<td>92</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_item</td>
+<td>retake</td>
+<td>field-label</td>
+<td>Item</td>
+<td>Into</td>
+<td>Item</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_reason</td>
+<td>retake</td>
+<td>field-label</td>
+<td>Reason</td>
+<td>Isizathu</td>
+<td>Rede</td>
+<td>6</td>
+<td>8</td>
+<td>4</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_glare_reason</td>
+<td>retake</td>
+<td>field-value</td>
+<td>Part of the serial is hidden by glare</td>
+<td>Ingxenye ye-serial ifihlwe ukucwebezela</td>
+<td>Deel van die reeksnommer word deur glans versteek</td>
+<td>37</td>
+<td>39</td>
+<td>49</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_retake_guide</td>
+<td>retake</td>
+<td>status-guide</td>
+<td>Stand 15–20 cm back and use your torch to avoid glare. Everything else is approved and saved.</td>
+<td>Hlehla ku-15–20 cm bese usebenzisa ithoshi ukuze ugweme ukucwebezela. Konke okunye kugunyaziwe futhi kulondoloziwe.</td>
+<td>Staan 15–20 cm terug en gebruik jou flits om glans te vermy. Alles anders is goedgekeur en gestoor.</td>
+<td>93</td>
+<td>115</td>
+<td>99</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_retake_now</td>
+<td>retake</td>
+<td>button</td>
+<td>Retake now</td>
+<td>Phinda manje</td>
+<td>Neem nou weer</td>
+<td>10</td>
+<td>12</td>
+<td>13</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_later</td>
+<td>retake</td>
+<td>button</td>
+<td>Continue later</td>
+<td>Qhubeka kamuva</td>
+<td>Gaan later voort</td>
+<td>14</td>
+<td>14</td>
+<td>16</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_later_one</td>
+<td>retake</td>
+<td>message</td>
+<td>Saved. We’ll remind you to finish this one item.</td>
+<td>Kulondoloziwe. Sizokukhumbuza ukuqeda le nto eyodwa.</td>
+<td>Gestoor. Ons sal jou herinner om hierdie een item klaar te maak.</td>
+<td>48</td>
+<td>52</td>
+<td>64</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>ai_retake_ok</td>
+<td>retake</td>
+<td>ai-card</td>
+<td>✅ Clear photo received. The serial number label is easy to read.</td>
+<td>✅ Isithombe esicacile samukelwe. Ilebula yenombolo ye-serial ifundeka kalula.</td>
+<td>✅ Duidelike foto ontvang. Die reeksnommer-etiket is maklik om te lees.</td>
+<td>64</td>
+<td>77</td>
+<td>70</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_sent_reviewer</td>
+<td>retake</td>
+<td>message</td>
+<td>Thanks. Sent to the reviewer.</td>
+<td>Siyabonga. Kuthunyelwe kumbuyekezi.</td>
+<td>Dankie. Na die beoordelaar gestuur.</td>
+<td>29</td>
+<td>35</td>
+<td>35</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_patience</td>
+<td>rejected</td>
+<td>message</td>
+<td>Thanks for your patience, Sipho.</td>
+<td>Siyabonga ngokubekezela kwakho, Sipho.</td>
+<td>Dankie vir jou geduld, Sipho.</td>
+<td>32</td>
+<td>38</td>
+<td>29</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_agent_finish</td>
+<td>rejected</td>
+<td>status-title</td>
+<td>A Home FIX agent will finish this with you</td>
+<td>Umenzeli we-Home FIX uzoqeda lokhu nawe</td>
+<td>'n Home FIX-agent sal dit saam met jou klaarmaak</td>
+<td>42</td>
+<td>39</td>
+<td>48</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_agent_body</td>
+<td>rejected</td>
+<td>status-body</td>
+<td>The reviewer couldn’t approve the job from the photos alone.</td>
+<td>Umbuyekezi akakwazanga ukugunyaza umsebenzi ngezithombe kuphela.</td>
+<td>Die beoordelaar kon nie die werk net uit die foto's goedkeur nie.</td>
+<td>60</td>
+<td>64</td>
+<td>65</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_mismatch</td>
+<td>rejected</td>
+<td>field-value</td>
+<td>The serial number doesn’t match the geyser on the order</td>
+<td>Inombolo ye-serial ayifani ne-geyser ese-oda</td>
+<td>Die reeksnommer stem nie ooreen met die geiser op die bestelling nie</td>
+<td>55</td>
+<td>44</td>
+<td>68</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_who</td>
+<td>rejected</td>
+<td>field-label</td>
+<td>Who</td>
+<td>Ubani</td>
+<td>Wie</td>
+<td>3</td>
+<td>5</td>
+<td>3</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_thandi</td>
+<td>rejected</td>
+<td>field-value</td>
+<td>Thandi, Home FIX team</td>
+<td>UThandi, ithimba le-Home FIX</td>
+<td>Thandi, Home FIX-span</td>
+<td>21</td>
+<td>28</td>
+<td>21</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_when</td>
+<td>rejected</td>
+<td>field-label</td>
+<td>When</td>
+<td>Nini</td>
+<td>Wanneer</td>
+<td>4</td>
+<td>4</td>
+<td>7</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_before15</td>
+<td>rejected</td>
+<td>field-value</td>
+<td>Today before 15:00</td>
+<td>Namuhla ngaphambi kuka-15:00</td>
+<td>Vandag voor 15:00</td>
+<td>18</td>
+<td>28</td>
+<td>17</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_agent_note</td>
+<td>rejected</td>
+<td>status-note</td>
+<td>Your job stays open and nothing you sent is lost.</td>
+<td>Umsebenzi wakho uhlala uvuliwe futhi akukho okuthumele okulahlekile.</td>
+<td>Jou werk bly oop en niks wat jy gestuur het, is verlore nie.</td>
+<td>49</td>
+<td>68</td>
+<td>60</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>btn_chat_thandi</td>
+<td>rejected</td>
+<td>button</td>
+<td>Chat to Thandi now</td>
+<td>Xoxa noThandi manje</td>
+<td>Gesels met Thandi</td>
+<td>18</td>
+<td>19</td>
+<td>17</td>
+<td>20</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_connecting</td>
+<td>support</td>
+<td>status-title</td>
+<td>Connecting you to our team</td>
+<td>Sikuxhumanisa nethimba lethu</td>
+<td>Ons verbind jou met ons span</td>
+<td>26</td>
+<td>28</td>
+<td>28</td>
+<td>60</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>s_connecting_body</td>
+<td>support</td>
+<td>status-body</td>
+<td>A Home FIX agent will reply here, usually within 5 minutes (Mon–Sat, 07:00–19:00). Your progress is saved.</td>
+<td>Umenzeli we-Home FIX uzophendula lapha, ngokuvamile phakathi kwemizuzu emi-5 (uMsombuluko–uMgqibelo, 07:00–19:00). Inqubekela phambili yakho ilondoloziwe.</td>
+<td>'n Home FIX-agent sal hier antwoord, gewoonlik binne 5 minute (Ma–Sa, 07:00–19:00). Jou vordering is gestoor.</td>
+<td>106</td>
+<td>154</td>
+<td>109</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>f_hours</td>
+<td>support</td>
+<td>field-label</td>
+<td>Hours</td>
+<td>Amahora</td>
+<td>Ure</td>
+<td>5</td>
+<td>7</td>
+<td>3</td>
+<td>30</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>v_hours</td>
+<td>support</td>
+<td>field-value</td>
+<td>Mon–Sat, 07:00–19:00</td>
+<td>uMsombuluko–uMgqibelo, 07:00–19:00</td>
+<td>Ma–Sa, 07:00–19:00</td>
+<td>20</td>
+<td>34</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>agent_name</td>
+<td>support</td>
+<td>agent-name</td>
+<td>Thandi · Home FIX team</td>
+<td>Thandi · ithimba le-Home FIX</td>
+<td>Thandi · Home FIX-span</td>
+<td>22</td>
+<td>28</td>
+<td>22</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_agent_hi</td>
+<td>support</td>
+<td>agent-message</td>
+<td>Hi Sipho, Thandi here. I can see your job. How can I help?</td>
+<td>Sawubona Sipho, nguThandi lo. Ngiyawubona umsebenzi wakho. Ngingakusiza ngani?</td>
+<td>Hallo Sipho, dis Thandi hier. Ek kan jou werk sien. Hoe kan ek help?</td>
+<td>58</td>
+<td>78</td>
+<td>68</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_agent_back</td>
+<td>support</td>
+<td>agent-message</td>
+<td>Thanks. I’m handing you back to the assistant.</td>
+<td>Siyabonga. Ngikubuyisela kumsizi.</td>
+<td>Dankie. Ek gee jou terug aan die assistent.</td>
+<td>46</td>
+<td>33</td>
+<td>43</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_repair</td>
+<td>all</td>
+<td>message</td>
+<td>Sorry, I didn’t catch that. {step}</td>
+<td>Uxolo, angikuzwanga kahle. {step}</td>
+<td>Jammer, ek het dit nie mooi verstaan nie. {step}</td>
+<td>34</td>
+<td>33</td>
+<td>48</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_repair2_btn</td>
+<td>all</td>
+<td>message</td>
+<td>If you’re stuck, tap Contact support.</td>
+<td>Uma ubambekile, thepha ku-Xhumana nosizo.</td>
+<td>As jy vassit, tik Kontak ondersteuning.</td>
+<td>37</td>
+<td>41</td>
+<td>39</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_repair2_kw</td>
+<td>all</td>
+<td>message</td>
+<td>If you’re stuck, type “person” to reach our team.</td>
+<td>Uma ubambekile, bhala “umuntu” ukuze uthole ithimba lethu.</td>
+<td>As jy vassit, tik “persoon” om ons span te bereik.</td>
+<td>49</td>
+<td>58</td>
+<td>50</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_help</td>
+<td>all</td>
+<td>message</td>
+<td>{step} Type “person” to talk to our team, or “language” to change language.</td>
+<td>{step} Bhala “umuntu” ukuze ukhulume nethimba lethu, noma “ulimi” ukuze ushintshe ulimi.</td>
+<td>{step} Tik “persoon” om met ons span te praat, of “taal” om die taal te verander.</td>
+<td>75</td>
+<td>88</td>
+<td>81</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>m_lang_changed</td>
+<td>all</td>
+<td>message</td>
+<td>Done. I’ll continue in English.</td>
+<td>Kulungile. Ngizoqhubeka ngesiZulu.</td>
+<td>Reg so. Ek gaan voort in Afrikaans.</td>
+<td>31</td>
+<td>34</td>
+<td>35</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_entry</td>
+<td>entry</td>
+<td>step</td>
+<td>Choose a language to continue.</td>
+<td>Khetha ulimi ukuze uqhubeke.</td>
+<td>Kies 'n taal om voort te gaan.</td>
+<td>30</td>
+<td>28</td>
+<td>30</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_start</td>
+<td>start</td>
+<td>step</td>
+<td>Tap Start job to begin.</td>
+<td>Thepha ku-Qala umsebenzi ukuze uqale.</td>
+<td>Tik Begin werk om te begin.</td>
+<td>23</td>
+<td>37</td>
+<td>27</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_summary</td>
+<td>summary</td>
+<td>step</td>
+<td>Tap Begin verification to start with the first photo.</td>
+<td>Thepha ku-Qala ukuqinisekisa ukuze uqale ngesithombe sokuqala.</td>
+<td>Tik Begin verifikasie om met die eerste foto te begin.</td>
+<td>53</td>
+<td>62</td>
+<td>54</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_before</td>
+<td>before</td>
+<td>step</td>
+<td>Send one photo of the whole geyser and the area around it.</td>
+<td>Thumela isithombe esisodwa se-geyser yonke nendawo eyizungezile.</td>
+<td>Stuur een foto van die hele geiser en die area rondom dit.</td>
+<td>58</td>
+<td>64</td>
+<td>58</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_install</td>
+<td>install</td>
+<td>step</td>
+<td>Do the installation, then tap Installation done.</td>
+<td>Yenza ukufaka, bese uthepha ku-Ukufaka kuqediwe.</td>
+<td>Doen die installasie en tik dan Installasie klaar.</td>
+<td>48</td>
+<td>48</td>
+<td>50</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_serial</td>
+<td>serial</td>
+<td>step</td>
+<td>Send a close, clear photo of the new geyser’s serial number label.</td>
+<td>Thumela isithombe esiseduze nesicacile selebula yenombolo ye-serial ye-geyser entsha.</td>
+<td>Stuur 'n nabye, duidelike foto van die nuwe geiser se reeksnommer-etiket.</td>
+<td>66</td>
+<td>85</td>
+<td>73</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_serial_confirm</td>
+<td>serial_confirm</td>
+<td>step</td>
+<td>Tap Yes, correct if the serial number is right, or No, fix it.</td>
+<td>Thepha ku-Yebo, ilungile uma inombolo ye-serial ilungile, noma ku-Cha, yilungise.</td>
+<td>Tik Ja, korrek as die reeksnommer reg is, of Nee, maak reg.</td>
+<td>62</td>
+<td>81</td>
+<td>59</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_serial_type</td>
+<td>serial_type</td>
+<td>step</td>
+<td>Type the serial number exactly as it is on the label.</td>
+<td>Bhala inombolo ye-serial ngqo njengoba injalo elebuleni.</td>
+<td>Tik die reeksnommer presies soos dit op die etiket is.</td>
+<td>53</td>
+<td>56</td>
+<td>54</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_compliance</td>
+<td>compliance</td>
+<td>step</td>
+<td>Send the 4 compliance photos: PCV, overview, drip tray and isolator.</td>
+<td>Thumela izithombe ze-compliance ezi-4: i-PCV, isithombe sonke, i-drip tray ne-isolator.</td>
+<td>Stuur die 4 voldoeningsfoto's: PCV, oorsig, drupbak en isolator.</td>
+<td>68</td>
+<td>87</td>
+<td>64</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_submit</td>
+<td>offline</td>
+<td>step</td>
+<td>Tap Submit evidence to send your job for review.</td>
+<td>Thepha ku-Thumela ubufakazi ukuze uthumele umsebenzi wakho ubuyekezwe.</td>
+<td>Tik Dien bewyse in om jou werk vir hersiening te stuur.</td>
+<td>48</td>
+<td>70</td>
+<td>55</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_review</td>
+<td>submitted</td>
+<td>step</td>
+<td>Your job is with a reviewer. We’ll message you here.</td>
+<td>Umsebenzi wakho ukumbuyekezi. Sizokuthumelela umlayezo lapha.</td>
+<td>Jou werk is by 'n beoordelaar. Ons stuur vir jou 'n boodskap hier.</td>
+<td>52</td>
+<td>61</td>
+<td>66</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_retake</td>
+<td>retake</td>
+<td>step</td>
+<td>Tap Retake now to send a clearer photo of the serial number label.</td>
+<td>Thepha ku-Phinda manje ukuze uthumele isithombe esicacile selebula ye-serial.</td>
+<td>Tik Neem nou weer om 'n duideliker foto van die reeksnommer-etiket te stuur.</td>
+<td>66</td>
+<td>77</td>
+<td>76</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_done</td>
+<td>approved</td>
+<td>step</td>
+<td>Your job is complete. Nothing else is needed.</td>
+<td>Umsebenzi wakho uqediwe. Akukho okunye okudingekayo.</td>
+<td>Jou werk is voltooi. Niks anders is nodig nie.</td>
+<td>45</td>
+<td>52</td>
+<td>46</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>step_agent</td>
+<td>rejected</td>
+<td>step</td>
+<td>Tap Chat to Thandi now to finish this with our team.</td>
+<td>Thepha ku-Xoxa noThandi manje ukuze uqede lokhu nethimba lethu.</td>
+<td>Tik Gesels met Thandi om dit saam met ons span klaar te maak.</td>
+<td>52</td>
+<td>63</td>
+<td>61</td>
+<td>200</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_title</td>
+<td>welcome</td>
+<td>heading</td>
+<td>Home FIX prototype</td>
+<td>I-prototype ye-Home FIX</td>
+<td>Home FIX-prototipe</td>
+<td>18</td>
+<td>23</td>
+<td>18</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_lang</td>
+<td>welcome</td>
+<td>label</td>
+<td>Language</td>
+<td>Ulimi</td>
+<td>Taal</td>
+<td>8</td>
+<td>5</td>
+<td>4</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_proto</td>
+<td>welcome</td>
+<td>text</td>
+<td>This is a prototype for research. It is not WhatsApp and not a real company.</td>
+<td>Lena yi-prototype yocwaningo. Akuyona i-WhatsApp futhi akuyona inkampani yangempela.</td>
+<td>Dit is 'n prototipe vir navorsing. Dit is nie WhatsApp nie en nie 'n regte maatskappy nie.</td>
+<td>76</td>
+<td>84</td>
+<td>90</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_task</td>
+<td>welcome</td>
+<td>text</td>
+<td>You’ll play Sipho, a plumber. Use the chat to send proof that a geyser was replaced. You can stop at any time.</td>
+<td>Uzoba nguSipho, uplamba. Sebenzisa ingxoxo ukuthumela ubufakazi bokuthi i-geyser ishintshiwe. Ungayeka noma nini.</td>
+<td>Jy speel Sipho, 'n loodgieter. Gebruik die klets om bewys te stuur dat 'n geiser vervang is. Jy kan enige tyd ophou.</td>
+<td>110</td>
+<td>113</td>
+<td>116</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_rec_h</td>
+<td>welcome</td>
+<td>heading</td>
+<td>What we record</td>
+<td>Esikuqophayo</td>
+<td>Wat ons aanteken</td>
+<td>14</td>
+<td>12</td>
+<td>16</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_rec</td>
+<td>welcome</td>
+<td>text</td>
+<td>Your taps, the messages you type, and how long each step takes.</td>
+<td>Lapho uthepha khona, imilayezo oyibhalayo, nokuthi isinyathelo ngasinye sithatha isikhathi esingakanani.</td>
+<td>Jou tikke, die boodskappe wat jy tik, en hoe lank elke stap neem.</td>
+<td>63</td>
+<td>104</td>
+<td>65</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_norec_h</td>
+<td>welcome</td>
+<td>heading</td>
+<td>What we don’t record</td>
+<td>Esingakuqophi</td>
+<td>Wat ons nie aanteken nie</td>
+<td>20</td>
+<td>13</td>
+<td>24</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_norec</td>
+<td>welcome</td>
+<td>text</td>
+<td>Your photos, your name or your phone number. Photos stay on your phone.</td>
+<td>Izithombe zakho, igama lakho noma inombolo yakho yefoni. Izithombe zihlala efonini yakho.</td>
+<td>Jou foto's, jou naam of jou foonnommer. Foto's bly op jou foon.</td>
+<td>71</td>
+<td>89</td>
+<td>63</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_nopi</td>
+<td>welcome</td>
+<td>text</td>
+<td>Please don’t type personal information.</td>
+<td>Sicela ungabhali imininingwane yakho siqu.</td>
+<td>Moet asseblief nie persoonlike inligting tik nie.</td>
+<td>39</td>
+<td>42</td>
+<td>49</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_code</td>
+<td>welcome</td>
+<td>label</td>
+<td>Participant code</td>
+<td>Ikhodi yomhlanganyeli</td>
+<td>Deelnemerkode</td>
+<td>16</td>
+<td>21</td>
+<td>13</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_consent</td>
+<td>welcome</td>
+<td>label</td>
+<td>I understand and agree to take part.</td>
+<td>Ngiyaqonda futhi ngiyavuma ukubamba iqhaza.</td>
+<td>Ek verstaan en stem in om deel te neem.</td>
+<td>36</td>
+<td>43</td>
+<td>39</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>w_start</td>
+<td>welcome</td>
+<td>research-button</td>
+<td>Start</td>
+<td>Qala</td>
+<td>Begin</td>
+<td>5</td>
+<td>4</td>
+<td>5</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_title</td>
+<td>results</td>
+<td>heading</td>
+<td>Thank you. Two quick questions</td>
+<td>Siyabonga. Imibuzo emibili emifushane</td>
+<td>Dankie. Twee vinnige vrae</td>
+<td>30</td>
+<td>37</td>
+<td>25</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_easy</td>
+<td>results</td>
+<td>label</td>
+<td>How easy was this?</td>
+<td>Bekulula kangakanani lokhu?</td>
+<td>Hoe maklik was dit?</td>
+<td>18</td>
+<td>27</td>
+<td>19</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_scale</td>
+<td>results</td>
+<td>text</td>
+<td>1 = very hard, 7 = very easy</td>
+<td>1 = kunzima kakhulu, 7 = kulula kakhulu</td>
+<td>1 = baie moeilik, 7 = baie maklik</td>
+<td>28</td>
+<td>39</td>
+<td>33</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_hardest</td>
+<td>results</td>
+<td>label</td>
+<td>What was hardest?</td>
+<td>Yini ebinzima kakhulu?</td>
+<td>Wat was die moeilikste?</td>
+<td>17</td>
+<td>22</td>
+<td>23</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_send</td>
+<td>results</td>
+<td>research-button</td>
+<td>Send results</td>
+<td>Thumela imiphumela</td>
+<td>Stuur resultate</td>
+<td>12</td>
+<td>18</td>
+<td>15</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_json</td>
+<td>results</td>
+<td>research-button</td>
+<td>Download results (JSON)</td>
+<td>Landa imiphumela (JSON)</td>
+<td>Laai resultate af (JSON)</td>
+<td>23</td>
+<td>23</td>
+<td>24</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_csv</td>
+<td>results</td>
+<td>research-button</td>
+<td>Download results (CSV)</td>
+<td>Landa imiphumela (CSV)</td>
+<td>Laai resultate af (CSV)</td>
+<td>22</td>
+<td>22</td>
+<td>23</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_copy</td>
+<td>results</td>
+<td>research-button</td>
+<td>Copy results</td>
+<td>Kopisha imiphumela</td>
+<td>Kopieer resultate</td>
+<td>12</td>
+<td>18</td>
+<td>17</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_copied</td>
+<td>results</td>
+<td>status</td>
+<td>Copied. Paste it into a message to the researcher.</td>
+<td>Kukopishiwe. Kunamathisele emlayezweni oya kumcwaningi.</td>
+<td>Gekopieer. Plak dit in 'n boodskap aan die navorser.</td>
+<td>50</td>
+<td>55</td>
+<td>52</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_copy_fallback</td>
+<td>results</td>
+<td>status</td>
+<td>Select all the text below and copy it.</td>
+<td>Khetha wonke umbhalo ongezansi bese uwukopisha.</td>
+<td>Kies al die teks hieronder en kopieer dit.</td>
+<td>38</td>
+<td>47</td>
+<td>42</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_downloaded</td>
+<td>results</td>
+<td>status</td>
+<td>Saved to your phone’s downloads.</td>
+<td>Kulondolozwe kuma-download efoni yakho.</td>
+<td>Gestoor in jou foon se aflaaie.</td>
+<td>32</td>
+<td>39</td>
+<td>31</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_sent</td>
+<td>results</td>
+<td>status</td>
+<td>Results sent. Thank you.</td>
+<td>Imiphumela ithunyelwe. Siyabonga.</td>
+<td>Resultate gestuur. Dankie.</td>
+<td>24</td>
+<td>33</td>
+<td>26</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_send_fail</td>
+<td>results</td>
+<td>status</td>
+<td>Couldn’t send. Please download or copy the results instead.</td>
+<td>Akukwazanga ukuthumela. Sicela ulande noma ukopishe imiphumela esikhundleni.</td>
+<td>Kon nie stuur nie. Laai eerder die resultate af of kopieer dit.</td>
+<td>59</td>
+<td>76</td>
+<td>63</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>r_instructions</td>
+<td>results</td>
+<td>text</td>
+<td>Please send the results to the researcher in the way they asked you to.</td>
+<td>Sicela uthumele imiphumela kumcwaningi ngendlela akucele ngayo.</td>
+<td>Stuur asseblief die resultate aan die navorser soos hulle jou gevra het.</td>
+<td>71</td>
+<td>63</td>
+<td>72</td>
+<td>1024</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+<h2 id="8-component-mapping-to-whatsapp">8. Component mapping to WhatsApp</h2>
+<p>How each prototype element would be built on the WhatsApp Business Platform (Cloud API).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Prototype element</th>
+<th>WhatsApp component</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quick replies</td>
+<td>Interactive <strong>reply buttons</strong></td>
+<td>Maximum 3 per message, label maximum 20 characters. The prototype enforces both (F20). Buttons attach to the last message of a beat. Icons and the chevron are prototype styling; WhatsApp shows plain labels.</td>
+</tr>
+<tr>
+<td>Language choice</td>
+<td>Reply buttons</td>
+<td>Three buttons: English, isiZulu, Afrikaans. WhatsApp buttons have no subtitle, so the subtitles ("Qhubeka ngesiZulu") move into the message body as three short lines.</td>
+</tr>
+<tr>
+<td>Guidance card</td>
+<td>Image with caption</td>
+<td>A pre-rendered card image per language (the example tiles need visuals), with a short caption that repeats the key instruction for screen readers and for when images do not load.</td>
+</tr>
+<tr>
+<td>Summary card</td>
+<td>Formatted text</td>
+<td>Field list as text lines with <em>bold</em> labels. The progress bar becomes "0 of 6 items done". Text is cheaper on data than an image and is searchable.</td>
+</tr>
+<tr>
+<td>Checklist card</td>
+<td>Formatted text</td>
+<td>Four lines with "•" bullets and the sub-line after a dash. A tick per item can be shown as ✅ when received.</td>
+</tr>
+<tr>
+<td>AI card</td>
+<td>Formatted text</td>
+<td>First line "Home FIX AI · automated check". Result line starting with ✅ when accepted. Reasons as bullets. The serial value on its own line in <em>bold</em>. No confidence values (F12).</td>
+</tr>
+<tr>
+<td>Status card</td>
+<td>Formatted text, or an image with caption for the final outcomes</td>
+<td>Title in <em>bold</em>, fields as lines. The tone colour has no WhatsApp equivalent; the title words carry the meaning.</td>
+</tr>
+<tr>
+<td>Photo upload</td>
+<td>The installer sends <strong>media</strong> (image)</td>
+<td>The camera and gallery are the WhatsApp attach sheet. Several photos sent at once arrive as separate messages; the bot counts them (<code>m_partial</code>).</td>
+</tr>
+<tr>
+<td>Example photo</td>
+<td>Image message</td>
+<td>Sent only when the installer taps "View example".</td>
+</tr>
+<tr>
+<td>Typed input</td>
+<td>Text message</td>
+<td>Serial correction, agent replies, keywords.</td>
+</tr>
+<tr>
+<td>"Later today" date chip</td>
+<td>None</td>
+<td>WhatsApp shows its own date separators. The time gap is visible in the message times.</td>
+</tr>
+<tr>
+<td>Clock and blue ticks</td>
+<td>WhatsApp's own delivery states</td>
+<td>Not controlled by the business. The prototype imitates them to show the signal drop (F08).</td>
+</tr>
+<tr>
+<td>Header status ("online", "typing…", "Connecting…")</td>
+<td>WhatsApp's own</td>
+<td>Business accounts can send a typing indicator; "Connecting…" is the phone's own state.</td>
+</tr>
+<tr>
+<td>Progress strip</td>
+<td>None</td>
+<td>No WhatsApp equivalent. Progress is said in text at key points: "That's 1 of 6 evidence items captured." and the 6-of-6 fields in the status cards.</td>
+</tr>
+<tr>
+<td>First message</td>
+<td>Pre-approved <strong>Utility template</strong></td>
+<td>A business may only start a conversation with an approved template, and only with installers who have opted in to WhatsApp messages from Home FIX (opt-in collected at panel registration, with the purpose stated). Proposed template: greeting + language question with three quick-reply buttons.</td>
+</tr>
+<tr>
+<td>In-chat agent (Thandi)</td>
+<td>Same number, agent inbox</td>
+<td>The agent replies from the business number through an inbox tool. The bot pauses while the agent owns the chat.</td>
+</tr>
+<tr>
+<td>Privacy notice</td>
+<td>Call-to-action URL button</td>
+<td>"Privacy notice" opens the notice on the Home FIX site. In the prototype it only says it is not part of the prototype.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The 24-hour service window.</strong> After the installer's last message, the business can send free-form messages for 24 hours. Outside that window only templates are allowed.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Later message</th>
+<th>Usually inside the window?</th>
+<th>What is needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Serial step after installation (about 3.5 hours later)</td>
+<td>Yes, if the installer taps Installation done</td>
+<td>Nothing; it is a reply. A reminder sent by Home FIX more than 24 hours after the last message would need a template.</td>
+</tr>
+<tr>
+<td>Review outcome (approved, retake, needs assistance)</td>
+<td>Usually, since reviews take about 2 hours</td>
+<td>A Utility template for each outcome, used when the review finishes more than 24 hours after the installer's last message (for example jobs submitted late on Saturday and reviewed on Monday).</td>
+</tr>
+<tr>
+<td>Agent follow-up "Today before 15:00"</td>
+<td>Depends on timing</td>
+<td>A template if outside the window.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="9-ai-checks">9. AI checks</h2>
+<p>The prototype scripts the AI results; it does not analyse images. Confidence values exist in the data and in the facilitator panel only (F12).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Input</th>
+<th>Outcomes</th>
+<th>Confidence in the prototype</th>
+<th>Installer sees</th>
+<th>Reviewer sees</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Photo quality: before photo</td>
+<td>One image</td>
+<td>Accept, or ask again</td>
+<td>41 for a retake, 96 for accepted</td>
+<td>Retake: AI card with plain reason and encouragement. Accept: ✅ line and "A Home FIX reviewer can still check this later."</td>
+<td>The photo, the result, the confidence, attempt number</td>
+</tr>
+<tr>
+<td>Serial reading (OCR)</td>
+<td>One image of the label</td>
+<td>Read (value), or ask again</td>
+<td>41 for a retake, 98 for a read</td>
+<td>Retake: reasons (glare, hidden characters). Read: ✅ and the value; then asked to confirm (F13)</td>
+<td>The photo, the value, whether it was confirmed, corrected or typed</td>
+</tr>
+<tr>
+<td>Compliance photos</td>
+<td>1–4 images</td>
+<td>Accepted when all 4 have arrived</td>
+<td>96</td>
+<td>Count of photos received; the status card after the signal drop</td>
+<td>All four photos</td>
+</tr>
+<tr>
+<td>Retake photo (after reviewer request)</td>
+<td>One image</td>
+<td>Accepted</td>
+<td>98</td>
+<td>✅ line, then "Thanks. Sent to the reviewer."</td>
+<td>The new photo</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Thresholds (working values, to be calibrated in the pilot).</strong> Accept at about 96 for photo quality and 98 for serial reading; ask again at about 41 or below. Values between need calibration with real photos before any production threshold is set.</p>
+<p><strong>Retake limits.</strong> The AI never traps the installer in a loop. The before-photo retake beat always offers Contact support. The serial retake beat always offers Type it in instead. A facilitator can force more retakes, but each retake still shows those ways out.</p>
+<p><strong>Rules</strong></p>
+<ol>
+<li>The AI accepts or asks again. It never rejects a job, blocks the installer or approves payment.</li>
+<li>The installer never sees confidence numbers or bars.</li>
+<li>Every value the AI extracts (the serial number) is confirmed by the installer before it is saved.</li>
+<li>A typed serial is saved as typed and flagged for the reviewer to compare with the photo.</li>
+<li>A person makes every approval decision; the in-review card says so.</li>
+<li>The AI card always says "automated check".</li>
+</ol>
+<h2 id="10-errors-and-recovery">10. Errors and recovery</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Trigger</th>
+<th>Response</th>
+<th>String ids</th>
+<th>Maximum repeats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blurry before photo</td>
+<td>Photo check result "retake"</td>
+<td>AI card with reason and encouragement; Retake photo, Contact support</td>
+<td><code>ai_blurry</code>, <code>ai_blurry_note</code></td>
+<td>No limit; Contact support is always on the beat</td>
+</tr>
+<tr>
+<td>Glare on serial label</td>
+<td>Serial reading result "retake"</td>
+<td>AI card with reasons; Retake photo, Type it in instead</td>
+<td><code>ai_glare</code>, <code>r_glare</code>, <code>r_hidden</code>, <code>ai_glare_note</code></td>
+<td>No limit; Type it in instead is always on the beat</td>
+</tr>
+<tr>
+<td>Misread serial</td>
+<td>Installer taps No, fix it</td>
+<td>Asks the installer to type the serial; saves it; tells them a reviewer will compare</td>
+<td><code>m_serial_type</code>, <code>m_serial_saved</code></td>
+<td>Once per tap</td>
+</tr>
+<tr>
+<td>Skipped compliance photos</td>
+<td>Skip for later</td>
+<td>Acknowledges, then a Continue reply leads to the reminder; submission needs all 4</td>
+<td><code>m_skip</code>, <code>m_reminder</code></td>
+<td>Reminder each time Continue is tapped</td>
+</tr>
+<tr>
+<td>Some compliance photos</td>
+<td>Fewer than 4 received</td>
+<td>Says how many arrived and how many are left</td>
+<td><code>m_partial</code></td>
+<td>Until 4 have arrived</td>
+</tr>
+<tr>
+<td>Signal drop while sending</td>
+<td>Scripted on the 4th compliance photo, or the facilitator's Go offline</td>
+<td>Outgoing bubble shows a clock, header "Connecting…", no bot message. When back: ticks turn blue, then the bot replies</td>
+<td><code>ui_connecting</code>, <code>s_came_through</code>, <code>s_came_body</code></td>
+<td>Once per drop</td>
+</tr>
+<tr>
+<td>Unrecognised text (first)</td>
+<td>Text that is not a keyword, a language name at the language question, or an expected serial</td>
+<td>"Sorry, I didn't catch that." + one-line step description; same quick replies</td>
+<td><code>m_repair</code>, <code>step_*</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Unrecognised text (second in a row)</td>
+<td>As above</td>
+<td>Same, plus "If you're stuck, tap Contact support." and a Contact support button (or "type “person”" when the beat already has 3 buttons)</td>
+<td><code>m_repair</code>, <code>m_repair2_btn</code> or <code>m_repair2_kw</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>Unrecognised text (third in a row)</td>
+<td>As above</td>
+<td>No third repair: hands over to a person</td>
+<td><code>s_connecting</code>, <code>m_agent_hi</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Help keyword</td>
+<td>help / usizo / hulp</td>
+<td>One-line step description + keywords; same quick replies</td>
+<td><code>m_help</code>, <code>step_*</code></td>
+<td>Any</td>
+</tr>
+<tr>
+<td>Person keyword</td>
+<td>person / umuntu / persoon</td>
+<td>Handover (section 11)</td>
+<td>—</td>
+<td>Any</td>
+</tr>
+<tr>
+<td>Language keyword</td>
+<td>language / ulimi / taal</td>
+<td>Language buttons; after choosing, confirmation and the step's quick replies in the new language</td>
+<td><code>m_lang_q</code>, <code>m_lang_changed</code></td>
+<td>Any</td>
+</tr>
+<tr>
+<td>Resume with no saved job</td>
+<td>Resume previous job</td>
+<td>"You don't have a job in progress. Tap Start job to begin." Start button stays</td>
+<td><code>m_resume_none</code></td>
+<td>Any</td>
+</tr>
+<tr>
+<td>Photo picker cancelled</td>
+<td>Installer closes the camera or gallery</td>
+<td>Nothing happens; the same buttons stay</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Page refreshed or phone locked</td>
+<td>Reload</td>
+<td>Conversation restored at the same beat and language; photos come back as a placeholder labelled "photo"</td>
+<td><code>ui_photo</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>A successful action (a quick reply, a photo, an expected text) resets the repair count.</p>
+<h2 id="11-human-handover">11. Human handover</h2>
+<p><strong>Triggers.</strong> Contact support (on the before-photo retake beat, the in-review beat, the retake outcome, and offered after two repairs); the person keyword in any language; a third unrecognised message in a row; Chat to Thandi now on the needs-assistance outcome.</p>
+<p><strong>What happens.</strong></p>
+<ol>
+<li>A status card: "Connecting you to our team". Body: "A Home FIX agent will reply here, usually within 5 minutes (Mon–Sat, 07:00–19:00). Your progress is saved." Fields: reference and hours. No phone number (F15).</li>
+<li>About 1.5 s later, Thandi replies in the chat, with her name as a bold first line: "Hi Sipho, Thandi here. I can see your job. How can I help?"</li>
+<li>Quick replies are hidden. The installer types their reply.</li>
+<li>Thandi: "Thanks. I'm handing you back to the assistant."</li>
+<li>The flow continues where it was, with the same quick replies. On the needs-assistance path, the session ends after the hand-back and the results card appears.</li>
+</ol>
+<p>While the agent owns the chat, the assistant sends nothing else; a review outcome that falls due waits until the hand-back.</p>
+<p><strong>What the agent should see (for the production build).</strong> The job reference, the current beat, the evidence received with the AI results and confidence values, whether the serial was confirmed or typed, the last five messages, and why the handover started (button, keyword, repair limit or reviewer referral).</p>
+<p><strong>Service hours.</strong> Mon–Sat, 07:00–19:00, stated in the card. The prototype does not simulate out-of-hours behaviour (open question).</p>
+<h2 id="12-review-outcomes">12. Review outcomes</h2>
+<p>The facilitator chooses the outcome (default Approved). It arrives about 6 seconds after submission, standing in for "most reviews finish within 2 hours".</p>
+<p><strong>Approved (14:52).</strong> "Good news, Sipho — your review is complete." Status card "Installation approved": "Your evidence met all requirements. The job is complete." Reference, completed 18 Jun 2026, 14:52, 6 of 6 verified, "Thank you for your work today." Close job ends the session.</p>
+<p><strong>Needs a retake (14:40).</strong> "Almost there — one item needs another look." Status card "One item needs a retake": the reviewer needs a clearer view of one item; Item: Serial number label; Reason: Part of the serial is hidden by glare; guide: "Stand 15–20 cm back and use your torch to avoid glare. Everything else is approved and saved." Retake now opens the camera; the new photo is added at the end of the chat, the AI accepts it, "Thanks. Sent to the reviewer.", and about 4 seconds later the Approved outcome follows (F18). Continue later: "Saved. We'll remind you to finish this one item." Contact support: handover.</p>
+<p><strong>Needs assistance (14:35).</strong> "Thanks for your patience, Sipho." Status card "A Home FIX agent will finish this with you": "The reviewer couldn't approve the job from the photos alone." Reason: The serial number doesn't match the geyser on the order; Who: Thandi, Home FIX team; When: Today before 15:00; "Your job stays open and nothing you sent is lost." Chat to Thandi now starts the handover.</p>
+<h2 id="13-privacy-and-popia">13. Privacy and POPIA</h2>
+<p><strong>Product notice.</strong> After the greeting: "We use your photos and job details only to verify this job, in line with POPIA." A Privacy notice button would open the full notice (in the prototype it says it is not part of the prototype).</p>
+<p><strong>Data minimisation.</strong> The flow asks only for what verification needs: six photos and the serial number. It does not ask for the installer's ID number, location or customer details. The job details come from Home FIX's own system.</p>
+<p><strong>Retention.</strong> How long photos and job records are kept is an open question for Home FIX (section 18). The prototype makes no claim about it.</p>
+<p><strong>Research session privacy (T01, T05)</strong></p>
+<ul>
+<li>Consent screen before the chat: what is recorded (taps, typed messages, timings) and what is not (photos, name, phone number), and "Please don't type personal information."</li>
+<li>Photos stay on the participant's phone. They are held in memory as object URLs, never uploaded, never stored in localStorage, never in the results. After a refresh they come back as a placeholder.</li>
+<li>Results contain the participant code (not a name), events and typed text. They leave the phone only if the participant downloads, copies or sends them.</li>
+<li>No analytics, no network requests after load, except the optional results POST when <code>RESULTS_ENDPOINT</code> is set.</li>
+<li>Participants can stop at any time; the facilitator's Reset session clears everything stored on the device.</li>
+</ul>
+<h2 id="14-accessibility">14. Accessibility</h2>
+<ul>
+<li>Quick replies, send, language and results buttons are real <code>&lt;button&gt;</code> elements with at least 44 × 44 px tap targets; quick replies are 52 px high.</li>
+<li>The chat log is <code>role="log"</code> with <code>aria-live="polite"</code>; the header status (online, typing…, Connecting…) is a live region.</li>
+<li>One <code>h1</code> per screen (the welcome title or the business name).</li>
+<li>The page <code>lang</code> attribute follows the chosen language (en-ZA, zu-ZA, af-ZA), so screen readers use the right voice.</li>
+<li>All chat text is at least 11 px (F19); message text is 14.5 px.</li>
+<li>Visible focus outlines on buttons and inputs; everything works with a keyboard (Enter sends a typed message).</li>
+<li>Photos have an accessible name ("Your photo" or the placeholder label).</li>
+<li>Animation is switched off when the phone asks for reduced motion.</li>
+<li>Works from 320 px wide with no horizontal scroll.</li>
+<li>Known gap: some original greys are below WCAG AA contrast (card timestamps #aab0b4 on white, about 2.2:1). They were kept because the brief says not to change colours (open question).</li>
+</ul>
+<h2 id="15-measures-for-the-pilot">15. Measures for the pilot</h2>
+<p>Definitions only. No targets are set until a baseline exists.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Definition</th>
+<th>Source in the results file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task completion</td>
+<td>Share of sessions that reach <code>session_end</code></td>
+<td><code>session_end</code> event</td>
+</tr>
+<tr>
+<td>Time to submit</td>
+<td>Time from <code>consent</code> to the <code>beat_enter</code> of <code>submitted</code></td>
+<td>event <code>ms</code></td>
+</tr>
+<tr>
+<td>Time per beat</td>
+<td>Time between consecutive <code>beat_enter</code> events</td>
+<td>event <code>ms</code>, <code>beat</code></td>
+</tr>
+<tr>
+<td>Before-photo attempts</td>
+<td>Number of <code>photo_sent</code> with check <code>before</code></td>
+<td><code>photo_sent.detail.check</code></td>
+</tr>
+<tr>
+<td>Serial attempts</td>
+<td>Number of <code>photo_sent</code> with check <code>serial</code></td>
+<td>as above</td>
+</tr>
+<tr>
+<td>Serial typed</td>
+<td>Sessions that reach <code>serial_type</code></td>
+<td><code>beat_enter</code></td>
+</tr>
+<tr>
+<td>Serial corrected</td>
+<td>Sessions where No, fix it was tapped after a correct reading</td>
+<td><code>quick_reply</code> id <code>btn_no_fix</code></td>
+</tr>
+<tr>
+<td>Skip rate</td>
+<td>Sessions with <code>btn_skip</code></td>
+<td><code>quick_reply</code></td>
+</tr>
+<tr>
+<td>Repair rate</td>
+<td><code>repair</code> events per session, and per beat</td>
+<td><code>repair</code></td>
+</tr>
+<tr>
+<td>Handover rate</td>
+<td>Sessions with <code>support_open</code>, by trigger beat</td>
+<td><code>support_open.detail.from</code></td>
+</tr>
+<tr>
+<td>Keyword use</td>
+<td><code>text_sent</code> with a keyword, by keyword and language</td>
+<td><code>text_sent.detail.keyword</code></td>
+</tr>
+<tr>
+<td>Language switches</td>
+<td><code>language</code> events after the first choice</td>
+<td><code>language.detail.via</code></td>
+</tr>
+<tr>
+<td>Real vs sample photos</td>
+<td>Share of <code>photo_sent</code> with source <code>real</code></td>
+<td><code>photo_sent.detail.source</code></td>
+</tr>
+<tr>
+<td>Ease</td>
+<td>Single Ease Question, 1–7</td>
+<td><code>answers.ease_1_to_7</code></td>
+</tr>
+<tr>
+<td>Hardest part</td>
+<td>Free text, coded by theme</td>
+<td><code>answers.hardest</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="16-test-cases">16. Test cases</h2>
+<p>Automated tests are in <code>tests/run.js</code>; results in <code>qa/qa-report.md</code>. "Lang" = language under test.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Steps</th>
+<th>Expected result</th>
+<th>Lang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC-01</td>
+<td>Open the link; tick nothing; tap Start</td>
+<td>Start stays disabled</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-02</td>
+<td>Open with <code>#p=P07</code></td>
+<td>Participant code shows P07</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-03</td>
+<td>Welcome: tap isiZulu</td>
+<td>Welcome text in isiZulu</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-04</td>
+<td>Consent; Start</td>
+<td>Date chip, greeting with Sipho's name, language question, 3 language buttons with subtitles</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-05</td>
+<td>Tap Afrikaans</td>
+<td>Next buttons "Begin werk", "Hervat vorige werk", "Privaatheidskennis"</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-06</td>
+<td>Start beat: tap Privacy notice</td>
+<td>"Opens our privacy notice. Not part of this prototype."</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-07</td>
+<td>Start beat: tap Resume previous job (fresh session)</td>
+<td>"You don't have a job in progress. Tap Start job to begin." Start stays</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-08</td>
+<td>With a saved job, return to Start and tap Resume</td>
+<td>Saved chat restored; "Welcome back. You were on: <step>."</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-09</td>
+<td>Before: tap Upload photo, pick a photo</td>
+<td>Real photo in the bubble, 200 × 144</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-10</td>
+<td>Before: cancel the picker</td>
+<td>Nothing changes</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-11</td>
+<td>First before photo</td>
+<td>AI card "a little blurry"; Retake photo, Contact support; no %</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-12</td>
+<td>Second before photo</td>
+<td>✅ accepted; "1 of 6"; installation message; Installation done</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-13</td>
+<td>Tap Installation done</td>
+<td>"Later today" chip, then the reply at 13:10, then serial guidance</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-14</td>
+<td>First serial photo</td>
+<td>Glare card; Retake photo, Type it in instead</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-15</td>
+<td>Second serial photo</td>
+<td>✅ read KWH-8842-ZA-117; confirmation question; Yes, correct / No, fix it</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-16</td>
+<td>Tap No, fix it; type " kwh-8842-za-111 "</td>
+<td>"Saved as KWH-8842-ZA-111"; continues to compliance</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-17</td>
+<td>Serial retake: tap Type it in instead</td>
+<td>Typing prompt</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-18</td>
+<td>Compliance beat</td>
+<td>One checklist with sub-lines, "(PCV)", note "Send all four together, or one at a time."</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-19</td>
+<td>Send 1 compliance photo</td>
+<td>"Got 1 of 4. Send the other 3 when you're ready."</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-20</td>
+<td>Send 4 compliance photos at once</td>
+<td>2 × 2 grid in one bubble; clock; "Connecting…"; no bot message for 3 s</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-21</td>
+<td>Wait for recovery</td>
+<td>Blue ticks; "online"; "Your photos came through"; 6 of 6 items; 4 of 4</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-22</td>
+<td>Skip for later → Continue</td>
+<td>"Before you submit, I still need the 4 compliance photos." Only Upload photos</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-23</td>
+<td>Tap Submit evidence</td>
+<td>Submitted card and In review card in one beat; only Contact support; new note about payment</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-24</td>
+<td>Wait (outcome Approved)</td>
+<td>Approved card at 14:52; Close job</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-25</td>
+<td>Tap Close job</td>
+<td>Results card with 1–7 and free text</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-26</td>
+<td>Results: Download JSON and CSV</td>
+<td>Files download; CSV opens in Excel with correct characters</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-27</td>
+<td>Results: Copy results</td>
+<td>"Copied." or the select-all box</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-28</td>
+<td>Outcome Needs a retake: Retake now, pick a photo</td>
+<td>New exchange at the end; "Thanks. Sent to the reviewer."; Approved follows</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-29</td>
+<td>Outcome Needs assistance</td>
+<td>Reason, who, when; Chat to Thandi now</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-30</td>
+<td>Chat to Thandi now; type a reply</td>
+<td>Thandi hands back; session ends; results card</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-31</td>
+<td>Before retake: Contact support; type a reply</td>
+<td>Connecting card; Thandi bold name; hand-back; Retake photo + Contact support return</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-32</td>
+<td>Type "usizo" on the serial beat</td>
+<td>One-line serial step description in isiZulu; same buttons</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-33</td>
+<td>Type "TAAL"</td>
+<td>Language buttons; choose isiZulu; confirmation; serial buttons in isiZulu</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-34</td>
+<td>Type "persoon"</td>
+<td>Handover to Thandi</td>
+<td>af</td>
+</tr>
+<tr>
+<td>TC-35</td>
+<td>Type "blah" twice</td>
+<td>First: repair. Second: repair + Contact support button</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-36</td>
+<td>Type a third unrecognised message</td>
+<td>Handover, not a third repair</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-37</td>
+<td>Refresh at serial confirm, retake outcome and serial typing</td>
+<td>Same beat, language, messages and buttons</td>
+<td>zu</td>
+</tr>
+<tr>
+<td>TC-38</td>
+<td>Refresh after sending a real photo</td>
+<td>Placeholder labelled "photo"</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-39</td>
+<td>Open without <code>#facilitator</code></td>
+<td>No F tab, no drawer</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-40</td>
+<td>Open with <code>#facilitator</code>; wrong PIN; then 2468</td>
+<td>Wrong PIN refused; drawer opens with defaults Approved and Retake</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-41</td>
+<td>Facilitator: Go offline; tap a reply</td>
+<td>Clock on the bubble, "Connecting…", no reply until Back online</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-42</td>
+<td>Every beat at 320, 375, 390, 430 px</td>
+<td>No horizontal scroll; all buttons at least 44 px</td>
+<td>en</td>
+</tr>
+<tr>
+<td>TC-43</td>
+<td>After choosing isiZulu or Afrikaans, complete the job</td>
+<td>No English string from COPY in the chat</td>
+<td>zu, af</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="17-decision-log">17. Decision log</h2>
+<p>Choices made where the brief was silent.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Decision</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D01</td>
+<td>All work is in <code>projects/home-fix/</code> inside the NeuraUX repository; the uploaded file at the repo root is untouched.</td>
+<td>Keeps the website files separate.</td>
+</tr>
+<tr>
+<td>D02</td>
+<td>Removed the <code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code> from the template.</td>
+<td>It opens a network connection; the fonts are already embedded. No visual change.</td>
+</tr>
+<tr>
+<td>D03</td>
+<td>The greeting and language question appear in the welcome-screen language (default English, or <code>#lang</code>).</td>
+<td>The language is not known yet in the chat; the welcome screen already asked.</td>
+</tr>
+<tr>
+<td>D04</td>
+<td>The POPIA line is in the second beat, after "Great — let's get started.", in the chosen language. Privacy notice is the third reply on that beat.</td>
+<td>The first beat already has 3 language buttons (WhatsApp maximum). The notice still comes before any data is asked for.</td>
+</tr>
+<tr>
+<td>D05</td>
+<td>Accepted photo beats (<code>before_ok</code>, <code>serial_ok</code>) continue automatically to the next beat instead of showing Continue.</td>
+<td>Removes taps that carry no decision; F04 and F13 each add a beat right after them.</td>
+</tr>
+<tr>
+<td>D06</td>
+<td>Added Submit evidence as the reply on the signal-drop beat.</td>
+<td>F08 removes Retry upload and Continue later; the installer needs a way to submit, and an explicit submit makes F07's rule ("can't submit with items missing") meaningful.</td>
+</tr>
+<tr>
+<td>D07</td>
+<td>The "Your photos came through" card keeps the original "wait" tone (clock icon) and its original note.</td>
+<td>The brief says to keep the existing card and change only the title, body and fields. See open question Q02.</td>
+</tr>
+<tr>
+<td>D08</td>
+<td>Skip for later answers with the original message and one Continue reply, which leads to the reminder.</td>
+<td>F07 needs a path from skipping to the moment before submission.</td>
+</tr>
+<tr>
+<td>D09</td>
+<td>Compliance photos can arrive in several sends; the bot says how many it has. The 4th photo triggers the scripted signal drop.</td>
+<td>Supports the note "Send all four together, or one at a time."</td>
+</tr>
+<tr>
+<td>D10</td>
+<td>A typed serial is trimmed, inner spaces collapsed to one, and upper-cased. No format check.</td>
+<td>The brief says accept after trimming and uppercasing.</td>
+</tr>
+<tr>
+<td>D11</td>
+<td>A third unrecognised message in a row starts the handover.</td>
+<td>"Never a third repair" needs a defined next step; a person is the safest one.</td>
+</tr>
+<tr>
+<td>D12</td>
+<td>On beats that already show 3 buttons, the second repair tells the installer to type “person” instead of adding a fourth button.</td>
+<td>Keeps the 3-button limit (F20).</td>
+</tr>
+<tr>
+<td>D13</td>
+<td>Typing a language name at the language question chooses that language.</td>
+<td>Installers often type instead of tapping.</td>
+</tr>
+<tr>
+<td>D14</td>
+<td>The outcome arrives about 6 s after submission; times jump from 13:18 to 14:35–14:52. No extra date chip.</td>
+<td>Keeps unmoderated sessions short; the times show the wait.</td>
+</tr>
+<tr>
+<td>D15</td>
+<td>Outcome times: needs assistance 14:35 (before "Today before 15:00"), retake 14:40 (retake reply 14:44), approved 14:52.</td>
+<td>Times must agree with the copy and move forward.</td>
+</tr>
+<tr>
+<td>D16</td>
+<td>The retake-outcome photo is always accepted.</td>
+<td>The brief specifies accepted; no facilitator control was asked for.</td>
+</tr>
+<tr>
+<td>D17</td>
+<td>Close job ends the session and shows the results card; it no longer restarts the chat. Needs assistance ends after Thandi's hand-back.</td>
+<td>A restart would wipe a participant's session.</td>
+</tr>
+<tr>
+<td>D18</td>
+<td>The participant code is optional.</td>
+<td>A participant without a code can still take part; the session id is always recorded.</td>
+</tr>
+<tr>
+<td>D19</td>
+<td>Typed text is included in the results (<code>text_sent.detail.text</code>).</td>
+<td>The consent screen says typed messages are recorded; the research needs them.</td>
+</tr>
+<tr>
+<td>D20</td>
+<td>The facilitator drawer is English only and not in COPY.</td>
+<td>It is for the moderator, not participants.</td>
+</tr>
+<tr>
+<td>D21</td>
+<td>The emoji, attach and camera icons in the input bar stay decorative and are hidden from screen readers.</td>
+<td>Photo actions come from the quick replies (T01); making the 20 px icons buttons would break the 44 px rule.</td>
+</tr>
+<tr>
+<td>D22</td>
+<td>The send button has a 44 px tap area around the unchanged 42 px circle. The text field is 16 px text scaled to look 14 px.</td>
+<td>T06 tap targets; 16 px stops iPhone from zooming into the field.</td>
+</tr>
+<tr>
+<td>D23</td>
+<td>Labels inside striped photo placeholders and the GOOD/AVOID badges are translated.</td>
+<td>They are user-facing text (F01).</td>
+</tr>
+<tr>
+<td>D24</td>
+<td>A saved job is kept separately from the session. In a fresh session there is none, so Resume says so. The restore path can be reached after a facilitator jump back to Start.</td>
+<td>F05 needs both paths to be real.</td>
+</tr>
+<tr>
+<td>D25</td>
+<td>Need help, View example, Privacy notice, Skip for later, Contact support and Continue later do not show an outgoing bubble.</td>
+<td>Same as the original helper buttons.</td>
+</tr>
+<tr>
+<td>D26</td>
+<td>After the hand-back, the quick replies that were showing come back.</td>
+<td>F15: "continues where it was, with the same quick replies".</td>
+</tr>
+<tr>
+<td>D27</td>
+<td>Language button labels and subtitles stay in their own language in every UI language and are not marked for native review.</td>
+<td>They are not translations.</td>
+</tr>
+<tr>
+<td>D28</td>
+<td>Welcome Start and results buttons are research controls, not WhatsApp reply buttons; the 20-character limit is not applied.</td>
+<td>They are outside the chat simulation.</td>
+</tr>
+<tr>
+<td>D29</td>
+<td>Dates are localised: "18 Juni 2026" (zu), "18 Jun. 2026" (af).</td>
+<td>Natural date forms in each language.</td>
+</tr>
+<tr>
+<td>D30</td>
+<td>F19 also raised the AI card's "AI" badge (9 → 11 px) and its sub-line (10.5 → 11 px).</td>
+<td>They are in the chat area.</td>
+</tr>
+<tr>
+<td>D31</td>
+<td>A real compliance send takes up to the number of photos still needed; extra photos are ignored.</td>
+<td>The step needs exactly 4.</td>
+</tr>
+<tr>
+<td>D32</td>
+<td>Results CSV has one row per event plus two answer rows (<code>answer_ease</code>, <code>answer_hardest</code>), with a UTF-8 BOM.</td>
+<td>Opens correctly in Excel with isiZulu and Afrikaans text.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="18-open-questions">18. Open questions</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q01</td>
+<td>Native review of all 215 isiZulu and 215 Afrikaans strings, including trade terms.</td>
+<td>Home FIX / NeuraUX, with first-language reviewers</td>
+</tr>
+<tr>
+<td>Q02</td>
+<td>Should "Your photos came through" use the green "good" tone (tick) instead of the blue clock? The clock suggests waiting.</td>
+<td>Design</td>
+</tr>
+<tr>
+<td>Q03</td>
+<td>Some original greys fail WCAG AA contrast (card timestamps, field labels). Darken them?</td>
+<td>Design</td>
+</tr>
+<tr>
+<td>Q04</td>
+<td>How long are photos, serial values and chat logs kept, and where are they stored? (POPIA retention)</td>
+<td>Home FIX legal / information officer</td>
+</tr>
+<tr>
+<td>Q05</td>
+<td>Template text, category and language versions for the first message and the three outcomes, for Meta approval.</td>
+<td>Home FIX</td>
+</tr>
+<tr>
+<td>Q06</td>
+<td>Out-of-hours handover: what should happen after 19:00 and on Sundays?</td>
+<td>Home FIX operations</td>
+</tr>
+<tr>
+<td>Q07</td>
+<td>Should an unmoderated link be able to set the outcome (for example <code>#outcome=retake</code>)? Not built; outcomes need facilitator mode today.</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>Q08</td>
+<td>Where should results go: download/copy only, or a form service via <code>RESULTS_ENDPOINT</code>?</td>
+<td>Research</td>
+</tr>
+<tr>
+<td>Q09</td>
+<td>Real confidence thresholds for photo quality and OCR, after calibration with real site photos.</td>
+<td>Home FIX / AI vendor</td>
+</tr>
+<tr>
+<td>Q10</td>
+<td>Can the reviewer request a retake of items other than the serial label? The prototype only scripts the serial.</td>
+<td>Home FIX operations</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="19-changelog-original-this-version">19. Changelog: original → this version</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F01</td>
+<td>All user-facing text moved into one <code>COPY</code> table with en, zu and af; <code>localizedEn</code> sub-line removed; missing strings fail the build.</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>The first message asks for the language; Start job follows in the chosen language.</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>South African English review: UK spelling, 24-hour times, "(PCV)" added.</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>New installation beat with Installation done; "Later today" chip; later times from 13:10.</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>Resume previous job restores a saved job or says there is none.</td>
+</tr>
+<tr>
+<td>F06</td>
+<td>The two compliance checklists merged into one, with the new note.</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>Skipped compliance photos are asked for again before submission.</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>Realistic signal drop: clock, "Connecting…", no bot message while offline, then "Your photos came through" with consistent fields.</td>
+</tr>
+<tr>
+<td>F09</td>
+<td>Submitted and In review merged; Finish and Exit removed; new payment note.</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Reference HF-2026-DBN-04821; date 18 Jun 2026.</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>Greeting uses Sipho's name.</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>Confidence numbers and bars removed for the installer; ✅ on accepted results; values kept for the facilitator.</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>Serial confirmation beat and typed correction.</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>Type it in instead on the serial retake beat.</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>Contact support is an in-chat handover to Thandi; no phone number.</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>Needs-assistance outcome states reason, who and when; Chat to Thandi now.</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>Fake security banner removed; POPIA message and Privacy notice added.</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>Retake outcome appends a new photo exchange, then Approved.</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>All chat text at least 11 px.</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>Reply labels at most 20 characters and at most 3 per beat, checked at build and in tests.</td>
+</tr>
+<tr>
+<td>T01</td>
+<td>Real photos from the camera or gallery, shown in the bubble; sample-photo link; photos stay on the device.</td>
+</tr>
+<tr>
+<td>T02</td>
+<td>Working text input; keywords in 3 languages; repair with a limit.</td>
+</tr>
+<tr>
+<td>T03</td>
+<td>Facilitator drawer behind <code>#facilitator</code> and a PIN.</td>
+</tr>
+<tr>
+<td>T04</td>
+<td>State saved and restored on refresh.</td>
+</tr>
+<tr>
+<td>T05</td>
+<td>Welcome and consent screen; event log; results card with download, copy and optional POST.</td>
+</tr>
+<tr>
+<td>T06</td>
+<td>Full-screen on phones 320–430 px; 44 px targets; no network after load; settings in the URL hash.</td>
+</tr>
+</tbody>
+</table></div></main></body></html>

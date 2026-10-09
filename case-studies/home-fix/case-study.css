@@ -1,0 +1,88 @@
+/* Home FIX case study: page-specific layout on top of css/site.css.
+   Uses the site's tokens only. Screenshots keep the product's own colours. */
+
+.cs-gap { margin-top: 20px; }
+.cs-sub { margin-top: clamp(40px, 5vw, 56px); margin-bottom: 14px; }
+.cs-note { margin-top: 10px; }
+.cs-left { text-align: left; margin-inline: 0; }
+.cs-flag { font-style: normal; font-size: var(--fs-meta); color: var(--grey-300); border: 1px solid var(--line-strong); border-radius: var(--r-xs); padding: 1px 6px; white-space: nowrap; }
+
+/* Concept label: always visible, above the headline */
+.cs-concept { display: inline-block; margin: 0 0 22px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); background: var(--charcoal); color: var(--white); font-size: var(--fs-sup); line-height: 1.4; max-width: 40em; }
+
+/* Hero */
+.cs-hero { padding-bottom: clamp(40px, 6vw, 80px); }
+.cs-hero__grid { display: grid; grid-template-columns: 1fr; gap: 40px 64px; align-items: start; }
+@media (min-width: 960px) { .cs-hero__grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); } }
+.cs-hero .svc-hero__h { font-size: clamp(34px, 5.4vw, 72px); max-width: 15em; }
+.cs-hero .lead { margin-top: 20px; }
+.cs-hero__shot { justify-self: center; width: 100%; max-width: 320px; }
+.cs-hero__shot figcaption { margin-top: 10px; }
+
+.cs-glance { margin: 28px 0 0; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+@media (min-width: 600px) { .cs-glance { grid-template-columns: 1fr 1fr; column-gap: 24px; } }
+.cs-glance > div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.cs-glance dt { font-size: var(--fs-meta); color: var(--grey-500); }
+.cs-glance dd { margin: 2px 0 0; color: var(--white); font-size: var(--fs-sup); }
+
+/* Phone frame around real screenshots */
+.cs-phone { border-radius: 28px; overflow: hidden; background: #ECE5DD; box-shadow: var(--shadow-float); outline: 1px solid var(--line); }
+.cs-phone img { width: 100%; height: auto; }
+
+/* Architecture */
+.cs-arch { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr; gap: 48px 64px; text-align: left; }
+@media (min-width: 1024px) { .cs-arch { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: start; } }
+.cs-flow__scroll { max-height: min(880px, 82vh); overflow: auto; border-radius: var(--r-lg); background: var(--black); padding: 16px; box-shadow: var(--shadow-float); }
+.cs-flow__scroll img { width: 100%; max-width: 460px; height: auto; margin-inline: auto; }
+.cs-flow figcaption { margin-top: 10px; }
+.cs-alt { margin-top: 12px; }
+.cs-alt summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; color: var(--white); font-weight: 500; }
+.cs-alt ol { padding-left: 20px; display: grid; gap: 6px; color: var(--grey-300); font-size: var(--fs-sup); }
+.cs-arch__text .h3 { margin-bottom: 12px; }
+.cs-scroll { overflow-x: auto; text-align: left; }
+.cs-stages { min-width: 820px; }
+.cs-stages tbody th { width: auto; color: var(--white); font-size: var(--fs-sup); }
+.cs-tx { margin-top: 20px; text-align: left; }
+.cs-tx .tx__row { grid-template-columns: 84px 1fr; }
+
+/* Scenario blocks */
+.cs-scn { margin-top: clamp(48px, 6vw, 80px); padding-top: 28px; border-top: 1px solid var(--line); }
+.cs-scn__grid { margin-top: 24px; display: grid; grid-template-columns: 1fr; gap: 28px 56px; align-items: start; }
+@media (min-width: 900px) { .cs-scn__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+.cs-shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; max-width: 540px; }
+.cs-shots:has(> :only-child) { max-width: 262px; }
+.cs-notes { margin: 0; display: grid; gap: 4px; }
+.cs-notes dt { font-size: var(--fs-meta); color: var(--grey-500); margin-top: 14px; }
+.cs-notes dt:first-child { margin-top: 0; }
+.cs-notes dd { margin: 0; color: var(--white); max-width: 34em; }
+
+/* Live prototype */
+.cs-embed { margin-top: clamp(56px, 7vw, 96px); padding-top: 28px; border-top: 1px solid var(--line); }
+.cs-embed__frame { margin-top: 20px; width: 390px; max-width: 100%; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-float); outline: 1px solid var(--line); }
+.cs-embed__frame iframe { display: block; width: 100%; height: 760px; border: 0; background: #ECE5DD; }
+.cs-embed__cap { margin-top: 10px; }
+.cs-embed__open { display: none; margin-top: 16px; }
+@media (max-width: 719px) {
+  .cs-embed__frame { display: none; }
+  .cs-embed__cap { display: none; }
+  .cs-embed__open { display: inline-flex; }
+}
+
+/* Rules and outcomes */
+.cs-rules h3 { font-size: clamp(18px, 1.7vw, 21px); }
+.cs-rules strong { color: var(--white); font-weight: 500; }
+.cs-outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; max-width: 820px; }
+.cs-outcomes figcaption { margin-top: 8px; }
+
+/* Before and after */
+.cs-ba { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr; gap: 48px; text-align: left; }
+@media (min-width: 1024px) { .cs-ba { grid-template-columns: 1fr 1fr; gap: 56px 64px; } }
+.cs-ba__pair { display: grid; gap: 16px; align-content: start; }
+.cs-ba__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 520px; }
+.cs-ba__imgs figcaption { margin-top: 6px; }
+.cs-ba__pair .body strong { color: var(--white); font-weight: 500; }
+.cs-plan { margin-top: clamp(56px, 7vw, 88px); text-align: left; max-width: 820px; margin-inline: auto; }
+.cs-plan .h3 { margin-bottom: 10px; }
+
+/* Light (mist) section: frames stay dark-edged */
+.theme-mist .cs-phone { outline-color: rgba(0, 0, 0, .12); }

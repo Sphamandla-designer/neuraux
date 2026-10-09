@@ -1,0 +1,104 @@
+[
+  {
+    "before": "00-entry",
+    "after": "00-entry",
+    "changedPixelsPct": 25.8,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "01-language",
+    "after": "01-start",
+    "changedPixelsPct": 35.9,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "02-summary",
+    "after": "02-summary",
+    "changedPixelsPct": 26,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "03-before",
+    "after": "03-before",
+    "changedPixelsPct": 44.5,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "04-before_retake",
+    "after": "04-before_retake",
+    "changedPixelsPct": 47.4,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "05-before_ok",
+    "after": "05-before_ok",
+    "changedPixelsPct": 45.6,
+    "frameChangedPct": 0.31
+  },
+  {
+    "before": "06-serial",
+    "after": "07-serial",
+    "changedPixelsPct": 43.9,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "07-serial_retake",
+    "after": "08-serial_retake",
+    "changedPixelsPct": 40.2,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "08-serial_ok",
+    "after": "09-serial_ok",
+    "changedPixelsPct": 44.2,
+    "frameChangedPct": 0.3
+  },
+  {
+    "before": "09-compliance",
+    "after": "12-compliance",
+    "changedPixelsPct": 43.4,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "10-upload",
+    "after": "12-compliance",
+    "changedPixelsPct": 44.4,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "11-offline",
+    "after": "14-offline",
+    "changedPixelsPct": 55.2,
+    "frameChangedPct": 0.59
+  },
+  {
+    "before": "12-submitted",
+    "after": "15-submitted",
+    "changedPixelsPct": 28.1,
+    "frameChangedPct": 0.02
+  },
+  {
+    "before": "13-review",
+    "after": "15-submitted",
+    "changedPixelsPct": 41.3,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "outcome-approved",
+    "after": "16-outcome-approved",
+    "changedPixelsPct": 2.4,
+    "frameChangedPct": 0
+  },
+  {
+    "before": "outcome-retake",
+    "after": "17-outcome-retake",
+    "changedPixelsPct": 49.5,
+    "frameChangedPct": 0.03
+  },
+  {
+    "before": "outcome-rejected",
+    "after": "18-outcome-rejected",
+    "changedPixelsPct": 19,
+    "frameChangedPct": 0
+  }
+]
