@@ -100,6 +100,8 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
+**Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once.
+
 **Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
@@ -240,7 +242,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - [ ] Privacy Policy text, to be reviewed by the founder, ideally with legal input
 - [ ] Sample Audit report (PDF) to link from the Services page once it exists
 - [ ] Pilot pricing decision: a R9,500 founding-client Audit for 2 clients vs full price. **Do not show a pilot price on the site unless told to.**
-- [ ] LinkedIn URL for the footer and the About page founder block
+- [ ] LinkedIn URL for the footer (the Socials column links to a LinkedIn search for "NeuraUX" until then) and the About page founder block
 
 ## 11. How to work in this repo
 
