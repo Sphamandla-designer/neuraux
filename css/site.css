@@ -49,11 +49,11 @@
   --section-sm: clamp(56px, 7vw, 88px);
 
   /* Containers */
-  --max: 1200px;
+  --max: 1440px;
   --w-hero: 1120px;
   --w-text: 680px;
-  --w-dense: 1100px;
-  --pad: clamp(16px, 3vw, 30px);
+  --w-dense: 1320px;
+  --pad: clamp(16px, 4vw, 64px);
 
   /* ---- Type ---- */
   --font-display: 'Satoshi', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -1710,3 +1710,51 @@ h1, h2, h3, h4,
 @media (pointer: coarse) { .ftr ul a { min-height: 44px; } }
 .ftr__social { gap: 8px; }
 .ftr__social svg { flex: none; }
+
+/* =========================================================
+   Section alignment: left, centre and right
+   Sections alternate so the page has a rhythm instead of a
+   single left edge. Only section-level headings, leads, body
+   copy and action rows move; cards, lists, mockups and forms
+   keep their own left-aligned reading order.
+   ========================================================= */
+:root { --al-skip: 0; }
+
+/* Centre */
+.al-center :is(h1.h-hero, h1.svc-hero__h, h2.h2, h2.sec-h, h2.closing__h, p.lead, p.sec-lead, .score-sec__head p, .svc-intro .body, .problem__head):not(:is(.card, .spot, .mk, .tally, .ww, .pricebox, form, li, .cols, .xpanel) *) {
+  text-align: center; margin-left: auto; margin-right: auto;
+}
+.al-center :is(.actions, .crumbs ol):not(:is(.card, .spot, .mk, .tally, .pricebox, form, li, .cols) *) { justify-content: center; }
+.al-center .svc-intro, .al-center .closing__grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+.al-center .closing__grid .actions { justify-content: center; }
+.al-center .cols:not(.spot) { grid-template-columns: 1fr; }
+.al-center .cols:not(.spot) > :first-child { text-align: center; }
+.al-center .cols:not(.spot) > :first-child :is(h2, p, .actions) { margin-left: auto; margin-right: auto; justify-content: center; }
+.al-center :is(.tabs, .sampler, .scorecard, .sample, .matrix-wrap, .pricebox, .tiers-wrap, .dx) { margin-left: auto; margin-right: auto; }
+.al-center .hero__copy { margin-inline: auto; text-align: center; }
+.al-center .hero__copy .h-hero { margin-inline: auto; }
+.al-center .pricetag { text-align: center; }
+
+/* Right (from tablet up; phones stay left-aligned for readability) */
+@media (min-width: 900px) {
+  .al-right :is(h1.h-hero, h1.svc-hero__h, h2.h2, h2.sec-h, h2.closing__h, p.lead, p.sec-lead, .svc-intro .body, .problem__head):not(:is(.card, .spot, .mk, .tally, .ww, .pricebox, form, li, .xpanel) *) {
+    text-align: right; margin-left: auto; margin-right: 0;
+  }
+  .al-right :is(.actions, .crumbs ol):not(:is(.card, .spot, .mk, .tally, .pricebox, form, li) *) { justify-content: flex-end; }
+  .al-right :is(.cols, .svc-intro, .closing__grid, .judge, .qform-wrap, .selfcheck, .explore, .practice, .founder, .agency__grid, .band__grid) > :first-child { order: 2; }
+  .al-right :is(.cols, .svc-intro, .closing__grid, .judge, .qform-wrap, .practice) > :first-child { text-align: right; }
+  .al-right :is(.cols, .judge, .practice) > :first-child :is(.body, .meta) { margin-left: auto; }
+  .al-right .closing__grid .actions { justify-content: flex-start; }
+  .al-right :is(.tabs, .sampler, .scorecard, .sample, .matrix-wrap) { margin-left: auto; }
+  .al-right .chain li { flex-direction: row-reverse; }
+}
+.al-center > .wrap > p.meta, .al-center.wrap > p.meta, .al-center > .wrap > .illus, .al-center.wrap > .illus { display: block; text-align: center; }
+.al-center .tabs:not(.demo) .tabs__list { justify-content: center; }
+.al-center .tabs__note { text-align: center; margin-inline: auto; }
+.al-center .demo { text-align: center; }
+.al-center .demo .tabs__panel { text-align: left; }
+@media (min-width: 900px) {
+  .al-right > .wrap > p.meta, .al-right.wrap > p.meta, .al-right > .wrap > .illus, .al-right.wrap > .illus { display: block; text-align: right; }
+  .al-right .tabs:not(.demo) .tabs__list { justify-content: flex-end; }
+}
+@media (max-width: 599px) { .al-center .tabs:not(.demo) .tabs__list { justify-content: stretch; } }

@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 9 October 2026 (dark-canvas design system: Satoshi display, Inter body, blue signal accent, gradient spotlight cards).
+Last updated: 9 October 2026 (dark-canvas design system; wide 1440px layout with alternating left, centre and right section alignment).
 
 ---
 
@@ -137,7 +137,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 15px (leads 18px) at about 1.35–1.45 line height. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
-**Layout:** a max width of 1200px, a 5px-based spacing rhythm, and sections about 96px apart. Left-aligned, except where noted. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
+**Layout:** a wide canvas: max width 1440px (`--max`; dense content 1320px) with side padding `clamp(16px, 4vw, 64px)`, a 5px-based spacing rhythm, and sections about 96px apart. **Section alignment alternates:** every `<section>` in `<main>` carries `al-left`, `al-center` or `al-right`, and consecutive sections should vary. `al-center` centres the heading, lead and actions and stacks two-column intros; `al-right` right-aligns the heading block and flips two-column layouts (desktop only, from 900px; below that it falls back to left). Content inside cards, mockups, forms and lists stays left-aligned for readability. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
 
 **Light sections:** silver (`.theme-silver`, with the brushed-silver image) and mist (`.theme-mist`, a plain light grey) sections alternate with the dark ones. These classes redefine the colour tokens, so components adapt by themselves; interface mockups (`.mk`) stay dark on light sections. Use at most one or two light sections per page, never two in a row.
 
