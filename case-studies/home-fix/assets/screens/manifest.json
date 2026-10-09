@@ -1,0 +1,178 @@
+[
+  {
+    "name": "language-choice",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 32714,
+    "pngBytes": 60243,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "job-summary",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 53660,
+    "pngBytes": 88680,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "before-photo-guidance",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 48182,
+    "pngBytes": 79423,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "blurry-photo-retake",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 46996,
+    "pngBytes": 77105,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "serial-glare-retake",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 47444,
+    "pngBytes": 74847,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "serial-confirmation",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 44750,
+    "pngBytes": 74804,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "serial-typed-correction",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 52206,
+    "pngBytes": 84118,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "signal-drop-connecting",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 58606,
+    "pngBytes": 92662,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "signal-drop-recovered",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 48272,
+    "pngBytes": 79627,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "submitted-in-review",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 63606,
+    "pngBytes": 94022,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "outcome-approved",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 58354,
+    "pngBytes": 88532,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "outcome-retake",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 57944,
+    "pngBytes": 85529,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "outcome-needs-assistance",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 61950,
+    "pngBytes": 93763,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "serial-confirmation-zu",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 46150,
+    "pngBytes": 76618,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "job-summary-zu",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 61774,
+    "pngBytes": 95264,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "job-summary-af",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 55848,
+    "pngBytes": 88820,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "after-serial-later-today",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 60816,
+    "pngBytes": 91760,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "after-serial-no-confidence",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 44750,
+    "pngBytes": 74804,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "before-language-zu",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 54082,
+    "pngBytes": 86970,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "before-serial-0937",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 54694,
+    "pngBytes": 86352,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "before-serial-confidence",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 45140,
+    "pngBytes": 76887,
+    "webpQuality": 0.82
+  },
+  {
+    "name": "before-referral-phone",
+    "width": 390,
+    "height": 844,
+    "webpBytes": 64796,
+    "pngBytes": 97345,
+    "webpQuality": 0.82
+  }
+]

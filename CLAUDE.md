@@ -14,7 +14,7 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 - **Email:** hello@neuraux.co.za
 - **Domain:** www.neuraux.co.za is the intended domain. Until a `CNAME` file exists, canonical, Open Graph and sitemap URLs use https://sphamandla-designer.github.io/neuraux/ (switch them back when the domain goes live)
 - **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
-- **Stage:** launching Q4 2026. No paying clients, case studies or testimonials yet.
+- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One concept project (Home FIX, a fictional company) is published as a case study and is always labelled as a concept.
 
 ## 2. Positioning
 
@@ -97,6 +97,7 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 | About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
+| Home FIX case study | `case-studies/home-fix/index.html` | Built. Concept project, labelled as such above the fold. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Not linked from the nav yet |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 

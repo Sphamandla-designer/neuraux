@@ -1,0 +1,75 @@
+{
+  "run": "2026-10-09T20:09:55.921Z",
+  "results": [
+    {
+      "name": "Word count 1,800–2,400 (excluding alt text and captions)",
+      "pass": true,
+      "detail": "2355 words"
+    },
+    {
+      "name": "No banned words",
+      "pass": true,
+      "detail": "none found"
+    },
+    {
+      "name": "No em dashes in page copy",
+      "pass": true,
+      "detail": "0 found"
+    },
+    {
+      "name": "No real insurer or client names",
+      "pass": true,
+      "detail": "none (searched 12 names)"
+    },
+    {
+      "name": "No phone numbers",
+      "pass": true,
+      "detail": "none"
+    },
+    {
+      "name": "Percentages are sourced or labelled",
+      "pass": true,
+      "detail": "3 found, reviewed by hand: Problem: the installer saw \"Read confidence 41%\" and \"98%\". Fix: a plain result in word | equest. First version: the AI cards show Read confidence 41 percent in an orange bar, then Read confidence | 98 percent in a green bar. Updated version: the AI"
+    },
+    {
+      "name": "Concept label visible above the fold at 390×844",
+      "pass": true,
+      "detail": "top 159 px, bottom 216 px: \"Concept project. Home FIX is a fictional company; the people and job details are invented.\""
+    },
+    {
+      "name": "All internal links, images and mailto links work",
+      "pass": true,
+      "detail": "78 checked (external LinkedIn link skipped)"
+    },
+    {
+      "name": "No horizontal scroll at 320, 375, 390, 768, 1280",
+      "pass": true,
+      "detail": "all five widths fit"
+    },
+    {
+      "name": "Heading order (one h1, no skipped levels)",
+      "pass": true,
+      "detail": "1 h1; 51 headings; no skipped levels"
+    },
+    {
+      "name": "Images under 200 KB, with width/height and meaningful alt text",
+      "pass": true,
+      "detail": "21 images, 42 files, largest 95 KB; all have alt text and dimensions"
+    },
+    {
+      "name": "axe: no serious or critical issues",
+      "pass": true,
+      "detail": "no violations"
+    },
+    {
+      "name": "Prototype embed works on desktop",
+      "pass": true,
+      "detail": "iframe loaded; consent, Start and the language buttons work inside it"
+    },
+    {
+      "name": "Full-screen button on mobile",
+      "pass": true,
+      "detail": "iframe none, button inline-flex; button opens the prototype full screen: true"
+    }
+  ]
+}
