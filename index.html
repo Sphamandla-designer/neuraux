@@ -24,6 +24,9 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/hero-eclipse-1672.webp" media="(min-width: 961px)">
 <link rel="stylesheet" href="css/site.css">
@@ -180,7 +183,10 @@
         </div>
       </div>
     </div>
-    <p class="lead problem__bridge">NeuraUX designs for those moments. First we find where your assistant breaks, then we design what it should do instead.</p>
+    <div class="spot spot--orange spot-wrap">
+      <p class="spot__h">NeuraUX designs for those moments.</p>
+      <p class="spot__sub">First we find where your assistant breaks, then we design what it should do instead.</p>
+    </div>
     <p class="meta" style="margin-top:16px"><a class="link" href="how-we-work.html#design">How we design the moments between the question and the answer</a></p>
   </section>
 
@@ -193,7 +199,7 @@
       </div>
 
       <div class="cards">
-        <article class="card" id="audit" aria-labelledby="audit-title">
+        <article class="card card--featured" id="audit" aria-labelledby="audit-title">
           <h3 class="card__name" id="audit-title">AI Experience Audit</h3>
           <p class="card__tag">Know exactly what's failing your users, and what to fix first.</p>
           <p class="card__price"><span class="price__from">Fixed price</span><span class="price__n">R18,500</span><span class="card__time">2 weeks. One AI experience, one channel.</span></p>
@@ -373,9 +379,13 @@
   </section>
 
   <!-- 7. Agency strip and final call to action -->
-  <section class="strip" aria-label="For agencies">
-    <div class="wrap strip__in">
-      <p>Building AI for clients? <a class="link" href="agencies.html">We work white-label for agencies.</a></p>
+  <section class="section--sm" aria-label="For agencies">
+    <div class="wrap">
+      <div class="spot spot--violet">
+        <p class="spot__h">Building AI for clients?</p>
+        <p class="spot__sub">We work white-label for agencies, under your brand and inside your projects.</p>
+        <div class="actions"><a class="btn btn--glass btn--lg" href="agencies.html">See how agency partnerships work</a></div>
+      </div>
     </div>
   </section>
 
