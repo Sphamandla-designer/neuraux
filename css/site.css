@@ -1688,3 +1688,7 @@ h1, h2, h3, h4,
 .options li.spot h2 { color: #fff; }
 .options li.spot p { color: rgba(255, 255, 255, .86); }
 .spot.cols { align-items: start; }
+
+/* About page: founder block inside the spotlight card */
+.founder-block { display: grid; gap: 6px; align-content: start; }
+.founder-block__img { width: 160px; height: auto; border-radius: var(--r-lg); margin-bottom: 12px; }
