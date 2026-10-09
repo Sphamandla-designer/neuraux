@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 8 October 2026 (Satoshi, light sections, rim-light imagery and motion).
+Last updated: 9 October 2026 (dark-canvas design system: Satoshi display, Inter body, blue signal accent, gradient spotlight cards).
 
 ---
 
@@ -113,24 +113,28 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 ## 6. Brand and visual design rules
 
-**Direction:** monochrome, editorial, restrained. Black, charcoal, grey, silver and white. This **replaces** an earlier dark brand with cyan accents and Syne/DM Sans/Space Mono, which must not be used anywhere.
+**Direction:** a dark-canvas system. A near-black canvas, poster-scale display headlines, white and charcoal pill buttons, and depth shown by surface lift rather than borders. NeuraUX keeps its silver and mist light sections and rim-light imagery on top of that. Never use the earlier cyan brand or Syne/DM Sans/Space Mono.
+
+**Accent:** sky blue `#0099FF` (`--accent`) is the only chromatic accent. Use it for links, focus rings and selected states only; never as a fill or a button colour. On silver and mist sections it darkens to `#0057A8` so links keep their contrast.
+
+**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. Use one or two per page, never three. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
 
 **Colour tokens** (defined as CSS variables at the top of `css/site.css`; reuse them, don't add colours. Light sections redefine them locally):
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| `--black` | #000000 | Page background |
-| `--charcoal` | #1C1C1E | Raised sections, footer |
-| `--line` | #2C2C2E | Hairline borders on black |
-| `--grey-500` | #8E8E93 | Small supporting text |
-| `--grey-300` | #AEAEB2 | Body text on dark |
-| `--white` | #F5F5F7 | Primary text, solid buttons |
-| `--silver` | #C7CBD1 | Prices, and the agency band only |
-| `--silver-deep` | #9EA3AA | Rule above problem points |
+| `--black` | #0A0A0A | Canvas: page background, footer |
+| `--charcoal` | #141414 | Surface 1: cards, secondary pills, inputs, mockups |
+| `--surface-2` | #1F1F1F | Surface 2: featured card, pricing box, selected tab |
+| `--line` / `--line-soft` | #262626 / #1A1A1A | Hairlines; the soft one for FAQ rows and footer rules |
+| `--white` | #FFFFFF | Ink: headlines, emphasised text, primary pills |
+| `--grey-300` / `--grey-500` | #999999 | Ink-muted: all secondary text. Hierarchy is binary, ink or muted |
+| `--silver` | #C7CBD1 | Prices |
+| `--accent` | #0099FF | Links, focus, selection only |
 
-**Type:** Satoshi only, loaded from Fontshare's CDN (`api.fontshare.com`, weights 400/500/700). Headlines are weight 500 with tight negative tracking (about −0.035 to −0.045em). Body is 17px at 1.6 line height. Keep line lengths under about 80 characters. It is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
+**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 15px (leads 18px) at about 1.35–1.45 line height. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
-**Layout:** a max width of 1280px, generous vertical spacing, and hairline dividers instead of cards. Left-aligned, except where noted. Pill-shaped buttons (border-radius 999px). Solid white is the primary action; an outlined button is secondary.
+**Layout:** a max width of 1200px, a 5px-based spacing rhythm, and sections about 96px apart. Left-aligned, except where noted. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
 
 **Light sections:** silver (`.theme-silver`, with the brushed-silver image) and mist (`.theme-mist`, a plain light grey) sections alternate with the dark ones. These classes redefine the colour tokens, so components adapt by themselves; interface mockups (`.mk`) stay dark on light sections. Use at most one or two light sections per page, never two in a row.
 
@@ -142,7 +146,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - ALL-CAPS eyebrow labels above headings
 - Numbered markers (01, 02) on anything that isn't a real sequence (the process steps are the only numbered list)
 - "Word — fragment" labels and strings joined with middle dots
-- Identical rounded cards, glassmorphism, or decorative gradients and glows that aren't part of the rim-light imagery
+- Glassmorphism, or gradients and glows outside the rim-light imagery and the spotlight cards
 - Monospace fonts, emoji, arrows appended to buttons
 - Gimmicky motion. The motion system is: the hero image's dawn and slow light "breathe", headings that rise out of a mask, content that rises in as it scrolls into view (applied by `js/site.js` to anything below the fold), scenery that drifts slower than the page, a light that follows the pointer on cards, and a sheen across primary buttons. All of it is disabled under `prefers-reduced-motion`
 - Stock photos of robots, brains, circuits or handshakes
