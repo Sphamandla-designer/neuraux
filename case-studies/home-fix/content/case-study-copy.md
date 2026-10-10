@@ -4,9 +4,7 @@ Generated from `src/main.html` by `tools/build.py`. Edit the copy in `src/main.h
 
 - Home
 - Case studies
-- Home FIX concept
-
-Concept project. Home FIX is a fictional company; the people and job details are invented.
+- Home FIX
 
 # Helping plumbers prove a geyser job from the roof space, with a person making every final call.
 
@@ -33,7 +31,7 @@ An insurer can only approve and pay for a geyser replacement once it has proof t
 
 When a geyser bursts, a plumber on an insurance panel replaces it. Before Home FIX approves the job and pays, it needs six pieces of evidence: a photo of the geyser before, the new geyser's serial number label, and four compliance photos. It also needs the serial number itself.
 
-In this concept, that evidence is uneven. Photos are blurry, serial labels are unreadable, compliance items are missing, and installers don't know what a usable photo looks like. Assumption, to be tested.
+That evidence is often uneven. Photos are blurry, serial labels are unreadable, compliance items are missing, and installers don't know what a usable photo looks like. Assumption, to be tested.
 
 ### Who is involved
 
@@ -287,7 +285,7 @@ Starting values, to be calibrated in a pilot. Values in between need real site p
 
 *Caption: Needs assistance*
 
-### Decisions a real client would need to approve
+### Decisions the client signs off
 
 - How long photos, serial numbers and chat logs are kept, and where.
 
@@ -302,6 +300,8 @@ Starting values, to be calibrated in a pilot. Values in between need real site p
 ## Fixed before anyone tests it.
 
 We reviewed the first version against a written brief, fixed 20 problems, and checked every fix with automated tests before any participant sees it.
+
+### Four problems the first version had
 
 ### The language that slipped back to English
 
@@ -334,6 +334,8 @@ We reviewed the first version against a written brief, fixed 20 problems, and ch
 *Caption: After*
 
 **Problem:** help meant leaving the chat for a phone call, with no reason given. **Fix:** Thandi replies in the same chat, and the referral says why, who and when.
+
+### Automated checks
 
 The updated prototype passes 52 of 52 automated checks. They include full runs in all three languages, every review outcome, phones from 320 px wide, and a scan for English left on screen after choosing isiZulu or Afrikaans. It has not yet been tried on real phones.
 
@@ -393,7 +395,7 @@ Most of the first version's problems were invisible in an English walkthrough on
 
 The Conversation Design Blueprint gives your team the flow, copy, AI rules and handover pack to build it right, tested in walkthroughs with your staff.
 
-This concept went further than a Blueprint: the working prototype and test kit are not part of its standard scope.
+This project went further than a Blueprint: the working prototype and test kit are not part of its standard scope.
 
 Talk to NeuraUX
 Discuss a Blueprint

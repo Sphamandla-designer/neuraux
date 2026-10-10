@@ -17,8 +17,7 @@ REPO = os.path.dirname(CS)
 BASE = "https://sphamandla-designer.github.io/neuraux/"
 URL = BASE + "case-studies/"
 TITLE = "Case Studies | AI Conversation Design | NeuraUX"
-DESC = ("How NeuraUX designs AI conversations end to end: flows, copy, AI rules, prototypes and test plans. "
-        "Concept projects, clearly labelled, until client work can be published.")
+DESC = ("How NeuraUX designs AI conversations end to end: flows, copy, AI rules, prototypes and test plans.")
 PREFIX = "../"
 
 
@@ -59,7 +58,7 @@ def main():
           f'{{"@type":"ListItem","position":2,"name":"Case studies","item":"{URL}"}}]}},'
           f'{{"@type":"CollectionPage","@id":"{URL}","url":"{URL}","name":"{TITLE}","description":"{DESC}","inLanguage":"en-ZA",'
           f'"publisher":{{"@id":"{BASE}#org"}},'
-          f'"hasPart":[{{"@type":"Article","name":"Home FIX concept: trilingual WhatsApp job verification","url":"{URL}home-fix/"}}]}}]}}\n'
+          f'"hasPart":[{{"@type":"Article","name":"Home FIX: trilingual WhatsApp job verification","url":"{URL}home-fix/"}}]}}]}}\n'
           '</script>\n')
 
     header = repath(header).replace(' aria-current="page"', "")

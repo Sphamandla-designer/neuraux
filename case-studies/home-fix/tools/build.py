@@ -16,8 +16,8 @@ CASE = os.path.dirname(HERE)
 REPO = os.path.dirname(os.path.dirname(CASE))
 BASE = "https://sphamandla-designer.github.io/neuraux/"
 URL = BASE + "case-studies/home-fix/"
-TITLE = "Home FIX concept: trilingual WhatsApp job verification | NeuraUX"
-DESC = ("Concept case study: a WhatsApp assistant in English, isiZulu and Afrikaans that helps plumbers send "
+TITLE = "Home FIX: trilingual WhatsApp job verification | NeuraUX"
+DESC = ("Case study: a WhatsApp assistant in English, isiZulu and Afrikaans that helps plumbers send "
         "geyser job evidence, while a person makes every approval decision.")
 
 
@@ -59,7 +59,7 @@ def main():
           '{"@type":"BreadcrumbList","itemListElement":['
           f'{{"@type":"ListItem","position":1,"name":"Home","item":"{BASE}"}},'
           f'{{"@type":"ListItem","position":2,"name":"Case studies","item":"{BASE}case-studies/"}},'
-          f'{{"@type":"ListItem","position":3,"name":"Home FIX concept","item":"{URL}"}}]}},'
+          f'{{"@type":"ListItem","position":3,"name":"Home FIX","item":"{URL}"}}]}},'
           f'{{"@type":"Article","@id":"{URL}","url":"{URL}","headline":"{TITLE}","description":"{DESC}",'
           f'"inLanguage":"en-ZA","author":{{"@id":"{BASE}#org"}},"publisher":{{"@id":"{BASE}#org"}},'
           f'"image":"{URL}assets/screens/serial-confirmation.png"}}]}}\n</script>\n')
