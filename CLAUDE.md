@@ -90,7 +90,7 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | --- | --- | --- |
 | Home | `index.html` | Built |
 | Services | `services.html` | Built |
-| For Agencies | `agencies.html` | Built |
+| For Agencies | `agencies.html` | Built. Includes an FAQ (no prices; rates are shared on the partner call) |
 | How We Work | `how-we-work.html` | Built (founder paragraph and photo are placeholders) |
 | Contact | `contact.html` | Built (form composes an email via `mailto:`) |
 | Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
@@ -104,7 +104,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once. The case-study pages copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py` and `case-studies/home-fix/tools/build.py`.
 
-**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); case studies (`#case-studies`, the Home FIX card with links to its sections, linking to `case-studies/`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Homepage order:** hero; the problem (three failure modes as a segmented-control tab switcher, the same pattern as the Audit page's demo); case studies (`#case-studies`, light mist section, the Home FIX card as a magenta spotlight with links to its sections, linking to `case-studies/`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); services and pricing cards (`#services`, silver; each card has a booking button and a learn-more button); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, light mist section, the four differentiators, linking to `about.html`); trust band (dark: founder, how we use AI, data handling); agency strip; final call to action. Light and dark sections alternate; never two light sections in a row. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
