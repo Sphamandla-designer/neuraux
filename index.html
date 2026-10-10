@@ -144,7 +144,7 @@
     <h2 class="h2 problem__head" id="problem-title">Trust is won or lost when AI goes wrong.</h2>
     <p class="lead" style="margin-top:24px">Most AI assistants are built to function, not to be understood. In legal and financial services, a confident wrong answer is more than frustrating. It's a risk.</p>
 
-    <div class="tabs" data-tabs>
+    <div class="tabs demo" data-tabs>
       <div class="tabs__list" role="tablist" aria-label="Three moments that decide trust" hidden>
         <button class="tabs__tab" type="button" role="tab" id="tab-understand" aria-controls="panel-understand" aria-selected="true">It doesn't understand.</button>
         <button class="tabs__tab" type="button" role="tab" id="tab-know" aria-controls="panel-know" aria-selected="false" tabindex="-1">It doesn't know.</button>
@@ -194,43 +194,50 @@
     <p class="meta" style="margin-top:16px"><a class="link" href="how-we-work.html#design">How we design the moments between the question and the answer</a></p>
   </section>
 
-  <!-- 3. Services and pricing -->
-  <section class="section theme-silver al-right" id="services" aria-labelledby="services-title">
+  <!-- 3. Case studies -->
+  <section class="section theme-mist al-left" id="case-studies" aria-labelledby="cases-title">
     <div class="wrap">
-      <div class="svc-intro">
-        <h2 class="h2" id="services-title">Diagnose first. <span class="quiet">Then design it right.</span></h2>
-        <p class="body">Most clients start with an Audit to find out what's really happening, then move to a Blueprint to fix it properly. You can also start with a Blueprint if you're building something new.</p>
-      </div>
-
-      <div class="cards">
-        <article class="card card--featured" id="audit" aria-labelledby="audit-title">
-          <h3 class="card__name" id="audit-title">AI Experience Audit</h3>
-          <p class="card__tag">Know exactly what's failing your users, and what to fix first.</p>
-          <p class="card__price"><span class="price__from">Fixed price</span><span class="price__n">R18,500</span><span class="card__time">2 weeks. One AI experience, one channel.</span></p>
-          <ul class="ticks">
-            <li>Up to 200 anonymised conversations</li>
-            <li>Up to 15 core tasks, end to end</li>
-            <li>A scorecard across six dimensions</li>
-            <li>A prioritised fix list, separating quick wins from structural changes</li>
-          </ul>
-          <p class="meta"><a class="link" href="ai-experience-audit.html">How the AI Experience Audit works</a></p>
-          <a class="btn btn--solid btn--lg card__cta" href="contact.html?enquiry=audit">Book an Audit</a>
+    <h2 class="h2" id="cases-title">Case studies.</h2>
+    <p class="lead sec-lead">How we design an AI conversation end to end: the problem, the conversation design, the AI rules, the prototype and how we test it.</p>
+    <ul class="csx-list">
+      <li>
+        <article class="csx-card spot spot--magenta" aria-labelledby="csx-homefix">
+          <a class="csx-card__media" href="case-studies/home-fix/" tabindex="-1" aria-hidden="true">
+            <picture>
+              <source type="image/webp" srcset="case-studies/home-fix/assets/screens/serial-confirmation.webp">
+              <img src="case-studies/home-fix/assets/screens/serial-confirmation.png" width="390" height="844" loading="lazy" decoding="async" alt="">
+            </picture>
+          </a>
+          <div class="csx-card__body">
+            <p class="csx-card__tag">Insurance</p>
+            <h3 class="h3" id="csx-homefix"><a class="csx-card__title" href="case-studies/home-fix/">Home FIX</a></h3>
+            <p class="csx-card__sub">A trilingual WhatsApp assistant for insurance job verification.</p>
+            <p class="body">Plumbers send proof that a geyser replacement was done properly, in English, isiZulu or Afrikaans. The AI checks the photos and reads the serial label. A person makes every approval decision.</p>
+            <ul class="facts">
+              <li>Conversation design</li>
+              <li>Product design</li>
+              <li>Prototype</li>
+              <li>WhatsApp</li>
+              <li>English, isiZulu, Afrikaans</li>
+            </ul>
+            <nav class="csx-card__sections" aria-label="Sections of the Home FIX case study">
+              <h4>Inside the case study</h4>
+              <ul>
+                <li><a class="link" href="case-studies/home-fix/#problem">The problem</a></li>
+                <li><a class="link" href="case-studies/home-fix/#architecture">Conversation architecture</a></li>
+                <li><a class="link" href="case-studies/home-fix/#experience">The designed experience</a></li>
+                <li><a class="link" href="case-studies/home-fix/#rules">AI rules and human review</a></li>
+                <li><a class="link" href="case-studies/home-fix/#testing">Testing and iteration</a></li>
+              </ul>
+            </nav>
+            <div class="actions actions--stack csx-card__actions">
+              <a class="btn btn--solid btn--lg" href="case-studies/home-fix/">Read the case study</a>
+              <a class="btn btn--glass btn--lg" href="case-studies/">See all case studies</a>
+            </div>
+          </div>
         </article>
-        <article class="card" id="blueprint" aria-labelledby="blueprint-title">
-          <h3 class="card__name" id="blueprint-title">Conversation Design Blueprint</h3>
-          <p class="card__tag">A build-ready design for an AI assistant your team can implement directly.</p>
-          <p class="card__price"><span class="price__from">Fixed price, from</span><span class="price__n">R45,000</span><span class="card__time">4 to 6 weeks. 1 to 3 use cases.</span></p>
-          <ul class="ticks">
-            <li>Assistant persona and voice</li>
-            <li>Conversation architecture and detailed flows, including edge cases</li>
-            <li>Human handoff</li>
-            <li>A developer handover pack</li>
-          </ul>
-          <p class="meta"><a class="link" href="ai-experience-blueprint.html">What a Conversation Design Blueprint includes</a></p>
-          <a class="btn btn--line btn--lg card__cta" href="contact.html?enquiry=blueprint">Discuss a Blueprint</a>
-        </article>
-      </div>
-      <p class="cards__foot">All prices fixed, excluding VAT. Audit fee credited in full toward a Blueprint signed within 30 days. <a class="link" href="services.html">Full scope, tiers and payment terms</a></p>
+      </li>
+    </ul>
     </div>
   </section>
 
@@ -300,7 +307,51 @@
     </div>
   </section>
 
-  <!-- 5. Who it's for -->
+  <!-- 5. Services and pricing -->
+  <section class="section theme-silver al-right" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="svc-intro">
+        <h2 class="h2" id="services-title">Diagnose first. <span class="quiet">Then design it right.</span></h2>
+        <p class="body">Most clients start with an Audit to find out what's really happening, then move to a Blueprint to fix it properly. You can also start with a Blueprint if you're building something new.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card card--featured" id="audit" aria-labelledby="audit-title">
+          <h3 class="card__name" id="audit-title">AI Experience Audit</h3>
+          <p class="card__tag">Know exactly what's failing your users, and what to fix first.</p>
+          <p class="card__price"><span class="price__from">Fixed price</span><span class="price__n">R18,500</span><span class="card__time">2 weeks. One AI experience, one channel.</span></p>
+          <ul class="ticks">
+            <li>Up to 200 anonymised conversations</li>
+            <li>Up to 15 core tasks, end to end</li>
+            <li>A scorecard across six dimensions</li>
+            <li>A prioritised fix list, separating quick wins from structural changes</li>
+          </ul>
+          <div class="actions card__actions">
+            <a class="btn btn--solid btn--lg" href="contact.html?enquiry=audit">Book an Audit</a>
+            <a class="btn btn--line btn--lg" href="ai-experience-audit.html">How the Audit works</a>
+          </div>
+        </article>
+        <article class="card" id="blueprint" aria-labelledby="blueprint-title">
+          <h3 class="card__name" id="blueprint-title">Conversation Design Blueprint</h3>
+          <p class="card__tag">A build-ready design for an AI assistant your team can implement directly.</p>
+          <p class="card__price"><span class="price__from">Fixed price, from</span><span class="price__n">R45,000</span><span class="card__time">4 to 6 weeks. 1 to 3 use cases.</span></p>
+          <ul class="ticks">
+            <li>Assistant persona and voice</li>
+            <li>Conversation architecture and detailed flows, including edge cases</li>
+            <li>Human handoff</li>
+            <li>A developer handover pack</li>
+          </ul>
+          <div class="actions card__actions">
+            <a class="btn btn--solid btn--lg" href="contact.html?enquiry=blueprint">Discuss a Blueprint</a>
+            <a class="btn btn--line btn--lg" href="ai-experience-blueprint.html">What a Blueprint includes</a>
+          </div>
+        </article>
+      </div>
+      <p class="cards__foot">All prices fixed, excluding VAT. Audit fee credited in full toward a Blueprint signed within 30 days. <a class="link" href="services.html">Full scope, tiers and payment terms</a></p>
+    </div>
+  </section>
+
+  <!-- 6. Who it's for -->
   <section class="section section--raised al-left" id="industries" aria-labelledby="ind-title">
     <div class="wrap">
       <h2 class="h2" id="ind-title">For South African law firms and financial services.</h2>
@@ -349,9 +400,9 @@
     </div>
   </section>
 
-  <!-- 5b. About: why NeuraUX -->
-  <section class="section wrap al-right" id="about" aria-labelledby="about-title">
-    <div class="cols">
+  <!-- 7. About: why NeuraUX -->
+  <section class="section theme-mist al-right" id="about" aria-labelledby="about-title">
+    <div class="wrap cols">
       <div>
         <h2 class="h2" id="about-title">Why NeuraUX.</h2>
         <p class="lead sec-lead">NeuraUX is a founder-led AI UX and conversation design consultancy in Johannesburg. We don't build AI or sell a platform. We design how AI assistants behave in regulated, high-stakes conversations.</p>
@@ -366,53 +417,8 @@
     </div>
   </section>
 
-  <!-- 5c. Case studies -->
-  <section class="section wrap al-left" id="case-studies" aria-labelledby="cases-title">
-    <h2 class="h2" id="cases-title">Case studies.</h2>
-    <p class="lead sec-lead">How we design an AI conversation end to end: the problem, the conversation design, the AI rules, the prototype and how we test it.</p>
-    <ul class="csx-list">
-      <li>
-        <article class="csx-card" aria-labelledby="csx-homefix">
-          <a class="csx-card__media" href="case-studies/home-fix/" tabindex="-1" aria-hidden="true">
-            <picture>
-              <source type="image/webp" srcset="case-studies/home-fix/assets/screens/serial-confirmation.webp">
-              <img src="case-studies/home-fix/assets/screens/serial-confirmation.png" width="390" height="844" loading="lazy" decoding="async" alt="">
-            </picture>
-          </a>
-          <div class="csx-card__body">
-            <p class="csx-card__tag">Insurance</p>
-            <h3 class="h3" id="csx-homefix"><a class="csx-card__title" href="case-studies/home-fix/">Home FIX</a></h3>
-            <p class="csx-card__sub">A trilingual WhatsApp assistant for insurance job verification.</p>
-            <p class="body">Plumbers send proof that a geyser replacement was done properly, in English, isiZulu or Afrikaans. The AI checks the photos and reads the serial label. A person makes every approval decision.</p>
-            <ul class="facts">
-              <li>Conversation design</li>
-              <li>Product design</li>
-              <li>Prototype</li>
-              <li>WhatsApp</li>
-              <li>English, isiZulu, Afrikaans</li>
-            </ul>
-            <nav class="csx-card__sections" aria-label="Sections of the Home FIX case study">
-              <h4>Inside the case study</h4>
-              <ul>
-                <li><a class="link" href="case-studies/home-fix/#problem">The problem</a></li>
-                <li><a class="link" href="case-studies/home-fix/#architecture">Conversation architecture</a></li>
-                <li><a class="link" href="case-studies/home-fix/#experience">The designed experience</a></li>
-                <li><a class="link" href="case-studies/home-fix/#rules">AI rules and human review</a></li>
-                <li><a class="link" href="case-studies/home-fix/#testing">Testing and iteration</a></li>
-              </ul>
-            </nav>
-            <div class="actions actions--stack csx-card__actions">
-              <a class="btn btn--solid btn--lg" href="case-studies/home-fix/">Read the case study</a>
-              <a class="btn btn--line btn--lg" href="case-studies/">See all case studies</a>
-            </div>
-          </div>
-        </article>
-      </li>
-    </ul>
-  </section>
-
-  <!-- 6. Trust band: founder, how we use AI, data handling -->
-  <section class="section theme-mist al-center" id="trust" aria-labelledby="trust-title">
+  <!-- 8. Trust band: founder, how we use AI, data handling -->
+  <section class="section section--raised al-center" id="trust" aria-labelledby="trust-title">
   <div class="wrap">
     <h2 class="h2" id="trust-title">Human judgment. <span class="quiet">Careful with your data.</span></h2>
     <div class="trustband">
@@ -444,7 +450,7 @@
     </div>
   </section>
 
-  <!-- 7. Agency strip and final call to action -->
+  <!-- 9. Agency strip and final call to action -->
   <section class="section--sm al-center" aria-label="For agencies">
     <div class="wrap">
       <div class="spot spot--violet">
