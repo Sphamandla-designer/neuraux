@@ -2,13 +2,13 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 9 October 2026 (dark-canvas design system; wide 1440px layout with alternating left, centre and right section alignment).
+Last updated: 10 October 2026 (target industries changed to six sectors; law firms are no longer a listed industry).
 
 ---
 
 ## 1. The business in one paragraph
 
-NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South Africa. It audits and designs AI assistants (chatbots, virtual assistants, AI features) for law firms and fintechs, so they answer clearly, fail gracefully, and stay compliant. It does not build AI. It designs how AI behaves, and works alongside the client's developers or a build agency. It also works white-label for AI automation agencies that build bots but have no conversation designer.
+NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South Africa. It audits and designs AI assistants (chatbots, virtual assistants, AI features) for banks, insurers, fintechs and other regulated businesses, so they answer clearly, fail gracefully, and stay compliant. It does not build AI. It designs how AI behaves, and works alongside the client's developers or a build agency. It also works white-label for AI automation agencies that build bots but have no conversation designer.
 
 - **Founder:** Sphamandla, Product Designer and AI UX Strategist. NeuraUX is currently a founder-led consultancy.
 - **Email:** hello@neuraux.co.za
@@ -18,19 +18,27 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 
 ## 2. Positioning
 
-**Positioning statement:** For South African law firms and fintechs whose AI assistants users don't fully trust, NeuraUX is the specialist AI experience consultancy that diagnoses and designs how their AI behaves, with compliance designed in from the first flow. Unlike agencies that build bots or generalist UX studios, NeuraUX focuses only on the experience layer of AI in regulated, high-stakes conversations.
+**Positioning statement:** For South African banks, insurers, fintechs and other regulated businesses whose AI assistants users don't fully trust, NeuraUX is the specialist AI experience consultancy that diagnoses and designs how their AI behaves, with compliance designed in from the first flow. Unlike agencies that build bots or generalist UX studios, NeuraUX focuses only on the experience layer of AI in regulated, high-stakes conversations.
 
 **Tagline:** AI experiences people actually trust.
 
 **Core belief:** trust is won or lost in the moments AI goes wrong: when it doesn't understand, doesn't know, or shouldn't answer. NeuraUX designs for those moments.
 
-**Primary audiences**
+**Industries we work with** (use these six names, in this order, wherever the site lists industries; law firms are no longer listed):
 
-1. **Law firms:** client intake, FAQ and policy questions, matter status, document requests. Biggest worries are giving legal advice by accident, confidentiality, and POPIA.
-2. **Fintechs and financial services:** onboarding, account queries, product questions. Biggest worries are financial advice boundaries, POPIA and consent, and trust at moments involving money.
-3. **AI automation agencies and software studios (partners):** they build AI products for clients but lack conversation design skills. NeuraUX works for them under their brand.
+1. **Banking & Financial Services:** account and card queries, loan and credit applications, fraud and disputes. Worries: advice boundaries (FAIS), credit conversations (NCA), identity checks before account details.
+2. **Insurance:** claims notification and status, policy and cover questions, evidence collection. Worries: promising cover the policy doesn't give, evidence that's right first time, handoff to a claims consultant. The Home FIX case study sits here.
+3. **Fintech & Payments:** onboarding and verification, failed and pending payments, refunds and disputes. Worries: FICA and KYC steps, POPIA and consent, trust at moments involving money.
+4. **AI & Automation Agencies:** the partner audience below.
+5. **Real Estate:** listing and viewing enquiries, rental applications, tenant and maintenance requests. Worries: FICA document requests, applicant data under POPIA, handoff to an agent.
+6. **Education:** admissions and enrolment, fees and payment plans, student and parent support. Worries: learner information under POPIA, plain answers, handoff to admissions or support staff.
 
-**Buyers to write for:** heads of digital, innovation or client experience; operations partners at law firms; product owners at fintechs; agency founders. They are cautious, time-poor, and allergic to AI hype.
+Audience groups behind those industries:
+
+1. **Regulated businesses** (banking, insurance, fintech, real estate, education): biggest worries are advice boundaries, POPIA and consent, and trust at moments involving money or personal information.
+2. **AI automation agencies and software studios (partners):** they build AI products for clients but lack conversation design skills. NeuraUX works for them under their brand.
+
+**Buyers to write for:** heads of digital, innovation or client experience; operations and claims leads at insurers; product owners at banks and fintechs; agency founders. They are cautious, time-poor, and allergic to AI hype.
 
 ## 3. How NeuraUX differs from South African alternatives
 
@@ -104,7 +112,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once. The case-study pages copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py` and `case-studies/home-fix/tools/build.py`.
 
-**Homepage order:** hero; the problem (three failure modes as a segmented-control tab switcher, the same pattern as the Audit page's demo); case studies (`#case-studies`, light mist section, the Home FIX card as a magenta spotlight with links to its sections, linking to `case-studies/`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); services and pricing cards (`#services`, silver; each card has a booking button and a learn-more button); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, light mist section, the four differentiators, linking to `about.html`); trust band (dark: founder, how we use AI, data handling); agency strip; final call to action. Light and dark sections alternate; never two light sections in a row. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Homepage order:** hero; the problem (three failure modes as a segmented-control tab switcher, the same pattern as the Audit page's demo); case studies (`#case-studies`, light mist section, the Home FIX card as a magenta spotlight with links to its sections, linking to `case-studies/`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); services and pricing cards (`#services`, silver; each card has a booking button and a learn-more button); industries we work with (`#industries`, six cards, one per industry); why NeuraUX (`#about`, light mist section, the four differentiators, linking to `about.html`); trust band (dark: founder, how we use AI, data handling); agency strip; final call to action. Light and dark sections alternate; never two light sections in a row. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
@@ -228,12 +236,12 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 | Page | Title tag | Meta description |
 | --- | --- | --- |
-| Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African law firms, fintechs and regulated businesses, with conversation design, UX and compliance built into the experience. |
-| Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints for South African law firms and fintechs. |
+| Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African banks, insurers, fintechs and other regulated businesses, with conversation design, UX and compliance built into the experience. |
+| Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints for South African banks, insurers, fintechs and other regulated businesses. |
 | For Agencies | White-label Conversation Design for AI Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. For AI automation agencies and software studios in South Africa. |
 | How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we protect your data under POPIA. |
 | Contact | Contact NeuraUX \| AI UX & Conversation Design South Africa | Book a free 30-minute call about your AI assistant or chatbot. |
-| About | About NeuraUX \| AI UX Consultancy in Johannesburg | NeuraUX is a founder-led AI UX and conversation design consultancy in Johannesburg, Gauteng, designing AI assistants for South African law firms and fintechs. |
+| About | About NeuraUX \| AI UX Consultancy in Johannesburg | NeuraUX is a founder-led AI UX and conversation design consultancy in Johannesburg, Gauteng, designing AI assistants for South African banks, insurers, fintechs and other regulated businesses. |
 
 ## 10. Open items: placeholders to fill, never invent
 
