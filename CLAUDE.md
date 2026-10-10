@@ -14,7 +14,7 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 - **Email:** hello@neuraux.co.za
 - **Domain:** www.neuraux.co.za is the intended domain. Until a `CNAME` file exists, canonical, Open Graph and sitemap URLs use https://sphamandla-designer.github.io/neuraux/ (switch them back when the domain goes live)
 - **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
-- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One concept project (Home FIX, a fictional company) is published as a case study and is always labelled as a concept.
+- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One concept project (Home FIX, a fictional company) is published as a case study and is always labelled as a concept. One client website project (KIY Trucking) is published from founder-supplied copy, which credits AX-Channels with the work; keep that credit and don't embellish it.
 
 ## 2. Positioning
 
@@ -98,12 +98,13 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 | About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
 | Home FIX case study | `case-studies/home-fix/index.html` | Built. Concept project, labelled as such above the fold. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Not linked from the nav yet |
+| KIY Trucking case study | `case-studies/kiy-trucking/index.html` | Built from founder-supplied copy, kept as written. Mockups are illustrative wireframes (`.site-mk` in `css/site.css`), captioned as such, until real screenshots of kiytrucking.co.za are supplied. Testimonial is a hidden TODO. Linked from the homepage `#work` section |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
 **Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once.
 
-**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); selected work (`#work`, the KIY Trucking mockup linking to its case study); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
@@ -243,6 +244,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - [ ] Privacy Policy text, to be reviewed by the founder, ideally with legal input
 - [ ] Sample Audit report (PDF) to link from the Services page once it exists
 - [ ] Pilot pricing decision: a R9,500 founding-client Audit for 2 clients vs full price. **Do not show a pilot price on the site unless told to.**
+- [ ] Real screenshots of kiytrucking.co.za (desktop and phone) to replace the illustrative mockups, and an approved KIY Trucking testimonial if one can be published
 - [ ] LinkedIn URL for the footer (the Socials column links to a LinkedIn search for "NeuraUX" until then) and the About page founder block
 
 ## 11. How to work in this repo

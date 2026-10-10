@@ -1,0 +1,24 @@
+/* KIY Trucking case study: page-specific layout on top of css/site.css
+   Uses the site's tokens only. */
+
+.cs-gap { margin-top: 20px; }
+
+/* Hero */
+.cs-hero { padding-bottom: clamp(40px, 6vw, 80px); }
+.cs-hero__grid { display: grid; grid-template-columns: 1fr; gap: 40px 64px; align-items: start; }
+.cs-hero .svc-hero__h { font-size: clamp(34px, 5.4vw, 72px); max-width: 15em; }
+.cs-glance { margin: 28px 0 0; display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); }
+@media (min-width: 600px) { .cs-glance { grid-template-columns: 1fr 1fr; column-gap: 24px; } }
+.cs-glance > div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.cs-glance dt { font-size: var(--fs-meta); color: var(--grey-500); }
+.cs-glance dd { margin: 2px 0 0; color: var(--white); font-size: var(--fs-sup); }
+
+.cs-hero__web { width: 100%; }
+.cs-hero__web figcaption, .cs-web figcaption { margin-top: 12px; }
+@media (min-width: 960px) { .cs-hero .cs-hero__grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; } }
+.cs-prose { max-width: 40em; margin: 24px auto 0; }
+.cs-prose .body + .body { margin-top: 14px; }
+.cs-web { width: 100%; }
+@media (min-width: 900px) { #deliverable .cols { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; } }
+.cs-quote { margin: 32px auto 0; max-width: 40em; }
+.al-center .cs-prose { text-align: center; }
