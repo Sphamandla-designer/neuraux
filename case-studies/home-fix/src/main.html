@@ -1,20 +1,19 @@
 <main id="main">
   <div class="page-scene scene scene--eclipse">
   <section class="page-hero wrap al-left cs-hero" aria-labelledby="page-title">
-    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Case studies</a></li><li aria-current="page">Home FIX concept</li></ol></nav>
-    <p class="cs-concept">Concept project. Home FIX is a fictional company; the people and job details are invented.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../">Home</a></li><li><a href="../">Case studies</a></li><li aria-current="page">Home FIX</li></ol></nav>
     <div class="cs-hero__grid">
       <div class="cs-hero__copy">
         <h1 class="svc-hero__h" id="page-title"><span class="ln">Helping plumbers prove a geyser job from the roof space,</span> <span class="ln quiet">with a person making every final call.</span></h1>
         <p class="lead">A trilingual WhatsApp assistant for insurance job verification.</p>
-        <p class="body cs-gap">We designed how the assistant asks for evidence, checks it and hands over to people. Then we built a working prototype and the specification a team would need to build it.</p>
+        <p class="body">We designed how the assistant asks for evidence, checks it and hands over to people. Then we built a working prototype and the specification a team would need to build it.</p>
         <dl class="cs-glance">
           <div><dt>Role</dt><dd>NeuraUX: conversation design, product design and prototype</dd></div>
           <div><dt>Channel</dt><dd>WhatsApp</dd></div>
           <div><dt>Languages</dt><dd>English, isiZulu and Afrikaans</dd></div>
           <div><dt>Deliverables</dt><dd>Prototype, conversation design spec, copy deck and test kit</dd></div>
         </dl>
-        <div class="actions actions--stack cs-gap">
+        <div class="actions actions--stack">
           <a class="btn btn--solid btn--lg" href="../../projects/home-fix/dist/Home_FIX_Mobile.html" target="_blank" rel="noopener">Try the prototype<span class="sr-only"> (opens in a new tab)</span></a>
           <a class="btn btn--line btn--lg" href="../../projects/home-fix/docs/conversation-design-spec.html">Read the specification</a>
         </div>
@@ -32,51 +31,61 @@
   </section>
   </div>
 
-  <!-- 2. Problem and context -->
-  <section class="section wrap al-center" id="problem" aria-labelledby="problem-title">
-    <div class="cols">
-      <div>
+  <section class="section al-left cs-sec" id="problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <header class="cs-head">
         <h2 class="h2" id="problem-title">The evidence has to be right the first time.</h2>
-        <p class="lead sec-lead">An insurer can only approve and pay for a geyser replacement once it has proof the work was done properly.</p>
-      </div>
-      <div>
-        <p class="body">When a geyser bursts, a plumber on an insurance panel replaces it. Before Home FIX approves the job and pays, it needs six pieces of evidence: a photo of the geyser before, the new geyser's serial number label, and four compliance photos. It also needs the serial number itself.</p>
-        <p class="body">In this concept, that evidence is uneven. Photos are blurry, serial labels are unreadable, compliance items are missing, and installers don't know what a usable photo looks like. <em class="cs-flag">Assumption, to be tested.</em></p>
-        <h3 class="h4 cs-sub">Who is involved</h3>
-        <ul class="list-rows list-rows--single">
+        <p class="lead">An insurer can only approve and pay for a geyser replacement once it has proof the work was done properly.</p>
+      </header>
+      <div class="cs-body">
+        <div class="cs-block cs-text">
+          <p class="body">When a geyser bursts, a plumber on an insurance panel replaces it. Before Home FIX approves the job and pays, it needs six pieces of evidence: a photo of the geyser before, the new geyser's serial number label, and four compliance photos. It also needs the serial number itself.</p>
+          <p class="body">That evidence is often uneven. Photos are blurry, serial labels are unreadable, compliance items are missing, and installers don't know what a usable photo looks like. <em class="cs-flag">Assumption, to be tested.</em></p>
+        </div>
+        <div class="cs-grid3">
+        <div class="cs-block">
+          <h3 class="h3">Who is involved</h3>
+          <ul class="list-rows list-rows--single">
           <li><h3>Installer</h3><p>Sends the photos, confirms the serial number and submits the job.</p></li>
           <li><h3>Reviewer</h3><p>A Home FIX specialist who approves the job, asks for a retake or refers it to an agent.</p></li>
           <li><h3>Support agent</h3><p>Replies in the same chat when the installer is stuck, and finishes jobs the reviewer can't approve.</p></li>
           <li><h3>Customer</h3><p>Not in the conversation, but depends on a safe, compliant installation.</p></li>
         </ul>
-        <h3 class="h4 cs-sub">South African conditions</h3>
-        <ul class="notfor">
+        </div>
+        <div class="cs-block">
+          <h3 class="h3">South African conditions</h3>
+          <ul class="notfor">
           <li>Geysers sit in roof spaces and cupboards that are cramped, hot and dark, often with one hand free.</li>
           <li>Serial labels are metallic or behind plastic, so glare is the most likely failure.</li>
           <li>Signal drops and load-shedding take towers down, so progress is saved after every step.</li>
           <li>Data costs money, so each photo is asked for once and failures are explained in text.</li>
           <li>Installers may prefer English, isiZulu or Afrikaans.</li>
         </ul>
-        <p class="meta cs-note">These conditions come from desk work, not field research. <em class="cs-flag">Assumption, to be tested.</em></p>
-        <h3 class="h4 cs-sub">What the design had to achieve</h3>
-        <ul class="notfor">
+          <p class="meta">These conditions come from desk work, not field research. <em class="cs-flag">Assumption, to be tested.</em></p>
+        </div>
+        <div class="cs-block">
+          <h3 class="h3">What the design had to achieve</h3>
+          <ul class="notfor">
           <li>Collect all six evidence items and a serial number the installer has confirmed.</li>
           <li>Let the AI accept a photo or ask for another, and never reject a job or approve payment.</li>
           <li>Leave every approval decision to a person.</li>
           <li>Work in English, isiZulu and Afrikaans, with a person reachable in the same chat.</li>
         </ul>
+        </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Conversation architecture -->
-  <section class="section section--raised al-right" id="architecture" aria-labelledby="arch-title">
+  <section class="section section--raised al-left cs-sec" id="architecture" aria-labelledby="architecture-title">
     <div class="wrap">
-      <h2 class="h2" id="arch-title">The conversation follows the job.</h2>
-      <p class="lead sec-lead">The assistant asks for each piece of evidence at the moment it exists, checks it, and keeps a way out open at every step.</p>
-
-      <div class="cs-arch">
-        <figure class="cs-flow">
+      <header class="cs-head">
+        <h2 class="h2" id="architecture-title">The conversation follows the job.</h2>
+        <p class="lead">The assistant asks for each piece of evidence at the moment it exists, checks it, and keeps a way out open at every step.</p>
+      </header>
+      <div class="cs-body">
+        <div class="cs-split cs-split--arch">
+          <figure class="cs-flow">
           <div class="cs-flow__scroll" tabindex="0" role="region" aria-label="Flow diagram, scrollable">
             <img src="assets/diagrams/flow.svg" width="679" height="2464" loading="lazy" decoding="async" alt="Flow diagram of the Home FIX conversation. A text version follows.">
           </div>
@@ -99,14 +108,15 @@
             </ol>
           </details>
         </figure>
-
-        <div class="cs-arch__text">
-          <h3 class="h3">Two sittings, not one form</h3>
-          <p class="body">A geyser replacement happens in two sittings, so the conversation does too. The before photo is taken on arrival. The assistant then says "Go ahead with the installation" and waits for one tap, Installation done. The serial label belongs to the new geyser, so it is asked for only after that tap, hours later. Until then the job is paused, with progress saved.</p>
-
-          <h3 class="h3 cs-sub">One language, chosen once</h3>
-          <p class="body">The installer chooses English, isiZulu or Afrikaans in the first message, and every later message, button and error follows that choice. Typing "language", "ulimi" or "taal" brings the choice back without losing progress. "Help", "usizo" or "hulp" explains the current step, and "person", "umuntu" or "persoon" brings in a person. Every button label fits WhatsApp's 20-character limit in all three languages, and the build fails if one doesn't.</p>
-          <div class="compare-wrap">
+          <div class="cs-stack">
+            <div class="cs-block">
+              <h3 class="h3">Two sittings, not one form</h3>
+              <p class="body">A geyser replacement happens in two sittings, so the conversation does too. The before photo is taken on arrival. The assistant then says "Go ahead with the installation" and waits for one tap, Installation done. The serial label belongs to the new geyser, so it is asked for only after that tap, hours later. Until then the job is paused, with progress saved.</p>
+            </div>
+            <div class="cs-block">
+              <h3 class="h3">One language, chosen once</h3>
+              <p class="body">The installer chooses English, isiZulu or Afrikaans in the first message, and every later message, button and error follows that choice. Typing "language", "ulimi" or "taal" brings the choice back without losing progress. "Help", "usizo" or "hulp" explains the current step, and "person", "umuntu" or "persoon" brings in a person. Every button label fits WhatsApp's 20-character limit in all three languages, and the build fails if one doesn't.</p>
+              <div class="compare-wrap">
             <table class="compare">
               <caption class="sr-only">The serial number confirmation in three languages</caption>
               <thead><tr><th scope="col">Language</th><th scope="col">Message</th></tr></thead>
@@ -116,13 +126,14 @@
                 <tr><th scope="row">Afrikaans</th><td class="is-here" lang="af">Kontroleer asseblief die reeksnommer: KWH-8842-ZA-117. Is dit reg?</td></tr>
               </tbody>
             </table>
-            <p class="meta cs-note">Translations pending first-language review.</p>
+            <p class="meta">Translations pending first-language review.</p>
+          </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <h3 class="h3 cs-sub">Each stage at a glance</h3>
-      <div class="compare-wrap cs-scroll" tabindex="0" role="region" aria-label="Stages table, scrollable">
+        <div class="cs-block">
+          <h3 class="h3">Each stage at a glance</h3>
+          <div class="compare-wrap cs-scroll" tabindex="0" role="region" aria-label="Stages table, scrollable">
         <table class="compare cs-stages">
           <thead><tr><th scope="col">Stage</th><th scope="col">Starts when</th><th scope="col">Collects</th><th scope="col">Decision points</th><th scope="col">Validation and recovery</th><th scope="col">Can end</th></tr></thead>
           <tbody>
@@ -135,10 +146,11 @@
           </tbody>
         </table>
       </div>
-
-      <h3 class="h3 cs-sub">Worked example: the serial label with glare</h3>
-      <p class="body cs-left">The serial step carries most of the risk, so it has the most recovery built in. This is the exchange as the copy deck words it, with one tick and one dash left out.</p>
-      <div class="tx cs-tx">
+        </div>
+        <div class="cs-block">
+          <h3 class="h3">Worked example: the serial label with glare</h3>
+          <p class="body">The serial step carries most of the risk, so it has the most recovery built in. This is the exchange as the copy deck words it, with one tick and one dash left out.</p>
+          <div class="tx cs-tx">
         <div class="tx__row tx__row--ai"><span class="tx__who">Assistant</span><span class="tx__said">"This next one matters most: the serial number label." A guidance card follows: only the label, about 15–20 cm away, the phone torch if it's dark.</span></div>
         <div class="tx__row"><span class="tx__who">Installer</span><span class="tx__said">Sends a photo of the label.</span></div>
         <div class="tx__row tx__row--ai"><span class="tx__who">AI check</span><span class="tx__said">"I can see the label, but I can't read every character clearly yet." Reasons: glare across part of the label; a few characters are hidden. Buttons: Retake photo, Type it in instead.</span></div>
@@ -150,18 +162,22 @@
         <div class="tx__row"><span class="tx__who">Installer</span><span class="tx__said">kwh-8842-za-111</span></div>
         <div class="tx__row tx__row--fix"><span class="tx__who">Assistant</span><span class="tx__said">"Thanks. Saved as KWH-8842-ZA-111. A reviewer will compare it with the photo."</span></div>
       </div>
-      <p class="body cs-left cs-gap">Three decisions sit in that exchange. The AI names the reason in words an installer can act on. There is always a way out, so a bad label never traps anyone. And nothing the AI reads is saved until the installer agrees.</p>
+          <p class="body">Three decisions sit in that exchange. The AI names the reason in words an installer can act on. There is always a way out, so a bad label never traps anyone. And nothing the AI reads is saved until the installer agrees.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 4. The designed experience -->
-  <section class="section wrap al-left" id="experience" aria-labelledby="exp-title">
-    <h2 class="h2" id="exp-title">Each screen answers one problem.</h2>
-    <p class="lead sec-lead">Every screen below exists because an installer has a specific problem at that moment.</p>
-
-    <article class="cs-scn" aria-labelledby="scn1">
+  <section class="section al-left cs-sec" id="experience" aria-labelledby="experience-title">
+    <div class="wrap">
+      <header class="cs-head">
+        <h2 class="h2" id="experience-title">Each screen answers one problem.</h2>
+        <p class="lead">Every screen below exists because an installer has a specific problem at that moment.</p>
+      </header>
+      <div class="cs-body">
+        <article class="cs-block cs-scn" aria-labelledby="scn1">
       <h3 class="h3" id="scn1">Starting verification</h3>
-      <div class="cs-scn__grid">
+      <div class="cs-split cs-split--shots">
         <div class="cs-shots">
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/language-choice.webp"><img src="assets/screens/language-choice.png" width="390" height="844" loading="lazy" decoding="async" alt="Good morning, Sipho. This is Home FIX verification. Which language would you like to continue in? You can change this at any time. Three buttons: English, isiZulu and Afrikaans, each with a subtitle in its own language."></picture></div>
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/job-summary-af.webp"><img src="assets/screens/job-summary-af.png" width="390" height="844" loading="lazy" decoding="async" alt="The chat in Afrikaans after choosing Afrikaans: the privacy line, the job count, then the Werkopsomming card with reference HF-2026-DBN-04821, customer M. Khumalo, region Durban, KZN, and the button Begin verifikasie."></picture></div>
@@ -173,10 +189,9 @@
         </dl>
       </div>
     </article>
-
-    <article class="cs-scn" aria-labelledby="scn2">
+        <article class="cs-block cs-scn" aria-labelledby="scn2">
       <h3 class="h3" id="scn2">Collecting and confirming information</h3>
-      <div class="cs-scn__grid">
+      <div class="cs-split cs-split--shots">
         <div class="cs-shots">
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/before-photo-guidance.webp"><img src="assets/screens/before-photo-guidance.png" width="390" height="844" loading="lazy" decoding="async" alt="First, a photo of the geyser as it is now. A Before photo card lists what to show (the entire geyser, the area around it) and photo tips (good lighting, step back slightly, keep the lens clear), with a good example and a too-close example. Buttons: Upload photo and Need help."></picture></div>
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/serial-confirmation-zu.webp"><img src="assets/screens/serial-confirmation-zu.png" width="390" height="844" loading="lazy" decoding="async" alt="In isiZulu, the AI shows the serial number KWH-8842-ZA-117, then asks the installer to check it. Buttons: Yebo, ilungile (Yes, correct) and Cha, yilungise (No, fix it)."></picture></div>
@@ -188,10 +203,9 @@
         </dl>
       </div>
     </article>
-
-    <article class="cs-scn" aria-labelledby="scn3">
+        <article class="cs-block cs-scn" aria-labelledby="scn3">
       <h3 class="h3" id="scn3">Handling missing or invalid information</h3>
-      <div class="cs-scn__grid">
+      <div class="cs-split cs-split--shots">
         <div class="cs-shots">
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/serial-typed-correction.webp"><img src="assets/screens/serial-typed-correction.png" width="390" height="844" loading="lazy" decoding="async" alt="The installer taps No, fix it. The assistant asks them to type the serial number exactly as it is on the label. They type kwh-8842-za-111 and the assistant replies: Thanks. Saved as KWH-8842-ZA-111. A reviewer will compare it with the photo."></picture></div>
         </div>
@@ -202,10 +216,9 @@
         </dl>
       </div>
     </article>
-
-    <article class="cs-scn" aria-labelledby="scn4">
+        <article class="cs-block cs-scn" aria-labelledby="scn4">
       <h3 class="h3" id="scn4">Recovering from an error</h3>
-      <div class="cs-scn__grid">
+      <div class="cs-split cs-split--shots">
         <div class="cs-shots">
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/blurry-photo-retake.webp"><img src="assets/screens/blurry-photo-retake.png" width="390" height="844" loading="lazy" decoding="async" alt="Photo check: This one came out a little blurry, so it may be hard to verify. No problem, this happens often. A clearer shot will help your job get approved faster. Buttons: Retake photo and Contact support."></picture></div>
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/signal-drop-connecting.webp"><img src="assets/screens/signal-drop-connecting.png" width="390" height="844" loading="lazy" decoding="async" alt="The header reads Connecting. The installer's four compliance photos show a clock instead of delivery ticks, and the assistant has sent nothing since."></picture></div>
@@ -217,10 +230,9 @@
         </dl>
       </div>
     </article>
-
-    <article class="cs-scn" aria-labelledby="scn5">
+        <article class="cs-block cs-scn" aria-labelledby="scn5">
       <h3 class="h3" id="scn5">Completing or escalating</h3>
-      <div class="cs-scn__grid">
+      <div class="cs-split cs-split--shots">
         <div class="cs-shots">
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/submitted-in-review.webp"><img src="assets/screens/submitted-in-review.png" width="390" height="844" loading="lazy" decoding="async" alt="Evidence submitted successfully, with reference HF-2026-DBN-04821, submitted 18 Jun 2026 at 13:18, 6 of 6 complete. Then an In review card: A real person makes the final decision, not an automated system. Payment is processed once the job is approved. Button: Contact support."></picture></div>
         </div>
@@ -231,8 +243,7 @@
         </dl>
       </div>
     </article>
-
-    <div class="cs-embed" id="prototype">
+        <div class="cs-block cs-embed" id="prototype">
       <h3 class="h3">Play through a job</h3>
       <div class="cs-embed__frame">
         <iframe src="../../projects/home-fix/dist/Home_FIX_Mobile.html" title="Home FIX interactive prototype" width="390" height="760" loading="lazy"></iframe>
@@ -240,14 +251,19 @@
       <p class="meta cs-embed__cap">Interactive prototype. Tap the buttons to play through a job.</p>
       <a class="btn btn--solid btn--lg cs-embed__open" href="../../projects/home-fix/dist/Home_FIX_Mobile.html">Open the prototype full screen</a>
     </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 5. AI rules and human review -->
-  <section class="section theme-mist al-right" id="rules" aria-labelledby="rules-title">
+  <section class="section section--raised al-left cs-sec" id="rules" aria-labelledby="rules-title">
     <div class="wrap">
-      <h2 class="h2" id="rules-title">The AI checks. A person decides.</h2>
-      <p class="lead sec-lead">Six plain rules set what the AI is allowed to do, and what it must leave to people.</p>
-      <ul class="list-rows cs-rules">
+      <header class="cs-head">
+        <h2 class="h2" id="rules-title">The AI checks. A person decides.</h2>
+        <p class="lead">Six plain rules set what the AI is allowed to do, and what it must leave to people.</p>
+      </header>
+      <div class="cs-body">
+        <div class="cs-block">
+          <ul class="list-rows cs-rules">
         <li><h3>The AI may accept a photo or ask again. It never rejects; a person decides.</h3><p><strong>Controls:</strong> the photo check and the serial reading. <strong>Why it matters:</strong> a job and a payment never stop on a model's judgement alone.</p></li>
         <li><h3>Confidence scores route the conversation and go to the reviewer. The installer never sees them.</h3><p><strong>Controls:</strong> whether the next step is a retake or the next item. <strong>Why it matters:</strong> a percentage doesn't tell someone in a roof space what to do next; a plain reason does.</p></li>
         <li><h3>Every extracted value is confirmed by the installer.</h3><p><strong>Controls:</strong> the serial number, read or typed. <strong>Why it matters:</strong> the person who can see the label has the final word on what it says.</p></li>
@@ -255,21 +271,23 @@
         <li><h3>Help means a person inside the same chat, not a phone number.</h3><p><strong>Controls:</strong> Contact support and the word "person". Thandi replies in the chat, then hands back to the same step. <strong>Why it matters:</strong> the installer never has to leave the job to get help.</p></li>
         <li><h3>If a job isn't approved, the installer is told why, who will help and by when.</h3><p><strong>Controls:</strong> the needs-assistance outcome: the reason, Thandi from the Home FIX team, today before 15:00. <strong>Why it matters:</strong> silence after a failed review is where trust goes.</p></li>
       </ul>
-
-      <h3 class="h3 cs-sub">Confidence thresholds</h3>
-      <div class="compare-wrap">
-        <table class="compare">
+        </div>
+        <div class="cs-block">
+          <h3 class="h3">Confidence thresholds</h3>
+          <div class="compare-wrap">
+            <table class="compare">
           <thead><tr><th scope="col">Check</th><th scope="col">Accept at about</th><th scope="col">Ask again at about</th></tr></thead>
           <tbody>
             <tr><th scope="row">Photo quality</th><td class="num">96</td><td class="num">41 or below</td></tr>
             <tr><th scope="row">Serial reading</th><td class="num">98</td><td class="num">41 or below</td></tr>
           </tbody>
         </table>
-        <p class="meta cs-note">Starting values, to be calibrated in a pilot. Values in between need real site photos before any production threshold is set. In the prototype, results are scripted.</p>
-      </div>
-
-      <h3 class="h3 cs-sub">Three review outcomes</h3>
-      <div class="cs-outcomes">
+          </div>
+          <p class="meta">Starting values, to be calibrated in a pilot. Values in between need real site photos before any production threshold is set. In the prototype, results are scripted.</p>
+        </div>
+        <div class="cs-block">
+          <h3 class="h3">Three review outcomes</h3>
+          <div class="cs-outcomes">
         <figure>
           <div class="cs-phone"><picture><source type="image/webp" srcset="assets/screens/outcome-approved.webp"><img src="assets/screens/outcome-approved.png" width="390" height="844" loading="lazy" decoding="async" alt="Good news, Sipho, your review is complete. Installation approved: your evidence met all requirements. The job is complete. Completed 18 Jun 2026 at 14:52, 6 of 6 verified. Button: Close job."></picture></div>
           <figcaption class="meta">Approved</figcaption>
@@ -283,24 +301,31 @@
           <figcaption class="meta">Needs assistance</figcaption>
         </figure>
       </div>
-
-      <h3 class="h3 cs-sub">Decisions a real client would need to approve</h3>
-      <ul class="notfor">
+        </div>
+        <div class="cs-block cs-text">
+          <h3 class="h3">Decisions the client signs off</h3>
+          <ul class="notfor">
         <li>How long photos, serial numbers and chat logs are kept, and where.</li>
         <li>The confidence thresholds, once calibrated on real site photos.</li>
         <li>Service hours, and what happens after 19:00 and on Sundays.</li>
         <li>The payment wording: "Payment is processed once the job is approved."</li>
         <li>The wording of the first message and the review outcomes, as WhatsApp templates.</li>
       </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 6. Testing and iteration -->
-  <section class="section wrap al-center" id="testing" aria-labelledby="test-title">
-    <h2 class="h2" id="test-title">Fixed before anyone tests it.</h2>
-    <p class="lead sec-lead">We reviewed the first version against a written brief, fixed 20 problems, and checked every fix with automated tests before any participant sees it.</p>
-
-    <div class="cs-ba">
+  <section class="section al-left cs-sec" id="testing" aria-labelledby="testing-title">
+    <div class="wrap">
+      <header class="cs-head">
+        <h2 class="h2" id="testing-title">Fixed before anyone tests it.</h2>
+        <p class="lead">We reviewed the first version against a written brief, fixed 20 problems, and checked every fix with automated tests before any participant sees it.</p>
+      </header>
+      <div class="cs-body">
+        <div class="cs-block">
+          <h3 class="h3">Four problems the first version had</h3>
+          <div class="cs-ba">
       <article class="cs-ba__pair" aria-labelledby="ba1">
         <h3 class="h4" id="ba1">The language that slipped back to English</h3>
         <div class="cs-ba__imgs">
@@ -337,36 +362,43 @@
         <p class="body"><strong>Problem:</strong> help meant leaving the chat for a phone call, with no reason given. <strong>Fix:</strong> Thandi replies in the same chat, and the referral says why, who and when.</p>
       </article>
     </div>
-
-    <p class="body cs-left cs-gap">The updated prototype passes 52 of 52 automated checks. They include full runs in all three languages, every review outcome, phones from 320 px wide, and a scan for English left on screen after choosing isiZulu or Afrikaans. It has not yet been tried on real phones.</p>
-
-    <div class="cs-plan">
-      <h3 class="h3">Testing plan</h3>
-      <p class="body">No participant sessions have run yet. This is the plan from the test kit.</p>
-      <ul class="list-rows list-rows--single">
+        </div>
+        <div class="cs-block cs-text">
+          <h3 class="h3">Automated checks</h3>
+          <p class="body">The updated prototype passes 52 of 52 automated checks. They include full runs in all three languages, every review outcome, phones from 320 px wide, and a scan for English left on screen after choosing isiZulu or Afrikaans. It has not yet been tried on real phones.</p>
+        </div>
+        <div class="cs-block cs-text">
+          <h3 class="h3">Testing plan</h3>
+          <p class="body">No participant sessions have run yet. This is the plan from the test kit.</p>
+          <ul class="list-rows list-rows--single">
         <li><h3>Who</h3><p>Plumbers and installers using their own phones, in the language they prefer, each with a participant code.</p></li>
         <li><h3>How</h3><p>Moderated sessions of about 20 minutes. The participant thinks aloud while the moderator sets the review outcome from the facilitator view.</p></li>
         <li><h3>Tasks</h3><p>Complete a job from arrival to submission. Get a job approved after a retake request. Get help when stuck on the serial label.</p></li>
         <li><h3>Measures <em class="cs-flag">Proposed</em></h3><p>Task completion, time to submit, retakes per photo, repairs, handovers to a person, serial corrections, and ease on a 1 to 7 scale.</p></li>
       </ul>
-      <div class="actions actions--stack cs-gap">
-        <a class="btn btn--line btn--lg" href="../../projects/home-fix/docs/conversation-design-spec.html" download>Download the conversation design spec</a>
+          <div class="actions actions--stack">
+            <a class="btn btn--line btn--lg" href="../../projects/home-fix/docs/conversation-design-spec.html" download>Download the conversation design spec</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Next steps -->
-  <section class="section section--raised al-left" id="next" aria-labelledby="next-title">
-    <div class="wrap cols">
-      <div>
+  <section class="section section--raised al-left cs-sec" id="next" aria-labelledby="next-title">
+    <div class="wrap">
+      <header class="cs-head">
         <h2 class="h2" id="next-title">Ready to test, with decisions left to the client.</h2>
-        <p class="lead sec-lead">The design is complete enough to put in front of installers; what remains is evidence and sign-off.</p>
-      </div>
-      <ul class="list-rows">
+        <p class="lead">The design is complete enough to put in front of installers; what remains is evidence and sign-off.</p>
+      </header>
+      <div class="cs-body">
+        <div class="cs-block cs-text">
+          <ul class="list-rows">
         <li><h3>Delivered</h3><p>A working prototype in three languages, a conversation design specification, a copy deck of 221 strings, a moderator guide and a QA report.</p></li>
         <li><h3>Still to validate</h3><p>First-language review of every isiZulu and Afrikaans string. Real iPhones and Android phones, opened from WhatsApp. Thresholds on real site photos. Whether installers trust the AI result and the review wording.</p></li>
         <li><h3>What we learned</h3><p>Most of the first version's problems were invisible in an English walkthrough on a good connection. They showed up when we followed the job the way an installer lives it: in isiZulu, on a dropped signal, with hours between photos.</p></li>
       </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -376,7 +408,7 @@
     <div class="closing__grid">
       <div>
         <p class="lead">The Conversation Design Blueprint gives your team the flow, copy, AI rules and handover pack to build it right, tested in walkthroughs with your staff.</p>
-        <p class="body cs-gap">This concept went further than a Blueprint: the working prototype and test kit are not part of its standard scope.</p>
+        <p class="body cs-closing-note">This project went further than a Blueprint: the working prototype and test kit are not part of its standard scope.</p>
       </div>
       <div class="actions actions--stack">
         <a class="btn btn--solid btn--lg" href="mailto:hello@neuraux.co.za?subject=Conversation%20Design%20Blueprint">Talk to NeuraUX</a>

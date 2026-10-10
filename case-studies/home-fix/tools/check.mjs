@@ -23,6 +23,7 @@ const results = [];
 const check = (name, pass, detail) => { results.push({ name, pass, detail }); console.log(pass ? 'PASS' : 'FAIL', name, '-', detail); };
 
 const BANNED = ['revolutionary', 'seamless', 'cutting-edge', 'leverage', 'empower', 'game-changer', 'unlock', 'harness', 'delve', "in today's fast-paced world", 'supercharge'];
+const NO_CONCEPT = /\bconcept\b/i;
 const CLIENT = ['santam', 'home assist', 'hollard', 'outsurance', 'old mutual', 'discovery insure', 'momentum', 'king price', 'miway', 'dialdirect', 'budget insurance', 'absa insurance'];
 
 const browser = await pw.chromium.launch();
@@ -48,6 +49,7 @@ const browser = await pw.chromium.launch();
   check('No banned words', !banned.length, banned.length ? banned.join(', ') : 'none found');
   const emdash = (t.visible.match(/—/g) || []).length;
   check('No em dashes in page copy', emdash === 0, emdash + ' found');
+  check('No concept-project labelling on the page', !NO_CONCEPT.test(t.visible), NO_CONCEPT.test(t.visible) ? 'found' : 'none');
   const client = CLIENT.filter(w => t.html.toLowerCase().includes(w));
   check('No real insurer or client names', !client.length, client.length ? client.join(', ') : 'none (searched ' + CLIENT.length + ' names)');
   const phones = (t.visible + ' ' + t.alts.join(' ')).match(/(\+27|\b0)\d{2}[\s-]?\d{3}[\s-]?\d{3,4}\b/g) || [];
@@ -58,12 +60,18 @@ const browser = await pw.chromium.launch();
   await page.close();
 }
 
-// ---------- Concept label above the fold at 390 ----------
-{
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+// ---------- Consistent section alignment and spacing ----------
+for (const w of [390, 1280]) {
+  const page = await browser.newPage({ viewport: { width: w, height: 900 } });
   await page.goto(PAGE);
-  const r = await page.$eval('.cs-concept', e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, text: e.innerText }; });
-  check('Concept label visible above the fold at 390×844', r.bottom <= 844 && r.top >= 0, `top ${Math.round(r.top)} px, bottom ${Math.round(r.bottom)} px: "${r.text}"`);
+  const r = await page.evaluate(() => [...document.querySelectorAll('main section.cs-sec')].map(sec => {
+    const head = sec.querySelector('.cs-head'), body = sec.querySelector('.cs-body');
+    const h = head.getBoundingClientRect(), b = body.getBoundingClientRect();
+    return { id: sec.id, left: Math.round(h.left), gap: Math.round(b.top - h.bottom), align: getComputedStyle(head.querySelector('h2')).textAlign };
+  }));
+  const lefts = new Set(r.map(x => x.left)), gaps = new Set(r.map(x => x.gap)), aligns = new Set(r.map(x => x.align));
+  check(`Sections share one left edge, alignment and header-to-body gap at ${w} px`, lefts.size === 1 && gaps.size === 1 && aligns.size === 1 && !aligns.has('right') && !aligns.has('center'),
+    `${r.length} sections; left ${[...lefts].join('/')} px; header-to-body gap ${[...gaps].join('/')} px; text-align ${[...aligns].join('/')}`);
   await page.close();
 }
 

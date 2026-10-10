@@ -14,7 +14,7 @@ NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South 
 - **Email:** hello@neuraux.co.za
 - **Domain:** www.neuraux.co.za is the intended domain. Until a `CNAME` file exists, canonical, Open Graph and sitemap URLs use https://sphamandla-designer.github.io/neuraux/ (switch them back when the domain goes live)
 - **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
-- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One concept project (Home FIX, a fictional company) is published as a case study and is always labelled as a concept.
+- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One self-initiated project (Home FIX, a fictional company) is published as a case study. At the founder's request the page presents it as a case study without a concept label. Never describe Home FIX as a client or imply NeuraUX was paid for it.
 
 ## 2. Positioning
 
@@ -97,14 +97,14 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 | About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
-| Case Studies | `case-studies/index.html` | Built. Lists case studies as cards; for now one concept project (Home FIX). Built from `case-studies/src/index.main.html` by `case-studies/tools/build_index.py` (header and footer copied from `about.html`). In the main nav after How We Work, and in the footer's Company column |
-| Home FIX case study | `case-studies/home-fix/index.html` | Built. Concept project, labelled as such above the fold. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Breadcrumb: Home, Case studies, Home FIX concept |
+| Case Studies | `case-studies/index.html` | Built. Lists case studies as cards; for now Home FIX. The same card appears on the homepage. Built from `case-studies/src/index.main.html` by `case-studies/tools/build_index.py` (header and footer copied from `about.html`). In the main nav after How We Work, and in the footer's Company column |
+| Home FIX case study | `case-studies/home-fix/index.html` | Built. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Breadcrumb: Home, Case studies, Home FIX. Every content section is left-aligned with one spacing scale (an exception to the alternating alignment, at the founder's request) |
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
 **Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once. The case-study pages copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py` and `case-studies/home-fix/tools/build.py`.
 
-**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Homepage order:** hero; the problem (three failure modes as tabs); services and pricing cards (`#services`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); who it's for (example flows behind a disclosure); why NeuraUX (`#about`, the four differentiators, linking to `about.html`); case studies (`#case-studies`, the Home FIX card with links to its sections, linking to `case-studies/`); trust band (founder, how we use AI, data handling); agency strip; final call to action. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
