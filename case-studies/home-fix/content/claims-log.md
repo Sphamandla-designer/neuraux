@@ -14,7 +14,7 @@ Line numbers are as of this build. Rationale lines ("why it matters", "intended 
 
 | Claim on the page | Source |
 |---|---|
-| Concept project; Home FIX fictional; people and job details invented | README.md line 5 ("Home FIX is not a real company"); the welcome screen `w_proto` (Deck line 199). Names come from the prototype script. |
+| (No concept label on the page, at the founder's request.) Home FIX is not presented as a client anywhere on the page | README.md line 5 ("Home FIX is not a real company"); the prototype's welcome screen `w_proto` (Deck line 199) still says so |
 | Helping plumbers prove a geyser job from the roof space | Spec line 9 (plumbers replace geysers, prove the work); Spec line 34 (roof spaces) |
 | A person makes every final call | Spec line 19 ("A reviewer makes every approval decision"); Spec line 446 |
 | Trilingual WhatsApp assistant for insurance job verification | Spec lines 9, 13 (channel), 15 (three languages) |

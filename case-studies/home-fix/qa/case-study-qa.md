@@ -1,6 +1,6 @@
 # QA: Home FIX case study page
 
-Page: `case-studies/home-fix/index.html`, built by `tools/build.py` from `src/main.html`. Checked on 9 October 2026 against a local server (`python3 -m http.server 8765` from the repo root) in Chromium.
+Page: `case-studies/home-fix/index.html`, built by `tools/build.py` from `src/main.html`. Checked on 9 October 2026; layout and labelling re-checked on 10 October 2026 against a local server (`python3 -m http.server 8765` from the repo root) in Chromium.
 
 Automated results: `qa/check-results.json`, from `tools/check.mjs`. Full-page screenshots: `qa/page-390-part*.webp` and `qa/page-1280-part1.webp`.
 
@@ -11,7 +11,8 @@ Automated results: `qa/check-results.json`, from `tools/check.mjs`. Full-page sc
 | Every claim has a source in `content/claims-log.md` | pass (by hand) | Each section's claims are listed with the spec, copy deck, QA report or screenshot they come from. Design reasoning is marked "Rationale". |
 | No "Santam", "Home Assist", other insurer names, phone numbers | pass | 12 insurer and client names searched in the page HTML; no phone-number patterns in the text or alt text. The original prototype's placeholder number is covered in the one "before" screenshot that showed it. |
 | Every percentage sourced or labelled "Proposed" | pass | Three mentions, all the first version's "Read confidence 41%" and "98%", in text and alt text. Source: `before-serial-confidence` and `qa/before/`. No result percentages anywhere. |
-| Concept label above the fold on a 390 px phone | pass | Top 159 px, bottom 216 px in a 390×844 viewport. It sits above the headline. |
+| No concept labelling (founder's request, 10 Oct 2026) | pass | The word "concept" doesn't appear in the page text. |
+| Consistent section alignment and spacing | pass | All 6 content sections are left-aligned on one edge (16 px at 390, 51 px at 1280), with the same header-to-content gap (40 px and 64 px). |
 | Word count 1,800–2,400 (excluding alt text and captions) | pass | 2,355 words (captions, the flow's text version, alt text and screen-reader-only text excluded). Counted text: `qa/page-text.txt`. |
 | All links work: prototype, spec download, mailto | pass | 78 internal links, images and mailto links checked, all return 200 and every anchor exists. The external LinkedIn link in the shared footer could not be reached from the sandbox and was skipped. |
 | No horizontal scroll at 320, 375, 390, 768, 1280 | pass | All five fit. The stage table scrolls inside its own labelled box on narrow screens. |
