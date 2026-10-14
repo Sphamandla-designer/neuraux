@@ -110,7 +110,7 @@ def main():
     w("## Checked by reading")
     w("")
     w("- **South African English.** Read every English string in `docs/copy-deck.csv`. UK spelling throughout; \"geyser\" and \"torch\" kept; 24-hour times; \"(PCV)\" added at first use; rand and dates not needed beyond 18 Jun 2026. The automated F03 test also scans for common US spellings and checks every time shown. No slang. Wording already correct was not changed.")
-    w("- **Two-sitting timeline.** Read the transcript from start to the outcome: before photo 09:33–09:35, the installation message telling the installer to come back, the \"Later today\" chip directly above the 13:10 \"Installation done\" reply, then the serial and compliance steps 13:10–13:18 and the outcome 14:35–14:52. Times only move forward.")
+    w("- **Two-sitting timeline.** Read the transcript from start to the outcome: before photo rejected at 09:33 and the retake accepted at 09:35, the installation message telling the installer to come back, the \"Later today\" chip directly above the 13:10 \"Installation done\" reply, then the serial and compliance steps 13:10–13:18 and the outcome 14:35–14:52. Times only move forward.")
     w("- **Facilitator drawer invisible without `#facilitator`.** Confirmed in the template that the tab and drawer sit inside `sc-if facMode`, which is false unless the hash has `facilitator`; the T03 test checks the rendered page has no tab, no drawer and no \"Facilitator\" text.")
     w("- **Translations.** isiZulu and Afrikaans were drafted for natural, plain register with trade terms as loan words. They are not final: every one is marked for native review.")
     w("")

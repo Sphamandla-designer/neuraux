@@ -111,7 +111,7 @@ Line numbers are as of this build. Rationale lines ("why it matters", "intended 
 | First version reviewed against a written brief; 20 problems fixed | Spec §19 changelog F01–F20 (lines 658–677) |
 | Every fix checked with automated tests | `qa/qa-report.md` line 5 and the checklist row "Each F-fix and T-item has at least one test naming its id" |
 | Language slipped back to English; after: one table, missing translation stops the build | Screen `before-language-zu` (captured from `original/Home_FIX_Mobile.html`) vs Screen `job-summary-zu`; F01 (Spec line 658) |
-| Before photo at 09:33, serial label at 09:37 | Screen `before-serial-0937`; `qa/before/03-before.png` (09:33) and `qa/before/06-serial.png` (09:37) |
+| First before photo rejected at 09:33, retake accepted at 09:35, serial label requested at 09:37 | Authoritative sequence confirmed by the founder (October 2026). Current prototype: `src/template.html` beats `before_retake` (09:33) and `before_ok` (09:35); screen `blurry-photo-retake` (09:33). First version: screen `before-serial-0937` (09:35 accepted, 09:37 serial). Note: `original/Home_FIX_Mobile.html` is kept byte-identical as the uploaded file and still shows its rejection at 09:34 |
 | After: installation step, serial later the same day | Screen `after-serial-later-today`; F04 (Spec line 661) |
 | Before: "Read confidence 41%" and "98%" | Screen `before-serial-confidence`; `qa/before/07-serial_retake.png`, `qa/before/08-serial_ok.png` |
 | After: plain result; numbers in the facilitator view | Screen `after-serial-no-confidence`; F12 (Spec line 669) |

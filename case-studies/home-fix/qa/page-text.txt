@@ -1,6 +1,11 @@
 Home
 Case studies
 Home FIX
+
+Self-initiated concept
+
+Designed to live-engagement standard. Home FIX is a fictional company, and this is not a deployed production system.
+
 Helping plumbers prove a geyser job from the roof space,
 with a person making every final call.
 
@@ -205,9 +210,9 @@ The language that slipped back to English
 
 Problem: choosing isiZulu or Afrikaans changed the greeting and little else. Fix: every string now comes from one table in three languages, and a missing translation stops the build.
 
-The four-minute installation
+No room for the installation
 
-Problem: the before photo came at 09:33 and the new geyser's serial label at 09:37, four minutes apart. Fix: an installation step with one button, and the serial step starts later the same day.
+Problem: the first before photo was rejected at 09:33 and the retake accepted at 09:35. The assistant then asked for the new geyser's serial label at 09:37, with no step for the installation in between. Fix: an installation step with one button, and the serial step starts later the same day.
 
 Confidence percentages on the installer's screen
 

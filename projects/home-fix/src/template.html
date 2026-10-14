@@ -1417,7 +1417,7 @@ class Component extends DCLogic {
             examples: [{ label: t('ph_good_example'), badge: 'good', badgeLabel: t('badge_good') }, { label: t('ph_too_close'), badge: 'avoid', badgeLabel: t('badge_avoid') }],
             footer: t('g_before_footer') }],
         quick: () => [Q('btn_upload_photo', 'primary', 'camera', 'photo', 'before'), Q('btn_need_help', 'secondary', 'help', 'extra', 'm_need_help')] },
-      before_retake: { time: '09:34', progress: 0, step: 'step_before', name: 'g_before_title', lead: { photo: 'before' },
+      before_retake: { time: '09:33', progress: 0, step: 'step_before', name: 'g_before_title', lead: { photo: 'before' },
         msgs: () => [this.aiCard('ai_photo_check', 'ai_blurry', { note: t('ai_blurry_note') })],
         quick: () => [Q('btn_retake', 'primary', 'camera', 'photo', 'before'), Q('btn_support', 'secondary', 'support', 'support')] },
       before_ok: { time: '09:35', progress: 1, step: 'step_before', name: 'g_before_title', lead: { photo: 'before', attempt: 2 }, auto: 'install',
