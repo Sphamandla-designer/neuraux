@@ -44,7 +44,7 @@
 @media (min-width: 960px) { .cs-hero__grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); } }
 .cs-hero__copy { display: grid; gap: var(--cs-item); align-content: start; }
 .cs-hero__copy > * { margin: 0; }
-.cs-hero .svc-hero__h { font-size: clamp(34px, 5.4vw, 72px); max-width: 15em; }
+.cs-hero .svc-hero__h { max-width: 15em; }
 .cs-hero__copy .actions { margin-top: 8px; }
 .cs-hero__shot { justify-self: center; width: 100%; max-width: 320px; }
 .cs-hero__shot figcaption { margin-top: 12px; }
