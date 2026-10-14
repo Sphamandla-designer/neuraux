@@ -81,6 +81,7 @@
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html" aria-current="page">For Agencies</a></li>
         <li><a href="how-we-work.html">How We Work</a></li>
         <li><a href="case-studies/">Case Studies</a></li>
         <li><a href="about.html">About</a></li>
@@ -94,6 +95,7 @@
     <nav aria-label="Mobile">
       <ul>
         <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html" aria-current="page">For Agencies</a></li>
         <li><a href="how-we-work.html">How We Work</a></li>
         <li><a href="case-studies/">Case Studies</a></li>
         <li><a href="about.html">About</a></li>
@@ -119,7 +121,7 @@
       <a class="btn btn--solid btn--lg" href="contact.html?enquiry=agency">Book a partner call</a>
       <a class="btn btn--line btn--lg" href="mailto:hello@neuraux.co.za?subject=Agency%20partnership">Email NeuraUX</a>
     </div>
-    <p class="meta" style="margin-top:20px">R7,500 per day, with a two-day minimum. A two-day review costs R15,000. Excluding VAT.</p>
+    <p class="meta" style="margin-top:20px">R7,500 per day, with a two-day minimum. A two-day review costs R15,000. Excluding VAT. <a class="link" href="#pricing">See partner pricing</a></p>
   </section>
   </div>
 
@@ -135,10 +137,24 @@
     </div>
   </section>
 
-  <section class="section theme-mist al-right" aria-labelledby="do-title">
+  <section class="section wrap al-right" id="who" aria-labelledby="who-title">
+    <div class="cols">
+      <div>
+        <h2 class="h2" id="who-title">Who the partnership is for.</h2>
+        <p class="lead sec-lead">Teams that build AI products for clients and want the conversation design done properly, without hiring for it.</p>
+      </div>
+      <ul class="list-rows">
+        <li><h3>AI automation agencies</h3><p>You build bots and workflows quickly. We design how they talk, recover and hand over, so they survive client testing.</p></li>
+        <li><h3>Software and product studios</h3><p>You're adding an assistant to a client's product. We design it as part of the whole experience, not a chat window bolted on.</p></li>
+        <li><h3>Agencies with regulated clients</h3><p>Banks, insurers and fintechs ask harder questions. We design advice boundaries, disclosure and POPIA-aware consent into the conversation.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section theme-mist al-left" aria-labelledby="do-title">
     <div class="wrap cols">
       <div>
-        <h2 class="h2" id="do-title" style="font-size:clamp(32px,4vw,56px)">What we do inside your projects.</h2>
+        <h2 class="h2" id="do-title">What we do inside your projects.</h2>
         <p class="body" style="margin-top:20px">We join as part of your team. Your client sees one agency: yours.</p>
       </div>
       <ul class="list-rows">
@@ -152,10 +168,80 @@
     </div>
   </section>
 
-  <section class="section section--raised al-center" aria-labelledby="deliv-title">
+  <section class="section section--raised al-center" id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <h2 class="h2" id="pricing-title">Partner pricing.</h2>
+      <p class="lead sec-lead">Published rates, agreed in writing before any work starts. All prices exclude VAT.</p>
+      <div class="cards">
+        <article class="card card--featured" aria-labelledby="pr-review">
+          <h3 class="card__name" id="pr-review">Two-day review</h3>
+          <p class="card__tag">The first project: a review of a bot you're about to hand over to your client.</p>
+          <p class="card__price"><span class="price__from">Fixed price</span><span class="price__n">R15,000</span><span class="card__time">Two days, excluding VAT.</span></p>
+          <ul class="ticks">
+            <li>Flows, edge cases, recovery and handoff reviewed before your client sees them</li>
+            <li>Findings with a recommended fix for each</li>
+            <li>Delivered in your agency's format, under your brand</li>
+          </ul>
+          <div class="actions card__actions"><a class="btn btn--solid btn--lg" href="contact.html?enquiry=agency">Book a partner call</a></div>
+        </article>
+        <article class="card" aria-labelledby="pr-day">
+          <h3 class="card__name" id="pr-day">Day rate</h3>
+          <p class="card__tag">Book conversation design days as your projects need them.</p>
+          <p class="card__price"><span class="price__from">Per day</span><span class="price__n">R7,500</span><span class="card__time">Two-day minimum, excluding VAT.</span></p>
+          <ul class="ticks">
+            <li>Conversation flows and edge cases</li>
+            <li>Persona and voice</li>
+            <li>Handoff and recovery design</li>
+            <li>Developer-ready specs and sample dialogues</li>
+          </ul>
+        </article>
+        <article class="card" aria-labelledby="pr-fixed">
+          <h3 class="card__name" id="pr-fixed">Fixed project quote</h3>
+          <p class="card__tag">For a defined piece of work, we quote one fixed price based on the day rate.</p>
+          <ul class="ticks">
+            <li>Scope, timeline and price agreed in writing before we start</li>
+            <li>No open-ended hourly billing</li>
+          </ul>
+        </article>
+        <article class="card" aria-labelledby="pr-capacity">
+          <h3 class="card__name" id="pr-capacity">Monthly capacity</h3>
+          <p class="card__tag">Reserve conversation design days each month for ongoing client work.</p>
+          <ul class="ticks">
+            <li>Days held for your projects every month</li>
+            <li>Pricing shared on the partner call</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap al-left" id="review" aria-labelledby="review-title">
+    <div class="judge">
+      <div>
+        <h2 class="h2" id="review-title">What a two-day review hands back.</h2>
+        <p class="lead sec-lead">Each finding names the moment, how serious it is and the fix, so your team can act on it before handover.</p>
+      </div>
+      <figure class="mk" aria-label="Illustrative pre-handover review findings for a client's payments assistant">
+        <div class="mk__bar">
+          <span class="mk__title">Pre-handover review</span>
+          <span class="mk__crumbs"><span>Client payments assistant</span></span>
+          <span class="mk__spacer"></span>
+          <span class="mk__label">Illustrative</span>
+        </div>
+        <div class="spec">
+          <div class="spec__row"><span class="mk__k">High</span><span class="mk__v">Repeats "Sorry, I didn't understand" three times. Fix: after two misses, offer the top options and a person.</span></div>
+          <div class="spec__row"><span class="mk__k">High</span><span class="mk__v">No route to a person from the failed-payment flow. Fix: add a handoff at every dead end, with the conversation passed on.</span></div>
+          <div class="spec__row"><span class="mk__k">Medium</span><span class="mk__v">Says "Your details have been updated" before the change is confirmed. Fix: confirm only after the system does.</span></div>
+          <div class="spec__row spec__row--good"><span class="mk__k">Format</span><span class="mk__v">Your agency's template and branding. Your client never sees NeuraUX.</span></div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--raised al-right" aria-labelledby="deliv-title">
     <div class="wrap judge">
       <div>
-        <h2 class="h2" id="deliv-title" style="font-size:clamp(32px,4vw,56px)">Specs your developers can build from.</h2>
+        <h2 class="h2" id="deliv-title">Specs your developers can build from.</h2>
         <p class="body" style="margin-top:20px">Every recovery and handoff moment is written down: what triggers it, what the bot says, what options the user gets, and what your developers need to know. Delivered in your agency's format and under your brand.</p>
       </div>
       <figure class="mk" aria-label="Illustrative developer-ready specification for a fallback moment">
@@ -177,7 +263,7 @@
     </div>
   </section>
 
-  <section class="section wrap al-left" aria-labelledby="how-title">
+  <section class="section wrap al-center" aria-labelledby="how-title">
     <h2 class="h2" id="how-title">How the partnership works.</h2>
     <ol class="steps steps--4" data-reveal>
       <li class="step"><div><h3>Partner call</h3><p>Bring a current project. We'll look at it together.</p></div></li>
@@ -189,7 +275,7 @@
 
   <section class="section--sm wrap al-right" aria-labelledby="commit-title" style="padding-top:0">
     <div class="cols">
-      <h2 class="h3" id="commit-title" style="font-size:clamp(28px,3vw,40px)">Our commitments to your agency.</h2>
+      <h2 class="h2" id="commit-title">Our commitments to your agency.</h2>
       <ul class="list-rows">
         <li><h3>Your brand and your client relationship</h3><p>We work under your brand and never contact your clients directly.</p></li>
         <li><h3>No poaching</h3><p>We don't poach your clients or your staff.</p></li>
@@ -201,11 +287,11 @@
   <section class="section section--raised al-left" id="faq" aria-labelledby="faq-title">
     <div class="wrap">
     <div class="cols">
-      <h2 class="h2" id="faq-title" style="font-size:clamp(32px,4vw,56px)">Questions agencies ask.</h2>
+      <h2 class="h2" id="faq-title">Questions agencies ask.</h2>
       <div class="faq">
         <details open><summary>Will our clients know you're involved?</summary><p>No. We work under your brand and never contact your clients directly. When we join a client workshop, we join as part of your team.</p></details>
         <details><summary>What does a first project look like?</summary><p>A 2-day review of a bot you're about to hand over to your client.</p></details>
-        <details><summary>How do we book you?</summary><p>Book days as needed, with a two-day minimum, or reserve monthly capacity. We can also quote a fixed price for a defined project.</p></details>
+        <details><summary>How do we book you?</summary><p>Book days as needed at R7,500 per day, with a two-day minimum, or reserve monthly capacity (priced on the partner call). We can also quote a fixed price for a defined project. All prices exclude VAT.</p></details>
         <details><summary>What does it cost?</summary><p>Our day rate is R7,500, excluding VAT, with a two-day minimum. A first project, a two-day review of a bot you're about to hand over, costs R15,000 excluding VAT. Fixed project quotes are based on the day rate.</p></details>
         <details><summary>Do you build bots or write production prompts?</summary><p>No. Your team builds the bot. We design how it behaves: the flows and edge cases, persona and voice, handoff and recovery, and the specs and sample dialogues your developers build from.</p></details>
         <details><summary>Which platforms do you work with?</summary><p>Our designs are platform-agnostic and work with any LLM or chatbot platform.</p></details>
@@ -218,7 +304,7 @@
   <section class="band theme-silver al-center" aria-labelledby="band-title">
     <div class="wrap section band__grid">
       <div>
-        <h2 class="h2" id="band-title" style="font-size:clamp(32px,4.4vw,64px)">Bring a current project to the call.</h2>
+        <h2 class="h2" id="band-title">Bring a current project to the call.</h2>
         <p class="lead" style="margin-top:20px">In 30 minutes, we'll show you where conversation design would change the outcome.</p>
       </div>
       <div class="actions actions--stack">
@@ -260,7 +346,7 @@
         <ul>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="how-we-work.html#ai-use">How we use AI</a></li>
-          <li><a href="how-we-work.html#data">Data protection</a></li>
+          <li><a href="data-protection.html">Data protection</a></li>
         </ul>
       </nav>
       <div class="ftr__col">
