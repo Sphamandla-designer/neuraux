@@ -336,6 +336,23 @@
     });
   });
 
+  /* ---------- Inline validation on blur (contact, Audit and Blueprint forms) ----------
+     A required field is checked when the visitor leaves it, once they've typed something,
+     and its error clears as soon as the value becomes valid. Submit still checks everything. */
+  doc.querySelectorAll('[data-enquiry] [required], [data-qualify] [required]').forEach(function (input) {
+    var err = doc.getElementById(input.id + '-err');
+    var isBad = function () {
+      var v = input.value.trim();
+      return input.type === 'email' ? !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : !v;
+    };
+    var show = function (bad) {
+      input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+      if (err) err.textContent = bad ? (input.getAttribute('data-err') || 'Please complete this field.') : '';
+    };
+    input.addEventListener('blur', function () { if (input.value.trim()) show(isBad()); });
+    input.addEventListener('input', function () { if (input.getAttribute('aria-invalid') === 'true' && !isBad()) show(false); });
+  });
+
   /* ---------- Sticky mobile CTA: shown after the hero, hidden near the form ---------- */
   var sticky = doc.querySelector('[data-sticky-cta]');
   if (sticky && 'IntersectionObserver' in window) {

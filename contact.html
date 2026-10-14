@@ -136,18 +136,18 @@
           <p class="form__note" style="margin-top:8px">This opens your email app with your note ready to send. Nothing is sent until you press send. Name, work email and company are required; other fields are optional.</p>
         </div>
         <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+          <label for="f-name">Name <span class="hint">(required)</span></label>
+          <input id="f-name" name="name" data-err="Please add your name." type="text" autocomplete="name" required aria-describedby="f-name-err">
           <span class="err" id="f-name-err" aria-live="polite"></span>
         </div>
         <div class="field">
-          <label for="f-email">Work email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
+          <label for="f-email">Work email <span class="hint">(required)</span></label>
+          <input id="f-email" name="email" data-err="Please add a valid work email." type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
           <span class="err" id="f-email-err" aria-live="polite"></span>
         </div>
         <div class="field">
-          <label for="f-company">Company</label>
-          <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="f-company-err">
+          <label for="f-company">Company <span class="hint">(required)</span></label>
+          <input id="f-company" name="company" data-err="Please add your company." type="text" autocomplete="organization" required aria-describedby="f-company-err">
           <span class="err" id="f-company-err" aria-live="polite"></span>
         </div>
         <fieldset class="field">
