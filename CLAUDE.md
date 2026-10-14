@@ -8,7 +8,7 @@ Last updated: 14 October 2026 (credibility pass: homepage headline, founder iden
 
 ## 1. The business in one paragraph
 
-NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South Africa. It audits and designs AI assistants (chatbots, virtual assistants, AI features) for banks, insurers, fintechs and other regulated businesses, so they answer clearly, fail gracefully, and stay compliant. It does not build AI. It designs how AI behaves, and works alongside the client's developers or a build agency. It also works white-label for AI automation agencies that build bots but have no conversation designer.
+NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South Africa. It audits and designs AI assistants (chatbots, virtual assistants, AI features) for banks, insurers, fintechs and other regulated businesses, so they answer clearly and fail gracefully, designed with POPIA and FSCA conduct expectations in mind. It does not build AI. It designs how AI behaves, and works alongside the client's developers or a build agency. It also works white-label for AI automation agencies that build bots but have no conversation designer.
 
 - **Founder:** Sphamandla Xaba, Founder & AI UX Lead (public name subject to final identity/name verification). NeuraUX is currently a founder-led consultancy. No approved photo yet: the site shows an "SX" initials monogram (`.monogram`). No biography is published until the founder supplies one; don't write one.
 - **Email:** hello@neuraux.co.za
@@ -104,7 +104,7 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
-| About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (bio, photo and LinkedIn are hidden TODOs), location |
+| About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (name, title and monogram; bio, photo and LinkedIn still to come), location |
 | Case Studies | `case-studies/index.html` | Built. Lists case studies as cards; for now Home FIX. The same card appears on the homepage. Built from `case-studies/src/index.main.html` by `case-studies/tools/build_index.py` (header and footer copied from `about.html`). In the main nav after How We Work, and in the footer's Company column |
 | Home FIX case study | `case-studies/home-fix/index.html` | Built. Built from `src/main.html` by `tools/build.py` (header and footer copied from `about.html`); screenshots from `tools/screenshots.mjs`. The prototype and its docs live in `projects/home-fix/`. Breadcrumb: Home, Case studies, Home FIX. Every content section is left-aligned with one spacing scale (an exception to the alternating alignment, at the founder's request) |
 
@@ -207,9 +207,9 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - **Problem body:** Your team can build a technically solid assistant. Then the client tests it and finds it robotic, confusing, or awkward when things go wrong. Adoption stalls and renewals get harder. A full-time conversation designer rarely makes sense at agency volume.
 - **What we do:** conversation flows and edge cases; persona and voice; pre-handover reviews; handoff and recovery design; developer-ready specs and sample dialogues; joining client workshops as part of your team.
 - **How it works (numbered):** 1. Partner call. 2. NDA and terms. 3. First project: a 2-day review of a bot you're about to hand over. 4. Ongoing: book days as needed, or reserve monthly capacity.
-- **Commitments:** your brand and your client relationship; no poaching of clients or staff; confidential by default, with POPIA-aligned data handling.
+- **Commitments:** your brand and your client relationship; no poaching of clients or staff; confidential by default, with POPIA-aware data handling.
 - **Call to action:** Bring a current project to the call. In 30 minutes, we'll show you where conversation design would change the outcome. [Book a partner call]
-- No prices on this page.
+- Prices: R7,500 per day (two-day minimum) and R15,000 for the two-day review, excluding VAT. Retained capacity is not published.
 
 ### How We Work page
 
@@ -217,8 +217,8 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - **Process (numbered):** 1. Discovery call (30 minutes, free). 2. Proposal: a written scope, timeline and fixed price, usually within 2 working days. 3. Kickoff: access, data handling, and one point of contact. 4. The work: regular check-ins, plus a midpoint review on Blueprints. 5. Readout and handover, with the recording yours to keep. 6. Support: two weeks of email support after every Blueprint.
 - **Principles:** Design for the moment things go wrong. Be honest about what AI can't do. Treat compliance as a design material. Use evidence over opinion.
 - **How we use AI:** We use AI tools to speed up analysis and drafting, such as sorting transcripts, spotting patterns, and generating first drafts. AI does not make design decisions or sign off on work. Every deliverable is reviewed and signed off by the lead designer, and NeuraUX is fully accountable for everything we deliver. If your policies restrict AI use, tell us at kickoff and we'll agree in writing which parts of the work stay AI-free.
-- **Data protection:** business-tier AI tools only, never used to train models on client data; anonymised transcripts only, with no unredacted personal information; project files deleted 90 days after close; personal information handled in line with POPIA; NDAs signed on request.
-- **About:** `[Founder paragraph and photo, written by Sphamandla]`
+- **Data protection:** business-tier AI tools only, never used to train models on client data; anonymised transcripts only, with no unredacted personal information; project files deleted 90 days after close; POPIA-aware handling of personal information; NDAs signed on request.
+- **About:** founder name, title and monogram are live; the paragraph and photo wait for the founder (see section 10).
 
 ### Contact page
 
@@ -240,7 +240,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 | Page | Title tag | Meta description |
 | --- | --- | --- |
-| Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African banks, insurers, fintechs and other regulated businesses, with conversation design, UX and compliance built into the experience. |
+| Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African banks, insurers, fintechs and other regulated businesses. Conversation design and UX, designed with POPIA and FSCA conduct expectations in mind. |
 | Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints for South African banks, insurers, fintechs and other regulated businesses. |
 | For Agencies | White-label Conversation Design for AI Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. For AI automation agencies and software studios in South Africa. |
 | How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we handle your data with POPIA-aware practices. |
