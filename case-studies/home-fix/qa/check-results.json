@@ -1,10 +1,10 @@
 {
-  "run": "2026-10-10T11:58:04.759Z",
+  "run": "2026-10-14T08:44:53.330Z",
   "results": [
     {
       "name": "Word count 1,800–2,400 (excluding alt text and captions)",
       "pass": true,
-      "detail": "2344 words"
+      "detail": "2384 words"
     },
     {
       "name": "No banned words",
@@ -17,9 +17,9 @@
       "detail": "0 found"
     },
     {
-      "name": "No concept-project labelling on the page",
+      "name": "Status badge \"Self-initiated concept\" and disclosure shown near the top",
       "pass": true,
-      "detail": "none"
+      "detail": "badge at character 47"
     },
     {
       "name": "No real insurer or client names",
@@ -49,7 +49,7 @@
     {
       "name": "All internal links, images and mailto links work",
       "pass": true,
-      "detail": "82 checked (external LinkedIn link skipped)"
+      "detail": "80 checked (external LinkedIn link skipped)"
     },
     {
       "name": "No horizontal scroll at 320, 375, 390, 768, 1280",
@@ -59,7 +59,7 @@
     {
       "name": "Heading order (one h1, no skipped levels)",
       "pass": true,
-      "detail": "1 h1; 53 headings; no skipped levels"
+      "detail": "1 h1; 52 headings; no skipped levels"
     },
     {
       "name": "Images under 200 KB, with width/height and meaningful alt text",

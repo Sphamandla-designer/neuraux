@@ -23,7 +23,6 @@ const results = [];
 const check = (name, pass, detail) => { results.push({ name, pass, detail }); console.log(pass ? 'PASS' : 'FAIL', name, '-', detail); };
 
 const BANNED = ['revolutionary', 'seamless', 'cutting-edge', 'leverage', 'empower', 'game-changer', 'unlock', 'harness', 'delve', "in today's fast-paced world", 'supercharge'];
-const NO_CONCEPT = /\bconcept\b/i;
 const CLIENT = ['santam', 'home assist', 'hollard', 'outsurance', 'old mutual', 'discovery insure', 'momentum', 'king price', 'miway', 'dialdirect', 'budget insurance', 'absa insurance'];
 
 const browser = await pw.chromium.launch();
@@ -49,7 +48,9 @@ const browser = await pw.chromium.launch();
   check('No banned words', !banned.length, banned.length ? banned.join(', ') : 'none found');
   const emdash = (t.visible.match(/—/g) || []).length;
   check('No em dashes in page copy', emdash === 0, emdash + ' found');
-  check('No concept-project labelling on the page', !NO_CONCEPT.test(t.visible), NO_CONCEPT.test(t.visible) ? 'found' : 'none');
+  // The owner now requires the status near the top (October 2026), reversing the earlier no-label rule.
+  const status = t.visible.indexOf('Self-initiated concept');
+  check('Status badge "Self-initiated concept" and disclosure shown near the top', status >= 0 && status < 600 && /not a deployed production system/.test(t.visible), status >= 0 ? 'badge at character ' + status : 'missing');
   const client = CLIENT.filter(w => t.html.toLowerCase().includes(w));
   check('No real insurer or client names', !client.length, client.length ? client.join(', ') : 'none (searched ' + CLIENT.length + ' names)');
   const phones = (t.visible + ' ' + t.alts.join(' ')).match(/(\+27|\b0)\d{2}[\s-]?\d{3}[\s-]?\d{3,4}\b/g) || [];
