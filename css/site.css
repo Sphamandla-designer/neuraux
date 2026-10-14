@@ -1857,15 +1857,3 @@ h1, h2, h3, h4,
 .monogram--glass { background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .32); color: #FFFFFF; }
 .founder__id { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
 .founder__id .monogram { margin-bottom: 0; }
-
-/* Restrained surface for cards that used to be gradient spotlights.
-   The site keeps exactly two gradient cards: the homepage Home FIX case
-   study card and the About page founder card. Everything else uses this. */
-.spot--plain, .csx-card.spot--plain, .tally.spot--plain,
-.theme-silver .tally.spot--plain, .theme-mist .tally.spot--plain {
-  background: #1F1F1F;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-float);
-}
-.spot--plain::after { display: none; }
-@media (prefers-reduced-motion: no-preference) { .spot--plain, .spot--plain:hover { background-size: auto; background-position: 0 0; transition: none; } }
