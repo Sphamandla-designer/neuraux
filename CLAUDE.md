@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 14 October 2026 (credibility pass: homepage headline, founder identity, agency rates, two gradient cards, type floors, 404 page, Home FIX concept status, compliance wording).
+Last updated: 14 October 2026 (gradient colours restored on every spotlight card; UI UX Pro Max skill installed and applied: line height, line length, hit areas, required markers, inline validation, current-page indicator).
 
 ---
 
@@ -134,7 +134,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Accent:** sky blue `#0099FF` (`--accent`) is the only chromatic accent. Use it for links, focus rings and selected states only; never as a fill or a button colour. On silver and mist sections it darkens to `#0057A8` so links keep their contrast.
 
-**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. The whole site has exactly two: the homepage Home FIX case study card and the About page founder card. Every other former spotlight uses `.spot--plain` (a #1F1F1F surface, 20px radius, no gradient). Don't add more. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
+**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. At the owner's request all twelve spotlight cards keep their gradients (magenta, violet, orange or coral), including the homepage Home FIX card and the About founder card. Don't add new ones without asking. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
 
 **Colour tokens** (defined as CSS variables at the top of `css/site.css`; reuse them, don't add colours. Light sections redefine them locally):
 
@@ -149,7 +149,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | `--silver` | #C7CBD1 | Prices |
 | `--accent` | #0099FF | Links, focus, selection only |
 
-**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 16px (leads 18px) at about 1.35–1.45 line height. **Floors (tokens in `css/site.css`):** body copy 16px (`--fs-body`); supporting text, labels, captions, breadcrumbs, table headers, footer and nav 14px (`--fs-meta`, `--fs-sup`); form fields 16px (`--fs-input`, stops iOS zoom); labels inside illustrative mockups and diagrams 12px (`--fs-mk`). Nothing goes below these. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
+**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 16px at 1.5 line height; leads 18px at 1.45; spotlight subtitles 1.4. Small-text paragraphs (list rows, form notes, case-study blocks) are capped at 70ch. **Floors (tokens in `css/site.css`):** body copy 16px (`--fs-body`); supporting text, labels, captions, breadcrumbs, table headers, footer and nav 14px (`--fs-meta`, `--fs-sup`); form fields 16px (`--fs-input`, stops iOS zoom); labels inside illustrative mockups and diagrams 12px (`--fs-mk`). Nothing goes below these. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
 **Layout:** a wide canvas: max width 1440px (`--max`; dense content 1320px) with side padding `clamp(16px, 4vw, 64px)`, a 5px-based spacing rhythm, and sections about 96px apart. **Section alignment alternates:** every `<section>` in `<main>` carries `al-left`, `al-center` or `al-right`, and consecutive sections should vary. `al-center` centres the heading, lead and actions and stacks two-column intros; `al-right` right-aligns the heading block and flips two-column layouts (desktop only, from 900px; below that it falls back to left). Content inside cards, mockups, forms and lists stays left-aligned for readability. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
 
@@ -267,3 +267,4 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 - Before adding any section, check it against the "Avoid" list in section 6.
 - When unsure about a fact, ask. Don't fill the gap.
 - Keep this file updated when services, prices or the brand change.
+- **UI UX Pro Max skill** is installed at `.claude/skills/ui-ux-pro-max` (MIT). Use it for UI reviews: `python3 .claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain ux`. Its palette and font suggestions never override this file (brand stays Satoshi, Inter and #0099FF); apply its accessibility, interaction, layout and form rules. Applied so far: body line height 1.5, 70ch line length on small text, 32px (44px on touch) hit areas for standalone links, pointer cursor on selects, `touch-action: manipulation`, an underline on the current nav item, visible "(required)" markers and validation on blur in all three forms.

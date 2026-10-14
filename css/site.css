@@ -1016,7 +1016,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
 .card .ticks { margin-bottom: 8px; }
 .card__cta { margin-top: auto; align-self: flex-start; }
 @media (max-width: 479px) { .card__cta { align-self: stretch; } }
-.cards__foot { margin-top: 24px; font-size: var(--fs-sup); color: var(--grey-300); max-width: 60em; }
+.cards__foot { margin-top: 24px; font-size: var(--fs-sup); color: var(--grey-300); max-width: 70ch; }
 
 /* Consolidated sample audit */
 .sampler { margin-top: clamp(40px, 5vw, 64px); max-width: var(--w-dense); }
@@ -1566,7 +1566,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
    ========================================================= */
 
 /* ---------- Type ---------- */
-body { line-height: 1.45; letter-spacing: -0.01em; }
+body { line-height: 1.5; letter-spacing: -0.01em; }
 h1, h2, h3, h4,
 .h-hero, .h2, .h3, .h4, .sec-h, .svc-hero__h, .closing__h, .offer__name, .card__name,
 .price__n, .tally__n, .audit__total-n, .scorecard__total, .step::before, .brand, .ind__name,
@@ -1581,7 +1581,7 @@ h1, h2, h3, h4,
 .h3, .offer__name, .card__name, .ind__name { letter-spacing: -0.031em; line-height: 1.13; }
 .h4 { font-size: 22px; font-weight: 700; letter-spacing: -0.036em; line-height: 1.2; }
 .price__n { letter-spacing: -0.05em; }
-.lead, .sec-lead { font-size: var(--fs-lead); line-height: 1.35; letter-spacing: -0.01em; color: var(--grey-300); }
+.lead, .sec-lead { font-size: var(--fs-lead); line-height: 1.45; letter-spacing: -0.01em; color: var(--grey-300); }
 .body, .sup, p { letter-spacing: -0.01em; }
 .meta, .mk__k, .cap { font-weight: 500; letter-spacing: -0.01em; }
 .tnum, .tiers, .compare, .dim__n, .audit__row .n { font-variant-numeric: tabular-nums; }
@@ -1678,7 +1678,7 @@ h1, h2, h3, h4,
 }
 .spot h2, .spot h3 { color: #fff; }
 .spot__h { font-family: var(--font-display); font-size: clamp(28px, 3.6vw, 48px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 500; max-width: 16em; }
-.spot__sub { margin-top: 14px; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.3; letter-spacing: -0.01em; color: rgba(255, 255, 255, .86); max-width: 30em; }
+.spot__sub { margin-top: 14px; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.4; letter-spacing: -0.01em; color: rgba(255, 255, 255, .86); max-width: 30em; }
 .spot .actions { margin-top: 24px; }
 .spot .link { color: #fff; text-decoration-color: rgba(255, 255, 255, .5); }
 .spot .btn--solid { background: #fff; color: #0A0A0A; }
@@ -1858,14 +1858,15 @@ h1, h2, h3, h4,
 .founder__id { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
 .founder__id .monogram { margin-bottom: 0; }
 
-/* Restrained surface for cards that used to be gradient spotlights.
-   The site keeps exactly two gradient cards: the homepage Home FIX case
-   study card and the About page founder card. Everything else uses this. */
-.spot--plain, .csx-card.spot--plain, .tally.spot--plain,
-.theme-silver .tally.spot--plain, .theme-mist .tally.spot--plain {
-  background: #1F1F1F;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-float);
-}
-.spot--plain::after { display: none; }
-@media (prefers-reduced-motion: no-preference) { .spot--plain, .spot--plain:hover { background-size: auto; background-position: 0 0; transition: none; } }
+/* Readable line length (UI UX Pro Max: line-length 65-75 characters) for
+   small-text paragraphs that otherwise span a wide column on desktop. */
+.list-rows p, .form__note, .cs-block > p { max-width: 70ch; }
+
+/* Standalone text links get a usable hit area (UI UX Pro Max: touch-target-size,
+   web-target-size). Inline links inside sentences are exempt. */
+a.link.meta { display: inline-flex; align-items: center; min-height: 32px; }
+@media (pointer: coarse) { a.link.meta { min-height: 44px; } }
+.field select { cursor: pointer; }
+a, button, summary, label, [role="tab"] { touch-action: manipulation; }
+/* Current page: marked by more than colour (UI UX Pro Max: nav-state-active) */
+.hdr__nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
