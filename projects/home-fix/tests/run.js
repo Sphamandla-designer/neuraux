@@ -270,7 +270,11 @@ test('F04 two sittings: installation beat, "Later today" chip, serial from 13:10
   const iDone = seq.findIndex(s => s.startsWith('Installation done'));
   assert(iChip >= 0 && iDone === iChip + 1, 'chip not directly before the Installation done bubble');
   assert(seq[iDone].includes('13:10'), 'serial time ' + seq[iDone]);
-  return 'chip "Later today" then "Installation done 13:10"; before photo 09:34–09:35';
+  const rejected = seq.find(s => s.includes('came out a little blurry'));
+  const accepted = seq.find(s => s.includes('Clear photo received'));
+  assert(rejected && rejected.includes('09:33'), 'first before photo should be rejected at 09:33: ' + rejected);
+  assert(accepted && accepted.includes('09:35'), 'retake should be accepted at 09:35: ' + accepted);
+  return 'chip "Later today" then "Installation done 13:10"; before photo rejected 09:33, retake accepted 09:35';
 });
 
 test('F05 Resume previous job: none, then restore with "Welcome back"', async (browser) => {
