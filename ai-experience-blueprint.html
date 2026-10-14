@@ -85,11 +85,11 @@
         {
           "@type": "Offer",
           "name": "Core",
-          "price": "45000",
+          "price": "22500",
           "priceCurrency": "ZAR",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "45000",
+            "price": "22500",
             "priceCurrency": "ZAR",
             "valueAddedTaxIncluded": false
           }
@@ -97,11 +97,11 @@
         {
           "@type": "Offer",
           "name": "Extended",
-          "price": "55000",
+          "price": "27500",
           "priceCurrency": "ZAR",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "55000",
+            "price": "27500",
             "priceCurrency": "ZAR",
             "valueAddedTaxIncluded": false
           }
@@ -109,11 +109,11 @@
         {
           "@type": "Offer",
           "name": "Full",
-          "price": "65000",
+          "price": "32500",
           "priceCurrency": "ZAR",
           "priceSpecification": {
             "@type": "PriceSpecification",
-            "price": "65000",
+            "price": "32500",
             "priceCurrency": "ZAR",
             "valueAddedTaxIncluded": false
           }
@@ -144,7 +144,7 @@
           "name": "How much does a Blueprint cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Core is R45,000, Extended is R55,000 and Full is R65,000, all fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start."
+            "text": "At pre-launch pricing (50% off), Core is R22,500, Extended is R27,500 and Full is R32,500, down from R45,000, R55,000 and R65,000. All are fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start."
           }
         },
         {
@@ -210,6 +210,7 @@
     <nav class="hdr__nav" aria-label="Main">
       <ul>
         <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
         <li><a href="how-we-work.html">How We Work</a></li>
         <li><a href="case-studies/">Case Studies</a></li>
         <li><a href="about.html">About</a></li>
@@ -223,6 +224,7 @@
     <nav aria-label="Mobile">
       <ul>
         <li><a href="services.html">Services</a></li>
+        <li><a href="agencies.html">For Agencies</a></li>
         <li><a href="how-we-work.html">How We Work</a></li>
         <li><a href="case-studies/">Case Studies</a></li>
         <li><a href="about.html">About</a></li>
@@ -252,7 +254,9 @@
         </div>
       </div>
       <div class="pricetag pricetag--range enter" style="--d:240ms">
-        <span class="price__n">R45,000 to R65,000</span>
+        <span class="price__promo">Pre-launch pricing: 50% off</span>
+        <span class="price__n">R22,500 to R32,500</span>
+        <span class="price__was">Standard price <s>R45,000 to R65,000</s></span>
         <p class="pricetag__meta">Fixed price per tier, excluding VAT. 4 to 6 weeks, for 1 to 3 use cases.</p>
         <p class="pricetag__fit">NeuraUX designs the experience. Your team or agency builds it.</p>
       </div>
@@ -443,18 +447,18 @@
     <div class="pricebox">
       <div>
         <h3 class="h3">Conversation Design Blueprint</h3>
-        <p class="price" style="margin-top:20px"><span class="price__from">From</span><span class="price__n">R45,000</span><span class="price__vat">Fixed price per tier, excluding VAT. Payment 40 / 30 / 30.</span></p>
+        <p class="price" style="margin-top:20px"><span class="price__promo">Pre-launch pricing: 50% off</span><span class="price__from">From</span><span class="price__n">R22,500</span><span class="price__was">Standard price from <s>R45,000</s></span><span class="price__vat">Fixed price per tier, excluding VAT. Payment 40 / 30 / 30.</span></p>
         <div class="actions actions--stack"><a class="btn btn--solid btn--lg" href="#request" data-track="blueprint_cta_click">Discuss a Blueprint</a></div>
         <p class="meta" style="margin-top:16px">Your tier depends on the number of use cases. Scope and price are agreed in writing before we start.</p>
       </div>
       <div>
         <table class="tiers">
-          <caption class="sr-only">Blueprint tiers, prices excluding VAT</caption>
+          <caption class="sr-only">Blueprint tiers, pre-launch prices at 50% off with the standard price struck through, excluding VAT</caption>
           <thead><tr><th scope="col">Tier</th><th scope="col">Use cases</th><th scope="col">Timeline</th><th scope="col">Price</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Core</th><td>1</td><td>4 weeks</td><td class="tiers__p">R45,000</td></tr>
-            <tr><th scope="row">Extended</th><td>2</td><td>5 weeks</td><td class="tiers__p">R55,000</td></tr>
-            <tr><th scope="row">Full</th><td>3</td><td>6 weeks</td><td class="tiers__p">R65,000</td></tr>
+            <tr><th scope="row">Core</th><td>1</td><td>4 weeks</td><td class="tiers__p">R22,500 <s class="price__strike">R45,000</s></td></tr>
+            <tr><th scope="row">Extended</th><td>2</td><td>5 weeks</td><td class="tiers__p">R27,500 <s class="price__strike">R55,000</s></td></tr>
+            <tr><th scope="row">Full</th><td>3</td><td>6 weeks</td><td class="tiers__p">R32,500 <s class="price__strike">R65,000</s></td></tr>
           </tbody>
         </table>
         <p class="offer__note" style="margin-top:16px">Every tier includes walkthrough testing with 3 to 5 staff, one revision round, a 90-minute handover and 2 weeks of email support.</p>
@@ -480,7 +484,7 @@
             <tr><th scope="row">Human handoff</th><td>Evaluated</td><td class="is-here">Defined</td></tr>
             <tr><th scope="row">Testing</th><td>Up to 15 core tasks walked through</td><td class="is-here">Walkthrough testing with 3 to 5 of your staff</td></tr>
             <tr><th scope="row">Typical duration</th><td>2 weeks</td><td class="is-here">4 to 6 weeks</td></tr>
-            <tr><th scope="row">Price, excluding VAT</th><td class="num">R18,500</td><td class="num is-here">R45,000 to R65,000</td></tr>
+            <tr><th scope="row">Price, excluding VAT</th><td class="num">R9,250 <s class="price__strike">R18,500</s></td><td class="num is-here">R22,500 to R32,500 <s class="price__strike">R45,000 to R65,000</s></td></tr>
           </tbody>
         </table>
       </div>
@@ -496,7 +500,7 @@
       <div class="faq">
         <details data-track-open="blueprint_faq_open"><summary>What is a Conversation Design Blueprint?</summary><p>A build-ready design for a customer-facing AI assistant: persona and voice, conversation architecture and detailed flows including edge cases, trust patterns, human handoff, sample dialogues and a developer handover pack.</p></details>
         <details data-track-open="blueprint_faq_open"><summary>How long does a Blueprint take?</summary><p>Four to six weeks, depending on the tier: Core covers 1 use case in 4 weeks, Extended covers 2 in 5 weeks, and Full covers 3 in 6 weeks.</p></details>
-        <details data-track-open="blueprint_faq_open"><summary>How much does a Blueprint cost?</summary><p>Core is R45,000, Extended is R55,000 and Full is R65,000, all fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start.</p></details>
+        <details data-track-open="blueprint_faq_open"><summary>How much does a Blueprint cost?</summary><p>At pre-launch pricing (50% off), Core is R22,500, Extended is R27,500 and Full is R32,500, down from R45,000, R55,000 and R65,000. All are fixed prices excluding VAT, paid 40 / 30 / 30. Scope and price are agreed in writing before we start.</p></details>
         <details data-track-open="blueprint_faq_open"><summary>Do you build or integrate the assistant?</summary><p>No. We design it, and your team or agency builds it. Building or integrating the assistant, model selection and final production prompts are out of scope. We can recommend build partners.</p></details>
         <details data-track-open="blueprint_faq_open"><summary>Which platforms do you design for?</summary><p>Our designs are platform-agnostic and work with any LLM or chatbot platform.</p></details>
         <details data-track-open="blueprint_faq_open"><summary>How is the design tested?</summary><p>Every Blueprint includes internal walkthrough testing with 3 to 5 of your staff, followed by one revision round.</p></details>
@@ -595,7 +599,7 @@
         <ul>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="how-we-work.html#ai-use">How we use AI</a></li>
-          <li><a href="how-we-work.html#data">Data protection</a></li>
+          <li><a href="data-protection.html">Data protection</a></li>
         </ul>
       </nav>
       <div class="ftr__col">

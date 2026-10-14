@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 14 October 2026 (gradient colours restored on every spotlight card; UI UX Pro Max skill installed and applied: line height, line length, hit areas, required markers, inline validation, current-page indicator).
+Last updated: 14 October 2026 (pre-launch pricing at 50% off; For Agencies back in the menus with partner pricing; Privacy Policy and Data protection pages; smaller unified page titles; spotlight cards on the card type scale).
 
 ---
 
@@ -63,6 +63,8 @@ Use this to shape copy and decisions. **Do not name competitors on the website, 
 
 Only these three services appear on the site. All prices are in ZAR, excluding VAT.
 
+**Pre-launch pricing (live on the site):** the Audit and every Blueprint tier are 50% off: Audit R9,250 (standard R18,500); Blueprint Core R22,500, Extended R27,500, Full R32,500 (standard R45,000, R55,000, R65,000). Show the "Pre-launch pricing: 50% off" label and the standard price struck through wherever a price appears, and keep structured data on the discounted price. No end date or client limit has been set; don't invent one. Agency rates are not discounted.
+
 ### AI Experience Audit (entry service)
 
 - **Price:** R18,500 fixed, 50% on signing and 50% on delivery. **Duration:** 2 weeks. **Scope:** one AI experience, one channel.
@@ -98,10 +100,11 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | --- | --- | --- |
 | Home | `index.html` | Built |
 | Services | `services.html` | Built |
-| For Agencies | `agencies.html` | Built. Includes an FAQ with the day rate and two-day review price. Not in the header nav: reached from the footer and the Services page |
+| For Agencies | `agencies.html` | Built. Who it's for, what we do, partner pricing (two-day review R15,000, day rate R7,500, fixed quotes, monthly capacity priced on the call), an illustrative pre-handover review mockup, the spec mockup, steps, commitments and FAQ. In the header nav after Services |
 | How We Work | `how-we-work.html` | Built (founder name, title and monogram; no photo or biography yet) |
 | Contact | `contact.html` | Built (form composes an email via `mailto:`) |
-| Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
+| Privacy Policy | `privacy.html` | Built: full POPIA-structured policy using only verified facts (mailto forms, no cookies or analytics, GitHub Pages, Google Fonts and Fontshare, POPIA rights, Information Regulator). Still `noindex` until the founder, ideally with legal input, reviews the retention and Information Officer wording |
+| Data protection | `data-protection.html` | Built: the engagement data commitments (business-tier AI tools, anonymised transcripts, 90-day deletion, test access only, NDAs and AI-free work on request), the kickoff-to-deletion steps and how AI fits in. Linked from the footer's Legal & Policy column and How We Work |
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
 | Conversation Design Blueprint | `ai-experience-blueprint.html` | Built. Architectural service page with qualification form (URL kept as requested; the service name stays "Conversation Design Blueprint") |
 | About | `about.html` | Built. Why NeuraUX exists, scope, differentiators, who we work with, founder (name, title and monogram; bio, photo and LinkedIn still to come), location |
@@ -112,7 +115,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Footer:** the same on every page: brand, then Services, Company, Legal & Policy and Contact columns, then the AI-use statement and copyright line. There is no Socials column until a real LinkedIn URL is supplied. Change it on all pages at once. The case-study pages and `404.html` copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py`, `case-studies/home-fix/tools/build.py` and `tools/build_404.py`.
 
-**Header nav:** Services, How We Work, Case Studies, About, Contact, plus the "Book a free call" pill. For Agencies is footer-only (and linked from Services).
+**Header nav:** Services, For Agencies, How We Work, Case Studies, About, Contact, plus the "Book a free call" pill (the mobile menu matches).
 
 **404 page:** `404.html`, built by `tools/build_404.py`. GitHub Pages serves it for any missing path; `<base href="/neuraux/">` keeps links working from any depth and resets to `/` off github.io. When the custom domain goes live, change the base to `/` in the script and rebuild.
 
@@ -134,7 +137,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Accent:** sky blue `#0099FF` (`--accent`) is the only chromatic accent. Use it for links, focus rings and selected states only; never as a fill or a button colour. On silver and mist sections it darkens to `#0057A8` so links keep their contrast.
 
-**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. At the owner's request all twelve spotlight cards keep their gradients (magenta, violet, orange or coral), including the homepage Home FIX card and the About founder card. Don't add new ones without asking. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
+**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. At the owner's request all twelve spotlight cards keep their gradients (magenta, violet, orange or coral), including the homepage Home FIX card and the About founder card. Don't add new ones without asking. They share the card system: 20px corners, card padding, titles at the card-title size (`.spot__h` = `--fs-h3`, 32px) and subtitles at the lead size (`.spot__sub`, 18px). They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
 
 **Colour tokens** (defined as CSS variables at the top of `css/site.css`; reuse them, don't add colours. Light sections redefine them locally):
 
@@ -149,7 +152,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | `--silver` | #C7CBD1 | Prices |
 | `--accent` | #0099FF | Links, focus, selection only |
 
-**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 16px at 1.5 line height; leads 18px at 1.45; spotlight subtitles 1.4. Small-text paragraphs (list rows, form notes, case-study blocks) are capped at 70ch. **Floors (tokens in `css/site.css`):** body copy 16px (`--fs-body`); supporting text, labels, captions, breadcrumbs, table headers, footer and nav 14px (`--fs-meta`, `--fs-sup`); form fields 16px (`--fs-input`, stops iOS zoom); labels inside illustrative mockups and diagrams 12px (`--fs-mk`). Nothing goes below these. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
+**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: every page title (h1) uses `--fs-hero` (max 76px), section and closing headings 62px, card titles 32px. Don't set heading sizes inline; use the tokens. Keep that percentage when sizes shrink on mobile. Body is 16px at 1.5 line height; leads 18px at 1.45; spotlight subtitles 1.4. Small-text paragraphs (list rows, form notes, case-study blocks) are capped at 70ch. **Floors (tokens in `css/site.css`):** body copy 16px (`--fs-body`); supporting text, labels, captions, breadcrumbs, table headers, footer and nav 14px (`--fs-meta`, `--fs-sup`); form fields 16px (`--fs-input`, stops iOS zoom); labels inside illustrative mockups and diagrams 12px (`--fs-mk`). Nothing goes below these. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
 **Layout:** a wide canvas: max width 1440px (`--max`; dense content 1320px) with side padding `clamp(16px, 4vw, 64px)`, a 5px-based spacing rhythm, and sections about 96px apart. **Section alignment alternates:** every `<section>` in `<main>` carries `al-left`, `al-center` or `al-right`, and consecutive sections should vary. `al-center` centres the heading, lead and actions and stacks two-column intros; `al-right` right-aligns the heading block and flips two-column layouts (desktop only, from 900px; below that it falls back to left). Content inside cards, mockups, forms and lists stays left-aligned for readability. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
 
