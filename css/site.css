@@ -1703,7 +1703,7 @@ h1, h2, h3, h4,
 .ftr__brand { grid-column: 1 / -1; }
 @media (min-width: 720px) { .ftr__top { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1100px) {
-  .ftr__top { grid-template-columns: minmax(0, 1.6fr) repeat(5, minmax(0, 1fr)); gap: 32px; }
+  .ftr__top { grid-template-columns: minmax(0, 1.6fr) repeat(4, minmax(0, 1fr)); gap: 32px; }
   .ftr__brand { grid-column: auto; }
 }
 .ftr__brand .brand { font-size: 20px; }
@@ -1849,3 +1849,9 @@ h1, h2, h3, h4,
     .indx__more { margin-top: 0; align-self: end; }
   }
 }
+
+/* Founder monogram: used until an approved founder photo exists */
+.monogram { display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--surface-2); color: var(--white); font-family: var(--font-display); font-size: 22px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; flex: none; }
+.monogram--glass { background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .32); color: #FFFFFF; }
+.founder__id { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
+.founder__id .monogram { margin-bottom: 0; }
