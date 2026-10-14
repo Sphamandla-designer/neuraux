@@ -2,7 +2,7 @@
 
 Read this file in full before changing anything in this repo. It is the source of truth for who NeuraUX is, what it sells, how the site should look and sound, and what must never be invented.
 
-Last updated: 10 October 2026 (target industries changed to six sectors; law firms are no longer a listed industry).
+Last updated: 14 October 2026 (credibility pass: homepage headline, founder identity, agency rates, two gradient cards, type floors, 404 page, Home FIX concept status, compliance wording).
 
 ---
 
@@ -10,11 +10,11 @@ Last updated: 10 October 2026 (target industries changed to six sectors; law fir
 
 NeuraUX is an AI UX and conversation design consultancy based in Gauteng, South Africa. It audits and designs AI assistants (chatbots, virtual assistants, AI features) for banks, insurers, fintechs and other regulated businesses, so they answer clearly, fail gracefully, and stay compliant. It does not build AI. It designs how AI behaves, and works alongside the client's developers or a build agency. It also works white-label for AI automation agencies that build bots but have no conversation designer.
 
-- **Founder:** Sphamandla, Product Designer and AI UX Strategist. NeuraUX is currently a founder-led consultancy.
+- **Founder:** Sphamandla Xaba, Founder & AI UX Lead (public name subject to final identity/name verification). NeuraUX is currently a founder-led consultancy. No approved photo yet: the site shows an "SX" initials monogram (`.monogram`). No biography is published until the founder supplies one; don't write one.
 - **Email:** hello@neuraux.co.za
 - **Domain:** www.neuraux.co.za is the intended domain. Until a `CNAME` file exists, canonical, Open Graph and sitemap URLs use https://sphamandla-designer.github.io/neuraux/ (switch them back when the domain goes live)
 - **Location line:** Johannesburg, Gauteng, South Africa. Works with clients across South Africa, remotely.
-- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One self-initiated project (Home FIX, a fictional company) is published as a case study. At the founder's request the page presents it as a case study without a concept label. Never describe Home FIX as a client or imply NeuraUX was paid for it.
+- **Stage:** launching Q4 2026. No paying clients, client case studies or testimonials yet. One self-initiated project (Home FIX, a fictional company) is published as a case study. The case study shows a "Self-initiated concept" badge and a one-line disclosure (designed to live-engagement standard, a fictional company, not a deployed production system), and the cards carry the same status tag. Never describe Home FIX as a client or imply NeuraUX was paid for it. Its timeline: the first before photo is rejected at 09:33 and the retake accepted at 09:35 (the serial label request follows at 09:37 in the first version). `projects/home-fix/original/` stays byte-identical to the uploaded file and still shows 09:34; don't edit it.
 
 ## 2. Positioning
 
@@ -81,7 +81,7 @@ Only these three services appear on the site. All prices are in ZAR, excluding V
 ### White-label partnership for agencies
 
 - **Day rate:** R7,500 (2-day minimum). Fixed project quotes based on the day rate. Retained capacity: 4 days per month for R28,000.
-- **Do not show prices on the site.** They're shared on the partner call.
+- **Published on the site:** R7,500 per day (two-day minimum) and R15,000 for the two-day review, excluding VAT, on the agencies page and the Services partnership card. Retained capacity (R28,000) is not published; it's shared on the partner call.
 - **Terms:** NeuraUX works under the agency's brand, never contacts the agency's clients directly, and doesn't poach clients or staff. Work may be described anonymously in NeuraUX's portfolio unless the agency objects.
 
 ### The six Audit dimensions (used on the homepage)
@@ -98,8 +98,8 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 | --- | --- | --- |
 | Home | `index.html` | Built |
 | Services | `services.html` | Built |
-| For Agencies | `agencies.html` | Built. Includes an FAQ (no prices; rates are shared on the partner call) |
-| How We Work | `how-we-work.html` | Built (founder paragraph and photo are placeholders) |
+| For Agencies | `agencies.html` | Built. Includes an FAQ with the day rate and two-day review price. Not in the header nav: reached from the footer and the Services page |
+| How We Work | `how-we-work.html` | Built (founder name, title and monogram; no photo or biography yet) |
 | Contact | `contact.html` | Built (form composes an email via `mailto:`) |
 | Privacy Policy | `privacy.html` | Interim page with placeholder, `noindex`. Full text needs founder review |
 | AI Experience Audit | `ai-experience-audit.html` | Built. Diagnostic service page with qualification form |
@@ -110,15 +110,19 @@ Workflow UX (R65k–120k) and monthly Advisory (R14,500) exist internally but ar
 
 Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `js/site.js`. Every page links both.
 
-**Footer:** the same on every page: brand, then Services, Company, Legal & Policy, Contact and Socials columns, then the AI-use statement and copyright line. Change it on all pages at once. The case-study pages copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py` and `case-studies/home-fix/tools/build.py`.
+**Footer:** the same on every page: brand, then Services, Company, Legal & Policy and Contact columns, then the AI-use statement and copyright line. There is no Socials column until a real LinkedIn URL is supplied. Change it on all pages at once. The case-study pages and `404.html` copy the header and footer from `about.html` at build time, so after changing either, rerun `case-studies/tools/build_index.py`, `case-studies/home-fix/tools/build.py` and `tools/build_404.py`.
 
-**Homepage order:** hero; the problem (three failure modes as a segmented-control tab switcher, the same pattern as the Audit page's demo); case studies (`#case-studies`, light mist section, the Home FIX card as a magenta spotlight with links to its sections, linking to `case-studies/`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); services and pricing cards (`#services`, silver; each card has a booking button and a learn-more button); industries we work with (`#industries`, six cards, one per industry); why NeuraUX (`#about`, light mist section, the four differentiators, linking to `about.html`); trust band (dark: founder, how we use AI, data handling); agency strip; final call to action. Light and dark sections alternate; never two light sections in a row. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
+**Header nav:** Services, How We Work, Case Studies, About, Contact, plus the "Book a free call" pill. For Agencies is footer-only (and linked from Services).
+
+**404 page:** `404.html`, built by `tools/build_404.py`. GitHub Pages serves it for any missing path; `<base href="/neuraux/">` keeps links working from any depth and resets to `/` off github.io. When the custom domain goes live, change the base to `/` in the script and rebuild.
+
+**Homepage order:** hero (H1: "Trust is won or lost when AI goes wrong."); the problem (opens with "AI assistants can work. The experience can still fail.", then three failure modes as a segmented-control tab switcher, the same pattern as the Audit page's demo); case studies (`#case-studies`, light mist section, the Home FIX card as a magenta spotlight with links to its sections, linking to `case-studies/`); what an Audit finds (`#sample-audit`, one scorecard plus finding R-03); services and pricing cards (`#services`, silver; each card has a booking button and a learn-more button); industries we work with (`#industries`, six cards, one per industry); why NeuraUX (`#about`, light mist section, the four differentiators, linking to `about.html`); trust band (dark: founder, how we use AI, data handling); agency strip; final call to action. Light and dark sections alternate; never two light sections in a row. Full tiers, deliverables, payment terms and sample finding C-02 live on `services.html`. The experience journey, method, AI pipeline and working-notes mockup live on `how-we-work.html`.
 
 **Call-to-action labels:** use only "Book a free 30-min call", "Book an Audit", "Discuss a Blueprint", and "Book a partner call" (agencies page only). The header button reads "Book a free call".
 
 **Placeholders:** never render placeholder text. Mark missing content with `<!-- TODO: ... -->` and keep the element `hidden` until it is filled.
 
-**Wording:** say "reviewed and signed off by the lead designer", not "senior designer". NeuraUX is founder-led. On data handling, say "POPIA-aware" or "in line with POPIA", never "POPIA compliant".
+**Wording:** say "reviewed and signed off by the lead designer", not "senior designer". NeuraUX is founder-led. On compliance, use only "POPIA-aware" and "designed with POPIA and FSCA conduct expectations in mind". Never say "POPIA compliant", "in line with POPIA", "POPIA-aligned", "compliant", "certified" or that a design will withstand regulatory scrutiny.
 
 **Service detail pages:** both pages are generated once from content files, but the committed HTML is the source now; edit it directly. They share the comparison table and the qualification-form pattern (forms compose an email, nothing is sent silently). Do not promise prototypes or a separate validation service: the Blueprint's real testing step is walkthrough testing with 3 to 5 staff.
 
@@ -130,7 +134,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 **Accent:** sky blue `#0099FF` (`--accent`) is the only chromatic accent. Use it for links, focus rings and selected states only; never as a fill or a button colour. On silver and mist sections it darkens to `#0057A8` so links keep their contrast.
 
-**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. Use one or two per page, never three. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
+**Gradient spotlight cards** (`.spot` plus `.spot--violet`, `--magenta`, `--orange` or `--coral`): large tiles with 30px corners, and the brand's one splash of colour. The whole site has exactly two: the homepage Home FIX case study card and the About page founder card. Every other former spotlight uses `.spot--plain` (a #1F1F1F surface, 20px radius, no gradient). Don't add more. They are cards inside the layout, never full-section backgrounds. Text on them is white and sits on the deep part of the gradient; buttons inside use the translucent `.btn--glass`.
 
 **Colour tokens** (defined as CSS variables at the top of `css/site.css`; reuse them, don't add colours. Light sections redefine them locally):
 
@@ -145,7 +149,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | `--silver` | #C7CBD1 | Prices |
 | `--accent` | #0099FF | Links, focus, selection only |
 
-**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 15px (leads 18px) at about 1.35–1.45 line height. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
+**Type:** Satoshi for display (Fontshare CDN, weights 400/500/700) and Inter Variable for body (Google Fonts), with Inter's character variants `cv01`, `cv05`, `cv09`, `cv11`, `ss03`, `ss07` and `dlig` switched on. Display is weight 500 at roughly −5% tracking: 110px hero, 85px section and closing openers, 62px section headings, 32px card titles. Keep that percentage when sizes shrink on mobile. Body is 16px (leads 18px) at about 1.35–1.45 line height. **Floors (tokens in `css/site.css`):** body copy 16px (`--fs-body`); supporting text, labels, captions, breadcrumbs, table headers, footer and nav 14px (`--fs-meta`, `--fs-sup`); form fields 16px (`--fs-input`, stops iOS zoom); labels inside illustrative mockups and diagrams 12px (`--fs-mk`). Nothing goes below these. Satoshi is loaded from Fontshare rather than self-hosted; check the Fontshare licence before committing the font files to this public repo.
 
 **Layout:** a wide canvas: max width 1440px (`--max`; dense content 1320px) with side padding `clamp(16px, 4vw, 64px)`, a 5px-based spacing rhythm, and sections about 96px apart. **Section alignment alternates:** every `<section>` in `<main>` carries `al-left`, `al-center` or `al-right`, and consecutive sections should vary. `al-center` centres the heading, lead and actions and stacks two-column intros; `al-right` right-aligns the heading block and flips two-column layouts (desktop only, from 900px; below that it falls back to left). Content inside cards, mockups, forms and lists stays left-aligned for readability. Every button is a pill: solid white for the primary action, a charcoal pill (`.btn--line`) for secondary actions, never a bordered ghost button. Radii: 4px chips, 6px tags, 10px inputs, 20px cards and mockups, 30px spotlight cards. The nav bar is 56px high, with links centred and the primary pill on the right.
 
@@ -169,7 +173,7 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 
 ## 7. Voice and copy rules
 
-- Plain, direct and calm. Serious, never hype. Write for a cautious legal or finance buyer.
+- Plain, direct and calm. Serious, never hype. Write for a cautious financial-services buyer.
 - Short sentences, active voice, sentence case. Specific nouns over adjectives.
 - Say what things do. Buttons say exactly what happens ("Book an Audit", "Email us to book an Audit").
 - Use "AI assistant" or "AI experience", not "bot", in client-facing copy (agencies can see "bot").
@@ -239,20 +243,23 @@ Shared styles live in `css/site.css` (all tokens at the top) and behaviour in `j
 | Home | NeuraUX \| AI UX & Conversation Design in Johannesburg, South Africa | NeuraUX designs and audits AI assistants for South African banks, insurers, fintechs and other regulated businesses, with conversation design, UX and compliance built into the experience. |
 | Services | AI Experience Audit & Conversation Design \| NeuraUX | Fixed-price AI experience audits from R18,500 and build-ready conversation design blueprints for South African banks, insurers, fintechs and other regulated businesses. |
 | For Agencies | White-label Conversation Design for AI Agencies \| NeuraUX | Your on-demand conversation design team, working under your brand inside your AI projects. For AI automation agencies and software studios in South Africa. |
-| How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we protect your data under POPIA. |
+| How We Work | How We Work \| AI UX Consultancy Johannesburg \| NeuraUX | Our process, how we use AI, and how we handle your data with POPIA-aware practices. |
 | Contact | Contact NeuraUX \| AI UX & Conversation Design South Africa | Book a free 30-minute call about your AI assistant or chatbot. |
 | About | About NeuraUX \| AI UX Consultancy in Johannesburg | NeuraUX is a founder-led AI UX and conversation design consultancy in Johannesburg, Gauteng, designing AI assistants for South African banks, insurers, fintechs and other regulated businesses. |
 
 ## 10. Open items: placeholders to fill, never invent
 
 - [ ] Registered company name and registration number (footer)
-- [ ] Founder paragraph and photo (How We Work, About, and the homepage trust band)
+- [ ] Founder biography and photo (How We Work, About, homepage trust band). Name and title are published, subject to identity/name verification
+- [ ] Information Officer (POPIA) name: don't publish until confirmed
 - [ ] Calendar booking link (Contact and all "Book" buttons)
 - [ ] Form service choice (Contact)
 - [ ] Privacy Policy text, to be reviewed by the founder, ideally with legal input
 - [ ] Sample Audit report (PDF) to link from the Services page once it exists
 - [ ] Pilot pricing decision: a R9,500 founding-client Audit for 2 clients vs full price. **Do not show a pilot price on the site unless told to.**
-- [ ] LinkedIn URL for the footer (the Socials column links to a LinkedIn search for "NeuraUX" until then) and the About page founder block
+- [ ] LinkedIn URL: when supplied, add it to the About founder block and restore a Socials column in the footer
+- [ ] Domain readiness for neuraux.co.za and whether hello@neuraux.co.za receives mail: not yet verified, don't claim either
+- [ ] Unrelated files still published from the repo root (CMAXX images, email signature, `NeuraUX Homepage v3.html`, `claude skills`): awaiting the owner's backup confirmation before they're moved out
 
 ## 11. How to work in this repo
 
