@@ -6,6 +6,10 @@ Generated from `src/main.html` by `tools/build.py`. Edit the copy in `src/main.h
 - Case studies
 - Home FIX
 
+Self-initiated concept
+
+Designed to live-engagement standard. Home FIX is a fictional company, and this is not a deployed production system.
+
 # Helping plumbers prove a geyser job from the roof space, with a person making every final call.
 
 A trilingual WhatsApp assistant for insurance job verification.
@@ -311,13 +315,13 @@ We reviewed the first version against a written brief, fixed 20 problems, and ch
 
 **Problem:** choosing isiZulu or Afrikaans changed the greeting and little else. **Fix:** every string now comes from one table in three languages, and a missing translation stops the build.
 
-### The four-minute installation
+### No room for the installation
 
 *Caption: Before*
 
 *Caption: After*
 
-**Problem:** the before photo came at 09:33 and the new geyser's serial label at 09:37, four minutes apart. **Fix:** an installation step with one button, and the serial step starts later the same day.
+**Problem:** the first before photo was rejected at 09:33 and the retake accepted at 09:35. The assistant then asked for the new geyser's serial label at 09:37, with no step for the installation in between. **Fix:** an installation step with one button, and the serial step starts later the same day.
 
 ### Confidence percentages on the installer's screen
 
@@ -418,7 +422,7 @@ Or email hello@neuraux.co.za
 - A Home FIX agent will finish this with you. The reviewer couldn't approve the job from the photos alone. Reason: the serial number doesn't match the geyser on the order. Who: Thandi, Home FIX team. When: today before 15:00. Button: Chat to Thandi now.
 - First version: after choosing isiZulu, the assistant says Kuhle, masiqale, but the Job summary card and the next message are in English.
 - Updated version in isiZulu: the privacy line, the job count, the Isifinyezo somsebenzi card and the button Qala ukuqinisekisa are all in isiZulu.
-- First version: the before photo is captured at 09:35 and the assistant asks for the new geyser's serial label at 09:37.
+- First version: the retaken before photo is accepted at 09:35, and the assistant asks for the new geyser's serial label at 09:37.
 - Updated version: at 09:35 the assistant says Before photo saved. Go ahead with the installation. A Later today divider follows, then the installer's Installation done at 13:10 and the serial label request.
 - First version: the AI cards show Read confidence 41 percent in an orange bar, then Read confidence 98 percent in a green bar.
 - Updated version: the AI cards give the reason in words and a tick with the serial number, with no percentage or bar, followed by the request to check the serial number.

@@ -1785,6 +1785,7 @@ h1, h2, h3, h4,
 
 .csx-card__body { display: grid; gap: 12px; align-content: start; }
 .csx-card__tag { justify-self: start; padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: var(--r-sm); font-size: var(--fs-meta); color: var(--white); }
+.csx-card__tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .csx-card__title { text-decoration: none; color: var(--white); }
 .csx-card__title:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .csx-card__sub { font-size: var(--fs-lead); color: var(--white); letter-spacing: -0.01em; }
